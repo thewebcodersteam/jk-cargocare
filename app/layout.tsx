@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/base_components/Header";
 import Footer from "@/components/base_components/Footer";
+import QueryContext from "@/context/QueryContext";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "JK Cargocare – Freight, Warehousing & Manpower Solutions",
@@ -42,9 +44,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <QueryContext>
+          <Header />
+          {children}
+          <Toaster />
+          <Footer />
+        </QueryContext>
       </body>
     </html>
   );

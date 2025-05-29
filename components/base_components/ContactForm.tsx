@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import axios from "axios";
 import {
   Select,
   SelectContent,
@@ -15,6 +16,8 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 // 1. Zod schema
 const contactSchema = z.object({
@@ -38,10 +41,25 @@ export default function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: async function (data: ContactFormSchema) {
+      const response = await axios.post(
+        "http://localhost:3000/api/contact",
+        data
+      );
+      return response.data;
+    },
+    onSuccess(data: { message: string }) {
+      toast.success(data.message || "success");
+    },
+    onError(error: any) {
+      toast.error("some error occurred");
+    },
+  });
+
   // 3. Submit handler
   const onSubmit = (data: ContactFormSchema) => {
-    console.log("Form submitted:", data);
-    alert("Thank you for your inquiry! We'll get back to you soon.");
+    mutate(data);
   };
 
   return (
@@ -146,11 +164,12 @@ export default function ContactForm() {
           </div>
 
           <Button
+            disabled={isPending}
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700"
           >
             <Send className="mr-2 h-4 w-4" />
-            Send Message
+            {isPending ? "Sending..." : "Send Message"}
           </Button>
         </form>
       </CardContent>

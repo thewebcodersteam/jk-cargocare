@@ -7,7 +7,7 @@ A modern, responsive business website built with **Next.js**, **Tailwind CSS**, 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [ShadCN UI](https://ui.shadcn.com/)
-- [TypeScript](https://www.typescriptlang.org/) (optional)
+- [TypeScript](https://www.typescriptlang.org/)
 - [React Hook Form](https://react-hook-form.com/) (for forms)
 - [Lucide Icons](https://lucide.dev/) (for iconography)
 - [Zod](https://zod.dev/) (for type safe schema validation)

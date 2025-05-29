@@ -40,12 +40,6 @@ A modern, responsive business website built with **Next.js**, **Tailwind CSS**, 
 - **Services** – Freight, Hazardous Cargo, Warehousing, Manpower
 - **Industries Served** – Visual tiles with industry blurbs
 - **Contact Us** – Inquiry form, map embed, company contact
-- **Employee Portal** – Secure login with internal tools:
-  - Clock-in/Clock-out
-  - Leave requests
-  - Sales reporting
-  - Client feedback logs
-  - Progress dashboards
 
 ---
 

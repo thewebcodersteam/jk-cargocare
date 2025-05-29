@@ -27,25 +27,9 @@ export const metadata: Metadata = {
     title: "Get in Touch | JK Cargocare Contact Information",
     description:
       "Reach out to JK Cargocare's team for logistics inquiries, freight transport, and warehousing support. Based in Goa with pan-India operations.",
-    url: "https://jk-cargocare.in/contact",
     siteName: "JK Cargocare",
     type: "website",
     locale: "en_IN",
-    images: [
-      {
-        url: "https://jk-cargocare.in/images/contact-og.jpg", // Replace with real hosted image
-        width: 1200,
-        height: 630,
-        alt: "Contact JK Cargocare – Logistics Experts in Goa",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact JK Cargocare – India-wide Freight & Logistics",
-    description:
-      "Need logistics support or a transport quote? Contact JK Cargocare today. We're based in Goa and serve clients across India.",
-    images: ["https://jk-cargocare.in/images/contact-og.jpg"], // Replace with actual image URL
   },
 };
 

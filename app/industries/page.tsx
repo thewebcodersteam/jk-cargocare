@@ -1,14 +1,52 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Factory,
-  Wheat,
-  Beaker,
-  FileText,
-  Calendar,
-} from "lucide-react";
+import { Factory, Wheat, Beaker, FileText, Calendar } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title:
+    "Industries We Serve | JK Cargocare - Chemical, Fertilizer, Agro, Paper & More",
+  description:
+    "JK Cargocare provides industry-specific logistics solutions across chemicals, fertilizers, agriculture, manufacturing, events, and more with 20+ years of expertise.",
+  keywords: [
+    "Chemical logistics",
+    "Fertilizer transport",
+    "Agriculture logistics",
+    "Paper industry transport",
+    "Event logistics India",
+    "Manufacturing freight",
+    "Industry-specific logistics",
+    "Hazardous cargo",
+    "Bulk cargo transport",
+    "JK Cargocare clients",
+  ],
+  openGraph: {
+    title: "Industries Served by JK Cargocare – Logistics for Every Sector",
+    description:
+      "Trusted logistics partner for chemical, agro, fertilizer, paper, and manufacturing sectors. Explore our industry-aligned freight solutions.",
+    url: "https://jk-cargocare.in/industries",
+    siteName: "JK Cargocare",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://jk-cargocare.in/images/industries-og.jpg", // Replace with your actual image
+        width: 1200,
+        height: 630,
+        alt: "Industries served by JK Cargocare",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JK Cargocare | Industry-Specific Logistics Solutions",
+    description:
+      "Serving India’s top sectors with specialized logistics: from chemicals and agriculture to events and paper industries.",
+    images: ["https://jk-cargocare.in/images/industries-og.jpg"], // Replace accordingly
+  },
+};
 
 export default function IndustriesPage() {
   return (

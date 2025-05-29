@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Truck } from "lucide-react";
+import MobileNav from "./MobileNav"; // adjust path as needed
 
 export default function Header() {
   return (
@@ -44,6 +45,9 @@ export default function Header() {
               Contact
             </Link>
           </nav>
+          <div className="md:hidden">
+            <MobileNav />
+          </div>
         </div>
       </div>
     </header>

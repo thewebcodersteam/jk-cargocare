@@ -10,8 +10,53 @@ import {
   MapPin,
   CheckCircle,
 } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title:
+    "Our Services | JK Cargocare - Freight, Hazardous Cargo, Warehousing & Manpower",
+  description:
+    "Discover comprehensive logistics services from JK Cargocare: FTL, LTL, ODC transport, hazardous cargo handling, scalable warehousing, and skilled manpower across India.",
+  keywords: [
+    "Freight services",
+    "FTL transport India",
+    "LTL shipping India",
+    "ODC logistics",
+    "Hazardous cargo handling",
+    "Bulk cargo transport",
+    "Warehousing Goa",
+    "Inventory management",
+    "Manpower logistics",
+    "JK Cargocare services",
+  ],
+  openGraph: {
+    title:
+      "Explore JK Cargocare Services – Freight, Warehousing, Hazardous Cargo & More",
+    description:
+      "From freight brokerage and hazardous cargo to warehousing and manpower deployment, JK Cargocare has India-wide logistics solutions tailored for every need.",
+    url: "https://jk-cargocare.in/services",
+    siteName: "JK Cargocare",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://jk-cargocare.in/images/services-og.jpg", // Replace with actual hosted image
+        width: 1200,
+        height: 630,
+        alt: "JK Cargocare - Our Logistics Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JK Cargocare Services",
+    description:
+      "Logistics made seamless with FTL, LTL, ODC transport, warehousing, manpower, and safety-focused hazardous cargo handling.",
+    images: ["https://jk-cargocare.in/images/services-og.jpg"], // Replace with actual hosted image
+  },
+};
 
 export default function ServicesPage() {
   return (

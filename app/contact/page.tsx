@@ -1,7 +1,53 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MapPin, Mail, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import ContactForm from "@/components/base_components/ContactForm";
+import Location from "@/components/Location";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts",
+  description:
+    "Get in touch with JK Cargocare for freight quotes, warehousing solutions, manpower services, and logistics support across India. Visit our Goa headquarters or contact us directly.",
+  keywords: [
+    "Contact JK Cargocare",
+    "Logistics support India",
+    "Freight inquiry Goa",
+    "Warehousing quote",
+    "Manpower services contact",
+    "Transport company India",
+    "JK Cargocare phone number",
+    "Freight quote",
+    "Zuarinagar logistics company",
+    "Goa industrial estate logistics",
+  ],
+  openGraph: {
+    title: "Get in Touch | JK Cargocare Contact Information",
+    description:
+      "Reach out to JK Cargocare's team for logistics inquiries, freight transport, and warehousing support. Based in Goa with pan-India operations.",
+    url: "https://jk-cargocare.in/contact",
+    siteName: "JK Cargocare",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://jk-cargocare.in/images/contact-og.jpg", // Replace with real hosted image
+        width: 1200,
+        height: 630,
+        alt: "Contact JK Cargocare – Logistics Experts in Goa",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact JK Cargocare – India-wide Freight & Logistics",
+    description:
+      "Need logistics support or a transport quote? Contact JK Cargocare today. We're based in Goa and serve clients across India.",
+    images: ["https://jk-cargocare.in/images/contact-og.jpg"], // Replace with actual image URL
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -36,10 +82,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Find Us</h2>
               <div className="bg-gray-300 h-full rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.9809380314096!2d73.87837867458686!3d15.37751865758508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfb82930381259%3A0x6e565a87b0641c10!2sJ%20K%20Cargo%20Care!5e0!3m2!1sen!2sin!4v1748508865240!5m2!1sen!2sin"
-                  loading="lazy"
-                ></iframe>
+                <Location />
               </div>
             </div>
           </div>
@@ -113,25 +156,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Find Us</h2>
-            <p className="text-gray-600">Visit our headquarters in Goa</p>
-          </div>
-          <div className="bg-gray-300 h-96 rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="h-12 w-12 text-gray-500 mx-auto mb-4" />
-              <p className="text-gray-600">Interactive Google Map</p>
-              <p className="text-sm text-gray-500">
-                Sancoale Industrial Estate, Zuarinagar, Goa
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Quick Contact CTA */}
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
@@ -146,14 +170,16 @@ export default function ContactPage() {
               <Phone className="mr-2 h-4 w-4" />
               Call Now: +91-832-2782828
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600"
+            <Link
+              href="#"
+              className={`${cn(
+                buttonVariants(),
+                "bg-white text-blue-600 hover:bg-gray-300"
+              )} `}
             >
               <Mail className="mr-2 h-4 w-4" />
               Email Us
-            </Button>
+            </Link>
           </div>
         </div>
       </section>

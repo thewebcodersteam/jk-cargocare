@@ -45,7 +45,7 @@ export default function ContactForm() {
   };
 
   return (
-    <Card>
+    <Card className="w-full h-full" id="contact-form">
       <CardContent className="p-8">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
@@ -104,7 +104,8 @@ export default function ContactForm() {
               <SelectTrigger>
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent
+              >
                 <SelectItem value="freight">Freight Brokerage</SelectItem>
                 <SelectItem value="hazardous">
                   Hazardous & Bulk Cargo

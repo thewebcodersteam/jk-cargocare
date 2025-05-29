@@ -75,21 +75,10 @@ npm run dev
 
 ---
 
-## 🗺️ Optional Features To Be Added
-
-- Interactive coverage map using D3/Leaflet/Mapbox
-- Admin panel for managing employee submissions
-- Integration with third-party TMS in the future
-
----
-
 ## 📋 To-Do
 
 - [ ] Finalize design mockups
 - [ ] Build UI components per section
-- [ ] Implement secure login & session
-- [ ] Integrate leave + attendance workflows
-- [ ] Add Excel/CSV upload utility
 - [ ] Perform UAT & design demos
 
 ---

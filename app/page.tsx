@@ -30,21 +30,6 @@ export const metadata: Metadata = {
     siteName: "JK Cargocare",
     type: "website",
     locale: "en_IN",
-    images: [
-      {
-        url: "https://jk-cargocare.in/images/og-image.jpg", // replace with your actual OG image
-        width: 1200,
-        height: 630,
-        alt: "JK Cargocare - Logistics, Warehousing, and Manpower Services",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "JK Cargocare",
-    description:
-      "India-wide freight & warehousing solutions. 20+ years of trusted logistics services.",
-    images: ["https://jk-cargocare.in/images/og-image.jpg"], // replace with your actual image
   },
 };
 

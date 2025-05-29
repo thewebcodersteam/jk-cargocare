@@ -18,22 +18,20 @@ export const metadata: Metadata = {
     "FTL LTL transport",
     "Customs clearance",
     "Logistics Goa",
-    "ODC transport"
+    "ODC transport",
   ],
   applicationName: "JK Cargocare",
-  authors: [{ name: "JK Cargocare", url: "https://jk-cargocare.in" }],
+  authors: [{ name: "JK Cargocare" }],
   creator: "JK Cargocare Team",
   publisher: "JK Cargocare",
   openGraph: {
     title: "JK Cargocare – Freight & Warehousing Experts",
     description:
       "Trusted logistics partner across India specializing in ODC, FTL, LTL, hazardous cargo and warehousing services since 2000.",
-    url: "https://jk-cargocare.in",
     siteName: "JK Cargocare",
     type: "website",
     locale: "en_IN",
   },
-  metadataBase: new URL("https://jk-cargocare.in"),
 };
 
 export default function RootLayout({

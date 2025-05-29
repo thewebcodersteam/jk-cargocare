@@ -26,25 +26,9 @@ export const metadata: Metadata = {
     title: "Industries Served by JK Cargocare – Logistics for Every Sector",
     description:
       "Trusted logistics partner for chemical, agro, fertilizer, paper, and manufacturing sectors. Explore our industry-aligned freight solutions.",
-    url: "https://jk-cargocare.in/industries",
     siteName: "JK Cargocare",
     type: "website",
     locale: "en_IN",
-    images: [
-      {
-        url: "https://jk-cargocare.in/images/industries-og.jpg", // Replace with your actual image
-        width: 1200,
-        height: 630,
-        alt: "Industries served by JK Cargocare",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "JK Cargocare | Industry-Specific Logistics Solutions",
-    description:
-      "Serving India’s top sectors with specialized logistics: from chemicals and agriculture to events and paper industries.",
-    images: ["https://jk-cargocare.in/images/industries-og.jpg"], // Replace accordingly
   },
 };
 

@@ -15,7 +15,7 @@ import Link from "next/link";
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen">
+    <main className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className="container mx-auto px-4">
@@ -305,6 +305,6 @@ export default function ServicesPage() {
           </Button>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

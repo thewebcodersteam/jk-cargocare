@@ -3,7 +3,7 @@ import { Truck } from "lucide-react";
 
 export default function Header() {
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
@@ -12,7 +12,7 @@ export default function Header() {
               Singh Logistics
             </span>
           </div>
-          <div className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8">
             <Link
               href="/"
               className="text-gray-700 hover:text-blue-600 font-medium"
@@ -43,15 +43,9 @@ export default function Header() {
             >
               Contact
             </Link>
-            <Link
-              href="/employee-portal"
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-            >
-              Employee Portal
-            </Link>
-          </div>
+          </nav>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }

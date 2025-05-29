@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,55 +13,74 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 
+// 1. Zod schema
+const contactSchema = z.object({
+  name: z.string().min(1, "Full name is required"),
+  email: z.string().email("Invalid email address"),
+  company: z.string().optional(),
+  service: z.string().min(1, "Please select a service"),
+  message: z.string().min(1, "Message is required"),
+});
+
+type ContactFormSchema = z.infer<typeof contactSchema>;
+
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    service: "",
-    message: "",
+  // 2. useForm hook
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<ContactFormSchema>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
+  // 3. Submit handler
+  const onSubmit = (data: ContactFormSchema) => {
+    console.log("Form submitted:", data);
     alert("Thank you for your inquiry! We'll get back to you soon.");
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
     <Card>
       <CardContent className="p-8">
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name *
+                Full Name <span className="text-red-500">*</span>
               </label>
               <Input
                 type="text"
-                required
-                value={formData.name}
-                onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Your full name"
+                {...register("name")}
+                style={{ borderColor: errors.name ? "red" : "gray" }}
               />
+              {errors.name && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.name.message}
+                </p>
+              )}
             </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address *
+                Email Address <span className="text-red-500">*</span>
               </label>
               <Input
                 type="email"
-                required
-                value={formData.email}
-                onChange={(e) => handleInputChange("email", e.target.value)}
                 placeholder="your.email@company.com"
+                {...register("email")}
+                style={{ borderColor: errors.email ? "red" : "gray" }}
               />
+              {errors.email && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.email.message}
+                </p>
+              )}
             </div>
           </div>
 
@@ -70,19 +90,17 @@ export default function ContactForm() {
             </label>
             <Input
               type="text"
-              value={formData.company}
-              onChange={(e) => handleInputChange("company", e.target.value)}
               placeholder="Your company name"
+              {...register("company")}
+              style={{ borderColor: errors.company ? "red" : "gray" }}
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Service Interest *
+              Service Interest <span className="text-red-500">*</span>
             </label>
-            <Select
-              onValueChange={(value) => handleInputChange("service", value)}
-            >
+            <Select onValueChange={(val) => setValue("service", val)}>
               <SelectTrigger>
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
@@ -101,19 +119,28 @@ export default function ContactForm() {
                 <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>
+            {errors.service && (
+              <p className="text-sm text-red-600 mt-1">
+                {errors.service.message}
+              </p>
+            )}
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Message *
+              Message <span className="text-red-500">*</span>
             </label>
             <Textarea
-              required
               rows={5}
-              value={formData.message}
-              onChange={(e) => handleInputChange("message", e.target.value)}
               placeholder="Please describe your logistics requirements..."
+              {...register("message")}
+              style={{ borderColor: errors.message ? "red" : "gray" }}
             />
+            {errors.message && (
+              <p className="text-sm text-red-600 mt-1">
+                {errors.message.message}
+              </p>
+            )}
           </div>
 
           <Button

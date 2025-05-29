@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Truck,
   Factory,
   Wheat,
   Beaker,
@@ -13,7 +12,7 @@ import Link from "next/link";
 
 export default function IndustriesPage() {
   return (
-    <div className="min-h-screen">
+    <main className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className="container mx-auto px-4">
@@ -247,6 +246,6 @@ export default function IndustriesPage() {
           </Button>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

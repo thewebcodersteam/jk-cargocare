@@ -57,7 +57,7 @@ export default function ContactForm() {
                 type="text"
                 placeholder="Your full name"
                 {...register("name")}
-                style={{ borderColor: errors.name ? "red" : "gray" }}
+                style={{ borderColor: errors.name ? "red" : "" }}
               />
               {errors.name && (
                 <p className="text-sm text-red-600 mt-1">
@@ -74,7 +74,7 @@ export default function ContactForm() {
                 type="email"
                 placeholder="your.email@company.com"
                 {...register("email")}
-                style={{ borderColor: errors.email ? "red" : "gray" }}
+                style={{ borderColor: errors.email ? "red" : "" }}
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-1">
@@ -92,7 +92,7 @@ export default function ContactForm() {
               type="text"
               placeholder="Your company name"
               {...register("company")}
-              style={{ borderColor: errors.company ? "red" : "gray" }}
+              style={{ borderColor: errors.company ? "red" : "" }}
             />
           </div>
 
@@ -101,11 +101,12 @@ export default function ContactForm() {
               Service Interest <span className="text-red-500">*</span>
             </label>
             <Select onValueChange={(val) => setValue("service", val)}>
-              <SelectTrigger>
+              <SelectTrigger
+                style={{ borderColor: errors.service ? "red" : "" }}
+              >
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
-              <SelectContent
-              >
+              <SelectContent>
                 <SelectItem value="freight">Freight Brokerage</SelectItem>
                 <SelectItem value="hazardous">
                   Hazardous & Bulk Cargo
@@ -135,7 +136,7 @@ export default function ContactForm() {
               rows={5}
               placeholder="Please describe your logistics requirements..."
               {...register("message")}
-              style={{ borderColor: errors.message ? "red" : "gray" }}
+              style={{ borderColor: errors.message ? "red" : "" }}
             />
             {errors.message && (
               <p className="text-sm text-red-600 mt-1">

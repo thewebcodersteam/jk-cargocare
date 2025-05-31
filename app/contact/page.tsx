@@ -37,7 +37,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8">
         <article className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
@@ -73,10 +73,10 @@ export default function ContactPage() {
 
           {/* Contact Information below */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+<h2 className="text-3xl font-bold text-gray-800 mb-6">
               Get in Touch
             </h2>
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 {
                   icon: MapPin,
@@ -114,15 +114,18 @@ export default function ContactPage() {
                   ],
                 },
               ].map(({ icon: Icon, color, title, lines }) => (
-                <Card key={title}>
-                  <CardContent className="p-6">
+                <Card
+                  key={title}
+                  className="rounded-lg"
+                  style={{ boxShadow: "0 7px 7px rgba(59, 130, 246, 0.7)" }} // blue shadow
+                >                  <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className={`bg-${color}-100 p-3 rounded-full`}>
-                        <Icon className={`h-6 w-6 text-${color}-600`} />
+                        <Icon className={`h-5 w-5 text-${color}-600`} />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-lg mb-2">{title}</h3>
-                        <p className="text-gray-600">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-base mb-1">{title}</h3>
+                        <p className="text-gray-600 text-sm whitespace-normal max-w-full" style={{ wordBreak: 'normal' }}>
                           {lines.map((line, idx) => (
                             <span key={idx}>
                               {line}

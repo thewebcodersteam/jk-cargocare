@@ -33,17 +33,27 @@ export const metadata: Metadata = {
 };
 
 export default function IndustriesPage() {
+  const clients = [
+    "Zuari Agro Chemicals",
+    "West Coast Paper Mills",
+    "Chambal Fertilizers",
+    "Marico",
+    "Coromandel",
+    "Grasim",
+    "Avestra",
+    "Agrimass",
+    "WCI Shipping",
+  ];
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-6">Industries We Serve</h1>
-            <p className="text-xl opacity-90">
-              Specialized logistics solutions across diverse industry sectors
-            </p>
-          </div>
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl font-bold mb-6">Industries We Serve</h1>
+          <p className="text-xl opacity-90">
+            Specialized logistics solutions across diverse industry sectors
+          </p>
         </div>
       </section>
 
@@ -165,7 +175,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Key Clients Section */}
+      {/* Our Valued Clients – Infinite Scrolling Row */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -177,88 +187,76 @@ export default function IndustriesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
-            {[
-              "Zuari Agro Chemicals",
-              "West Coast Paper Mills",
-              "Chambal Fertilizers",
-              "Marico",
-              "Coromandel",
-              "Grasim",
-              "Avestra",
-              "Agrimass",
-              "WCI Shipping",
-            ].map((client) => (
-              <div
-                key={client}
-                className="bg-white p-6 rounded-lg shadow-sm text-center"
-              >
-                <Image
-                  src="/placeholder.svg?height=80&width=160"
-                  alt={client}
-                  width={160}
-                  height={80}
-                  className="mx-auto mb-2 filter grayscale hover:grayscale-0 transition-all"
-                />
-                <p className="text-sm font-medium text-gray-700">{client}</p>
-              </div>
-            ))}
+          <div className="overflow-hidden relative">
+            <div className="animate-marquee gap-12">
+              {[...Array(2)].flatMap((_, i) =>
+                clients.map((client, index) => (
+                  <div
+                    key={`${client}-${i}`}
+                    className="bg-white p-6 rounded-lg shadow-sm text-center min-w-[200px]"
+                  >
+                    <Image
+                      src="/placeholder.svg?height=80&width=160"
+                      alt={client}
+                      width={160}
+                      height={80}
+                      className="mx-auto mb-2 filter grayscale hover:grayscale-0 transition-all"
+                    />
+                    <p className="text-sm font-medium text-gray-700">
+                      {client}
+                    </p>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Industry Expertise */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              Why Choose Singh Logistics?
-            </h2>
-            <p className="text-gray-600 mb-12">
-              Our industry expertise and specialized solutions make us the
-              preferred logistics partner
-            </p>
+        <div className="container mx-auto px-4 text-center max-w-4xl">
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            Why Choose Singh Logistics?
+          </h2>
+          <p className="text-gray-600 mb-12">
+            Our industry expertise and specialized solutions make us the
+            preferred logistics partner
+          </p>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">20+</div>
-                <div className="text-gray-800 font-medium mb-2">
-                  Years Experience
-                </div>
-                <div className="text-gray-600 text-sm">
-                  Deep industry knowledge across sectors
-                </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">20+</div>
+              <div className="text-gray-800 font-medium mb-2">
+                Years Experience
               </div>
-
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">
-                  100+
-                </div>
-                <div className="text-gray-800 font-medium mb-2">
-                  Satisfied Clients
-                </div>
-                <div className="text-gray-600 text-sm">
-                  Trusted partnerships across industries
-                </div>
+              <p className="text-gray-600 text-sm">
+                Deep industry knowledge across sectors
+              </p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">100+</div>
+              <div className="text-gray-800 font-medium mb-2">
+                Satisfied Clients
               </div>
-
-              <div className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">
-                  24/7
-                </div>
-                <div className="text-gray-800 font-medium mb-2">Support</div>
-                <div className="text-gray-600 text-sm">
-                  Round-the-clock logistics support
-                </div>
-              </div>
+              <p className="text-gray-600 text-sm">
+                Trusted partnerships across industries
+              </p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-gray-800 font-medium mb-2">Support</div>
+              <p className="text-gray-600 text-sm">
+                Round-the-clock logistics support
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
+      {/* CTA */}
+      <section className="py-16 bg-blue-600 text-white text-center">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">Ready to Partner with Us?</h2>
           <p className="text-xl mb-8 opacity-90">
             Discover how our industry expertise can benefit your business

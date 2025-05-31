@@ -75,8 +75,10 @@ export default function ContactForm() {
                 type="text"
                 placeholder="Your full name"
                 {...register("name")}
+                className="w-full rounded-xl bg-white/20 backdrop-blur-sm border px-4 py-2 text-base placeholder:text-gray-300 text-white shadow-[0_4px_12px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                 style={{ borderColor: errors.name ? "red" : "" }}
               />
+
               {errors.name && (
                 <p className="text-sm text-red-600 mt-1">
                   {errors.name.message}
@@ -92,8 +94,8 @@ export default function ContactForm() {
                 type="email"
                 placeholder="your.email@company.com"
                 {...register("email")}
-                style={{ borderColor: errors.email ? "red" : "" }}
-              />
+                className="w-full rounded-xl bg-white/20 backdrop-blur-sm border px-4 py-2 text-base placeholder:text-gray-300 text-white shadow-[0_4px_12px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                style={{ borderColor: errors.name ? "red" : "" }}              />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-1">
                   {errors.email.message}
@@ -110,8 +112,8 @@ export default function ContactForm() {
               type="text"
               placeholder="Your company name"
               {...register("company")}
-              style={{ borderColor: errors.company ? "red" : "" }}
-            />
+              className="w-full rounded-xl bg-white/20 backdrop-blur-sm border px-4 py-2 text-base placeholder:text-gray-300 text-white shadow-[0_4px_12px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              style={{ borderColor: errors.name ? "red" : "" }}            />
           </div>
 
           <div>
@@ -120,8 +122,8 @@ export default function ContactForm() {
             </label>
             <Select onValueChange={(val) => setValue("service", val)}>
               <SelectTrigger
-                style={{ borderColor: errors.service ? "red" : "" }}
-              >
+                className="w-full rounded-xl bg-white/20 backdrop-blur-sm border px-4 py-2 text-base placeholder:text-gray-300 text-white shadow-[0_4px_12px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                style={{ borderColor: errors.name ? "red" : "" }}              >
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
               <SelectContent>
@@ -154,8 +156,8 @@ export default function ContactForm() {
               rows={5}
               placeholder="Please describe your logistics requirements..."
               {...register("message")}
-              style={{ borderColor: errors.message ? "red" : "" }}
-            />
+              className="w-full rounded-xl bg-white/20 backdrop-blur-sm border px-4 py-2 text-base placeholder:text-gray-300 text-white shadow-[0_4px_12px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              style={{ borderColor: errors.name ? "red" : "" }}            />
             {errors.message && (
               <p className="text-sm text-red-600 mt-1">
                 {errors.message.message}

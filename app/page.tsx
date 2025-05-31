@@ -103,17 +103,14 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="group transition-all duration-300 ease-in-out transform hover:-translate-y-5 hover:shadow-[0_4px_20px_rgba(59,130,246,0.4)] cursor-pointer">
               <CardContent className="p-8 text-center">
                 <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
                   <Truck className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">
-                  Freight Solutions
-                </h3>
+                <h3 className="text-xl font-semibold mb-3">Freight Solutions</h3>
                 <p className="text-gray-600 mb-4">
-                  FTL, LTL, and ODC transport with long-distance coverage across
-                  India
+                  FTL, LTL, and ODC transport with long-distance coverage across India
                 </p>
                 <Link
                   href="/services"
@@ -124,7 +121,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="group transition-all duration-300 ease-in-out transform hover:-translate-y-5 hover:shadow-[0_4px_20px_rgba(59,130,246,0.4)] cursor-pointer">
               <CardContent className="p-8 text-center">
                 <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
                   <Warehouse className="h-8 w-8 text-orange-600" />
@@ -143,7 +140,7 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
+            <Card className="group transition-all duration-300 ease-in-out transform hover:-translate-y-5 hover:shadow-[0_4px_20px_rgba(59,130,246,0.4)] cursor-pointer">
               <CardContent className="p-8 text-center">
                 <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
                   <Users className="h-8 w-8 text-green-600" />

@@ -33,8 +33,10 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className="text-lg w-full text-center rounded-full border border-transparent
+            hover:border-blue-500 hover:shadow-lg hover:shadow-blue-400/40
+            transition duration-300 py-2 inline-block hover:text-blue-600"
+>
             Home
           </Link>
         </SheetClose>
@@ -42,8 +44,10 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/about"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className="text-lg w-full text-center rounded-full border border-transparent
+            hover:border-blue-500 hover:shadow-lg hover:shadow-blue-400/40
+            transition duration-300 py-2 inline-block hover:text-blue-600"
+>
             About Us
           </Link>
         </SheetClose>
@@ -51,8 +55,10 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/services"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className="text-lg w-full text-center rounded-full border border-transparent
+            hover:border-blue-500 hover:shadow-lg hover:shadow-blue-400/40
+            transition duration-300 py-2 inline-block hover:text-blue-600"
+>
             Services
           </Link>
         </SheetClose>
@@ -60,8 +66,10 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/industries"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className="text-lg w-full text-center rounded-full border border-transparent
+            hover:border-blue-500 hover:shadow-lg hover:shadow-blue-400/40
+            transition duration-300 py-2 inline-block hover:text-blue-600"
+>
             Industries
           </Link>
         </SheetClose>
@@ -69,8 +77,10 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/contact"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className="text-lg w-full text-center rounded-full border border-transparent
+            hover:border-blue-500 hover:shadow-lg hover:shadow-blue-400/40
+            transition duration-300 py-2 inline-block hover:text-blue-600"
+>
             Contact
           </Link>
         </SheetClose>

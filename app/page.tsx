@@ -35,66 +35,85 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" role="main">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section
+        aria-labelledby="hero-heading"
+        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 id="hero-heading" className="text-5xl font-bold mb-6">
               Your Trusted Partner in Freight Solutions
             </h1>
             <p className="text-xl mb-8 opacity-90">
               20+ years of excellence in logistics, warehousing, and manpower
               services across India
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-orange-500 hover:bg-orange-600 text-white"
-              >
-                <Link href="/contact">Get Quote</Link>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white hover:bg-gray-300 text-blue-600"
-              >
-                <Link href="/services">Our Services</Link>
-              </Button>
+            <div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              role="group"
+              aria-label="Primary actions"
+            >
+              <Link href="/contact" passHref legacyBehavior>
+                <Button
+                  size="lg"
+                  className="bg-orange-500 hover:bg-orange-600 text-white"
+                  aria-label="Get a quote"
+                >
+                  Get Quote
+                </Button>
+              </Link>
+              <Link href="/services" passHref legacyBehavior>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white hover:bg-gray-300 text-blue-600"
+                  aria-label="View our services"
+                >
+                  Our Services
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* Quick Stats */}
-      <section className="py-12 bg-gray-50">
+      <section aria-labelledby="stats-heading" className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">20+</div>
-              <div className="text-gray-600">Years Experience</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">7</div>
-              <div className="text-gray-600">States Covered</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-              <div className="text-gray-600">Fleet Vehicles</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">100+</div>
-              <div className="text-gray-600">Happy Clients</div>
-            </div>
+          <h2 id="stats-heading" className="sr-only">
+            Company Statistics
+          </h2>
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+            role="list"
+          >
+            {[
+              { label: "Years Experience", value: "20+" },
+              { label: "States Covered", value: "7" },
+              { label: "Fleet Vehicles", value: "50+" },
+              { label: "Happy Clients", value: "100+" },
+            ].map((stat) => (
+              <div key={stat.label} role="listitem">
+                <div className="text-3xl font-bold text-blue-600 mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-gray-600">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Core Services */}
-      <section className="py-16">
+      <section aria-labelledby="services-heading" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="services-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Our Core Services
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -103,74 +122,69 @@ export default function HomePage() {
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                  <Truck className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">
-                  Freight Solutions
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  FTL, LTL, and ODC transport with long-distance coverage across
-                  India
-                </p>
-                <Link
-                  href="/services"
-                  className="text-blue-600 hover:text-blue-800 font-medium"
-                >
-                  Learn More →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-200 transition-colors">
-                  <Warehouse className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Warehousing</h3>
-                <p className="text-gray-600 mb-4">
-                  Scalable warehousing solutions at Sancoale Industrial Estate,
-                  Goa
-                </p>
-                <Link
-                  href="/services"
-                  className="text-blue-600 hover:text-blue-800 font-medium"
-                >
-                  Learn More →
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="group hover:shadow-lg transition-shadow cursor-pointer">
-              <CardContent className="p-8 text-center">
-                <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
-                  <Users className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">
-                  Manpower Services
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Trained labor and field support for your operational needs
-                </p>
-                <Link
-                  href="/services"
-                  className="text-blue-600 hover:text-blue-800 font-medium"
-                >
-                  Learn More →
-                </Link>
-              </CardContent>
-            </Card>
+            {[
+              {
+                title: "Freight Solutions",
+                icon: (
+                  <Truck className="h-8 w-8 text-blue-600" aria-hidden="true" />
+                ),
+                desc: "FTL, LTL, and ODC transport with long-distance coverage across India",
+              },
+              {
+                title: "Warehousing",
+                icon: (
+                  <Warehouse
+                    className="h-8 w-8 text-orange-600"
+                    aria-hidden="true"
+                  />
+                ),
+                desc: "Scalable warehousing solutions at Sancoale Industrial Estate, Goa",
+              },
+              {
+                title: "Manpower Services",
+                icon: (
+                  <Users
+                    className="h-8 w-8 text-green-600"
+                    aria-hidden="true"
+                  />
+                ),
+                desc: "Trained labor and field support for your operational needs",
+              },
+            ].map((service) => (
+              <Card
+                key={service.title}
+                className="group hover:shadow-lg transition-shadow cursor-pointer"
+              >
+                <CardContent className="p-8 text-center">
+                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{service.desc}</p>
+                  <Link
+                    href="/services"
+                    className="text-blue-600 hover:text-blue-800 font-medium"
+                    aria-label={`Learn more about ${service.title}`}
+                  >
+                    Learn More →
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Interactive Coverage Map */}
-      <section className="py-16 bg-gray-50">
+      {/* Coverage Map */}
+      <section aria-labelledby="coverage-heading" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="coverage-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Our Coverage Area
             </h2>
             <p className="text-gray-600">
@@ -182,10 +196,13 @@ export default function HomePage() {
       </section>
 
       {/* Process Flow */}
-      <section className="py-16">
+      <section aria-labelledby="process-heading" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="process-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Our Process
             </h2>
             <p className="text-gray-600">
@@ -197,10 +214,13 @@ export default function HomePage() {
       </section>
 
       {/* Client Carousel */}
-      <section className="py-16 bg-gray-50">
+      <section aria-labelledby="clients-heading" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="clients-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Trusted by Industry Leaders
             </h2>
             <p className="text-gray-600">
@@ -212,25 +232,42 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section
+        aria-labelledby="cta-heading"
+        className="py-16 bg-blue-600 text-white"
+      >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 id="cta-heading" className="text-3xl font-bold mb-4">
             Ready to Streamline Your Logistics?
           </h2>
           <p className="text-xl mb-8 opacity-90">
             Get in touch with our experts for customized solutions
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-              <Link href="/contact">Request Quote</Link>
-            </Button>
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            role="group"
+            aria-label="Call to action buttons"
+          >
+            <Link href="/contact" passHref legacyBehavior>
+              <Button
+                size="lg"
+                className="bg-orange-500 hover:bg-orange-600"
+                aria-label="Request a quote"
+              >
+                Request Quote
+              </Button>
+            </Link>
             <Button
+              asChild
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-blue-600"
+              aria-label="Call us now"
             >
-              <Phone className="mr-2 h-4 w-4" />
-              Call Now: +91-832-2782828
+              <a href="tel:+918322782828">
+                <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
+                Call Now: +91-832-2782828
+              </a>
             </Button>
           </div>
         </div>

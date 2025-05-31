@@ -4,16 +4,26 @@ import MobileNav from "./MobileNav"; // adjust path as needed
 
 export default function Header() {
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md sticky top-0 z-50" role="banner">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-2">
-            <Truck className="h-8 w-8 text-blue-600" />
+          {/* Logo and Brand */}
+          <div
+            className="flex items-center space-x-2"
+            aria-label="JK Cargocare Logo"
+          >
+            <Truck className="h-8 w-8 text-blue-600" aria-hidden="true" />
             <span className="text-xl font-bold text-gray-800">
               JK Cargocare
             </span>
           </div>
-          <nav className="hidden md:flex space-x-8">
+
+          {/* Desktop Navigation */}
+          <nav
+            className="hidden md:flex space-x-8"
+            role="navigation"
+            aria-label="Primary navigation"
+          >
             <Link
               href="/"
               className="text-gray-700 hover:text-blue-600 font-medium"
@@ -45,6 +55,8 @@ export default function Header() {
               Contact
             </Link>
           </nav>
+
+          {/* Mobile Navigation */}
           <div className="md:hidden">
             <MobileNav />
           </div>

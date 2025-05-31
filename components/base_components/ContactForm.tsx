@@ -53,7 +53,7 @@ export default function ContactForm() {
       toast.success(data.message || "success");
     },
     onError(error: any) {
-      toast.error("some error occurred");
+      toast.error(error?.message || "some error occurred");
     },
   });
 

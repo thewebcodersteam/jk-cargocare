@@ -44,207 +44,145 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen">
+    <main role="main" className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl opacity-90">
-              Comprehensive logistics solutions tailored to your business needs
-            </p>
-          </div>
+      <section
+        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16"
+        aria-labelledby="services-hero"
+      >
+        <div className="container mx-auto px-4 text-center">
+          <h1 id="services-hero" className="text-4xl font-bold mb-6">
+            Our Services
+          </h1>
+          <p className="text-xl opacity-90">
+            Comprehensive logistics solutions tailored to your business needs
+          </p>
         </div>
       </section>
 
       {/* Main Services */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-12">
-            {/* Freight Brokerage */}
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="flex items-center mb-4">
-                  <div className="bg-blue-100 p-3 rounded-full mr-4">
-                    <Truck className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-gray-800">
-                    Freight Brokerage
-                  </h2>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  Complete freight solutions including Full Truck Load (FTL),
-                  Less Than Truck Load (LTL), and Over Dimensional Cargo (ODC)
-                  transport across India.
-                </p>
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {[
-                    "FTL Services",
-                    "LTL Solutions",
-                    "ODC Transport",
-                    "Long Distance",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center space-x-2">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button className="bg-blue-600 hover:bg-blue-700">
-                  <Link href="/contact">Get Quote</Link>
-                </Button>
-              </div>
-              <div>
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Freight transport"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
+      <section className="py-16" aria-labelledby="main-services-heading">
+        <div className="container mx-auto px-4 grid gap-12">
+          <h2 id="main-services-heading" className="sr-only">
+            Logistics Services Overview
+          </h2>
 
-            {/* Hazardous & Bulk Cargo */}
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="lg:order-2">
-                <div className="flex items-center mb-4">
-                  <div className="bg-orange-100 p-3 rounded-full mr-4">
-                    <Shield className="h-8 w-8 text-orange-600" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-gray-800">
-                    Hazardous & Bulk Cargo
-                  </h2>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  Specialized handling of hazardous materials and bulk cargo
-                  with certified equipment and trained personnel ensuring safety
-                  and compliance.
-                </p>
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {[
-                    "Chemical Transport",
-                    "Bulk Materials",
-                    "Safety Compliance",
-                    "Certified Handling",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center space-x-2">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>{item}</span>
+          {[
+            {
+              title: "Freight Brokerage",
+              icon: <Truck className="h-8 w-8 text-blue-600" aria-hidden="true" />,
+              colorClass: "bg-blue-100",
+              text: "Complete freight solutions including Full Truck Load (FTL), Less Than Truck Load (LTL), and Over Dimensional Cargo (ODC) transport across India.",
+              points: ["FTL Services", "LTL Solutions", "ODC Transport", "Long Distance"],
+              imageAlt: "Freight transport",
+              imageSrc: "/placeholder.svg?height=400&width=600",
+              buttonLabel: "Get Quote",
+              buttonColor: "bg-blue-600 hover:bg-blue-700",
+              reverse: false,
+            },
+            {
+              title: "Hazardous & Bulk Cargo",
+              icon: <Shield className="h-8 w-8 text-orange-600" aria-hidden="true" />,
+              colorClass: "bg-orange-100",
+              text: "Specialized handling of hazardous materials and bulk cargo with certified equipment and trained personnel ensuring safety and compliance.",
+              points: ["Chemical Transport", "Bulk Materials", "Safety Compliance", "Certified Handling"],
+              imageAlt: "Hazardous cargo handling",
+              imageSrc: "/placeholder.svg?height=400&width=600",
+              buttonLabel: "Learn More",
+              buttonColor: "bg-orange-600 hover:bg-orange-700",
+              reverse: true,
+            },
+            {
+              title: "Warehousing & Inventory",
+              icon: <Warehouse className="h-8 w-8 text-green-600" aria-hidden="true" />,
+              colorClass: "bg-green-100",
+              text: "Scalable warehousing solutions at our Sancoale Industrial Estate facility in Goa, with modern inventory management systems.",
+              points: ["Secure Storage", "Inventory Management", "Scalable Solutions", "Strategic Location"],
+              imageAlt: "Warehouse facility",
+              imageSrc: "/placeholder.svg?height=400&width=600",
+              buttonLabel: "View Facilities",
+              buttonColor: "bg-green-600 hover:bg-green-700",
+              reverse: false,
+            },
+            {
+              title: "Manpower & Field Operations",
+              icon: <Users className="h-8 w-8 text-purple-600" aria-hidden="true" />,
+              colorClass: "bg-purple-100",
+              text: "Trained labor and field support services to handle your operational requirements with skilled personnel and professional management.",
+              points: ["Trained Personnel", "Field Support", "Project Management", "Flexible Solutions"],
+              imageAlt: "Field operations team",
+              imageSrc: "/placeholder.svg?height=400&width=600",
+              buttonLabel: "Discuss Requirements",
+              buttonColor: "bg-purple-600 hover:bg-purple-700",
+              reverse: true,
+            },
+          ].map(
+            (
+              {
+                title,
+                icon,
+                colorClass,
+                text,
+                points,
+                imageAlt,
+                imageSrc,
+                buttonLabel,
+                buttonColor,
+                reverse,
+              },
+              index
+            ) => (
+              <div
+                key={title}
+                className={`grid lg:grid-cols-2 gap-8 items-center ${
+                  reverse ? "lg:flex-row-reverse" : ""
+                }`}
+                aria-labelledby={`service-${index}`}
+              >
+                <div className={reverse ? "lg:order-2" : ""}>
+                  <div className="flex items-center mb-4">
+                    <div className={`${colorClass} p-3 rounded-full mr-4`}>
+                      {icon}
                     </div>
-                  ))}
-                </div>
-                <Button className="bg-orange-600 hover:bg-orange-700">
-                  <Link href="/contact">Learn More</Link>
-                </Button>
-              </div>
-              <div className="lg:order-1">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Hazardous cargo handling"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
-
-            {/* Warehousing & Inventory */}
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="flex items-center mb-4">
-                  <div className="bg-green-100 p-3 rounded-full mr-4">
-                    <Warehouse className="h-8 w-8 text-green-600" />
+                    <h2 id={`service-${index}`} className="text-3xl font-bold text-gray-800">
+                      {title}
+                    </h2>
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-800">
-                    Warehousing & Inventory
-                  </h2>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  Scalable warehousing solutions at our Sancoale Industrial
-                  Estate facility in Goa, with modern inventory management
-                  systems.
-                </p>
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {[
-                    "Secure Storage",
-                    "Inventory Management",
-                    "Scalable Solutions",
-                    "Strategic Location",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center space-x-2">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Button className="bg-green-600 hover:bg-green-700">
-                  <Link href="/contact">View Facilities</Link>
-                </Button>
-              </div>
-              <div>
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Warehouse facility"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
-
-            {/* Manpower & Field Operations */}
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="lg:order-2">
-                <div className="flex items-center mb-4">
-                  <div className="bg-purple-100 p-3 rounded-full mr-4">
-                    <Users className="h-8 w-8 text-purple-600" />
+                  <p className="text-gray-600 mb-6">{text}</p>
+                  <div className="grid md:grid-cols-2 gap-4 mb-6">
+                    {points.map((item) => (
+                      <div key={item} className="flex items-center space-x-2">
+                        <CheckCircle className="h-5 w-5 text-green-500" aria-hidden="true" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-800">
-                    Manpower & Field Operations
-                  </h2>
+                  <Link href="/contact" passHref legacyBehavior>
+                    <Button className={buttonColor} aria-label={buttonLabel}>
+                      {buttonLabel}
+                    </Button>
+                  </Link>
                 </div>
-                <p className="text-gray-600 mb-6">
-                  Trained labor and field support services to handle your
-                  operational requirements with skilled personnel and
-                  professional management.
-                </p>
-                <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {[
-                    "Trained Personnel",
-                    "Field Support",
-                    "Project Management",
-                    "Flexible Solutions",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center space-x-2">
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
+                <div className={reverse ? "lg:order-1" : ""}>
+                  <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    width={600}
+                    height={400}
+                    className="rounded-lg shadow-lg"
+                  />
                 </div>
-                <Button className="bg-purple-600 hover:bg-purple-700">
-                  <Link href="/contact">Discuss Requirements</Link>
-                </Button>
               </div>
-              <div className="lg:order-1">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Field operations team"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
-          </div>
+            )
+          )}
         </div>
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50" aria-labelledby="additional-services">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            <h2 id="additional-services" className="text-3xl font-bold text-gray-800 mb-4">
               Additional Services
             </h2>
             <p className="text-gray-600">
@@ -271,7 +209,7 @@ export default function ServicesPage() {
             ].map(({ icon: Icon, title, desc }) => (
               <Card key={title}>
                 <CardContent className="p-6 text-center">
-                  <Icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <Icon className="h-12 w-12 text-blue-600 mx-auto mb-4" aria-hidden="true" />
                   <h3 className="text-xl font-semibold mb-3">{title}</h3>
                   <p className="text-gray-600">{desc}</p>
                 </CardContent>
@@ -281,11 +219,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Fleet Information */}
-      <section className="py-16">
+      {/* Fleet Section */}
+      <section className="py-16" aria-labelledby="fleet-heading">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Fleet</h2>
+            <h2 id="fleet-heading" className="text-3xl font-bold text-gray-800 mb-4">
+              Our Fleet
+            </h2>
             <p className="text-gray-600">
               Modern vehicles equipped for diverse transportation needs
             </p>
@@ -293,26 +233,27 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
-                color: "blue",
                 title: "Trucks",
                 desc: "Various capacity trucks for different cargo requirements",
+                bg: "bg-blue-100",
+                text: "text-blue-600",
               },
               {
-                color: "orange",
                 title: "Tippers",
                 desc: "Specialized vehicles for bulk material transportation",
+                bg: "bg-orange-100",
+                text: "text-orange-600",
               },
               {
-                color: "green",
                 title: "Taurus Vehicles",
                 desc: "Heavy-duty vehicles for challenging transportation needs",
+                bg: "bg-green-100",
+                text: "text-green-600",
               },
-            ].map(({ color, title, desc }) => (
+            ].map(({ title, desc, bg, text }) => (
               <div key={title} className="text-center">
-                <div
-                  className={`bg-${color}-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4`}
-                >
-                  <Truck className={`h-10 w-10 text-${color}-600`} />
+                <div className={`${bg} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <Truck className={`h-10 w-10 ${text}`} aria-hidden="true" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{title}</h3>
                 <p className="text-gray-600">{desc}</p>
@@ -323,17 +264,22 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-blue-600 text-white" aria-labelledby="services-cta">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <h2 id="services-cta" className="text-3xl font-bold mb-4">
+            Ready to Get Started?
+          </h2>
           <p className="text-xl mb-8 opacity-90">
             Contact us today for customized logistics solutions
           </p>
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-            <Link href="/contact">Request Service Quote</Link>
-          </Button>
+          <Link href="/contact" passHref legacyBehavior>
+            <Button size="lg" className="bg-orange-500 hover:bg-orange-600" aria-label="Request Service Quote">
+              Request Service Quote
+            </Button>
+          </Link>
         </div>
       </section>
     </main>
   );
 }
+

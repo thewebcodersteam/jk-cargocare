@@ -6,6 +6,7 @@ import { ClientCarousel } from "@/components/client-carousel";
 import { ProcessDiagram } from "@/components/process-diagram";
 import { InteractiveMap } from "@/components/interactive-map";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services",
@@ -35,15 +36,79 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen" role="main">
+    <main
+      className="min-h-screen overflow-hidden py-10 font-sans"
+      role="main"
+    >
       {/* Hero Section */}
-      <section
+      <section className="px-4 lg:px-20">
+        <div
+          aria-labelledby="stats-heading"
+          className="relative h-[80vh] w-full rounded-xl overflow-hidden"
+        >
+          <Image
+            src="/assets/images/hero-section-img.jpg"
+            alt="Freight truck"
+            fill
+            className="object-cover object-bottom"
+          />
+          <div>
+            <div className="p-10 pb-5 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-#00000032 to-transparent flex flex-col md:flex-col lg:flex-row lg:justify-between lg:items-start">
+              <div className="max-w-3xl  text-white z-10">
+                <h1
+                  id="hero-heading"
+                  className="text-subtitle md:text-title lg:text-6xl mb-6 leading-snug"
+                >
+                  Your Trusted Partner in Freight Solutions
+                </h1>
+              </div>
+
+              <div
+                className="flex flex-col sm:flex-row gap-4 justify-start"
+                role="group"
+                aria-label="Primary actions"
+              >
+                <div className="flex flex-col gap-4 text-white bg-#e1e1e1ae/50 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg">
+                  <p className="text-xl opacity-90 mb-0">
+                    20+ years of excellence in logistics, warehousing, and
+                    manpower services across India
+                  </p>
+                  <div className="flex flex-col md:flex-row gap-4 font-lbold">
+                    <Link href="/contact" passHref legacyBehavior>
+                      <Button
+                        size="lg"
+                        className="w-full lg:w-1/2 bg-[#f9d662] hover:bg-orange-600 text-black"
+                        aria-label="Get a quote"
+                      >
+                        Get Quote
+                      </Button>
+                    </Link>
+                    <Link href="/services" passHref legacyBehavior>
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="w-full lg:w-1/2 border-white hover:bg-gray-300 text-black "
+                        aria-label="View our services"
+                      >
+                        Our Services
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Section */}
+      {/* <section
         aria-labelledby="hero-heading"
         className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20"
       >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 id="hero-heading" className="text-5xl font-bold mb-6">
+            <h1 id="hero-heading" className="text-5xl font-bold mb-6 ">
               Your Trusted Partner in Freight Solutions
             </h1>
             <p className="text-xl mb-8 opacity-90">
@@ -77,7 +142,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Quick Stats */}
       <section aria-labelledby="stats-heading" className="py-12 bg-gray-50">

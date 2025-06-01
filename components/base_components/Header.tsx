@@ -42,7 +42,7 @@ export default function Header() {
               href="/contact"
               className="text-gray-700 hover:text-blue-600 font-medium"
             >
-              Contact
+              Contact Us
             </Link>
           </nav>
           <div className="md:hidden">

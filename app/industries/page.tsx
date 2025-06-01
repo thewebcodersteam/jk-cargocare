@@ -52,7 +52,7 @@ export default function IndustriesPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-6">Industries We Serve</h1>
           <p className="text-xl opacity-90">
-            Specialized logistics solutions across diverse industry sectors
+            Specialized Logistics Solutions Across Diverse Industry Sectors
           </p>
         </div>
       </section>
@@ -217,7 +217,7 @@ export default function IndustriesPage() {
       <section className="py-16">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h2 className="text-3xl font-bold text-gray-800 mb-6">
-            Why Choose Singh Logistics?
+            Why Choose JK Cargocare?
           </h2>
           <p className="text-gray-600 mb-12">
             Our industry expertise and specialized solutions make us the

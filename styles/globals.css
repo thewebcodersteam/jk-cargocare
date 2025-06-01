@@ -1,10 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Belleza&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 @layer utilities {
   .text-balance {
@@ -91,4 +90,12 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.clip-custom-text {
+  clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.clip-custom-section {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
 }

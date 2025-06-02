@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Truck, Warehouse, Users, Phone } from "lucide-react";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import { ProcessDiagram } from "@/components/process-diagram";
 import { InteractiveMap } from "@/components/interactive-map";
 import { Metadata } from "next";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services",
@@ -83,15 +84,15 @@ export default function HomePage() {
                         Get Quote
                       </Button>
                     </Link>
-                    <Link href="/services" passHref legacyBehavior>
-                      <Button
-                        size="lg"
-                        variant="outline"
-                        className="w-full lg:w-1/2 border-white hover:bg-gray-300 text-black "
-                        aria-label="View our services"
-                      >
-                        Our Services
-                      </Button>
+                    <Link
+                      className={cn(
+                        buttonVariants({ variant: "outline", size: "lg" }),
+                        "w-full lg:w-1/2 border-white hover:bg-gray-300 text-black"
+                      )}
+                      href="/services"
+                      aria-label="View our services"
+                    >
+                      Our Services
                     </Link>
                   </div>
                 </div>

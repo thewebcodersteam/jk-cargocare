@@ -33,6 +33,18 @@ export const metadata: Metadata = {
 };
 
 export default function IndustriesPage() {
+  const clientLogos: { name: string; image: string }[] = [
+    { name: "Zuari Agro Chemicals", image: "/clients/zuari.png" },
+    { name: "West Coast Paper Mills", image: "/clients/westcoast.jpeg" },
+    { name: "Chambal Fertilizers", image: "/clients/chambal.jpg" },
+    { name: "Marico", image: "/clients/marico.png" },
+    { name: "Coromandel", image: "/clients/coromandel.png" },
+    { name: "Grasim", image: "/clients/grasim.png" },
+    { name: "Avestra", image: "/clients/avestra.jpg" },
+    { name: "Agrimass", image: "/clients/agrimass.png" },
+    { name: "WCI Shipping", image: "/clients/wci.png" },
+  ];
+
   return (
     <main role="main" className="min-h-screen">
       {/* Hero Section */}

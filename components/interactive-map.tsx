@@ -14,9 +14,23 @@ export function InteractiveMap() {
     renderScript.async = true
     document.body.appendChild(renderScript)
 
+    // MutationObserver to remove Simplemaps.com link
+    const observer = new MutationObserver(() => {
+      const trialLink = document.querySelector('a[href="https://simplemaps.com"]')
+      if (trialLink) {
+        trialLink.remove()
+      }
+    })
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    })
+
     return () => {
       document.body.removeChild(mapdataScript)
       document.body.removeChild(renderScript)
+      observer.disconnect()
     }
   }, [])
 
@@ -24,17 +38,9 @@ export function InteractiveMap() {
     <div className="max-w-6xl mx-auto px-4 py-10">
       <h2 className="text-2xl font-bold text-center mb-6">Client Locations in India</h2>
 
-      {/* Map Wrapper */}
-      <div className="w-full flex justify-center items-center border shadow-md rounded-md overflow-hidden bg-white">
-        <div
-          id="map"
-          className="w-full min-h-[600px] flex justify-center items-center"
-        ></div>
-      </div>
-
-      <p className="text-center text-gray-500 text-sm mt-4">
-        Click on the location markers or states to view client details.
-      </p>
+      {/* Map */}
+      <div id="map" className="w-full min-h-[5px]" />
+      
     </div>
   )
 }

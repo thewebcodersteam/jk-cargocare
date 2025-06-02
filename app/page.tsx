@@ -37,11 +37,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main
-      className="min-h-screen overflow-hidden py-10 font-sans"
+      className="min-h-screen overflow-hidden font-sans flex flex-col gap-16 "
       role="main"
     >
       {/* Hero Section */}
-      <section className="px-4 lg:px-20">
+      <section className="bg-[#DBEAFE] p-16">
         <div
           aria-labelledby="stats-heading"
           className="relative h-[80vh] w-full rounded-xl overflow-hidden"
@@ -145,13 +145,16 @@ export default function HomePage() {
       </section> */}
 
       {/* Quick Stats */}
-      <section aria-labelledby="stats-heading" className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 id="stats-heading" className="sr-only">
+      <section
+        aria-labelledby="stats-heading"
+        className=" mx-4 lg:mx-16 rounded-xl flex justify-center items-center p-4"
+      >
+        <div className="container">
+          <h2 id="stats-heading" className="text-3xl font-bold text-center mb-20">
             Company Statistics
           </h2>
           <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20 text-center"
             role="list"
           >
             {[
@@ -160,11 +163,17 @@ export default function HomePage() {
               { label: "Fleet Vehicles", value: "50+" },
               { label: "Happy Clients", value: "100+" },
             ].map((stat) => (
-              <div key={stat.label} role="listitem">
-                <div className="text-3xl font-bold text-blue-600 mb-2">
-                  {stat.value}
+              <div
+                key={stat.label}
+                role="listitem"
+                className="bg-[#DBEAFE] h-40 rounded-xl flex justify-center items-center"
+              >
+                <div>
+                  <div className="text-6xl font-bold text-primary mb-2 ">
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-600">{stat.label}</div>
                 </div>
-                <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -172,16 +181,16 @@ export default function HomePage() {
       </section>
 
       {/* Core Services */}
-      <section aria-labelledby="services-heading" className="py-16">
-        <div className="container mx-auto px-4">
+      <section aria-labelledby="services-heading" className="px-20">
+        <div className=" ">
           <div className="text-center mb-12">
             <h2
               id="services-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
+              className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4"
             >
               Our Core Services
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl text-center">
               Comprehensive logistics solutions tailored to meet your business
               needs
             </p>

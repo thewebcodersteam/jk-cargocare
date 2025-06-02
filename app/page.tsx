@@ -8,6 +8,7 @@ import { InteractiveMap } from "@/components/interactive-map";
 import { Metadata } from "next";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import FeatureHighlight from "@/components/image-gallery";
 
 export const metadata: Metadata = {
   title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services",
@@ -38,11 +39,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main
-      className="min-h-screen overflow-hidden font-sans flex flex-col gap-16 "
+      className="min-h-screen overflow-hidden font-sans flex flex-col"
       role="main"
     >
       {/* Hero Section */}
-      <section className="bg-[#DBEAFE] p-16">
+      <section className=" p-16">
         <div
           aria-labelledby="stats-heading"
           className="relative h-[80vh] w-full rounded-xl overflow-hidden"
@@ -102,87 +103,45 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Hero Section */}
-      {/* <section
-        aria-labelledby="hero-heading"
-        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20"
-      >
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 id="hero-heading" className="text-5xl font-bold mb-6 ">
-              Your Trusted Partner in Freight Solutions
-            </h1>
-            <p className="text-xl mb-8 opacity-90">
-              20+ years of excellence in logistics, warehousing, and manpower
-              services across India
-            </p>
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              role="group"
-              aria-label="Primary actions"
-            >
-              <Link href="/contact" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  className="bg-orange-500 hover:bg-orange-600 text-white"
-                  aria-label="Get a quote"
-                >
-                  Get Quote
-                </Button>
-              </Link>
-              <Link href="/services" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white hover:bg-gray-300 text-blue-600"
-                  aria-label="View our services"
-                >
-                  Our Services
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Quick Stats */}
       <section
         aria-labelledby="stats-heading"
-        className=" mx-4 lg:mx-16 rounded-xl flex justify-center items-center p-4"
+        className="flex items-center p-4 bg-gray-100 w-full"
       >
-        <div className="container">
-          <h2 id="stats-heading" className="text-3xl font-bold text-center mb-20">
+        <div className="w-full">
+          <h2 id="stats-heading" className="sr-only">
             Company Statistics
           </h2>
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-20 text-center"
-            role="list"
-          >
+          <div className="flex flex-wrap w-full text-center" role="list">
             {[
               { label: "Years Experience", value: "20+" },
               { label: "States Covered", value: "7" },
               { label: "Fleet Vehicles", value: "50+" },
               { label: "Happy Clients", value: "100+" },
-            ].map((stat) => (
+            ].map((stat, index) => (
               <div
                 key={stat.label}
                 role="listitem"
-                className="bg-[#DBEAFE] h-40 rounded-xl flex justify-center items-center"
+                className={`h-40 flex flex-col justify-center items-center w-full sm:w-1/2 lg:w-1/4 ${
+                  index !== 3
+                    ? "border-b sm:border-b-0 lg:border-r border-gray-300"
+                    : ""
+                }`}
               >
-                <div>
-                  <div className="text-6xl font-bold text-primary mb-2 ">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-600">{stat.label}</div>
-                </div>
+                <div className="text-6xl text-primary mb-2">{stat.value}</div>
+                <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+       <section aria-labelledby="services-heading" className="px-20 py-16">
+        <FeatureHighlight />
+       </section>
+
       {/* Core Services */}
-      <section aria-labelledby="services-heading" className="px-20">
+      <section aria-labelledby="services-heading" className="px-20 py-16">
         <div className=" ">
           <div className="text-center mb-12">
             <h2

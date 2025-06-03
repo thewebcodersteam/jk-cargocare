@@ -227,6 +227,55 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* Certificates Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Certifications & Accreditations
+            </h2>
+            <p className="text-gray-600">
+              Recognized by industry leaders for quality and compliance
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Achievement",
+                desc: "Certified for quality management systems and operational excellence.",
+                img: "/certificates/achievement.jpg",
+              },
+              {
+                title: "Transporter License",
+                desc: "Fully compliant with Indian taxation and business regulations.",
+                img: "/certificates/transporter.jpg",
+              },
+            ].map(({ title, desc, img }) => (
+              <Card
+                key={title}
+                className="group transition-all duration-300 ease-in-out transform hover:-translate-y-5 hover:shadow-[0_4px_20px_rgba(59,130,246,0.4)] cursor-pointer">
+                <CardContent className="p-6 text-center">
+                  <div className="w-28 h-28 mx-auto mb-4">
+                    <Image
+                      src={img}
+                      alt={title}
+                      width={112}
+                      height={112}
+                      className="rounded shadow-md object-cover w-full h-full"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                    {title}
+                  </h3>
+                  <p className="text-gray-600 text-sm">{desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 text-white">

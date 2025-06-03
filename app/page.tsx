@@ -101,49 +101,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Hero Section */}
-      {/* <section
-        aria-labelledby="hero-heading"
-        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20"
-      >
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 id="hero-heading" className="text-5xl font-bold mb-6 ">
-              Your Trusted Partner in Freight Solutions
-            </h1>
-            <p className="text-xl mb-8 opacity-90">
-              20+ years of excellence in logistics, warehousing, and manpower
-              services across India
-            </p>
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              role="group"
-              aria-label="Primary actions"
-            >
-              <Link href="/contact" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  className="bg-orange-500 hover:bg-orange-600 text-white"
-                  aria-label="Get a quote"
-                >
-                  Get Quote
-                </Button>
-              </Link>
-              <Link href="/services" passHref legacyBehavior>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white hover:bg-gray-300 text-blue-600"
-                  aria-label="View our services"
-                >
-                  Our Services
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
       {/* Quick Stats */}
       <section aria-labelledby="stats-heading" className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -326,7 +283,7 @@ export default function HomePage() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600"
+              className="border-white hover:bg-gray-300 text-black "
               aria-label="Call us now"
             >
               <a href="tel:+918322782828">

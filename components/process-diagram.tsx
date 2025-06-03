@@ -46,7 +46,7 @@ export function ProcessDiagram() {
   const [activeStep, setActiveStep] = useState(1)
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <article className="max-w-6xl mx-auto">
       {/* Desktop View */}
       <div className="hidden md:block">
         <div className="flex items-center justify-between mb-8">
@@ -107,6 +107,6 @@ export function ProcessDiagram() {
           </Card>
         ))}
       </div>
-    </div>
+    </article>
   )
 }

@@ -29,37 +29,24 @@ export default function Header() {
               JK Cargocare
             </span>
           </div>
-          <nav className="hidden md:flex space-x-8">
-            <Link
-              href="/"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/services"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              Services
-            </Link>
-            <Link
-              href="/industries"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              Industries
-            </Link>
-            <Link
-              href="/contact"
-              className="text-gray-700 hover:text-blue-600 font-medium"
-            >
-              Contact Us
-            </Link>
+
+          {/* Desktop Navigation */}
+          <nav
+            className="hidden md:flex gap-10"
+            role="navigation"
+            aria-label="Primary navigation"
+          >
+            {navLinks.map(({ label, href }) => (
+              <div key={href} className=" h-full">
+                <Link
+                  key={href}
+                  href={href}
+                  className="relative text-gray-700 hover:text-blue-600 font-belleza after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all after:duration-300"
+                >
+                  {label}
+                </Link>
+              </div>
+            ))}
           </nav>
 
           {/* Mobile Navigation */}

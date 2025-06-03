@@ -4,7 +4,6 @@ import Header from "@/components/base_components/Header";
 import Footer from "@/components/base_components/Footer";
 import QueryContext from "@/context/QueryContext";
 import { Toaster } from "react-hot-toast";
-
 export const metadata: Metadata = {
   title: "JK Cargocare – Freight, Warehousing & Manpower Solutions",
   description:
@@ -35,6 +34,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
   },
 };
+
 
 export default function RootLayout({
   children,

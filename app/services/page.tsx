@@ -70,10 +70,17 @@ export default function ServicesPage() {
           {[
             {
               title: "Freight Brokerage",
-              icon: <Truck className="h-8 w-8 text-blue-600" aria-hidden="true" />,
+              icon: (
+                <Truck className="h-8 w-8 text-blue-600" aria-hidden="true" />
+              ),
               colorClass: "bg-blue-100",
               text: "Complete freight solutions including Full Truck Load (FTL), Less Than Truck Load (LTL), and Over Dimensional Cargo (ODC) transport across India.",
-              points: ["FTL Services", "LTL Solutions", "ODC Transport", "Long Distance"],
+              points: [
+                "FTL Services",
+                "LTL Solutions",
+                "ODC Transport",
+                "Long Distance",
+              ],
               imageAlt: "Freight transport",
               imageSrc: "/placeholder.svg?height=400&width=600",
               buttonLabel: "Get Quote",
@@ -82,10 +89,20 @@ export default function ServicesPage() {
             },
             {
               title: "Hazardous & Bulk Cargo",
-              icon: <Shield className="h-8 w-8 text-orange-600" aria-hidden="true" />,
+              icon: (
+                <Shield
+                  className="h-8 w-8 text-orange-600"
+                  aria-hidden="true"
+                />
+              ),
               colorClass: "bg-orange-100",
               text: "Specialized handling of hazardous materials and bulk cargo with certified equipment and trained personnel ensuring safety and compliance.",
-              points: ["Chemical Transport", "Bulk Materials", "Safety Compliance", "Certified Handling"],
+              points: [
+                "Chemical Transport",
+                "Bulk Materials",
+                "Safety Compliance",
+                "Certified Handling",
+              ],
               imageAlt: "Hazardous cargo handling",
               imageSrc: "/placeholder.svg?height=400&width=600",
               buttonLabel: "Learn More",
@@ -94,10 +111,20 @@ export default function ServicesPage() {
             },
             {
               title: "Warehousing & Inventory",
-              icon: <Warehouse className="h-8 w-8 text-green-600" aria-hidden="true" />,
+              icon: (
+                <Warehouse
+                  className="h-8 w-8 text-green-600"
+                  aria-hidden="true"
+                />
+              ),
               colorClass: "bg-green-100",
               text: "Scalable warehousing solutions at our Sancoale Industrial Estate facility in Goa, with modern inventory management systems.",
-              points: ["Secure Storage", "Inventory Management", "Scalable Solutions", "Strategic Location"],
+              points: [
+                "Secure Storage",
+                "Inventory Management",
+                "Scalable Solutions",
+                "Strategic Location",
+              ],
               imageAlt: "Warehouse facility",
               imageSrc: "/placeholder.svg?height=400&width=600",
               buttonLabel: "View Facilities",
@@ -106,10 +133,17 @@ export default function ServicesPage() {
             },
             {
               title: "Manpower & Field Operations",
-              icon: <Users className="h-8 w-8 text-purple-600" aria-hidden="true" />,
+              icon: (
+                <Users className="h-8 w-8 text-purple-600" aria-hidden="true" />
+              ),
               colorClass: "bg-purple-100",
               text: "Trained labor and field support services to handle your operational requirements with skilled personnel and professional management.",
-              points: ["Trained Personnel", "Field Support", "Project Management", "Flexible Solutions"],
+              points: [
+                "Trained Personnel",
+                "Field Support",
+                "Project Management",
+                "Flexible Solutions",
+              ],
               imageAlt: "Field operations team",
               imageSrc: "/placeholder.svg?height=400&width=600",
               buttonLabel: "Discuss Requirements",
@@ -139,12 +173,15 @@ export default function ServicesPage() {
                 }`}
                 aria-labelledby={`service-${index}`}
               >
-                <div className={reverse ? "lg:order-2" : ""}>
+                <figure className={reverse ? "lg:order-2" : ""}>
                   <div className="flex items-center mb-4">
                     <div className={`${colorClass} p-3 rounded-full mr-4`}>
                       {icon}
                     </div>
-                    <h2 id={`service-${index}`} className="text-3xl font-bold text-gray-800">
+                    <h2
+                      id={`service-${index}`}
+                      className="text-3xl font-bold text-gray-800"
+                    >
                       {title}
                     </h2>
                   </div>
@@ -152,7 +189,10 @@ export default function ServicesPage() {
                   <div className="grid md:grid-cols-2 gap-4 mb-6">
                     {points.map((item) => (
                       <div key={item} className="flex items-center space-x-2">
-                        <CheckCircle className="h-5 w-5 text-green-500" aria-hidden="true" />
+                        <CheckCircle
+                          className="h-5 w-5 text-green-500"
+                          aria-hidden="true"
+                        />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -162,7 +202,7 @@ export default function ServicesPage() {
                       {buttonLabel}
                     </Button>
                   </Link>
-                </div>
+                </figure>
                 <div className={reverse ? "lg:order-1" : ""}>
                   <Image
                     src={imageSrc}
@@ -172,6 +212,7 @@ export default function ServicesPage() {
                     className="rounded-lg shadow-lg"
                   />
                 </div>
+                <figcaption className="sr-only">{imageAlt}</figcaption>
               </div>
             )
           )}
@@ -179,10 +220,16 @@ export default function ServicesPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-gray-50" aria-labelledby="additional-services">
+      <section
+        className="py-16 bg-gray-50"
+        aria-labelledby="additional-services"
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 id="additional-services" className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="additional-services"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Additional Services
             </h2>
             <p className="text-gray-600">
@@ -209,7 +256,10 @@ export default function ServicesPage() {
             ].map(({ icon: Icon, title, desc }) => (
               <Card key={title}>
                 <CardContent className="p-6 text-center">
-                  <Icon className="h-12 w-12 text-blue-600 mx-auto mb-4" aria-hidden="true" />
+                  <Icon
+                    className="h-12 w-12 text-blue-600 mx-auto mb-4"
+                    aria-hidden="true"
+                  />
                   <h3 className="text-xl font-semibold mb-3">{title}</h3>
                   <p className="text-gray-600">{desc}</p>
                 </CardContent>
@@ -223,7 +273,10 @@ export default function ServicesPage() {
       <section className="py-16" aria-labelledby="fleet-heading">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 id="fleet-heading" className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="fleet-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Our Fleet
             </h2>
             <p className="text-gray-600">
@@ -252,7 +305,9 @@ export default function ServicesPage() {
               },
             ].map(({ title, desc, bg, text }) => (
               <div key={title} className="text-center">
-                <div className={`${bg} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4`}>
+                <div
+                  className={`${bg} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4`}
+                >
                   <Truck className={`h-10 w-10 ${text}`} aria-hidden="true" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{title}</h3>
@@ -264,7 +319,10 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white" aria-labelledby="services-cta">
+      <section
+        className="py-16 bg-blue-600 text-white"
+        aria-labelledby="services-cta"
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 id="services-cta" className="text-3xl font-bold mb-4">
             Ready to Get Started?
@@ -273,7 +331,11 @@ export default function ServicesPage() {
             Contact us today for customized logistics solutions
           </p>
           <Link href="/contact" passHref legacyBehavior>
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600" aria-label="Request Service Quote">
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600"
+              aria-label="Request Service Quote"
+            >
               Request Service Quote
             </Button>
           </Link>
@@ -282,4 +344,3 @@ export default function ServicesPage() {
     </main>
   );
 }
-

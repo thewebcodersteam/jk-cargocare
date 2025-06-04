@@ -35,11 +35,11 @@ export function InteractiveMap() {
   }, [])
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
+    <div className="max-w-2xl mx-auto px-4 py-4">
       <h2 className="text-2xl font-bold text-center mb-6">Client Locations in India</h2>
 
       {/* Map */}
-      <div id="map" className="w-full min-h-[5px]" />
+      <div id="map" className="w-full " />
       
     </div>
   )

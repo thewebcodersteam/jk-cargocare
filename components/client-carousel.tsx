@@ -34,19 +34,28 @@ const testimonials = [
 
 export function ClientCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-    slides: {
-      perView: 2,
-      spacing: 24,
+ const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+  slides: {
+    perView: 1,
+    spacing: 16,
+  },
+  breakpoints: {
+    "(min-width: 768px)": {
+      slides: {
+        perView: 2,
+        spacing: 24,
+      },
     },
-    loop: true,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-  });
+  },
+  loop: true,
+  slideChanged(slider) {
+    setCurrentSlide(slider.track.details.rel);
+  },
+  created(slider) {
+    setCurrentSlide(slider.track.details.rel);
+  },
+});
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -60,10 +69,10 @@ export function ClientCarousel() {
       <div ref={sliderRef} className="keen-slider">
         {testimonials.map((t, idx) => (
           <div key={idx} className="keen-slider__slide flex">
-            <div className="bg-[#1F3A4D] text-white rounded-2xl p-8 shadow-lg flex flex-col justify-between w-full">
-              <Quote className="text-yellow-400 h-8 w-8 mb-4" />
+            <div className="bg-white border border-gray-200 text-black rounded-2xl p-8 shadow-sm flex flex-col justify-between w-full">
+              <Quote className="text-black h-8 w-8 mb-4" />
               <p className="text-lg leading-relaxed mb-6">“{t.text}”</p>
-              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/10">
+              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-100">
                 <Image
                   src={t.avatar}
                   alt={t.name}
@@ -73,7 +82,7 @@ export function ClientCarousel() {
                 />
                 <div>
                   <p className="font-semibold">{t.name}</p>
-                  <p className="text-sm text-gray-300">{t.title}</p>
+                  <p className="text-sm text-gray-500">{t.title}</p>
                 </div>
               </div>
             </div>
@@ -88,12 +97,11 @@ export function ClientCarousel() {
             key={idx}
             onClick={() => instanceRef.current?.moveToIdx(idx)}
             className={`w-3 h-3 rounded-full transition-colors ${
-              idx === currentSlide ? "bg-yellow-400" : "bg-gray-300"
+              idx === currentSlide ? "bg-black" : "bg-gray-300"
             }`}
           />
         ))}
       </div>
     </div>
-  );
   );
 }

@@ -63,7 +63,7 @@ export default function ServicesPage() {
 
       {/* Main Services */}
       <section className="py-16" aria-labelledby="main-services-heading">
-        <div className="container mx-auto px-4 grid gap-12">
+        <div className="container mx-auto px-16 grid gap-12">
           <h2 id="main-services-heading" className="sr-only">
             Logistics Services Overview
           </h2>
@@ -225,7 +225,7 @@ export default function ServicesPage() {
         className="py-16 bg-gray-50"
         aria-labelledby="additional-services"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-16">
           <div className="text-center mb-12">
             <h2
               id="additional-services"

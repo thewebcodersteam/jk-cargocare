@@ -14,7 +14,7 @@ const navLinks = [
 export default function Header() {
   return (
     <header
-      className="bg-white flex justify-center items-center w-full shadow-md sticky top-0 z-50 px-0 font-sans"
+      className="bg-white flex justify-center px-4 lg:px-16 items-center w-full shadow-md sticky top-0 z-50  font-sans"
       role="banner"
     >
       <div className="container ">

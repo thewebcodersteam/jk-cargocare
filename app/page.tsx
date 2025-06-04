@@ -106,7 +106,7 @@ export default function HomePage() {
       {/* Quick Stats */}
       <section
         aria-labelledby="stats-heading"
-        className="flex items-center p-4 my-16 bg-gray-100 w-full"
+        className="flex items-center p-4 py-16 mb-16 bg-gray-100 w-full"
       >
         <div className="w-full">
           <h2 id="stats-heading" className="sr-only">
@@ -118,31 +118,36 @@ export default function HomePage() {
               { label: "States Covered", value: "7" },
               { label: "Fleet Vehicles", value: "50+" },
               { label: "Happy Clients", value: "100+" },
-            ].map((stat) => (
-              <article key={stat.label} role="listitem">
-                <ul className="text-3xl font-bold text-blue-600 mb-2">
-                  <li>{stat.value}</li>
-                </ul>
-                <p className="text-gray-600">{stat.label}</p>
-              </article>
+            ].map((stat, index) => (
+              <div
+                key={stat.label}
+                role="listitem"
+                className={`h-40 flex flex-col justify-center items-center w-full sm:w-1/2 lg:w-1/4 ${
+                  index !== 3
+                    ? "border-b sm:border-b-0 lg:border-r border-gray-300"
+                    : ""
+                }`}
+              >
+                <div className="text-6xl text-primary mb-2">{stat.value}</div>
+                <div className="text-gray-600">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-
-
       {/* Core Services */}
-      <section aria-labelledby="services-heading" className="px-20 py-16">
-        <div className=" ">
+          {/* Core Services */}
+      <section aria-labelledby="services-heading" className="py-16">
+        <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2
               id="services-heading"
-              className="text-2xl lg:text-3xl font-bold text-gray-800 mb-4"
+              className="text-3xl font-bold text-gray-800 mb-4"
             >
               Our Core Services
             </h2>
-            <p className="text-gray-600 max-w-2xl text-center inline">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Comprehensive logistics solutions tailored to meet your business
               needs
             </p>
@@ -205,7 +210,7 @@ export default function HomePage() {
 
       {/* Coverage Map */}
       <section aria-labelledby="coverage-heading" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto  px-16">
           <div className="text-center mb-12">
             <h2
               id="coverage-heading"
@@ -217,6 +222,7 @@ export default function HomePage() {
               Pan-India presence with strategic locations
             </p>
           </div>
+          <hr />
           <InteractiveMap />
         </div>
       </section>
@@ -241,22 +247,22 @@ export default function HomePage() {
 
       {/* Client Carousel */}
       <section aria-labelledby="clients-heading" className="py-16 bg-gray-50">
-  <div className="container mx-auto px-4">
-    <div className="text-center mb-12">
-      <h2
-        id="clients-heading"
-        className="text-3xl font-bold text-gray-800 mb-4"
-      >
-        What Our Clients Say
-      </h2>
-      <p className="text-gray-600">
-        Hear directly from the professionals who rely on JK Cargocare for logistics excellence
-      </p>
-    </div>
-    <ClientCarousel />
-  </div>
-</section>
-
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2
+              id="clients-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
+              What Our Clients Say
+            </h2>
+            <p className="text-gray-600">
+              Hear directly from the professionals who rely on JK Cargocare for
+              logistics excellence
+            </p>
+          </div>
+          <ClientCarousel />
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section

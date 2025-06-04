@@ -32,42 +32,61 @@ export const metadata: Metadata = {
       "Learn about JK Logistics, its founders, mission, and achievements in the logistics industry.",
     images: ["/og-image.jpg"], // Replace with your actual Twitter image
   },
-  
 };
 
 export default function AboutPage() {
   return (
     <main role="main" className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16" aria-labelledby="about-hero-heading">
+      <section
+        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16"
+        aria-labelledby="about-hero-heading"
+      >
         <div className="container mx-auto px-4 text-center">
           <h1 id="about-hero-heading" className="text-4xl font-bold mb-6">
             About JK Logistics
           </h1>
           <p className="text-xl opacity-90">
-            Two decades of excellence in freight solutions, built on trust and innovation
+            Two decades of excellence in freight solutions, built on trust and
+            innovation
           </p>
         </div>
       </section>
 
       {/* Company Story */}
       <section className="py-16" aria-labelledby="our-story-heading">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-16">
+          <div className="grid lg:grid-cols-2 gap-52 items-center">
             <div>
-              <h2 id="our-story-heading" className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
+              <h2
+                id="our-story-heading"
+                className="text-3xl font-bold text-gray-800 mb-6"
+              >
+                Our Story
+              </h2>
               <p className="text-gray-600 mb-6">
-                Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh and Mr. Jitendra Kumar Singh, Singh Logistics began as a small freight forwarding company with a big dream – to revolutionize logistics solutions across India.
+                Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh and
+                Mr. Jitendra Kumar Singh, Singh Logistics began as a small
+                freight forwarding company with a big dream – to revolutionize
+                logistics solutions across India.
               </p>
               <p className="text-gray-600 mb-6">
-                Starting from our headquarters in Goa, we have grown to become a trusted partner for businesses across seven states, offering comprehensive freight solutions, warehousing, and manpower services.
+                Starting from our headquarters in Goa, we have grown to become a
+                trusted partner for businesses across seven states, offering
+                comprehensive freight solutions, warehousing, and manpower
+                services.
               </p>
               <div className="flex items-center space-x-4">
                 <div className="bg-blue-100 p-3 rounded-full">
-                  <Calendar className="h-6 w-6 text-blue-600" aria-hidden="true" />
+                  <Calendar
+                    className="h-6 w-6 text-blue-600"
+                    aria-hidden="true"
+                  />
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-800">Established 2000</div>
+                  <div className="font-semibold text-gray-800">
+                    Established 2000
+                  </div>
                   <div className="text-gray-600">24 years of excellence</div>
                 </div>
               </div>
@@ -88,7 +107,10 @@ export default function AboutPage() {
       {/* Founders Section */}
       <section className="py-16 bg-gray-50" aria-labelledby="founders-heading">
         <div className="container mx-auto px-4 text-center">
-          <h2 id="founders-heading" className="text-3xl font-bold text-gray-800 mb-4">
+          <h2
+            id="founders-heading"
+            className="text-3xl font-bold text-gray-800 mb-4"
+          >
             Meet Our Founders
           </h2>
           <p className="text-gray-600 mb-12">
@@ -100,24 +122,30 @@ export default function AboutPage() {
                 name: "Ms. Anjalee Singh",
                 role: "Co-Founder & Director",
                 desc: "A pioneer in logistics management with expertise in operations and client relations.",
+                image: "/placeholder.svg?height=200&width=200",
               },
               {
                 name: "Mr. Jitendra Kumar Singh",
                 role: "Co-Founder & Director",
                 desc: "An industry veteran with deep expertise in freight solutions and business development.",
+                image: "/assets/images/founder-1.png",
               },
             ].map((founder) => (
               <Card key={founder.name}>
                 <CardContent className="p-8 text-center">
-                  <Image
-                    src="/placeholder.svg?height=200&width=200"
-                    alt={`Portrait of ${founder.name}`}
-                    width={200}
-                    height={200}
-                    className="rounded-full mx-auto mb-4"
-                  />
+                  <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
+                    <Image
+                      src={founder.image}
+                      alt={`Portrait of ${founder.name}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
                   <h3 className="text-xl font-semibold mb-2">{founder.name}</h3>
-                  <p className="text-blue-600 font-medium mb-4">{founder.role}</p>
+                  <p className="text-blue-600 font-medium mb-4">
+                    {founder.role}
+                  </p>
                   <p className="text-gray-600">{founder.desc}</p>
                 </CardContent>
               </Card>
@@ -130,29 +158,48 @@ export default function AboutPage() {
       <section className="py-16" aria-labelledby="mission-values-heading">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 id="mission-values-heading" className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="mission-values-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Our Mission & Values
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Guiding principles that drive our commitment to excellence in logistics
+              Guiding principles that drive our commitment to excellence in
+              logistics
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Target className="h-8 w-8 text-blue-600" aria-hidden="true" />,
+                icon: (
+                  <Target
+                    className="h-8 w-8 text-blue-600"
+                    aria-hidden="true"
+                  />
+                ),
                 title: "Our Mission",
                 text: "To provide reliable, efficient, and cost-effective logistics solutions.",
                 bg: "bg-blue-100",
               },
               {
-                icon: <Award className="h-8 w-8 text-orange-600" aria-hidden="true" />,
+                icon: (
+                  <Award
+                    className="h-8 w-8 text-orange-600"
+                    aria-hidden="true"
+                  />
+                ),
                 title: "Excellence",
                 text: "We strive for excellence in every aspect of our service delivery.",
                 bg: "bg-orange-100",
               },
               {
-                icon: <Heart className="h-8 w-8 text-green-600" aria-hidden="true" />,
+                icon: (
+                  <Heart
+                    className="h-8 w-8 text-green-600"
+                    aria-hidden="true"
+                  />
+                ),
                 title: "Trust",
                 text: "Building lasting relationships through transparency and reliability.",
                 bg: "bg-green-100",
@@ -160,7 +207,9 @@ export default function AboutPage() {
             ].map(({ icon, title, text, bg }) => (
               <Card key={title} className="text-center">
                 <CardContent className="p-8">
-                  <div className={`${bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <div
+                    className={`${bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}
+                  >
                     {icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-4">{title}</h3>
@@ -173,23 +222,45 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements */}
-      <section className="py-16 bg-gray-50" aria-labelledby="achievements-heading">
+      <section
+        className="py-16 bg-gray-50"
+        aria-labelledby="achievements-heading"
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 id="achievements-heading" className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="achievements-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Key Achievements
             </h2>
-            <p className="text-gray-600">Milestones that mark our journey of growth and success</p>
+            <p className="text-gray-600">
+              Milestones that mark our journey of growth and success
+            </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
             {[
-              { stat: "20+", label: "Years of Experience", sub: "Serving clients since 2000" },
+              {
+                stat: "20+",
+                label: "Years of Experience",
+                sub: "Serving clients since 2000",
+              },
               { stat: "7", label: "States Covered", sub: "Pan-India presence" },
-              { stat: "100+", label: "Happy Clients", sub: "Trusted partnerships" },
-              { stat: "50+", label: "Fleet Vehicles", sub: "Modern transportation" },
+              {
+                stat: "100+",
+                label: "Happy Clients",
+                sub: "Trusted partnerships",
+              },
+              {
+                stat: "50+",
+                label: "Fleet Vehicles",
+                sub: "Modern transportation",
+              },
             ].map(({ stat, label, sub }) => (
               <div key={label} className="text-center" role="listitem">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{stat}</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">
+                  {stat}
+                </div>
                 <div className="text-gray-800 font-medium">{label}</div>
                 <div className="text-gray-600 text-sm">{sub}</div>
               </div>
@@ -199,7 +270,10 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-blue-600 text-white" aria-labelledby="about-cta-heading">
+      <section
+        className="py-16 bg-blue-600 text-white"
+        aria-labelledby="about-cta-heading"
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 id="about-cta-heading" className="text-3xl font-bold mb-4">
             Partner with Experience
@@ -208,7 +282,11 @@ export default function AboutPage() {
             Join the growing list of satisfied clients who trust Singh Logistics
           </p>
           <Link href="/contact" passHref legacyBehavior>
-            <Button size="lg" className="bg-orange-500 hover:bg-orange-600" aria-label="Contact us to get started">
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600"
+              aria-label="Contact us to get started"
+            >
               Start Your Journey
             </Button>
           </Link>
@@ -217,4 +295,3 @@ export default function AboutPage() {
     </main>
   );
 }
-

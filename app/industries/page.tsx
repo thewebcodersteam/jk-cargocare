@@ -48,7 +48,10 @@ export default function IndustriesPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <section
+        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16"
+        aria-labelledby="industries-hero-heading"
+      >
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-6">Industries We Serve</h1>
           <p className="text-xl opacity-90">
@@ -61,13 +64,87 @@ export default function IndustriesPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[{ title: "Chemicals", color: "red", icon: Beaker, points: ["Hazardous material transport", "Safety compliance protocols", "Specialized equipment", "Emergency response procedures"] }, { title: "Fertilizers", color: "green", icon: Wheat, points: ["Bulk cargo handling", "Agricultural supply chain", "Seasonal logistics planning", "Rural distribution networks"] }, { title: "Agriculture", color: "yellow", icon: Wheat, points: ["Fresh produce transport", "Temperature-controlled logistics", "Agricultural equipment", "Market distribution"] }, { title: "Manufacturing", color: "blue", icon: Factory, points: ["Raw material transport", "Finished goods distribution", "Just-in-time delivery", "Industrial equipment"] }, { title: "Paper Industry", color: "orange", icon: FileText, points: ["Paper roll transport", "Pulp and raw materials", "Moisture protection", "Careful handling procedures"] }, { title: "Events", color: "purple", icon: Calendar, points: ["Event equipment transport", "Time-critical delivery", "Setup and breakdown support", "Specialized handling"] }].map(({ title, color, icon: Icon, points }) => (
-              <Card key={title} className="group hover:shadow-lg transition-shadow">
+            {[
+              {
+                title: "Chemicals",
+                color: "red",
+                icon: Beaker,
+                points: [
+                  "Hazardous material transport",
+                  "Safety compliance protocols",
+                  "Specialized equipment",
+                  "Emergency response procedures",
+                ],
+              },
+              {
+                title: "Fertilizers",
+                color: "green",
+                icon: Wheat,
+                points: [
+                  "Bulk cargo handling",
+                  "Agricultural supply chain",
+                  "Seasonal logistics planning",
+                  "Rural distribution networks",
+                ],
+              },
+              {
+                title: "Agriculture",
+                color: "yellow",
+                icon: Wheat,
+                points: [
+                  "Fresh produce transport",
+                  "Temperature-controlled logistics",
+                  "Agricultural equipment",
+                  "Market distribution",
+                ],
+              },
+              {
+                title: "Manufacturing",
+                color: "blue",
+                icon: Factory,
+                points: [
+                  "Raw material transport",
+                  "Finished goods distribution",
+                  "Just-in-time delivery",
+                  "Industrial equipment",
+                ],
+              },
+              {
+                title: "Paper Industry",
+                color: "orange",
+                icon: FileText,
+                points: [
+                  "Paper roll transport",
+                  "Pulp and raw materials",
+                  "Moisture protection",
+                  "Careful handling procedures",
+                ],
+              },
+              {
+                title: "Events",
+                color: "purple",
+                icon: Calendar,
+                points: [
+                  "Event equipment transport",
+                  "Time-critical delivery",
+                  "Setup and breakdown support",
+                  "Specialized handling",
+                ],
+              },
+            ].map(({ title, color, icon: Icon, points }) => (
+              <Card
+                key={title}
+                className="group hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-8">
-                  <div className={`bg-${color}-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-${color}-200 transition-colors`}>
+                  <div
+                    className={`bg-${color}-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-${color}-200 transition-colors`}
+                  >
                     <Icon className={`h-8 w-8 text-${color}-600`} />
                   </div>
-                  <h3 className="text-xl font-semibold text-center mb-4">{title}</h3>
+                  <h3 className="text-xl font-semibold text-center mb-4">
+                    {title}
+                  </h3>
                   <p className="text-gray-600 text-center mb-6">
                     {title === "Chemicals"
                       ? "Specialized handling of chemical products with safety compliance and certified transportation."
@@ -87,7 +164,10 @@ export default function IndustriesPage() {
                     ))}
                   </div>
                   <div className="mt-6 text-center">
-                    <Button variant="outline" className={`border-${color}-600 text-${color}-600 hover:bg-${color}-600 hover:text-white`}>
+                    <Button
+                      variant="outline"
+                      className={`border-${color}-600 text-${color}-600 hover:bg-${color}-600 hover:text-white`}
+                    >
                       <Link href="/contact">Learn More</Link>
                     </Button>
                   </div>
@@ -114,7 +194,10 @@ export default function IndustriesPage() {
             <div className="animate-marquee flex gap-12 items-end">
               {[...Array(2)].flatMap((_, i) =>
                 clientLogos.map(({ name, image }) => (
-                  <div key={`${name}-${i}`} className="bg-white p-6 rounded-lg shadow-sm text-center w-[200px] h-[160px] flex flex-col items-center justify-end">
+                  <div
+                    key={`${name}-${i}`}
+                    className="bg-white p-6 rounded-lg shadow-sm text-center w-[200px] h-[160px] flex flex-col items-center justify-end"
+                  >
                     <Image
                       src={image}
                       alt={name}

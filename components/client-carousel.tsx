@@ -95,4 +95,5 @@ export function ClientCarousel() {
       </div>
     </div>
   );
+  );
 }

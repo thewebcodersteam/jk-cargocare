@@ -49,7 +49,7 @@ export default function HomePage() {
           className="relative h-[80vh] w-full overflow-hidden"
         >
           <Image
-            src="/assets/images/hero-section-img.jpg"
+            src="/assets/images/hero-section-img.webp"
             alt="Freight truck"
             fill
             className="object-cover object-bottom"
@@ -118,19 +118,13 @@ export default function HomePage() {
               { label: "States Covered", value: "7" },
               { label: "Fleet Vehicles", value: "50+" },
               { label: "Happy Clients", value: "100+" },
-            ].map((stat, index) => (
-              <div
-                key={stat.label}
-                role="listitem"
-                className={`h-40 flex flex-col justify-center items-center w-full sm:w-1/2 lg:w-1/4 ${
-                  index !== 3
-                    ? "border-b sm:border-b-0 lg:border-r border-gray-300"
-                    : ""
-                }`}
-              >
-                <div className="text-6xl text-primary mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
+            ].map((stat) => (
+              <article key={stat.label} role="listitem">
+                <ul className="text-3xl font-bold text-blue-600 mb-2">
+                  <li>{stat.value}</li>
+                </ul>
+                <p className="text-gray-600">{stat.label}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -281,27 +275,27 @@ export default function HomePage() {
             role="group"
             aria-label="Call to action buttons"
           >
-            <Link href="/contact" passHref legacyBehavior>
-              <Button
-                size="lg"
-                className="bg-orange-500 hover:bg-orange-600"
-                aria-label="Request a quote"
-              >
-                Request Quote
-              </Button>
-            </Link>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600"
-              aria-label="Call us now"
+            <Link
+              href="/contact"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "bg-orange-500 hover:bg-orange-600"
+              )}
+              aria-label="Request a quote"
             >
-              <a href="tel:+918322782828">
-                <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
-                Call Now: +91-832-2782828
-              </a>
-            </Button>
+              Request Quote
+            </Link>
+            <Link
+              href="tel:+918322782828"
+              aria-label="Call us now"
+              className={cn(
+                buttonVariants({ size: "lg", variant: "outline" }),
+                "border-white hover:bg-gray-300 text-black"
+              )}
+            >
+              <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
+              Call Now: +91-832-2782828
+            </Link>
           </div>
         </div>
       </section>

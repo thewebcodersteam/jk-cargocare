@@ -57,7 +57,10 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 id="contact-form-section" className="text-3xl font-bold text-gray-800 mb-6">
+              <h2
+                id="contact-form-section"
+                className="text-3xl font-bold text-gray-800 mb-6"
+              >
                 Send us a Message
               </h2>
               <ContactForm />
@@ -66,7 +69,11 @@ export default function ContactPage() {
             {/* Location Map */}
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Find Us</h2>
-              <div className="bg-gray-300 h-full rounded-lg overflow-hidden" role="region" aria-label="Company Location on Map">
+              <div
+                className="bg-gray-300 h-full rounded-lg overflow-hidden"
+                role="region"
+                aria-label="Company Location on Map"
+              >
                 <Location />
               </div>
             </div>
@@ -74,7 +81,10 @@ export default function ContactPage() {
 
           {/* Contact Details */}
           <section aria-labelledby="get-in-touch" className="pt-4">
-            <h2 id="get-in-touch" className="text-3xl font-bold text-gray-800 mb-6">
+            <h2
+              id="get-in-touch"
+              className="text-3xl font-bold text-gray-800 mb-6"
+            >
               Get in Touch
             </h2>
             <div className="space-y-6">
@@ -118,7 +128,11 @@ export default function ContactPage() {
                 <Card key={title}>
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className={`${colorClass.split(" ")[0]} p-3 rounded-full`}>
+                      <div
+                        className={`${
+                          colorClass.split(" ")[0]
+                        } p-3 rounded-full`}
+                      >
                         <Icon
                           className={`h-6 w-6 ${colorClass.split(" ")[1]}`}
                           aria-hidden="true"
@@ -182,4 +196,3 @@ export default function ContactPage() {
     </main>
   );
 }
-

@@ -4,6 +4,8 @@ import Header from "@/components/base_components/Header";
 import Footer from "@/components/base_components/Footer";
 import QueryContext from "@/context/QueryContext";
 import { Toaster } from "react-hot-toast";
+import "keen-slider/keen-slider.min.css";
+
 export const metadata: Metadata = {
   title: "JK Cargocare – Freight, Warehousing & Manpower Solutions",
   description:

@@ -43,10 +43,10 @@ export default function HomePage() {
       role="main"
     >
       {/* Hero Section */}
-      <section className=" p-16">
+      <section className="">
         <div
           aria-labelledby="stats-heading"
-          className="relative h-[80vh] w-full rounded-xl overflow-hidden"
+          className="relative h-[80vh] w-full overflow-hidden"
         >
           <Image
             src="/assets/images/hero-section-img.jpg"
@@ -106,7 +106,7 @@ export default function HomePage() {
       {/* Quick Stats */}
       <section
         aria-labelledby="stats-heading"
-        className="flex items-center p-4 bg-gray-100 w-full"
+        className="flex items-center p-4 my-16 bg-gray-100 w-full"
       >
         <div className="w-full">
           <h2 id="stats-heading" className="sr-only">
@@ -136,9 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-       <section aria-labelledby="services-heading" className="px-20 py-16">
-        <FeatureHighlight />
-       </section>
+
 
       {/* Core Services */}
       <section aria-labelledby="services-heading" className="px-20 py-16">
@@ -150,7 +148,7 @@ export default function HomePage() {
             >
               Our Core Services
             </h2>
-            <p className="text-gray-600 max-w-2xl text-center">
+            <p className="text-gray-600 max-w-2xl text-center inline">
               Comprehensive logistics solutions tailored to meet your business
               needs
             </p>
@@ -249,21 +247,22 @@ export default function HomePage() {
 
       {/* Client Carousel */}
       <section aria-labelledby="clients-heading" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              id="clients-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
-            >
-              Trusted by Industry Leaders
-            </h2>
-            <p className="text-gray-600">
-              Proud to serve some of India's most respected companies
-            </p>
-          </div>
-          <ClientCarousel />
-        </div>
-      </section>
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2
+        id="clients-heading"
+        className="text-3xl font-bold text-gray-800 mb-4"
+      >
+        What Our Clients Say
+      </h2>
+      <p className="text-gray-600">
+        Hear directly from the professionals who rely on JK Cargocare for logistics excellence
+      </p>
+    </div>
+    <ClientCarousel />
+  </div>
+</section>
+
 
       {/* CTA Section */}
       <section

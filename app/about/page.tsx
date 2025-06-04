@@ -72,12 +72,12 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className="w-full">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/assets/images/our-story.jpg"
                 alt="Founders of JK Logistics"
-                width={600}
-                height={400}
+                width={450}
+                height={200}
                 className="rounded-lg shadow-lg"
               />
             </div>

@@ -1,68 +1,98 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import Image from "next/image"
+import Image from "next/image";
+import { useKeenSlider } from "keen-slider/react";
+import { useEffect, useState } from "react";
+import { Quote } from "lucide-react";
 
-const clients = [
-  { name: "Zuari Agro Chemicals", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "West Coast Paper Mills", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "Chambal Fertilizers", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "Marico", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "Coromandel", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "Grasim", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "Avestra", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "Agrimass", logo: "/placeholder.svg?height=80&width=160" },
-  { name: "WCI Shipping", logo: "/placeholder.svg?height=80&width=160" },
-]
+const testimonials = [
+  {
+    name: "Rahul Mehta",
+    title: "Logistics Head, Zuari Agro Chemicals",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    text: "JK Cargocare has consistently delivered timely freight solutions for us. Their professionalism and reach across India is unmatched.",
+  },
+  {
+    name: "Anita Desai",
+    title: "Operations Manager, Marico",
+    avatar: "https://i.pravatar.cc/150?img=47",
+    text: "We've trusted JK Cargocare with our bulk cargo for over 3 years. Their safety protocols and efficiency are top-notch.",
+  },
+  {
+    name: "Vikram Shah",
+    title: "Supply Chain Lead, Coromandel",
+    avatar: "https://i.pravatar.cc/150?img=22",
+    text: "Their warehousing solutions in Goa have streamlined our inventory and reduced transit delays significantly.",
+  },
+  {
+    name: "Neha Kapoor",
+    title: "Field Ops, Grasim Industries",
+    avatar: "https://i.pravatar.cc/150?img=65",
+    text: "We appreciate the manpower support JK Cargocare provides — trained staff that can be relied upon at any site.",
+  },
+];
 
 export function ClientCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    slides: {
+      perView: 2,
+      spacing: 24,
+    },
+    loop: true,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+  });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % Math.ceil(clients.length / 3))
-    }, 3000)
-
-    return () => clearInterval(timer)
-  }, [])
+    const interval = setInterval(() => {
+      instanceRef.current?.next();
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [instanceRef]);
 
   return (
-    <div className="overflow-hidden">
-      <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {Array.from({ length: Math.ceil(clients.length / 3) }).map((_, slideIndex) => (
-          <div key={slideIndex} className="w-full flex-shrink-0">
-            <div className="grid grid-cols-3 gap-8">
-              {clients.slice(slideIndex * 3, slideIndex * 3 + 3).map((client, index) => (
-                <div key={index} className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
-                  <Image
-                    src={client.logo || "/placeholder.svg"}
-                    alt={client.name}
-                    width={160}
-                    height={80}
-                    className="max-h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all"
-                  />
+    <div className="max-w-6xl mx-auto px-4">
+      <div ref={sliderRef} className="keen-slider">
+        {testimonials.map((t, idx) => (
+          <div key={idx} className="keen-slider__slide flex">
+            <div className="bg-[#1F3A4D] text-white rounded-2xl p-8 shadow-lg flex flex-col justify-between w-full">
+              <Quote className="text-yellow-400 h-8 w-8 mb-4" />
+              <p className="text-lg leading-relaxed mb-6">“{t.text}”</p>
+              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/10">
+                <Image
+                  src={t.avatar}
+                  alt={t.name}
+                  width={48}
+                  height={48}
+                  className="rounded-full object-cover"
+                />
+                <div>
+                  <p className="font-semibold">{t.name}</p>
+                  <p className="text-sm text-gray-300">{t.title}</p>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Dots indicator */}
+      {/* Dots */}
       <div className="flex justify-center mt-6 space-x-2">
-        {Array.from({ length: Math.ceil(clients.length / 3) }).map((_, index) => (
+        {testimonials.map((_, idx) => (
           <button
-            key={index}
+            key={idx}
+            onClick={() => instanceRef.current?.moveToIdx(idx)}
             className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentIndex ? "bg-blue-600" : "bg-gray-300"
+              idx === currentSlide ? "bg-yellow-400" : "bg-gray-300"
             }`}
-            onClick={() => setCurrentIndex(index)}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }

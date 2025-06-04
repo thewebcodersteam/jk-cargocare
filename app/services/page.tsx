@@ -14,6 +14,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export const metadata: Metadata = {
   title:
     "Our Services | JK Cargocare - Freight, Hazardous Cargo, Warehousing & Manpower",
@@ -75,7 +76,7 @@ export default function ServicesPage() {
               text: "Complete freight solutions including Full Truck Load (FTL), Less Than Truck Load (LTL), and Over Dimensional Cargo (ODC) transport across India.",
               points: ["FTL Services", "LTL Solutions", "ODC Transport", "Long Distance"],
               imageAlt: "Freight transport",
-              imageSrc: "/placeholder.svg?height=400&width=600",
+              imageSrc: "/assets/images/freight-brokerage.jpg",
               buttonLabel: "Get Quote",
               buttonColor: "bg-blue-600 hover:bg-blue-700",
               reverse: false,
@@ -87,7 +88,7 @@ export default function ServicesPage() {
               text: "Specialized handling of hazardous materials and bulk cargo with certified equipment and trained personnel ensuring safety and compliance.",
               points: ["Chemical Transport", "Bulk Materials", "Safety Compliance", "Certified Handling"],
               imageAlt: "Hazardous cargo handling",
-              imageSrc: "/placeholder.svg?height=400&width=600",
+              imageSrc: "/assets/images/hazardous.jpg",
               buttonLabel: "Learn More",
               buttonColor: "bg-orange-600 hover:bg-orange-700",
               reverse: true,
@@ -99,7 +100,7 @@ export default function ServicesPage() {
               text: "Scalable warehousing solutions at our Sancoale Industrial Estate facility in Goa, with modern inventory management systems.",
               points: ["Secure Storage", "Inventory Management", "Scalable Solutions", "Strategic Location"],
               imageAlt: "Warehouse facility",
-              imageSrc: "/placeholder.svg?height=400&width=600",
+              imageSrc: "/assets/images/warehousing-inventory.jpg",
               buttonLabel: "View Facilities",
               buttonColor: "bg-green-600 hover:bg-green-700",
               reverse: false,
@@ -111,7 +112,7 @@ export default function ServicesPage() {
               text: "Trained labor and field support services to handle your operational requirements with skilled personnel and professional management.",
               points: ["Trained Personnel", "Field Support", "Project Management", "Flexible Solutions"],
               imageAlt: "Field operations team",
-              imageSrc: "/placeholder.svg?height=400&width=600",
+              imageSrc: "/assets/images/manpower.jpg",
               buttonLabel: "Discuss Requirements",
               buttonColor: "bg-purple-600 hover:bg-purple-700",
               reverse: true,

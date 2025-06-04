@@ -14,10 +14,10 @@ const navLinks = [
 export default function Header() {
   return (
     <header
-      className="bg-white shadow-md sticky top-0 z-50 px-20 font-sans"
+      className="bg-white flex justify-center items-center w-full shadow-md sticky top-0 z-50 px-0 font-sans"
       role="banner"
     >
-      <div className="container mx-auto px-4">
+      <div className="container ">
         <div className="flex justify-between items-center h-16">
           {/* Logo and Brand */}
           <div

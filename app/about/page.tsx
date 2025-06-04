@@ -39,19 +39,26 @@ export default function AboutPage() {
     <main role="main" className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16"
-        aria-labelledby="about-hero-heading"
-      >
-        <div className="container mx-auto px-4 text-center">
-          <h1 id="about-hero-heading" className="text-4xl font-bold mb-6">
-            About JK Logistics
-          </h1>
-          <p className="text-xl opacity-90">
-            Two decades of excellence in freight solutions, built on trust and
-            innovation
-          </p>
-        </div>
-      </section>
+  className="relative h-[400px] flex items-center justify-center text-white"
+  aria-labelledby="about-hero-heading"
+>
+  <Image
+    src="/assets/images/logistics.jpg"
+    alt="Logistics background"
+    fill
+    className="object-cover brightness-[0.4]"
+    priority
+  />
+  <div className="relative z-10 text-center px-4">
+    <h1 id="about-hero-heading" className="text-4xl font-bold mb-4 drop-shadow-md">
+      About JK Logistics
+    </h1>
+    <p className="text-xl opacity-90 drop-shadow-md">
+      Two decades of excellence in freight solutions, built on trust and innovation
+    </p>
+  </div>
+</section>
+
 
       {/* Company Story */}
       <section className="py-16" aria-labelledby="our-story-heading">

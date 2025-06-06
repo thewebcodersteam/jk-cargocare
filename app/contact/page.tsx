@@ -39,26 +39,25 @@ export default function ContactPage() {
     <main role="main" className="min-h-screen">
       {/* Hero Section */}
       <section
-  className="relative h-[400px] flex items-center justify-center text-white"
-  aria-labelledby="contact-hero"
->
-  <Image
-    src="/assets/images/contact-us.png"
-    alt="Logistics background"
-    fill
-    className="object-cover brightness-[0.4]"
-    priority
-  />
-  <div className="relative z-10 text-center px-4">
-    <h1 id="contact-hero" className="text-4xl font-bold mb-4 drop-shadow-md">
-      Contact Us
-    </h1>
-    <p className="text-xl opacity-90 drop-shadow-md">
-      Get in touch with our logistics experts for customized solutions
-    </p>
-  </div>
-</section>
-
+        className="relative h-[400px] flex items-center justify-center text-white"
+        aria-labelledby="contact-hero"
+      >
+        <Image
+          src="/assets/images/contact-us.png"
+          alt="Logistics background"
+          fill
+          className="object-cover brightness-[0.4]"
+          priority
+        />
+        <div className="relative z-10 text-center px-4">
+          <h1 id="contact-hero" className="text-4xl font-bold mb-4 drop-shadow-md">
+            Contact Us
+          </h1>
+          <p className="text-xl opacity-90 drop-shadow-md">
+            Get in touch with our logistics experts for customized solutions
+          </p>
+        </div>
+      </section>
 
       {/* Contact Form & Location */}
       <section className="py-16" aria-labelledby="contact-form-section">
@@ -134,14 +133,13 @@ export default function ContactPage() {
                   ],
                 },
               ].map(({ icon: Icon, colorClass, title, lines }) => (
-                <Card key={title}>
+                <Card
+                  key={title}
+                  className="backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-md"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div
-                        className={`${
-                          colorClass.split(" ")[0]
-                        } p-3 rounded-full`}
-                      >
+                      <div className={`${colorClass.split(" ")[0]} p-3 rounded-full`}>
                         <Icon
                           className={`h-6 w-6 ${colorClass.split(" ")[1]}`}
                           aria-hidden="true"

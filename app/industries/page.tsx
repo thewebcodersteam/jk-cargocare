@@ -49,26 +49,28 @@ export default function IndustriesPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section
-  className="relative h-[400px] flex items-center justify-center text-white"
-  aria-labelledby="industries-hero-heading"
->
-  <Image
-    src="/assets/images/industries.png"
-    alt="Logistics background"
-    fill
-    className="object-cover brightness-[0.4]"
-    priority
-  />
-  <div className="relative z-10 text-center px-4">
-    <h1 id="industries-hero-heading" className="text-4xl font-bold mb-4 drop-shadow-md">
-      Industries We Serve
-    </h1>
-    <p className="text-xl opacity-90 drop-shadow-md">
-      Specialized Logistics Solutions Across Diverse Industry Sectors
-    </p>
-  </div>
-</section>
-
+        className="relative h-[400px] flex items-center justify-center text-white"
+        aria-labelledby="industries-hero-heading"
+      >
+        <Image
+          src="/assets/images/industries.png"
+          alt="Logistics background"
+          fill
+          className="object-cover brightness-[0.4]"
+          priority
+        />
+        <div className="relative z-10 text-center px-4">
+          <h1
+            id="industries-hero-heading"
+            className="text-4xl font-bold mb-4 drop-shadow-md"
+          >
+            Industries We Serve
+          </h1>
+          <p className="text-xl opacity-90 drop-shadow-md">
+            Specialized Logistics Solutions Across Diverse Industry Sectors
+          </p>
+        </div>
+      </section>
 
       {/* Industries Grid */}
       <section className="py-16">
@@ -144,7 +146,7 @@ export default function IndustriesPage() {
             ].map(({ title, color, icon: Icon, points }) => (
               <Card
                 key={title}
-                className="group hover:shadow-lg transition-shadow"
+                className="group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
               >
                 <CardContent className="p-8">
                   <div
@@ -156,17 +158,7 @@ export default function IndustriesPage() {
                     {title}
                   </h3>
                   <p className="text-gray-600 text-center mb-6">
-                    {title === "Chemicals"
-                      ? "Specialized handling of chemical products with safety compliance and certified transportation."
-                      : title === "Fertilizers"
-                      ? "Bulk fertilizer transportation with expertise in agricultural supply chain logistics."
-                      : title === "Agriculture"
-                      ? "Farm-to-market logistics solutions for agricultural products and equipment."
-                      : title === "Manufacturing"
-                      ? "Industrial logistics for manufacturing companies with just-in-time delivery solutions."
-                      : title === "Paper Industry"
-                      ? "Specialized transport for paper products and pulp with careful handling protocols."
-                      : "Event logistics and equipment transportation for conferences, exhibitions, and special events."}
+                    {/* description logic */}
                   </p>
                   <div className="space-y-2 text-sm text-gray-600">
                     {points.map((point) => (
@@ -174,10 +166,7 @@ export default function IndustriesPage() {
                     ))}
                   </div>
                   <div className="mt-6 text-center">
-                    <Button
-                      variant="outline"
-                      className={`border-${color}-600 text-${color}-600 hover:bg-${color}-600 hover:text-white`}
-                    >
+                    <Button className="border border-orange-500 text-orange-500 bg-white hover:bg-orange-500 hover:text-white transition-all">
                       <Link href="/contact">Learn More</Link>
                     </Button>
                   </div>

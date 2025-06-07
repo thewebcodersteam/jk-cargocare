@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Truck } from "lucide-react";
-import MobileNav from "./MobileNav"
-
+import MobileNav from "./MobileNav";
+import { roboto } from "@/app/layout";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -13,10 +13,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header
-      className="bg-white flex justify-center px-4 lg:px-16 items-center w-full shadow-md sticky top-0 z-50  font-sans"
-      role="banner"
-    >
+    <header className={`${roboto.className} bg-white flex justify-center px-4 lg:px-16 items-center w-full shadow-md sticky top-0 z-50`} role="banner">
       <div className="container ">
         <div className="flex justify-between items-center h-16">
           {/* Logo and Brand */}

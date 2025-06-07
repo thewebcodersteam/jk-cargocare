@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import { Controller } from "react-hook-form";
 
 // 1. Zod schema
 const contactSchema = z.object({
@@ -35,7 +36,7 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    setValue,
+    control,
     formState: { errors },
   } = useForm<ContactFormSchema>({
     resolver: zodResolver(contactSchema),
@@ -118,27 +119,38 @@ export default function ContactForm() {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Service Interest <span className="text-red-500">*</span>
             </label>
-            <Select onValueChange={(val) => setValue("service", val)}>
-              <SelectTrigger
-                style={{ borderColor: errors.service ? "red" : "" }}
-              >
-                <SelectValue placeholder="Select a service" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="freight">Freight Brokerage</SelectItem>
-                <SelectItem value="hazardous">
-                  Hazardous & Bulk Cargo
-                </SelectItem>
-                <SelectItem value="warehousing">
-                  Warehousing & Inventory
-                </SelectItem>
-                <SelectItem value="manpower">
-                  Manpower & Field Operations
-                </SelectItem>
-                <SelectItem value="multiple">Multiple Services</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
-              </SelectContent>
-            </Select>
+
+            <Controller
+              name="service"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  onValueChange={field.onChange}
+                  value={field.value}
+                  defaultValue={field.value}
+                >
+                  <SelectTrigger
+                    style={{ borderColor: errors.service ? "red" : "" }}
+                  >
+                    <SelectValue placeholder="Select a service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="freight">Freight Brokerage</SelectItem>
+                    <SelectItem value="hazardous">
+                      Hazardous & Bulk Cargo
+                    </SelectItem>
+                    <SelectItem value="warehousing">
+                      Warehousing & Inventory
+                    </SelectItem>
+                    <SelectItem value="manpower">
+                      Manpower & Field Operations
+                    </SelectItem>
+                    <SelectItem value="multiple">Multiple Services</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              )}
+            />
             {errors.service && (
               <p className="text-sm text-red-600 mt-1">
                 {errors.service.message}

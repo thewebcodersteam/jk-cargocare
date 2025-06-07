@@ -5,6 +5,12 @@ import Footer from "@/components/base_components/Footer";
 import QueryContext from "@/context/QueryContext";
 import { Toaster } from "react-hot-toast";
 import "keen-slider/keen-slider.min.css";
+import { Roboto } from "next/font/google";
+
+export const roboto = Roboto({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "JK Cargocare – Freight, Warehousing & Manpower Solutions",
@@ -37,14 +43,13 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={roboto.className}>
       <body>
         <QueryContext>
           <Header />

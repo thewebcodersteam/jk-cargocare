@@ -1,9 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MapPin, Mail, Clock } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import ContactForm from "@/components/base_components/ContactForm";
 import Location from "@/components/Location";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";

@@ -39,31 +39,30 @@ export default function AboutPage() {
     <main role="main" className="min-h-screen">
       {/* Hero Section */}
       <section
-  className="relative h-[400px] flex items-center justify-center text-white"
-  aria-labelledby="about-hero-heading"
->
-  <Image
-    src="/assets/images/logistics.jpg"
-    alt="Logistics background"
-    fill
-    className="object-cover brightness-[0.4]"
-    priority
-  />
-  <div className="relative z-10 text-center px-4">
-    <h1 id="about-hero-heading" className="text-4xl font-bold mb-4 drop-shadow-md">
-      About JK Logistics
-    </h1>
-    <p className="text-xl opacity-90 drop-shadow-md">
-      Two decades of excellence in freight solutions, built on trust and innovation
-    </p>
-  </div>
-</section>
-
+        className="relative h-[400px] flex items-center justify-center text-white"
+        aria-labelledby="about-hero-heading"
+      >
+        <Image
+          src="/assets/images/logistics.jpg"
+          alt="Logistics background"
+          fill
+          className="object-cover brightness-[0.4]"
+          priority
+        />
+        <div className="relative z-10 text-center px-4">
+          <h1 id="about-hero-heading" className="text-4xl font-bold mb-4 drop-shadow-md">
+            About JK Logistics
+          </h1>
+          <p className="text-xl opacity-90 drop-shadow-md">
+            Two decades of excellence in freight solutions, built on trust and innovation
+          </p>
+        </div>
+      </section>
 
       {/* Company Story */}
       <section className="py-16" aria-labelledby="our-story-heading">
         <div className="container mx-auto px-16">
-          <div className="grid lg:grid-cols-2 gap-52 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-52 items-center">
             <div>
               <h2
                 id="our-story-heading"
@@ -100,9 +99,9 @@ export default function AboutPage() {
             </div>
             <div className="w-full">
               <Image
-                src="/assets/images/our-story.jpg"
+                src="/assets/images/our-story.png"
                 alt="Founders of JK Logistics"
-                width={450}
+                width={530}
                 height={200}
                 className="rounded-lg shadow-lg"
               />
@@ -112,7 +111,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founders Section */}
-      <section className="py-16 bg-gray-50" aria-labelledby="founders-heading">
+      <section className="py-8 md:py-16 bg-gray-50" aria-labelledby="founders-heading">
         <div className="container mx-auto px-4 text-center">
           <h2
             id="founders-heading"
@@ -121,7 +120,7 @@ export default function AboutPage() {
             Meet Our Founders
           </h2>
           <p className="text-gray-600 mb-12">
-            Visionary leaders who built Singh Logistics from the ground up
+            Visionary Leaders Who Built JK Cargocare From The Ground Up.
           </p>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
@@ -138,7 +137,10 @@ export default function AboutPage() {
                 image: "/assets/images/founder-1.png",
               },
             ].map((founder) => (
-              <Card key={founder.name}>
+              <Card
+                key={founder.name}
+                className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
                 <CardContent className="p-8 text-center">
                   <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
                     <Image
@@ -148,11 +150,8 @@ export default function AboutPage() {
                       className="object-cover"
                     />
                   </div>
-
                   <h3 className="text-xl font-semibold mb-2">{founder.name}</h3>
-                  <p className="text-blue-600 font-medium mb-4">
-                    {founder.role}
-                  </p>
+                  <p className="text-blue-600 font-medium mb-4">{founder.role}</p>
                   <p className="text-gray-600">{founder.desc}</p>
                 </CardContent>
               </Card>
@@ -212,11 +211,13 @@ export default function AboutPage() {
                 bg: "bg-green-100",
               },
             ].map(({ icon, title, text, bg }) => (
-              <Card key={title} className="text-center">
-                <CardContent className="p-8">
-                  <div
-                    className={`${bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4`}
-                  >
+              <Card
+                key={title}
+                className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+                    {/* your icon goes here, already color styled */}
                     {icon}
                   </div>
                   <h3 className="text-xl font-semibold mb-4">{title}</h3>

@@ -61,7 +61,7 @@ export default function HomePage() {
                   id="hero-heading"
                   className="text-subtitle md:text-title lg:text-6xl mb-6 leading-snug"
                 >
-                  Your Trusted Partner in Freight Solutions
+                  Your Trusted Partner in Freight Solutions.
                 </h1>
               </div>
 
@@ -72,29 +72,23 @@ export default function HomePage() {
               >
                 <div className="flex flex-col gap-4 text-white bg-#e1e1e1ae/50 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg">
                   <p className="text-xl opacity-90 mb-0">
-                    20+ years of excellence in logistics, warehousing, and
-                    manpower services across India
+                    20+ Years of Excellence In Logistics, Warehousing, and
+                    Manpower Services Across India.
                   </p>
                   <div className="flex flex-col md:flex-row gap-4 font-lbold">
-                    <Link href="/contact" passHref legacyBehavior>
-                      <Button
-                        size="lg"
-                        className="w-full lg:w-1/2 bg-[#f9d662] hover:bg-orange-600 text-black"
-                        aria-label="Get a quote"
+                    
+                    <div className="flex justify-center w-full">
+                      <Link
+                        className={cn(
+                          buttonVariants({ variant: "outline", size: "lg" }),
+                          "w-full lg:w-1/2 border-white hover:bg-gray-300 text-black"
+                        )}
+                        href="/services"
+                        aria-label="View our services"
                       >
-                        Get Quote
-                      </Button>
-                    </Link>
-                    <Link
-                      className={cn(
-                        buttonVariants({ variant: "outline", size: "lg" }),
-                        "w-full lg:w-1/2 border-white hover:bg-gray-300 text-black"
-                      )}
-                      href="/services"
-                      aria-label="View our services"
-                    >
-                      Our Services
-                    </Link>
+                        Our Services
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -137,7 +131,6 @@ export default function HomePage() {
       </section>
 
       {/* Core Services */}
-          {/* Core Services */}
       <section aria-labelledby="services-heading" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -184,7 +177,7 @@ export default function HomePage() {
             ].map((service) => (
               <Card
                 key={service.title}
-                className="group hover:shadow-lg transition-shadow cursor-pointer"
+                className="group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer"
               >
                 <CardContent className="p-8 text-center">
                   <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">

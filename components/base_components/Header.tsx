@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Truck } from "lucide-react";
 import MobileNav from "./MobileNav";
 import { roboto } from "@/app/layout";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -13,23 +14,28 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className={`${roboto.className} bg-white flex justify-center px-4 lg:px-16 items-center w-full shadow-md sticky top-0 z-50`} role="banner">
+    <header
+      className={`${roboto.className} bg-white flex justify-center px-4 lg:px-16 items-center w-full shadow-md sticky top-0 z-50`}
+      role="banner"
+    >
       <div className="container ">
         <div className="flex justify-between items-center h-16">
           {/* Logo and Brand */}
-          <div
+          <Link
+            href="/"
             className="flex items-center space-x-2"
             aria-label="JK Cargocare Logo"
           >
-            <img
+            <Image
               src="/assets/images/jkc-logo.png"
-              alt="JK Cargocare"
-              className="h-11 w-auto"
+              alt="company logo"
+              width={40}
+              height={20}
             />
             <span className="text-xl font-bold text-gray-800">
               JK Cargocare
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav

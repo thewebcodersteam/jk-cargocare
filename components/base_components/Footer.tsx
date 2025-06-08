@@ -1,4 +1,5 @@
 import { Truck, Facebook, Linkedin, Instagram } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -16,8 +17,13 @@ export default function Footer() {
               className="flex items-center space-x-2 mb-4"
               id="footer-brand-heading"
             >
-              <Truck className="h-6 w-6 text-blue-400" aria-hidden="true" />
-              <span className="text-lg font-bold">JK Logistics</span>
+              <Image
+                src="/assets/images/jkc-logo.png"
+                alt="company logo"
+                width={40}
+                height={20}
+              />
+              <h3 className="text-lg font-bold">JK Cargocare</h3>
             </div>
             <p className="text-gray-400 mb-4">
               Established in 2000, providing reliable freight solutions across
@@ -163,7 +169,7 @@ export default function Footer() {
           aria-label="Copyright"
         >
           <small>
-            &copy; {new Date().getFullYear()} JK Logistics. All rights reserved.
+            &copy; {new Date().getFullYear()} JK Cargocare. All rights reserved.
             | Founded by Ms. Anjalee Singh & Mr. Jitendra Kumar Singh
           </small>
         </div>

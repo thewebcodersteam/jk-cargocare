@@ -13,7 +13,7 @@ import {
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
+import { roboto } from "@/app/layout";
 
 export const metadata: Metadata = {
   title:
@@ -45,29 +45,31 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main role="main" className="min-h-screen">
+    <main role="main" className={`${roboto.className} min-h-screen`}>
       {/* Hero Section */}
       <section
-  className="relative h-[400px] flex items-center justify-center text-white"
-  aria-labelledby="services-hero"
->
-  <Image
-    src="/assets/images/services.jpg"
-    alt="Logistics background"
-    fill
-    className="object-cover brightness-[0.4]"
-    priority
-  />
-  <div className="relative z-10 text-center px-4">
-    <h1 id="services-hero" className="text-4xl font-bold mb-4 drop-shadow-md">
-      Our Services
-    </h1>
-    <p className="text-xl opacity-90 drop-shadow-md">
-      Comprehensive logistics solutions tailored to your business needs
-    </p>
-  </div>
-</section>
-
+        className="relative h-[400px] flex items-center justify-center text-white"
+        aria-labelledby="services-hero"
+      >
+        <Image
+          src="/assets/images/services.jpg"
+          alt="Logistics background"
+          fill
+          className="object-cover brightness-[0.4]"
+          priority
+        />
+        <div className="relative z-10 text-center px-4">
+          <h1
+            id="services-hero"
+            className="text-4xl font-bold mb-4 drop-shadow-md"
+          >
+            Our Services
+          </h1>
+          <p className="text-xl opacity-90 drop-shadow-md">
+            Comprehensive logistics solutions tailored to your business needs
+          </p>
+        </div>
+      </section>
 
       {/* Main Services */}
       <section className="py-16" aria-labelledby="main-services-heading">

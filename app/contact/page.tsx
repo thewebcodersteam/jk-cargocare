@@ -6,6 +6,7 @@ import Location from "@/components/Location";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
+import { roboto } from "../layout";
 
 export const metadata: Metadata = {
   title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main role="main" className="min-h-screen">
+    <main role="main" className={`${roboto.className} min-h-screen`}>
       {/* Hero Section */}
       <section
         className="relative h-[400px] flex items-center justify-center text-white"

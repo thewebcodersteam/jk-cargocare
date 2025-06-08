@@ -19,6 +19,8 @@ import { Send } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Controller } from "react-hook-form";
+import { Label } from "../ui/label";
+import Spinner from "./Spinner";
 
 // 1. Zod schema
 const contactSchema = z.object({
@@ -69,9 +71,9 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <Label className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name <span className="text-red-500">*</span>
-              </label>
+              </Label>
               <Input
                 type="text"
                 placeholder="Your full name"
@@ -86,9 +88,9 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <Label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address <span className="text-red-500">*</span>
-              </label>
+              </Label>
               <Input
                 type="email"
                 placeholder="your.email@company.com"
@@ -104,9 +106,9 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <Label className="block text-sm font-medium text-gray-700 mb-2">
               Company Name
-            </label>
+            </Label>
             <Input
               type="text"
               placeholder="Your company name"
@@ -116,9 +118,9 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <Label className="block text-sm font-medium text-gray-700 mb-2">
               Service Interest <span className="text-red-500">*</span>
-            </label>
+            </Label>
 
             <Controller
               name="service"
@@ -159,9 +161,9 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <Label className="block text-sm font-medium text-gray-700 mb-2">
               Message <span className="text-red-500">*</span>
-            </label>
+            </Label>
             <Textarea
               rows={5}
               placeholder="Please describe your logistics requirements..."
@@ -177,11 +179,10 @@ export default function ContactForm() {
 
           <Button
             disabled={isPending}
-            type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700"
           >
             <Send className="mr-2 h-4 w-4" />
-            {isPending ? "Sending..." : "Send Message"}
+            {isPending ? <Spinner /> : "Send Message"}
           </Button>
         </form>
       </CardContent>

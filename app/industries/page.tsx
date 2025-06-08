@@ -4,6 +4,7 @@ import { Factory, Wheat, Beaker, FileText, Calendar } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { roboto } from "../layout";
 
 export const metadata: Metadata = {
   title:
@@ -46,7 +47,7 @@ export default function IndustriesPage() {
   ];
 
   return (
-    <main className="min-h-screen">
+    <main className={`${roboto.className} min-h-screen`}>
       {/* Hero Section */}
       <section
         className="relative h-[400px] flex items-center justify-center text-white"

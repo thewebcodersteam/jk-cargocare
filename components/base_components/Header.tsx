@@ -21,7 +21,11 @@ export default function Header() {
             className="flex items-center space-x-2"
             aria-label="JK Cargocare Logo"
           >
-            <Truck className="h-8 w-8 text-blue-600" aria-hidden="true" />
+            <img
+              src="/assets/images/jkc-logo.png"
+              alt="JK Cargocare"
+              className="h-11 w-auto"
+            />
             <span className="text-xl font-bold text-gray-800">
               JK Cargocare
             </span>
@@ -34,9 +38,8 @@ export default function Header() {
             aria-label="Primary navigation"
           >
             {navLinks.map(({ label, href }) => (
-              <div key={href} className=" h-full">
+              <div key={href} className="h-full">
                 <Link
-                  key={href}
                   href={href}
                   className="relative text-gray-700 hover:text-blue-600 font-belleza after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all after:duration-300"
                 >

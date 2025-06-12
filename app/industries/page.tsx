@@ -34,18 +34,6 @@ export const metadata: Metadata = {
 };
 
 export default function IndustriesPage() {
-  const clientLogos: { name: string; image: string }[] = [
-    { name: "Zuari Agro Chemicals", image: "/clients/zuari.png" },
-    { name: "West Coast Paper Mills", image: "/clients/westcoast.jpeg" },
-    { name: "Chambal Fertilizers", image: "/clients/chambal.jpg" },
-    { name: "Marico", image: "/clients/marico.png" },
-    { name: "Coromandel", image: "/clients/coromandel.png" },
-    { name: "Grasim", image: "/clients/grasim.png" },
-    { name: "Avestra", image: "/clients/avestra.jpg" },
-    { name: "Agrimass", image: "/clients/agrimass.png" },
-    { name: "WCI Shipping", image: "/clients/wci.png" },
-  ];
-
   return (
     <main className={`${roboto.className} min-h-screen`}>
       {/* Hero Section */}
@@ -178,44 +166,7 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      {/* Our Valued Clients – Infinite Scrolling Row */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Our Valued Clients
-            </h2>
-            <p className="text-gray-600">
-              Trusted by industry leaders across various sectors
-            </p>
-          </div>
-
-          <div className="overflow-hidden relative">
-            <div className="animate-marquee flex gap-12 items-end">
-              {[...Array(2)].flatMap((_, i) =>
-                clientLogos.map(({ name, image }) => (
-                  <div
-                    key={`${name}-${i}`}
-                    className="bg-white p-6 rounded-lg shadow-sm text-center w-[200px] h-[160px] flex flex-col items-center justify-end"
-                  >
-                    <Image
-                      src={image}
-                      alt={name}
-                      width={160}
-                      height={80}
-                      className="object-contain max-h-[80px] mb-2"
-                    />
-                    <p className="text-sm font-medium text-gray-700 mt-auto">
-                      {name}
-                    </p>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
+ 
       {/* Industry Expertise */}
       <section className="py-16">
         <div className="container mx-auto px-4 text-center max-w-4xl">

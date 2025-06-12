@@ -10,11 +10,11 @@ export default function Footer() {
       aria-label="Site footer"
     >
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-4 gap-8  w-full">
           {/* Brand & Social */}
           <div aria-labelledby="footer-brand-heading">
             <div
-              className="flex items-center space-x-2 mb-4"
+              className="flex items-center justify-center lg:justify-start space-x-2 mb-4"
               id="footer-brand-heading"
             >
               <Image
@@ -25,11 +25,11 @@ export default function Footer() {
               />
               <h3 className="text-lg font-bold">JK Cargocare</h3>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-4 text-center lg:text-start">
               Established in 2000, providing reliable freight solutions across
               India for over two decades.
             </p>
-            <div className="flex space-x-4" aria-label="Social media links">
+            <div className="flex space-x-4 justify-center lg:justify-start" aria-label="Social media links">
               <Link
                 href="https://www.facebook.com/jkcargocare/"
                 target="_blank"
@@ -63,12 +63,12 @@ export default function Footer() {
           {/* Services Links */}
           <nav aria-labelledby="footer-services-heading">
             <h3
-              className="text-lg font-semibold mb-4"
+              className="text-lg font-semibold mb-4 flex justify-center items-center"
               id="footer-services-heading"
             >
               Services
             </h3>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-gray-400 text-center">
               {[
                 "Freight Brokerage",
                 "Hazardous Cargo",
@@ -87,12 +87,12 @@ export default function Footer() {
           {/* Industries Links */}
           <nav aria-labelledby="footer-industries-heading">
             <h3
-              className="text-lg font-semibold mb-4"
+              className="text-lg font-semibold mb-4 flex justify-center items-center"
               id="footer-industries-heading"
             >
               Industries
             </h3>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-gray-400 text-center">
               {["Chemicals", "Fertilizers", "Agriculture", "Manufacturing"].map(
                 (industry) => (
                   <li key={industry}>
@@ -108,7 +108,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div aria-labelledby="footer-contact-heading">
             <h3
-              className="text-lg font-semibold mb-4"
+              className="text-lg font-semibold mb-4 flex justify-center lg:justify-start items-center"
               id="footer-contact-heading"
             >
               Contact Info
@@ -117,7 +117,7 @@ export default function Footer() {
               className="not-italic space-y-2 text-gray-400"
               aria-label="Company contact information"
             >
-              <div>
+              <div className="text-center lg:text-start">
                 <Link
                   href="tel:+917350691111"
                   className="hover:text-white"
@@ -134,7 +134,7 @@ export default function Footer() {
                   9422062939
                 </Link>
               </div>
-              <div>
+              <div className="text-center lg:text-start">
                 <Link
                   href="mailto:jk.cargo@yahoo.co.uk"
                   className="hover:text-white"
@@ -143,7 +143,7 @@ export default function Footer() {
                   jk.cargo@yahoo.co.uk
                 </Link>
               </div>
-              <div>
+              <div className="text-center lg:text-start">
                 <Link
                   href="http://www.jkcargocare.com"
                   target="_blank"
@@ -154,7 +154,7 @@ export default function Footer() {
                   www.jkcargocare.com
                 </Link>
               </div>
-              <div>
+              <div className="text-center lg:text-start">
                 Shed D2-32, Sancoale Industrial Estate,
                 <br />
                 Zuari Nagar, Goa – 403726

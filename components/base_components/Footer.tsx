@@ -10,11 +10,11 @@ export default function Footer() {
       aria-label="Site footer"
     >
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8  w-full">
+        <div className="grid md:grid-cols-2  lg:grid-cols-4 gap-8  w-full">
           {/* Brand & Social */}
-          <div aria-labelledby="footer-brand-heading">
+          <div aria-labelledby="footer-brand-heading" className="md:col-span-2 lg:col-span-1">
             <div
-              className="flex items-center justify-center lg:justify-start space-x-2 mb-4"
+              className="flex items-center  justify-center lg:justify-start space-x-2 mb-4"
               id="footer-brand-heading"
             >
               <Image

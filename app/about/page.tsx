@@ -50,18 +50,22 @@ export default function AboutPage() {
           priority
         />
         <div className="relative z-10 text-center px-4">
-          <h1 id="about-hero-heading" className="text-4xl font-bold mb-4 drop-shadow-md">
+          <h1
+            id="about-hero-heading"
+            className="text-4xl font-bold mb-4 drop-shadow-md"
+          >
             About JK Logistics
           </h1>
           <p className="text-xl opacity-90 drop-shadow-md">
-            Two decades of excellence in freight solutions, built on trust and innovation
+            Two decades of excellence in freight solutions, built on trust and
+            innovation
           </p>
         </div>
       </section>
 
       {/* Company Story */}
       <section className="py-16" aria-labelledby="our-story-heading">
-        <div className="container mx-auto px-16">
+        <div className="container mx-auto px-5 md:px-6 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-52 items-center">
             <div>
               <h2
@@ -97,13 +101,12 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="w-full">
+            <div className="relative md:max-w-3xl lg:max-w-5xl h-64 md:h-80 lg:h-96">
               <Image
                 src="/assets/images/our-story.png"
                 alt="Founders of JK Logistics"
-                width={530}
-                height={200}
-                className="rounded-lg shadow-lg"
+                fill
+                className="object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -111,8 +114,11 @@ export default function AboutPage() {
       </section>
 
       {/* Founders Section */}
-      <section className="py-8 md:py-16 bg-gray-50" aria-labelledby="founders-heading">
-        <div className="container mx-auto px-4 text-center">
+      <section
+        className="py-8 md:py-16 bg-gray-50"
+        aria-labelledby="founders-heading"
+      >
+        <div className="container mx-auto px-5 md:px-6 text-center">
           <h2
             id="founders-heading"
             className="text-3xl font-bold text-gray-800 mb-4"
@@ -151,7 +157,9 @@ export default function AboutPage() {
                     />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{founder.name}</h3>
-                  <p className="text-blue-600 font-medium mb-4">{founder.role}</p>
+                  <p className="text-blue-600 font-medium mb-4">
+                    {founder.role}
+                  </p>
                   <p className="text-gray-600">{founder.desc}</p>
                 </CardContent>
               </Card>
@@ -162,7 +170,7 @@ export default function AboutPage() {
 
       {/* Mission & Values */}
       <section className="py-16" aria-labelledby="mission-values-heading">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-5 md:px-6 lg:px-16">
           <div className="text-center mb-12">
             <h2
               id="mission-values-heading"
@@ -175,7 +183,7 @@ export default function AboutPage() {
               logistics
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: (
@@ -210,10 +218,12 @@ export default function AboutPage() {
                 text: "Building lasting relationships through transparency and reliability.",
                 bg: "bg-green-100",
               },
-            ].map(({ icon, title, text, bg }) => (
+            ].map(({ icon, title, text, bg }, index, arr) => (
               <Card
                 key={title}
-                className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
               >
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">

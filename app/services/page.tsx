@@ -73,7 +73,7 @@ export default function ServicesPage() {
 
       {/* Main Services */}
       <section className="py-16" aria-labelledby="main-services-heading">
-        <div className="container mx-auto px-16 grid gap-12">
+        <div className="container mx-auto px-5 md:px-6 lg:px-16 grid gap-12">
           <h2 id="main-services-heading" className="sr-only">
             Logistics Services Overview
           </h2>
@@ -179,9 +179,7 @@ export default function ServicesPage() {
             ) => (
               <div
                 key={title}
-                className={`grid lg:grid-cols-2 gap-8 items-center ${
-                  reverse ? "lg:flex-row-reverse" : ""
-                }`}
+                className={`grid lg:grid-cols-2 gap-8 items-center`}
                 aria-labelledby={`service-${index}`}
               >
                 <figure className={reverse ? "lg:order-2" : ""}>
@@ -214,15 +212,20 @@ export default function ServicesPage() {
                     </Button>
                   </Link>
                 </figure>
-                <div className={reverse ? "lg:order-1" : ""}>
+
+                <div
+                  className={`relative w-full h-64 md:h-80 lg:h-[400px] ${
+                    reverse ? "lg:order-1" : ""
+                  }`}
+                >
                   <Image
                     src={imageSrc}
                     alt={imageAlt}
-                    width={600}
-                    height={400}
-                    className="rounded-lg shadow-lg"
+                    fill
+                    className="rounded-lg shadow-lg object-cover"
                   />
                 </div>
+
                 <figcaption className="sr-only">{imageAlt}</figcaption>
               </div>
             )
@@ -235,7 +238,7 @@ export default function ServicesPage() {
         className="py-16 bg-gray-50"
         aria-labelledby="additional-services"
       >
-        <div className="container mx-auto px-16">
+        <div className="container mx-auto px-5 md:px-6 lg:px-16">
           <div className="text-center mb-12">
             <h2
               id="additional-services"
@@ -247,7 +250,7 @@ export default function ServicesPage() {
               Comprehensive support for all your logistics needs
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Package,
@@ -264,8 +267,8 @@ export default function ServicesPage() {
                 title: "Route Optimization",
                 desc: "Strategic route planning to ensure cost-effective and timely delivery of your cargo.",
               },
-            ].map(({ icon: Icon, title, desc }) => (
-              <Card key={title}>
+            ].map(({ icon: Icon, title, desc },index, arr) => (
+              <Card key={title} className={`${index === arr.length-1 ? "md:col-span-2 lg:col-span-1" : ""}`}>
                 <CardContent className="p-6 text-center">
                   <Icon
                     className="h-12 w-12 text-blue-600 mx-auto mb-4"

@@ -49,9 +49,9 @@ export function ProcessDiagram() {
     <article className="max-w-6xl mx-auto">
       {/* Desktop View */}
       <div className="hidden md:block">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-wrap items-center justify-between mb-8">
           {steps.map((step, index) => (
-            <div key={step.id} className="flex items-center">
+            <div key={step.id} className="flex flex-wrap items-center">
               <div
                 className={`relative cursor-pointer transition-all duration-300 ${
                   activeStep === step.id ? "scale-110" : "hover:scale-105"

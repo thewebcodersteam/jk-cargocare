@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer
-      className="bg-gray-800 text-white py-12"
+      className="bg-gray-800 text-white py-12 px-5 lg:px-16"
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-0 lg:px-4">
         <div className="grid md:grid-cols-2  lg:grid-cols-4 gap-8  w-full">
           {/* Brand & Social */}
           <div aria-labelledby="footer-brand-heading" className="md:col-span-2 lg:col-span-1">

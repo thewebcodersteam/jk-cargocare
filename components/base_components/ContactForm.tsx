@@ -47,18 +47,21 @@ export default function ContactForm() {
   });
 
   const [isValid, setIsValid] = useState(false);
+  const [captchaError, setCaptchaError] = useState("");
+
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const { mutate, isPending } = useMutation({
     mutationFn: async function (data: ContactFormSchema) {
       const response = await axios.post(
-        "http://localhost:3001/api/contact",
+        "http://localhost:3000/api/contact",
         data
       );
       return response.data;
     },
     onSuccess(data: { message: string }) {
       toast.success(data.message || "success");
+      setIsValid(false);
     },
     onError(error: any) {
       toast.error(error?.message || "some error occurred");
@@ -73,17 +76,19 @@ export default function ContactForm() {
     },
     onSuccess: () => {
       setIsValid(true);
-      toast.success("reCAPTCHA verified!");
     },
+
     onError: () => {
       setIsValid(false);
-      toast.error("reCAPTCHA verification failed.");
+      setCaptchaError("Please verify that you are not a robot");
       recaptchaRef?.current?.reset();
     },
   });
 
   const handleChange = (token: string | null) => {
     if (token) {
+      setCaptchaError("");
+      setIsValid(true);
       validateCaptcha(token);
     } else {
       setIsValid(false);
@@ -91,7 +96,12 @@ export default function ContactForm() {
   };
 
   // 3. Submit handler
-  const onSubmit = (data: ContactFormSchema) => {
+  const onSubmit = async (data: ContactFormSchema) => {
+    if (!isValid) {
+      setCaptchaError("Please verify that you are not a robot");
+      return;
+    }
+
     mutate(data);
   };
 
@@ -217,6 +227,9 @@ export default function ContactForm() {
             onChange={handleChange}
             onExpired={handleExpired}
           />
+          {captchaError && (
+            <p className="text-sm text-red-600">{captchaError}</p>
+          )}
 
           <Button
             disabled={isPending || !isValid}

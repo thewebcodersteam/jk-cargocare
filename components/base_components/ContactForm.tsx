@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useState, useRef } from "react";
 import axios from "axios";
 import {
   Select,
@@ -44,10 +46,13 @@ export default function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
+  const [isValid, setIsValid] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   const { mutate, isPending } = useMutation({
     mutationFn: async function (data: ContactFormSchema) {
       const response = await axios.post(
-        "http://localhost:3000/api/contact",
+        "http://localhost:3001/api/contact",
         data
       );
       return response.data;
@@ -60,9 +65,38 @@ export default function ContactForm() {
     },
   });
 
+  const { mutate: validateCaptcha } = useMutation({
+    mutationKey: ["captcha"],
+    mutationFn: async (token: string) => {
+      const res = await axios.post("/api/verify-captcha", { token });
+      return res.data;
+    },
+    onSuccess: () => {
+      setIsValid(true);
+      toast.success("reCAPTCHA verified!");
+    },
+    onError: () => {
+      setIsValid(false);
+      toast.error("reCAPTCHA verification failed.");
+      recaptchaRef?.current?.reset();
+    },
+  });
+
+  const handleChange = (token: string | null) => {
+    if (token) {
+      validateCaptcha(token);
+    } else {
+      setIsValid(false);
+    }
+  };
+
   // 3. Submit handler
   const onSubmit = (data: ContactFormSchema) => {
     mutate(data);
+  };
+
+  const handleExpired = () => {
+    setIsValid(false);
   };
 
   return (
@@ -177,8 +211,15 @@ export default function ContactForm() {
             )}
           </div>
 
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+            ref={recaptchaRef}
+            onChange={handleChange}
+            onExpired={handleExpired}
+          />
+
           <Button
-            disabled={isPending}
+            disabled={isPending || !isValid}
             className="w-full bg-blue-600 hover:bg-blue-700"
           >
             <Send className="mr-2 h-4 w-4" />

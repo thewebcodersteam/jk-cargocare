@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   });
   const submission = await req.json();
 
-  const isValid = contactSchema.safeParse({ submission });
+  console.log(submission)
 
   return NextResponse.json({ message: "Success" }, { status: 200 });
 }

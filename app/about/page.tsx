@@ -221,9 +221,8 @@ export default function AboutPage() {
             ].map(({ icon, title, text, bg }, index, arr) => (
               <Card
                 key={title}
-                className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
-                }`}
+                className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+                  }`}
               >
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
@@ -238,7 +237,49 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* Certificates Section */}
+      <section className="py-16 bg-white" aria-labelledby="certificates-heading">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 id="certificates-heading" className="text-3xl font-bold text-gray-800 mb-4">
+              Certifications
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Proudly certified for quality, compliance, and excellence
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {[
+              {
+                title: "Achievement Certificate",
+                image: "/certificates/achievement.png",
+              },
+              {
+                title: "Transporter Of The Year",
+                image: "/certificates/transport.png",
+              },
+            ].map(({ title, image }) => (
+              <Card
+                key={title}
+                className="group hover:shadow-lg hover:shadow-blue-500/40 hover:z-10 hover:-translate-y-4 transition-transform transition-shadow duration-300"
+              >
+                <CardContent className="p-4 text-center">
+                  <h3 className="text-lg font-semibold text-gray-800 mt-3">{title}</h3>
 
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={300}
+                    height={100}
+                    className="mx-auto rounded-md transition-transform duration-300 group-hover:scale-105"
+                    style={{ filter: 'drop-shadow(0 10px 15px rgba(59, 130, 246, 0.5))' }}
+                  />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Achievements */}
       <section
         className="py-16 bg-gray-50"

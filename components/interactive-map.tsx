@@ -39,7 +39,7 @@ export function InteractiveMap() {
       <h2 className="text-2xl font-bold text-center mb-6">Client Locations in India</h2>
 
       {/* Map */}
-      <div id="map" className="w-full " />
+      <div id="map" className="w-full flex justify-center lg:block " />
       
     </div>
   )

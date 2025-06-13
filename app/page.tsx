@@ -55,11 +55,11 @@ export default function HomePage() {
             className="object-cover object-bottom"
           />
           <div>
-            <div className="p-10 pb-5 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-#00000032 to-transparent flex flex-col md:flex-col lg:flex-row lg:justify-between lg:items-start">
+            <div className="p-5 lg:p-10 pb-5 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-#00000032 to-transparent flex flex-col md:flex-col lg:flex-row lg:justify-between lg:items-start">
               <div className="max-w-3xl  text-white z-10">
                 <h1
                   id="hero-heading"
-                  className="text-subtitle md:text-title lg:text-6xl mb-6 leading-snug"
+                  className="text-title md:text-title lg:text-6xl mb-6 leading-snug"
                 >
                   Your Trusted Partner in Freight Solutions.
                 </h1>
@@ -76,7 +76,6 @@ export default function HomePage() {
                     Manpower Services Across India.
                   </p>
                   <div className="flex flex-col md:flex-row gap-4 font-lbold">
-                    
                     <div className="flex justify-center w-full">
                       <Link
                         className={cn(
@@ -100,7 +99,7 @@ export default function HomePage() {
       {/* Quick Stats */}
       <section
         aria-labelledby="stats-heading"
-        className="flex items-center p-4 py-16 mb-16 bg-gray-100 w-full"
+        className="flex items-center p-5 py-16 mb-16 bg-gray-100 w-full"
       >
         <div className="w-full">
           <h2 id="stats-heading" className="sr-only">
@@ -132,7 +131,7 @@ export default function HomePage() {
 
       {/* Core Services */}
       <section aria-labelledby="services-heading" className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-5 md:px-6 lg:px-16">
           <div className="text-center mb-12">
             <h2
               id="services-heading"
@@ -145,7 +144,7 @@ export default function HomePage() {
               needs
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 title: "Freight Solutions",
@@ -174,10 +173,12 @@ export default function HomePage() {
                 ),
                 desc: "Trained labor and field support for your operational needs",
               },
-            ].map((service) => (
+            ].map((service, index, arr) => (
               <Card
                 key={service.title}
-                className="group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer"
+                className={`group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
+                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
               >
                 <CardContent className="p-8 text-center">
                   <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
@@ -203,7 +204,7 @@ export default function HomePage() {
 
       {/* Coverage Map */}
       <section aria-labelledby="coverage-heading" className="py-16 bg-gray-50">
-        <div className="container mx-auto  px-16">
+        <div className="container mx-auto px-5 lg:px-16">
           <div className="text-center mb-12">
             <h2
               id="coverage-heading"
@@ -240,7 +241,7 @@ export default function HomePage() {
 
       {/* Client Carousel */}
       <section aria-labelledby="clients-heading" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-0 lg:px-4">
           <div className="text-center mb-12">
             <h2
               id="clients-heading"
@@ -248,7 +249,7 @@ export default function HomePage() {
             >
               What Our Clients Say
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 px-5 lg:px-0">
               Hear directly from the professionals who rely on JK Cargocare for
               logistics excellence
             </p>

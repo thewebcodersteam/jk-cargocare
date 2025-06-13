@@ -5,9 +5,9 @@ import Footer from "@/components/base_components/Footer";
 import QueryContext from "@/context/QueryContext";
 import { Toaster } from "react-hot-toast";
 import "keen-slider/keen-slider.min.css";
-import { Roboto } from "next/font/google";
+import { Exo } from "next/font/google";
 
-export const roboto = Roboto({
+export const exo = Exo({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
@@ -49,11 +49,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en">
       <body>
         <QueryContext>
           <Header />
-          {children}
+          <main className={`${exo.className} min-h-screen`} role="main">
+            {children}
+          </main>
           <Toaster />
           <Footer />
         </QueryContext>

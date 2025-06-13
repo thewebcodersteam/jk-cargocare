@@ -36,7 +36,6 @@ const contactSchema = z.object({
 type ContactFormSchema = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
-  // 2. useForm hook
   const {
     register,
     handleSubmit,
@@ -46,67 +45,49 @@ export default function ContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const [isValid, setIsValid] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState("");
-
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const { mutate, isPending } = useMutation({
-    mutationFn: async function (data: ContactFormSchema) {
-      const response = await axios.post(
-        "http://localhost:3000/api/contact",
-        data
-      );
+    mutationFn: async function (data: ContactFormSchema & { token: string }) {
+      const response = await axios.post("/api/contact", data);
       return response.data;
     },
     onSuccess(data: { message: string }) {
-      toast.success(data.message || "success");
-      setIsValid(false);
+      toast.success(data.message || "Message sent!");
+      setCaptchaError("");
+      setCaptchaToken(null);
+      recaptchaRef?.current?.reset(); // reset captcha after success
     },
     onError(error: any) {
-      toast.error(error?.message || "some error occurred");
+      const message =
+        error?.response?.data?.message || error.message || "An error occurred";
+      toast.error(message);
+      if (message.toLowerCase().includes("captcha")) {
+        setCaptchaError("CAPTCHA validation failed. Please try again.");
+        setCaptchaToken(null);
+        recaptchaRef?.current?.reset();
+      }
     },
   });
 
-  const { mutate: validateCaptcha } = useMutation({
-    mutationKey: ["captcha"],
-    mutationFn: async (token: string) => {
-      const res = await axios.post("/api/verify-captcha", { token });
-      return res.data;
-    },
-    onSuccess: () => {
-      setIsValid(true);
-    },
-
-    onError: () => {
-      setIsValid(false);
-      setCaptchaError("Please verify that you are not a robot");
-      recaptchaRef?.current?.reset();
-    },
-  });
-
-  const handleChange = (token: string | null) => {
-    if (token) {
-      setCaptchaError("");
-      setIsValid(true);
-      validateCaptcha(token);
-    } else {
-      setIsValid(false);
-    }
-  };
-
-  // 3. Submit handler
-  const onSubmit = async (data: ContactFormSchema) => {
-    if (!isValid) {
-      setCaptchaError("Please verify that you are not a robot");
+  const onSubmit = (formData: ContactFormSchema) => {
+    if (!captchaToken) {
+      setCaptchaError("Please complete the CAPTCHA before submitting.");
       return;
     }
+    mutate({ ...formData, token: captchaToken });
+  };
 
-    mutate(data);
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaError("");
+    setCaptchaToken(token);
   };
 
   const handleExpired = () => {
-    setIsValid(false);
+    setCaptchaError("CAPTCHA expired. Please try again.");
+    setCaptchaToken(null);
   };
 
   return (
@@ -222,9 +203,9 @@ export default function ContactForm() {
           </div>
 
           <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
             ref={recaptchaRef}
-            onChange={handleChange}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+            onChange={handleCaptchaChange}
             onExpired={handleExpired}
           />
           {captchaError && (
@@ -232,7 +213,7 @@ export default function ContactForm() {
           )}
 
           <Button
-            disabled={isPending || !isValid}
+            disabled={isPending}
             className="w-full bg-blue-600 hover:bg-blue-700"
           >
             <Send className="mr-2 h-4 w-4" />

@@ -13,7 +13,7 @@ import {
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { roboto } from "@/app/layout";
+import { exo } from "@/app/layout";
 
 export const metadata: Metadata = {
   title:
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main role="main" className={`${roboto.className} min-h-screen`}>
+    <>
       {/* Hero Section */}
       <section
         className="relative h-[400px] flex items-center justify-center text-white"
@@ -355,6 +355,6 @@ export default function ServicesPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </>
   );
 }

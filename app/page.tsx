@@ -8,7 +8,7 @@ import { InteractiveMap } from "@/components/interactive-map";
 import { Metadata } from "next";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { roboto } from "./layout";
+import { exo } from "./layout";
 
 export const metadata: Metadata = {
   title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services",
@@ -50,10 +50,7 @@ const clientLogos: { name: string; image: string }[] = [
 
 export default function HomePage() {
   return (
-    <main
-      className={`${roboto.className} min-h-screen overflow-hidden font-sans flex flex-col`}
-      role="main"
-    >
+    <>
       {/* Hero Section */}
       <section className="">
         <div
@@ -349,6 +346,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }

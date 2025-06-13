@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main role="main" className="min-h-screen">
+    <>
       {/* Hero Section */}
       <section
         className="relative h-[400px] flex items-center justify-center text-white"
@@ -310,6 +310,6 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </>
   );
 }

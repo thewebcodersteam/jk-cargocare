@@ -15,7 +15,6 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    // ✅ Step 1: Validate data including token
     const data = contactSchema.parse(body);
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
@@ -26,7 +25,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ✅ Step 2: Verify CAPTCHA
     const verifyResponse = await axios.post(
       `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${data.token}`
     );
@@ -38,7 +36,6 @@ export async function POST(req: NextRequest) {
       );
     }
     const { token, ...formData } = data;
-    console.log("Contact Form Submission:", formData);
 
     return NextResponse.json(
       { message: "Form submitted successfully" },

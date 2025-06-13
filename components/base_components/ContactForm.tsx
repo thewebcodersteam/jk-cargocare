@@ -58,7 +58,7 @@ export default function ContactForm() {
       toast.success(data.message || "Message sent!");
       setCaptchaError("");
       setCaptchaToken(null);
-      recaptchaRef?.current?.reset(); // reset captcha after success
+      recaptchaRef?.current?.reset();
     },
     onError(error: any) {
       const message =

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
       {/* 404 Content */}
       <div className="flex-grow flex items-center justify-center bg-gray-50 py-16 px-4">
         <div className="max-w-3xl w-full">
@@ -98,6 +98,6 @@ export default function NotFoundPage() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

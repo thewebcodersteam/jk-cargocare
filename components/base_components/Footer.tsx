@@ -1,18 +1,22 @@
 import { Truck, Facebook, Linkedin, Instagram } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { exo } from "@/app/layout";
 
 export default function Footer() {
   return (
     <footer
-      className="bg-gray-800 text-white py-12 px-5 lg:px-16"
+      className={`${exo.className} bg-gray-800 text-white py-12 px-5 lg:px-16`}
       role="contentinfo"
       aria-label="Site footer"
     >
       <div className="container mx-auto px-0 lg:px-4">
         <div className="grid md:grid-cols-2  lg:grid-cols-4 gap-8  w-full">
           {/* Brand & Social */}
-          <div aria-labelledby="footer-brand-heading" className="md:col-span-2 lg:col-span-1">
+          <div
+            aria-labelledby="footer-brand-heading"
+            className="md:col-span-2 lg:col-span-1"
+          >
             <div
               className="flex items-center  justify-center lg:justify-start space-x-2 mb-4"
               id="footer-brand-heading"
@@ -29,7 +33,10 @@ export default function Footer() {
               Established in 2000, providing reliable freight solutions across
               India for over two decades.
             </p>
-            <div className="flex space-x-4 justify-center lg:justify-start" aria-label="Social media links">
+            <div
+              className="flex space-x-4 justify-center lg:justify-start"
+              aria-label="Social media links"
+            >
               <Link
                 href="https://www.facebook.com/jkcargocare/"
                 target="_blank"

@@ -250,7 +250,7 @@ export default function HomePage() {
       </section>
 
       {/* Coverage Map */}
-      <section aria-labelledby="coverage-heading" className="py-16 bg-gray-50">
+      <section aria-labelledby="coverage-heading" className="py-16 my-16 bg-gray-50 border-2 border-gray-300 rounded-xl mx-5 md:xx-6 lg:mx-16">
         <div className="container mx-auto px-5 lg:px-16">
           <div className="text-center mb-12">
             <h2

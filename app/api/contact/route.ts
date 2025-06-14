@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 import { z } from "zod";
+import brevo from "@getbrevo/brevo";
+import emailTemplate from "@/lib/emailTemplate";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Full name is required"),
@@ -36,6 +38,14 @@ export async function POST(req: NextRequest) {
       );
     }
     const { token, ...formData } = data;
+
+    let apiInstance = new brevo.SendSmtpEmail();
+    apiInstance.htmlContent = emailTemplate(formData);
+    apiInstance.subject = "A new lead";
+    apiInstance.sender = {
+      name: formData.name,
+      email: formData.email,
+    };
 
     return NextResponse.json(
       { message: "Form submitted successfully" },

@@ -76,7 +76,7 @@ export default function ContactPage() {
 
             {/* Location Map */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Find Us</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mt-12 md:mt-8 lg:mt-0 mb-6">Find Us</h2>
               <div
                 className="bg-gray-300 h-full rounded-lg overflow-hidden"
                 role="region"
@@ -91,7 +91,7 @@ export default function ContactPage() {
           <section aria-labelledby="get-in-touch" className="pt-4">
             <h2
               id="get-in-touch"
-              className="text-3xl font-bold text-gray-800 mb-6"
+              className="text-3xl font-bold text-gray-800 mt-12 md:mt-8 lg:mt-0 mb-6"
             >
               Get in Touch
             </h2>

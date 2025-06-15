@@ -341,7 +341,7 @@ export default function HomePage() {
               )}
             >
               <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
-              Call Now: +91-832-2782828
+              Call Now: +91-0832-25561
             </Link>
           </div>
         </div>

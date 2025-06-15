@@ -6,7 +6,6 @@ import Location from "@/components/Location";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
-import { exo } from "../layout";
 
 export const metadata: Metadata = {
   title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts",
@@ -43,14 +42,17 @@ export default function ContactPage() {
         aria-labelledby="contact-hero"
       >
         <Image
-          src="/assets/images/contact-us.png"
+          src="/assets/images/contact-us.jpg"
           alt="Logistics background"
           fill
           className="object-cover brightness-[0.4]"
           priority
         />
         <div className="relative z-10 text-center px-4">
-          <h1 id="contact-hero" className="text-4xl font-bold mb-4 drop-shadow-md">
+          <h1
+            id="contact-hero"
+            className="text-4xl font-bold mb-4 drop-shadow-md"
+          >
             Contact Us
           </h1>
           <p className="text-xl opacity-90 drop-shadow-md">
@@ -76,7 +78,9 @@ export default function ContactPage() {
 
             {/* Location Map */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-800 mt-12 md:mt-8 lg:mt-0 mb-6">Find Us</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mt-12 md:mt-8 lg:mt-0 mb-6">
+                Find Us
+              </h2>
               <div
                 className="bg-gray-300 h-full rounded-lg overflow-hidden"
                 role="region"
@@ -111,16 +115,13 @@ export default function ContactPage() {
                   icon: Phone,
                   colorClass: "bg-green-100 text-green-600",
                   title: "Phone",
-                  lines: ["+91-832-2782828", "+91-832-2782829"],
+                  lines: ["+91-0832-2556111", "+91-0832-2555777"],
                 },
                 {
                   icon: Mail,
                   colorClass: "bg-orange-100 text-orange-600",
                   title: "Email",
-                  lines: [
-                    "info@singhlogistics.com",
-                    "operations@singhlogistics.com",
-                  ],
+                  lines: ["jk.cargo@yahoo.co.uk"],
                 },
                 {
                   icon: Clock,
@@ -139,7 +140,11 @@ export default function ContactPage() {
                 >
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className={`${colorClass.split(" ")[0]} p-3 rounded-full`}>
+                      <div
+                        className={`${
+                          colorClass.split(" ")[0]
+                        } p-3 rounded-full`}
+                      >
                         <Icon
                           className={`h-6 w-6 ${colorClass.split(" ")[1]}`}
                           aria-hidden="true"
@@ -176,7 +181,7 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+918322782828"
+              href="tel:+910832-25561"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center"
@@ -184,10 +189,10 @@ export default function ContactPage() {
               aria-label="Call us now"
             >
               <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
-              Call Now: +91-832-2782828
+              Call Now: +91-0832-2556111
             </a>
             <a
-              href="mailto:info@singhlogistics.com"
+              href="mailto:jk.cargo@yahoo.co.uk"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-white text-blue-600 hover:bg-gray-300 flex items-center justify-center"

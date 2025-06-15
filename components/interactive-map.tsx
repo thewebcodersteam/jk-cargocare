@@ -1,8 +1,20 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import * as d3 from "d3"
-import { feature } from "topojson-client"
+import { useEffect, useRef, useState } from "react";
+import * as d3 from "d3";
+import { feature } from "topojson-client";
+
+interface TopoJSON {
+  type: "Topology";
+  objects: {
+    [key: string]: {
+      type: "GeometryCollection";
+      geometries: any[]; // You can define this more specifically if needed
+    };
+  };
+  arcs: any;
+  transform: any;
+}
 
 const locations = [
   {
@@ -70,85 +82,95 @@ const locations = [
     label: "Andhra Pradesh",
     description: "Eastern corridor and Vizag port operations.",
   },
-]
+];
 
 type Location = {
-  state: string
-  label: string
-  description: string
-}
+  state: string;
+  label: string;
+  description: string;
+};
 
 export function InteractiveMap() {
-  const mapRef = useRef(null)
-  const cardRef = useRef<HTMLDivElement | null>(null)
-  const [selected, setSelected] = useState<Location | null>(null)
+  const mapRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const [selected, setSelected] = useState<Location | null>(null);
 
   useEffect(() => {
-    const width = 800
-    const height = 600
+    const width = 800;
+    const height = 600;
+
+    // Clean up any existing SVG
+    d3.select(mapRef.current).select("svg").remove();
 
     const svg = d3
       .select(mapRef.current)
       .append("svg")
       .attr("viewBox", `0 0 ${width} ${height}`)
-      .attr("class", "w-full h-auto")
+      .attr("class", "w-full h-auto");
 
     const projection = d3
       .geoMercator()
       .scale(1000)
       .center([82.8, 22.6])
-      .translate([width / 2, height / 2])
+      .translate([width / 2, height / 2]);
 
-    const path = d3.geoPath().projection(projection)
+    const path = d3.geoPath().projection(projection);
 
-    d3.json("/map_images/assets/geoBoundaries-IND-ADM1.topojson").then((data) => {
-      const objectKey = Object.keys(data.objects)[0]
-      const states = feature(data, data.objects[objectKey])
+    d3.json("/map_images/assets/geoBoundaries-IND-ADM1.topojson").then(
+      (data) => {
+        const topoData = data as TopoJSON;
+        const objectKey = Object.keys(topoData.objects)[0];
+        const states = feature(
+          topoData,
+          topoData.objects[objectKey]
+        ) as GeoJSON.FeatureCollection;
 
-      svg
-        .selectAll("path")
-        .data(states.features)
-        .enter()
-        .append("path")
-        .attr("d", path)
-        .attr("fill", "#e5e7eb") // Tailwind gray-200
-        .attr("stroke", "#9ca3af") // Tailwind gray-400
-        .attr("stroke-width", 0.7)
+        svg
+          .selectAll("path")
+          .data(states.features)
+          .enter()
+          .append("path")
+          .attr("d", path)
+          .attr("fill", "#e5e7eb")
+          .attr("stroke", "#9ca3af")
+          .attr("stroke-width", 0.7);
 
-      locations.forEach((loc) => {
-        const matchedState = states.features.find(
-          (f) => f.properties.shapeName?.toLowerCase() === loc.state.toLowerCase()
-        )
+        locations.forEach((loc) => {
+          const matchedState = states.features.find(
+            (f) =>
+              f.properties?.shapeName?.toLowerCase() === loc.state.toLowerCase()
+          );
 
-        if (matchedState) {
-          const [x, y] = path.centroid(matchedState)
+          if (matchedState) {
+            const [x, y] = path.centroid(matchedState);
 
-          svg
-            .append("image")
-            .attr("href", "/map_images/assets/images/location-marker.png")
-            .attr("x", x - 12)
-            .attr("y", y - 24)
-            .attr("width", 24)
-            .attr("height", 24)
-            .style("cursor", "pointer")
-            .on("click", () => setSelected(loc))
-            .on("mouseover", function () {
-              svg
-                .append("text")
-                .attr("id", "tooltip")
-                .attr("x", x + 10)
-                .attr("y", y - 15)
-                .attr("fill", "#000")
-                .attr("font-size", 12)
-                .text(loc.label)
-            })
-            .on("mouseout", function () {
-              svg.select("#tooltip").remove()
-            })
-        }
-      })
-    })
-  }, [])
+            svg
+              .append("image")
+              .attr("href", "/map_images/assets/images/location-marker.png")
+              .attr("x", x - 12)
+              .attr("y", y - 24)
+              .attr("width", 24)
+              .attr("height", 24)
+              .style("cursor", "pointer")
+              .on("click", () => setSelected(loc))
+              .on("mouseover", function () {
+                svg
+                  .append("text")
+                  .attr("id", "tooltip")
+                  .attr("x", x + 10)
+                  .attr("y", y - 15)
+                  .attr("fill", "#000")
+                  .attr("font-size", 12)
+                  .text(loc.label);
+              })
+              .on("mouseout", function () {
+                svg.select("#tooltip").remove();
+              });
+          }
+        });
+      }
+    );
+  }, []);
 
   useEffect(() => {
     if (selected && cardRef.current) {
@@ -156,10 +178,10 @@ export function InteractiveMap() {
         cardRef.current?.scrollIntoView({
           behavior: "smooth",
           block: "center",
-        })
-      }, 100)
+        });
+      }, 100);
     }
-  }, [selected])
+  }, [selected]);
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-6">
@@ -171,12 +193,14 @@ export function InteractiveMap() {
         {selected && (
           <div ref={cardRef} className="mt-8">
             <div className="bg-white border border-gray-300 rounded-xl shadow-xl p-6 max-w-2xl mx-auto transition-all duration-300 hover:shadow-blue-400 hover:shadow-2xl relative z-10">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">{selected.label}</h2>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                {selected.label}
+              </h2>
               <p className="text-gray-600">{selected.description}</p>
             </div>
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }

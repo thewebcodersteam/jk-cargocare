@@ -38,7 +38,7 @@ export default function ContactPage() {
     <>
       {/* Hero Section */}
       <section
-        className="relative h-[400px] flex items-center justify-center text-white"
+        className="relative h-[600px] flex items-center justify-center text-white"
         aria-labelledby="contact-hero"
       >
         <Image
@@ -62,7 +62,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Location */}
-      <section className="py-16" aria-labelledby="contact-form-section">
+      <section className="py-16 px-4 md:px-5 lg:px-16" aria-labelledby="contact-form-section">
         <div className="container mx-auto px-4 space-y-16">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}

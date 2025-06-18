@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About JK Logistics",
+    title: "About JK Cargocare",
     description:
-      "Learn about JK Logistics, its founders, mission, and achievements in the logistics industry.",
+      "Learn about JK Cargocare, its founders, mission, and achievements in the logistics industry.",
     images: ["/og-image.jpg"], // Replace with your actual Twitter image
   },
 };
@@ -39,14 +39,14 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section
-        className="relative h-[400px] flex items-center justify-center text-white"
+        className="relative h-[600px] flex items-center justify-center text-white"
         aria-labelledby="about-hero-heading"
       >
         <Image
-          src="/assets/images/logistics.jpg"
+          src="/assets/images/about-new.jpeg"
           alt="Logistics background"
           fill
-          className="object-cover brightness-[0.4]"
+          className="object-cover object-bottom brightness-[0.4]"
           priority
         />
         <div className="relative z-10 text-center px-4">
@@ -54,7 +54,7 @@ export default function AboutPage() {
             id="about-hero-heading"
             className="text-4xl font-bold mb-4 drop-shadow-md"
           >
-            About JK Logistics
+            About JK Cargocare
           </h1>
           <p className="text-xl opacity-90 drop-shadow-md">
             Two decades of excellence in freight solutions, built on trust and
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company Story */}
-      <section className="py-16" aria-labelledby="our-story-heading">
+      <section className="lg:py-16 md:py-8 py-16" aria-labelledby="our-story-heading">
         <div className="container mx-auto px-5 md:px-6 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-52 items-center">
             <div>
@@ -101,12 +101,12 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="relative md:max-w-3xl lg:max-w-5xl h-64 md:h-80 lg:h-96">
+            <div className="relative md:max-w-3xl lg:max-w-5xl h-64 md:h-[35rem] lg:h-96">
               <Image
-                src="/assets/images/our-story.png"
+                src="/assets/images/founders-test.jpeg"
                 alt="Founders of JK Logistics"
                 fill
-                className="object-cover rounded-lg shadow-lg"
+                className="object-cover   rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function AboutPage() {
                 name: "Ms. Anjalee Singh",
                 role: "Co-Founder & Director",
                 desc: "A pioneer in logistics management with expertise in operations and client relations.",
-                image: "/placeholder.svg?height=200&width=200",
+                image: "/assets/images/founder-2.jpeg",
               },
               {
                 name: "Mr. Jitendra Kumar Singh",
@@ -221,8 +221,9 @@ export default function AboutPage() {
             ].map(({ icon, title, text, bg }, index, arr) => (
               <Card
                 key={title}
-                className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
-                  }`}
+                className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
               >
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
@@ -238,17 +239,23 @@ export default function AboutPage() {
         </div>
       </section>
       {/* Certificates Section */}
-      <section className="py-16 bg-white" aria-labelledby="certificates-heading">
+      <section
+        className="py-16 bg-gray-50 border-[1px] border-gray-300"
+        aria-labelledby="certificates-heading"
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 id="certificates-heading" className="text-3xl font-bold text-gray-800 mb-4">
+            <h2
+              id="certificates-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
+            >
               Certifications
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Proudly certified for quality, compliance, and excellence
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
               {
                 title: "Achievement Certificate",
@@ -261,19 +268,27 @@ export default function AboutPage() {
             ].map(({ title, image }) => (
               <Card
                 key={title}
-                className="group hover:shadow-lg hover:shadow-blue-500/40 hover:z-10 hover:-translate-y-4 transition-shadow duration-300"
+                className="group  p-0 transition-shadow duration-300 overflow-hidden"
               >
-                <CardContent className="p-4 text-center">
-                  <h3 className="text-lg font-semibold text-gray-800 mt-3">{title}</h3>
-
-                  <Image
-                    src={image}
-                    alt={title}
-                    width={300}
-                    height={100}
-                    className="mx-auto rounded-md transition-transform duration-300 group-hover:scale-105"
-                    style={{ filter: 'drop-shadow(0 10px 15px rgba(59, 130, 246, 0.5))' }}
-                  />
+                <CardContent className="text-center p-0  overflow-hidden">
+                  <div className="bg-gray-100 py-4">
+                    <h3 className="text-lg font-semibold text-gray-800">
+                      {title}
+                    </h3>
+                  </div>
+                  <div className="m-4 h-80 flex justify-center items-center  border-[1px] border-gray-300 rounded-xl">
+                    <Image
+                      src={image}
+                      alt={title}
+                      width={300}
+                      height={100}
+                      className="mx-auto rounded-md object-contain transition-transform duration-300 group-hover:scale-105"
+                      style={{
+                        filter:
+                          "drop-shadow(0 10px 15px rgba(59, 130, 246, 0.5))",
+                      }}
+                    />
+                  </div>
                 </CardContent>
               </Card>
             ))}

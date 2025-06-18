@@ -17,7 +17,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Send } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { Controller } from "react-hook-form";
@@ -40,6 +39,7 @@ export default function ContactForm() {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm<ContactFormSchema>({
     resolver: zodResolver(contactSchema),
@@ -58,6 +58,7 @@ export default function ContactForm() {
       toast.success(data.message || "Message sent!");
       setCaptchaError("");
       setCaptchaToken(null);
+      reset();
       recaptchaRef?.current?.reset();
     },
     onError(error: any) {
@@ -100,6 +101,7 @@ export default function ContactForm() {
                 Full Name <span className="text-red-500">*</span>
               </Label>
               <Input
+                required
                 type="text"
                 placeholder="Your full name"
                 {...register("name")}
@@ -135,6 +137,7 @@ export default function ContactForm() {
               Company Name
             </Label>
             <Input
+              required
               type="text"
               placeholder="Your company name"
               {...register("company")}
@@ -152,6 +155,7 @@ export default function ContactForm() {
               control={control}
               render={({ field }) => (
                 <Select
+                  required
                   onValueChange={field.onChange}
                   value={field.value}
                   defaultValue={field.value}
@@ -190,6 +194,7 @@ export default function ContactForm() {
               Message <span className="text-red-500">*</span>
             </Label>
             <Textarea
+              required
               rows={5}
               placeholder="Please describe your logistics requirements..."
               {...register("message")}
@@ -216,7 +221,6 @@ export default function ContactForm() {
             disabled={isPending}
             className="w-full bg-blue-600 hover:bg-blue-700"
           >
-            <Send className="mr-2 h-4 w-4" />
             {isPending ? <Spinner /> : "Send Message"}
           </Button>
         </form>

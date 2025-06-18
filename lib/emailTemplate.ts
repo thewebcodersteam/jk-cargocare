@@ -1,16 +1,12 @@
+import { EmailContent } from "./sendEmail";
+
 export default function emailTemplate({
   name,
   email,
   company,
   service,
   message,
-}: {
-  name: string;
-  email: string;
-  company?: string;
-  service: string;
-  message: string;
-}) {
+}: EmailContent) {
   return `
     <div style="font-family: Arial, sans-serif; color: #333;">
       <h2>📩 New Contact Form Submission</h2>

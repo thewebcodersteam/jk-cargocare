@@ -261,7 +261,7 @@ export default function AboutPage() {
             ].map(({ title, image }) => (
               <Card
                 key={title}
-                className="group hover:shadow-lg hover:shadow-blue-500/40 hover:z-10 hover:-translate-y-4 transition-transform transition-shadow duration-300"
+                className="group hover:shadow-lg hover:shadow-blue-500/40 hover:z-10 hover:-translate-y-4 transition-shadow duration-300"
               >
                 <CardContent className="p-4 text-center">
                   <h3 className="text-lg font-semibold text-gray-800 mt-3">{title}</h3>

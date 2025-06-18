@@ -38,14 +38,14 @@ export default function IndustriesPage() {
     <>
       {/* Hero Section */}
       <section
-        className="relative h-[400px] flex items-center justify-center text-white"
+        className="relative h-[600px] flex items-center justify-center text-white"
         aria-labelledby="industries-hero-heading"
       >
         <Image
-          src="/assets/images/industries.png"
+          src="/assets/images/industries-new.jpeg"
           alt="Logistics background"
           fill
-          className="object-cover brightness-[0.4]"
+          className="object-cover object-center brightness-[0.4]"
           priority
         />
         <div className="relative z-10 text-center px-4">

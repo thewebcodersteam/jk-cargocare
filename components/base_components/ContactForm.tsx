@@ -93,7 +93,7 @@ export default function ContactForm() {
 
   return (
     <Card className="w-full h-full" id="contact-form">
-      <CardContent className="p-8">
+      <CardContent className="lg:p-6 md:p-4 p-4">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
             <div>

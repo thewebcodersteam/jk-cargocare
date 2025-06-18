@@ -37,15 +37,15 @@ export const metadata: Metadata = {
 };
 
 const clientLogos: { name: string; image: string }[] = [
-  { name: "Zuari Agro Chemicals", image: "/clients/zuari.png" },
-  { name: "West Coast Paper Mills", image: "/clients/westcoast.jpeg" },
-  { name: "Chambal Fertilizers", image: "/clients/chambal.jpg" },
-  { name: "Marico", image: "/clients/marico.png" },
-  { name: "Coromandel", image: "/clients/coromandel.png" },
-  { name: "Grasim", image: "/clients/grasim.png" },
+  { name: "Zuari Agro Chemicals", image: "/clients/zuari.webp" },
+  { name: "West Coast Paper Mills", image: "/clients/westcoast.webp" },
+  { name: "Chambal Fertilizers", image: "/clients/chambal.webp" },
+  { name: "Marico", image: "/clients/marico.webp" },
+  { name: "Coromandel", image: "/clients/coromandel.webp" },
+  { name: "Grasim", image: "/clients/grasim.webp" },
   { name: "Avestra", image: "/clients/avestra.jpg" },
-  { name: "Agrimass", image: "/clients/agrimass.png" },
-  { name: "WCI Shipping", image: "/clients/wci.png" },
+  { name: "Agrimass", image: "/clients/agrimass.webp" },
+  { name: "WCI Shipping", image: "/clients/wci.webp" },
 ];
 
 export default function HomePage() {
@@ -55,7 +55,7 @@ export default function HomePage() {
       <section className="">
         <div
           aria-labelledby="stats-heading"
-          className="relative h-[80vh] w-full overflow-hidden"
+          className="relative h-[600px] w-full overflow-hidden"
         >
           <Image
             src="/assets/images/hero-section-img.webp"

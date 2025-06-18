@@ -11,16 +11,21 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
+import { Exo } from "next/font/google";
+export const exo = Exo({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export default function MobileNav() {
   return (
-    <Sheet>
-      <SheetTrigger asChild>
+    <Sheet >
+      <SheetTrigger asChild >
         <div className="cursor-pointer rounded-full p-2 hover:text-blue-600 transition md:hidden">
           <Menu size={24} />
         </div>
       </SheetTrigger>
-      <SheetContent side="right" className="flex flex-col space-y-4 p-6">
+      <SheetContent side="right" className={`flex flex-col space-y-4 p-6 ${exo.className}`}>
         <SheetHeader>
           <SheetTitle className="text-xl font-bold text-gray-800">
             Menu

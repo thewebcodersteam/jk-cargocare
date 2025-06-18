@@ -24,12 +24,71 @@ import { Label } from "../ui/label";
 import Spinner from "./Spinner";
 
 // 1. Zod schema
+const noScriptRegex = /<\s*script.*?>.*?<\s*\/\s*script\s*>/gi;
+
 const contactSchema = z.object({
-  name: z.string().min(1, "Full name is required"),
-  email: z.string().email("Invalid email address"),
-  company: z.string().optional(),
-  service: z.string().min(1, "Please select a service"),
-  message: z.string().min(1, "Message is required"),
+  name: z
+    .string()
+    .min(1, "Full Name is required and cannot be empty or only spaces.")
+    .regex(/^[A-Za-z\s'-]+$/, "Full Name can only contain letters, spaces, apostrophes, and hyphens.")
+    .refine((val) => val.trim().length > 0, {
+      message: "Full Name is required and cannot be empty or only spaces.",
+    })
+    .refine((val) => !noScriptRegex.test(val), {
+      message: "Full Name must not contain script tags.",
+    }),
+
+  email: z
+    .string()
+    .superRefine((val, ctx) => {
+      if (val.trim().length === 0) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Email Address is required and cannot be empty or only spaces.",
+        });
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Email Address must be in a valid format (e.g., name@example.com).",
+        });
+      } else if (noScriptRegex.test(val)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Email Address must not contain script tags.",
+        });
+      }
+    }),
+
+  company: z
+    .string()
+    .max(100, "Company Name must not exceed 100 characters.")
+    .refine((val) => val.trim().length > 0 || val === "", {
+      message: "Company Name is required and cannot be empty or only spaces.",
+    })
+    .refine((val) => !noScriptRegex.test(val), {
+      message: "Company Name must not contain script tags.",
+    })
+    .optional(),
+
+  service: z.enum(
+    ["freight", "hazardous", "warehousing", "manpower", "multiple", "other"],
+    {
+      errorMap: () => ({
+        message: "Please select a valid service option.",
+      }),
+    }
+  ),
+
+  message: z
+    .string()
+    .min(1, "Message is required and cannot be empty or only spaces.")
+    .max(1000, "Message must not exceed 1000 characters.")
+    .refine((val) => val.trim().length > 0, {
+      message: "Message is required and cannot be empty or only spaces.",
+    })
+    .refine((val) => !noScriptRegex.test(val), {
+      message: "Message must not contain script tags.",
+    }),
 });
 
 type ContactFormSchema = z.infer<typeof contactSchema>;
@@ -137,12 +196,16 @@ export default function ContactForm() {
               Company Name
             </Label>
             <Input
-              required
               type="text"
               placeholder="Your company name"
               {...register("company")}
               style={{ borderColor: errors.company ? "red" : "" }}
             />
+            {errors.company && (
+              <p className="text-sm text-red-600 mt-1">
+                {errors.company.message}
+              </p>
+            )}
           </div>
 
           <div>

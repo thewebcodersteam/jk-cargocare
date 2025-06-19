@@ -14,6 +14,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { exo } from "@/app/layout";
+import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
   title:
@@ -47,29 +48,14 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative h-[600px] flex items-center justify-center text-white"
-        aria-labelledby="services-hero"
-      >
-        <Image
-          src="/assets/images/services-new.jpeg"
-          alt="Logistics background"
-          fill
-          className="object-cover  brightness-[0.4]"
-          priority
-        />
-        <div className="relative z-10 text-center px-4">
-          <h1
-            id="services-hero"
-            className="text-4xl font-bold mb-4 drop-shadow-md"
-          >
-            Our Services
-          </h1>
-          <p className="text-xl opacity-90 drop-shadow-md">
-            Comprehensive logistics solutions tailored to your business needs
-          </p>
-        </div>
-      </section>
+
+      <HeroSection
+        title=" Our Services"
+        subtitle="Comprehensive logistics solutions tailored to your business needs"
+        imageUrl="/assets/images/services-new.jpeg"
+        altText="Our Services"
+        imagePosition="object-center"
+      />
 
       {/* Main Services */}
       <section className="py-16" aria-labelledby="main-services-heading">
@@ -267,8 +253,13 @@ export default function ServicesPage() {
                 title: "Route Optimization",
                 desc: "Strategic route planning to ensure cost-effective and timely delivery of your cargo.",
               },
-            ].map(({ icon: Icon, title, desc },index, arr) => (
-              <Card key={title} className={`${index === arr.length-1 ? "md:col-span-2 lg:col-span-1" : ""}`}>
+            ].map(({ icon: Icon, title, desc }, index, arr) => (
+              <Card
+                key={title}
+                className={`${
+                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+                }`}
+              >
                 <CardContent className="p-6 text-center">
                   <Icon
                     className="h-12 w-12 text-blue-600 mx-auto mb-4"

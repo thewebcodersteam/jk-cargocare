@@ -1,3 +1,4 @@
+import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Calendar, Target, Heart } from "lucide-react";
@@ -38,33 +39,19 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative h-[600px] flex items-center justify-center text-white"
-        aria-labelledby="about-hero-heading"
-      >
-        <Image
-          src="/assets/images/about-new.jpeg"
-          alt="Logistics background"
-          fill
-          className="object-cover object-bottom brightness-[0.4]"
-          priority
-        />
-        <div className="relative z-10 text-center px-4">
-          <h1
-            id="about-hero-heading"
-            className="text-4xl font-bold mb-4 drop-shadow-md"
-          >
-            About JK Cargocare
-          </h1>
-          <p className="text-xl opacity-90 drop-shadow-md">
-            Two decades of excellence in freight solutions, built on trust and
-            innovation
-          </p>
-        </div>
-      </section>
+
+      <HeroSection
+        title="About JK Cargocare"
+        subtitle="Two decades of excellence in freight solutions, built on trust and innovation"
+        imageUrl="/assets/images/about-new.jpeg"
+        altText="Logistics background"
+      />
 
       {/* Company Story */}
-      <section className="lg:py-16 md:py-8 py-16" aria-labelledby="our-story-heading">
+      <section
+        className="lg:py-16 md:py-8 py-16"
+        aria-labelledby="our-story-heading"
+      >
         <div className="container mx-auto px-5 md:px-6 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-52 items-center">
             <div>
@@ -101,7 +88,7 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="relative md:max-w-3xl lg:max-w-5xl h-64 md:h-[35rem] lg:h-96">
+            <div className="relative md:max-w-3xl lg:max-w-5xl h-80 md:h-[35rem] lg:h-[30rem]">
               <Image
                 src="/assets/images/founders-test.jpeg"
                 alt="Founders of JK Logistics"

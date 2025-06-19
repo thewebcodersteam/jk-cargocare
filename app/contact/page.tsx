@@ -6,6 +6,7 @@ import Location from "@/components/Location";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
   title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts",
@@ -37,32 +38,19 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative h-[600px] flex items-center justify-center text-white"
-        aria-labelledby="contact-hero"
-      >
-        <Image
-          src="/assets/images/contact-us.jpg"
-          alt="Logistics background"
-          fill
-          className="object-cover brightness-[0.4]"
-          priority
-        />
-        <div className="relative z-10 text-center px-4">
-          <h1
-            id="contact-hero"
-            className="text-4xl font-bold mb-4 drop-shadow-md"
-          >
-            Contact Us
-          </h1>
-          <p className="text-xl opacity-90 drop-shadow-md">
-            Get in touch with our logistics experts for customized solutions
-          </p>
-        </div>
-      </section>
+
+      <HeroSection
+        title="Contact Us"
+        subtitle=" Get in touch with our logistics experts for customized solutions"
+        imageUrl="/assets/images/contact-us.jpg"
+        altText="Contact Us"
+      />
 
       {/* Contact Form & Location */}
-      <section className="py-16 px-4 md:px-5 lg:px-16" aria-labelledby="contact-form-section">
+      <section
+        className="py-16 px-4 md:px-5 lg:px-16"
+        aria-labelledby="contact-form-section"
+      >
         <div className="container mx-auto px-4 space-y-16">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}

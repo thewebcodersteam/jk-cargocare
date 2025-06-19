@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { exo } from "../layout";
+import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
   title:
@@ -37,29 +38,14 @@ export default function IndustriesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative h-[600px] flex items-center justify-center text-white"
-        aria-labelledby="industries-hero-heading"
-      >
-        <Image
-          src="/assets/images/industries-new.jpeg"
-          alt="Logistics background"
-          fill
-          className="object-cover object-center brightness-[0.4]"
-          priority
-        />
-        <div className="relative z-10 text-center px-4">
-          <h1
-            id="industries-hero-heading"
-            className="text-4xl font-bold mb-4 drop-shadow-md"
-          >
-            Industries We Serve
-          </h1>
-          <p className="text-xl opacity-90 drop-shadow-md">
-            Specialized Logistics Solutions Across Diverse Industry Sectors
-          </p>
-        </div>
-      </section>
+
+      <HeroSection
+        title="Industries We Serve"
+        subtitle=" Specialized Logistics Solutions Across Diverse Industry Sectors"
+        imageUrl="/assets/images/industries-new.jpeg"
+        altText="Industries We Serve"
+        imagePosition="object-center"
+      />
 
       {/* Industries Grid */}
       <section className="py-16">
@@ -166,7 +152,6 @@ export default function IndustriesPage() {
         </div>
       </section>
 
- 
       {/* Industry Expertise */}
       <section className="py-16">
         <div className="container mx-auto px-4 text-center max-w-4xl">

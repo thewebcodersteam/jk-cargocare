@@ -1,42 +1,64 @@
 "use client";
 
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  animate,
-} from "motion/react";
-import { useEffect } from "react";
+import { animate } from "motion";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
 
-interface CountUpProps {
-  from?: number;
+interface CounterProps {
+  from: number;
   to: number;
   duration?: number;
   suffix?: string;
-  step?: number; // 👈 new prop to control stepping
+  step?: number;
+  className?: string;
 }
 
 export default function CountUpOnView({
-  from = 0,
+  from,
   to,
-  duration = 0.5,
+  duration = 1,
   suffix = "+",
-  step = 5, 
-}: CountUpProps) {
-  const count = useMotionValue(from);
-
-  const rounded = useTransform(count, (latest) => {
-    const steppedValue = Math.round(latest / step) * step;
-    return `${steppedValue}${suffix}`;
-  });
+  step = 5,
+  className = "",
+}: CounterProps) {
+  const nodeRef = useRef<HTMLSpanElement | null>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const controls = animate(count, to, {
-      duration,
-      ease: [0.25, 1, 0.5, 1],
-    });
-    return controls.stop;
-  }, [count, to, duration]);
+    const node = nodeRef.current;
+    if (!node || hasAnimated) return;
 
-  return <motion.span>{rounded}</motion.span>;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasAnimated(true);
+          observer.unobserve(entry.target);
+
+          animate(from, to, {
+            duration,
+            ease: [0.25, 1, 0.5, 1],
+            onUpdate: (latest) => {
+              const steppedValue = Math.round(latest / step) * step;
+              node.textContent = `${steppedValue}${suffix}`;
+            },
+          });
+        }
+      },
+      { threshold: 0.3 } // 30% visibility trigger
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, [from, to, duration, suffix, step, hasAnimated]);
+
+  return (
+    <motion.span
+      ref={nodeRef}
+      initial={{ opacity: 0, y: 20 }}
+      animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.4 }}
+      className={className}
+    />
+  );
 }

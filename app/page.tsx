@@ -119,10 +119,10 @@ export default function HomePage() {
           </h2>
           <div className="flex flex-wrap w-full text-center" role="list">
             {[
-              { label: "Years Experience", value: 20 , step:1},
-              { label: "States Covered", value: 7, step : 1 },
-              { label: "Fleet Vehicles", value: 50, step :2 },
-              { label: "Happy Clients", value: 100, step: 5 },
+              { label: "Years Experience", value: 20 , step:1, suffix : "+"},
+              { label: "States Covered", value: 7, step : 1, suffix : ""},
+              { label: "Fleet Vehicles", value: 50, step :1, suffix : "+" },
+              { label: "Happy Clients", value: 100, step: 5, suffix : "+" },
             ].map((stat, index) => (
               <div
                 key={stat.label}
@@ -134,7 +134,7 @@ export default function HomePage() {
                 }`}
               >
                 <div className="text-6xl text-primary mb-2">
-                  <CountUpOnView to={stat.value} step={stat.step || 5} />
+                  <CountUpOnView from={0} to={stat.value} step={stat.step} suffix={stat.suffix} />
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
               </div>

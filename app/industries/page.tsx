@@ -2,9 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Factory, Wheat, Beaker, FileText, Calendar } from "lucide-react";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { exo } from "../layout";
 import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {

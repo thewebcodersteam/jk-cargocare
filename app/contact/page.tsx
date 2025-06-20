@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts",
@@ -167,30 +168,16 @@ export default function ContactPage() {
           <p className="text-xl mb-8 opacity-90">
             Our logistics experts are ready to help you with urgent requirements
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+910832-25561"
+            <Link
+              href="/contact"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center"
+                "bg-orange-500 hover:bg-orange-600"
               )}
-              aria-label="Call us now"
+              aria-label="Request a quote"
             >
-              <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
-              Call Now: +91-0832-2556111
-            </a>
-            <a
-              href="mailto:jk.cargo@yahoo.co.uk"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "bg-white text-blue-600 hover:bg-gray-300 flex items-center justify-center"
-              )}
-              aria-label="Send us an email"
-            >
-              <Mail className="mr-2 h-4 w-4" aria-hidden="true" />
-              Email Us
-            </a>
-          </div>
+              Contact Us
+            </Link>
         </div>
       </section>
     </>

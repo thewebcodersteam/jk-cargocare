@@ -23,13 +23,21 @@ import { Controller } from "react-hook-form";
 import { Label } from "../ui/label";
 import Spinner from "./Spinner";
 
-// 1. Zod schema
 const contactSchema = z.object({
-  name: z.string().min(1, "Full name is required"),
+  firstName: z
+    .string()
+    .min(1)
+    .nonempty()
+    .regex(/^[a-zA-Z]+$/, "First name must contain only letters"),
+  lastName: z
+    .string()
+    .min(1)
+    .nonempty()
+    .regex(/^[a-zA-Z]+$/, "Last name must contain only letters"),
   email: z.string().email("Invalid email address"),
   company: z.string().optional(),
   service: z.string().min(1, "Please select a service"),
-  message: z.string().min(1, "Message is required"),
+  message: z.string().optional(),
 });
 
 type ContactFormSchema = z.infer<typeof contactSchema>;
@@ -43,6 +51,7 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm<ContactFormSchema>({
     resolver: zodResolver(contactSchema),
+    mode: "onChange",
   });
 
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -58,7 +67,14 @@ export default function ContactForm() {
       toast.success(data.message || "Message sent!");
       setCaptchaError("");
       setCaptchaToken(null);
-      reset();
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        service: "",
+        message: "",
+      });
       recaptchaRef?.current?.reset();
     },
     onError(error: any) {
@@ -98,23 +114,38 @@ export default function ContactForm() {
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <Label className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name <span className="text-red-500">*</span>
+                First Name <span className="text-red-500">*</span>
               </Label>
               <Input
-                required
                 type="text"
-                placeholder="Your full name"
-                {...register("name")}
-                style={{ borderColor: errors.name ? "red" : "" }}
+                placeholder="Your first name"
+                {...register("firstName")}
+                style={{ borderColor: errors.firstName ? "red" : "" }}
               />
-              {errors.name && (
+              {errors.firstName && (
                 <p className="text-sm text-red-600 mt-1">
-                  {errors.name.message}
+                  {errors.firstName.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <Label className="block text-sm font-medium text-gray-700 mb-2">
+                Last Name <span className="text-red-500">*</span>
+              </Label>
+              <Input
+                type="text"
+                placeholder="Your last name"
+                {...register("lastName")}
+                style={{ borderColor: errors.lastName ? "red" : "" }}
+              />
+              {errors.lastName && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.lastName.message}
                 </p>
               )}
             </div>
 
-            <div>
+            <div className="col-span-2">
               <Label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address <span className="text-red-500">*</span>
               </Label>
@@ -137,7 +168,6 @@ export default function ContactForm() {
               Company Name
             </Label>
             <Input
-              required
               type="text"
               placeholder="Your company name"
               {...register("company")}
@@ -155,7 +185,6 @@ export default function ContactForm() {
               control={control}
               render={({ field }) => (
                 <Select
-                  required
                   onValueChange={field.onChange}
                   value={field.value}
                   defaultValue={field.value}
@@ -191,10 +220,9 @@ export default function ContactForm() {
 
           <div>
             <Label className="block text-sm font-medium text-gray-700 mb-2">
-              Message <span className="text-red-500">*</span>
+              Message
             </Label>
             <Textarea
-              required
               rows={5}
               placeholder="Please describe your logistics requirements..."
               {...register("message")}

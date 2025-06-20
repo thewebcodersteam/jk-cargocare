@@ -4,11 +4,20 @@ import { z } from "zod";
 import { sendEmail } from "@/lib/sendEmail";
 
 const contactSchema = z.object({
-  name: z.string().min(1, "Full name is required"),
+  firstName: z
+    .string()
+    .min(1)
+    .nonempty()
+    .regex(/^[a-zA-Z]+$/, "First name must contain only letters"),
+  lastName: z
+    .string()
+    .min(1)
+    .nonempty()
+    .regex(/^[a-zA-Z]+$/, "Last name must contain only letters"),
   email: z.string().email("Invalid email address"),
   company: z.string().optional(),
   service: z.string().min(1, "Please select a service"),
-  message: z.string().min(1, "Message is required"),
+  message: z.string().optional(),
   token: z.string().min(1, "reCAPTCHA token is required"),
 });
 
@@ -58,18 +67,16 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   } catch (error: any) {
-    console.error("API ERROR:", error);
-
     if (error instanceof z.ZodError) {
+      const formattedErrors = error.errors.reduce((acc, curr) => {
+        acc[curr.path[0] as string] = curr.message;
+        return acc;
+      }, {} as Record<string, string>);
+
       return NextResponse.json(
-        { message: "Invalid form data", errors: error.errors },
+        { message: "Invalid form data", errors: formattedErrors },
         { status: 400 }
       );
     }
-
-    return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
-    );
   }
 }

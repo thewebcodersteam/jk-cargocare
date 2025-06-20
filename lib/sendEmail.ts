@@ -1,23 +1,25 @@
 import * as Brevo from "@getbrevo/brevo";
-import emailTemplate from "./emailTemplate";
 
-export type EmailContent = {
-  name: string;
+type ContactFormData = {
+  firstName: string;
+  lastName: string;
   email: string;
   company?: string;
   service: string;
-  message: string;
+  message?: string;
 };
 
-export async function sendEmail(data: EmailContent): Promise<boolean> {
+export async function sendEmail(data: ContactFormData): Promise<boolean> {
   try {
     const apiKey = process.env.BREVO_API_KEY!;
+    const templateId = parseInt(process.env.BREVO_TEMPLATE_ID!);
+
     const apiInstance = new Brevo.TransactionalEmailsApi();
     apiInstance.setApiKey(Brevo.TransactionalEmailsApiApiKeys.apiKey, apiKey);
 
     await apiInstance.sendTransacEmail({
       sender: {
-        name: "Sankalp Kalangutkar",
+        name: "Website Form",
         email: "sankalpkalangutkar51@gmail.com",
       },
       to: [
@@ -26,14 +28,15 @@ export async function sendEmail(data: EmailContent): Promise<boolean> {
           name: "Sankalp",
         },
       ],
-      subject: `New Inquiry from ${data.name}`,
-      htmlContent: emailTemplate(data),
+      subject: `New Inquiry from ${data.firstName} ${data.lastName}`,
+      templateId,
       params: {
-        name: data.name,
+        firstName: data.firstName,
+        lastName: data.lastName,
         email: data.email,
-        company: data.company,
+        company: data.company || "N/A",
         service: data.service,
-        message: data.message,
+        message: data.message || "No message provided.",
       },
     });
 

@@ -8,7 +8,6 @@ import { InteractiveMap } from "@/components/interactive-map";
 import { Metadata } from "next";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { exo } from "./layout";
 
 export const metadata: Metadata = {
   title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services",
@@ -331,17 +330,6 @@ export default function HomePage() {
               aria-label="Request a quote"
             >
               Request Quote
-            </Link>
-            <Link
-              href="tel:+918322782828"
-              aria-label="Call us now"
-              className={cn(
-                buttonVariants({ size: "lg", variant: "outline" }),
-                "border-white hover:bg-gray-300 text-black"
-              )}
-            >
-              <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
-              Call Now: +91-0832-25561
             </Link>
           </div>
         </div>

@@ -64,6 +64,7 @@ export default function HomePage() {
             alt="Freight truck"
             aria-label="hero-image"
             fill
+            priority
             className="object-cover object-bottom"
           />
           <div>

@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Calendar, Target, Heart } from "lucide-react";
+import { steps } from "motion";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -318,29 +319,37 @@ export default function AboutPage() {
             {[
               {
                 stat: 20,
+                suffix : "+",
+                steps : 2,
                 label: "Years of Experience",
                 sub: "Serving clients since 2000",
               },
               {
                 stat: 7,
+                steps : 1,
+                suffix : "",
                 label: "States Covered",
                 sub: "Pan-India presence",
               },
               {
                 stat: 100,
+                 suffix : "+",
+                 steps : 10,
                 label: "Happy Clients",
                 sub: "Trusted partnerships",
               },
               {
                 stat: 50,
+                 suffix : "+",
+                 steps : 5,
                 label: "Fleet Vehicles",
                 sub: "Modern transportation",
               },
-            ].map(({ stat, label, sub }) => (
+            ].map(({ stat, label, sub, steps, suffix }) => (
               <AnimateOnScroll key={label}>
                 <div className="text-center" role="listitem">
                   <div className="text-4xl font-bold text-blue-600 mb-2">
-                    <CountUpOnView to={stat} />
+                    <CountUpOnView from={0} to={stat} step={steps} suffix={suffix} />
                   </div>
                   <div className="text-gray-800 font-medium">{label}</div>
                   <div className="text-gray-600 text-sm">{sub}</div>

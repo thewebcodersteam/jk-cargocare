@@ -15,6 +15,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { exo } from "@/app/layout";
 import HeroSection from "@/components/HeroSection";
+import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
 export const metadata: Metadata = {
   title:
@@ -163,57 +164,58 @@ export default function ServicesPage() {
               },
               index
             ) => (
-              <div
-                key={title}
-                className={`grid lg:grid-cols-2 gap-8 items-center`}
-                aria-labelledby={`service-${index}`}
-              >
-                <figure className={reverse ? "lg:order-2" : ""}>
-                  <div className="flex items-center mb-4">
-                    <div className={`${colorClass} p-3 rounded-full mr-4`}>
-                      {icon}
-                    </div>
-                    <h2
-                      id={`service-${index}`}
-                      className="text-3xl font-bold text-gray-800"
-                    >
-                      {title}
-                    </h2>
-                  </div>
-                  <p className="text-gray-600 mb-6">{text}</p>
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    {points.map((item) => (
-                      <div key={item} className="flex items-center space-x-2">
-                        <CheckCircle
-                          className="h-5 w-5 text-green-500"
-                          aria-hidden="true"
-                        />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Link href="/contact" passHref legacyBehavior>
-                    <Button className={buttonColor} aria-label={buttonLabel}>
-                      {buttonLabel}
-                    </Button>
-                  </Link>
-                </figure>
-
+              <AnimateOnScroll key={title}>
                 <div
-                  className={`relative w-full h-64 md:h-80 lg:h-[400px] ${
-                    reverse ? "lg:order-1" : ""
-                  }`}
+                  className={`grid lg:grid-cols-2 gap-8 items-center`}
+                  aria-labelledby={`service-${index}`}
                 >
-                  <Image
-                    src={imageSrc}
-                    alt={imageAlt}
-                    fill
-                    className="rounded-lg shadow-lg object-cover"
-                  />
-                </div>
+                  <figure className={reverse ? "lg:order-2" : ""}>
+                    <div className="flex items-center mb-4">
+                      <div className={`${colorClass} p-3 rounded-full mr-4`}>
+                        {icon}
+                      </div>
+                      <h2
+                        id={`service-${index}`}
+                        className="text-3xl font-bold text-gray-800"
+                      >
+                        {title}
+                      </h2>
+                    </div>
+                    <p className="text-gray-600 mb-6">{text}</p>
+                    <div className="grid md:grid-cols-2 gap-4 mb-6">
+                      {points.map((item) => (
+                        <div key={item} className="flex items-center space-x-2">
+                          <CheckCircle
+                            className="h-5 w-5 text-green-500"
+                            aria-hidden="true"
+                          />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <Link href="/contact" passHref legacyBehavior>
+                      <Button className={buttonColor} aria-label={buttonLabel}>
+                        {buttonLabel}
+                      </Button>
+                    </Link>
+                  </figure>
 
-                <figcaption className="sr-only">{imageAlt}</figcaption>
-              </div>
+                  <div
+                    className={`relative w-full h-64 md:h-80 lg:h-[400px] ${
+                      reverse ? "lg:order-1" : ""
+                    }`}
+                  >
+                    <Image
+                      src={imageSrc}
+                      alt={imageAlt}
+                      fill
+                      className="rounded-lg shadow-lg object-cover"
+                    />
+                  </div>
+
+                  <figcaption className="sr-only">{imageAlt}</figcaption>
+                </div>
+              </AnimateOnScroll>
             )
           )}
         </div>
@@ -254,21 +256,24 @@ export default function ServicesPage() {
                 desc: "Strategic route planning to ensure cost-effective and timely delivery of your cargo.",
               },
             ].map(({ icon: Icon, title, desc }, index, arr) => (
-              <Card
-                key={title}
-                className={`${
-                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
-                }`}
-              >
-                <CardContent className="p-6 text-center">
-                  <Icon
-                    className="h-12 w-12 text-blue-600 mx-auto mb-4"
-                    aria-hidden="true"
-                  />
-                  <h3 className="text-xl font-semibold mb-3">{title}</h3>
-                  <p className="text-gray-600">{desc}</p>
-                </CardContent>
-              </Card>
+              <AnimateOnScroll key={title}>
+                <Card
+                  className={`${
+                    index === arr.length - 1
+                      ? "md:col-span-2 lg:col-span-1"
+                      : ""
+                  }`}
+                >
+                  <CardContent className="p-6 text-center">
+                    <Icon
+                      className="h-12 w-12 text-blue-600 mx-auto mb-4"
+                      aria-hidden="true"
+                    />
+                    <h3 className="text-xl font-semibold mb-3">{title}</h3>
+                    <p className="text-gray-600">{desc}</p>
+                  </CardContent>
+                </Card>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -309,15 +314,17 @@ export default function ServicesPage() {
                 text: "text-green-600",
               },
             ].map(({ title, desc, bg, text }) => (
-              <div key={title} className="text-center">
-                <div
-                  className={`${bg} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4`}
-                >
-                  <Truck className={`h-10 w-10 ${text}`} aria-hidden="true" />
+              <AnimateOnScroll key={title}>
+                <div className="text-center">
+                  <div
+                    className={`${bg} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4`}
+                  >
+                    <Truck className={`h-10 w-10 ${text}`} aria-hidden="true" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{title}</h3>
+                  <p className="text-gray-600">{desc}</p>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{title}</h3>
-                <p className="text-gray-600">{desc}</p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

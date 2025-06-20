@@ -8,6 +8,8 @@ import { InteractiveMap } from "@/components/interactive-map";
 import { Metadata } from "next";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
+import CountUpOnView from "@/components/Functional/CountUpOnView";
 
 export const metadata: Metadata = {
   title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services",
@@ -42,7 +44,7 @@ const clientLogos: { name: string; image: string }[] = [
   { name: "Marico", image: "/clients/marico.webp" },
   { name: "Coromandel", image: "/clients/coromandel.webp" },
   { name: "Grasim", image: "/clients/grasim.webp" },
-  { name: "Avestra", image: "/clients/avestra.jpg" },
+  { name: "Avestra", image: "/clients/avestra.webp" },
   { name: "Agrimass", image: "/clients/agrimass.webp" },
   { name: "WCI Shipping", image: "/clients/wci.webp" },
 ];
@@ -59,7 +61,9 @@ export default function HomePage() {
           <Image
             src="/assets/images/hero-section-img.webp"
             alt="Freight truck"
+            aria-label="hero-image"
             fill
+            priority
             className="object-cover object-bottom"
           />
           <div>
@@ -115,10 +119,10 @@ export default function HomePage() {
           </h2>
           <div className="flex flex-wrap w-full text-center" role="list">
             {[
-              { label: "Years Experience", value: "20+" },
-              { label: "States Covered", value: "7" },
-              { label: "Fleet Vehicles", value: "50+" },
-              { label: "Happy Clients", value: "100+" },
+              { label: "Years Experience", value: 20 , step:1, suffix : "+"},
+              { label: "States Covered", value: 7, step : 1, suffix : ""},
+              { label: "Fleet Vehicles", value: 50, step :1, suffix : "+" },
+              { label: "Happy Clients", value: 100, step: 5, suffix : "+" },
             ].map((stat, index) => (
               <div
                 key={stat.label}
@@ -129,7 +133,9 @@ export default function HomePage() {
                     : ""
                 }`}
               >
-                <div className="text-6xl text-primary mb-2">{stat.value}</div>
+                <div className="text-6xl text-primary mb-2">
+                  <CountUpOnView from={0} to={stat.value} step={stat.step} suffix={stat.suffix} />
+                </div>
                 <div className="text-gray-600">{stat.label}</div>
               </div>
             ))}
@@ -137,119 +143,132 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Core Services */}
-      <section aria-labelledby="services-heading" className="py-16">
-        <div className="container mx-auto px-5 md:px-6 lg:px-16">
-          <div className="text-center mb-12">
-            <h2
-              id="services-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
-            >
-              Our Core Services
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive logistics solutions tailored to meet your business
-              needs
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Freight Solutions",
-                icon: (
-                  <Truck className="h-8 w-8 text-blue-600" aria-hidden="true" />
-                ),
-                desc: "FTL, LTL, and ODC transport with long-distance coverage across India",
-              },
-              {
-                title: "Warehousing",
-                icon: (
-                  <Warehouse
-                    className="h-8 w-8 text-orange-600"
-                    aria-hidden="true"
-                  />
-                ),
-                desc: "Scalable warehousing solutions at Sancoale Industrial Estate, Goa",
-              },
-              {
-                title: "Manpower Services",
-                icon: (
-                  <Users
-                    className="h-8 w-8 text-green-600"
-                    aria-hidden="true"
-                  />
-                ),
-                desc: "Trained labor and field support for your operational needs",
-              },
-            ].map((service, index, arr) => (
-              <Card
-                key={service.title}
-                className={`group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
-                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
-                }`}
+      <AnimateOnScroll>
+        {/* Core Services */}
+        <section aria-labelledby="services-heading" className="py-16">
+          <div className="container mx-auto px-5 md:px-6 lg:px-16">
+            <div className="text-center mb-12">
+              <h2
+                id="services-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
               >
-                <CardContent className="p-8 text-center">
-                  <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">{service.desc}</p>
-                  <Link
-                    href="/services"
-                    className="text-blue-600 hover:text-blue-800 font-medium"
-                    aria-label={`Learn more about ${service.title}`}
-                  >
-                    Learn More →
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Valued Clients – Infinite Scrolling Row */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Our Valued Clients
-            </h2>
-            <p className="text-gray-600">
-              Trusted by industry leaders across various sectors
-            </p>
-          </div>
-
-          <div className="overflow-hidden relative">
-            <div className="animate-marquee flex gap-12 items-end">
-              {[...Array(2)].flatMap((_, i) =>
-                clientLogos.map(({ name, image }) => (
-                  <div
-                    key={`${name}-${i}`}
-                    className="bg-white p-6 rounded-lg shadow-sm text-center w-[200px] h-[160px] flex flex-col items-center justify-end"
-                  >
-                    <Image
-                      src={image}
-                      alt={name}
-                      width={160}
-                      height={80}
-                      className="object-contain max-h-[80px] mb-2"
+                Our Core Services
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Comprehensive logistics solutions tailored to meet your business
+                needs
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Freight Solutions",
+                  icon: (
+                    <Truck
+                      className="h-8 w-8 text-blue-600"
+                      aria-hidden="true"
                     />
-                    <p className="text-sm font-medium text-gray-700 mt-auto">
-                      {name}
-                    </p>
-                  </div>
-                ))
-              )}
+                  ),
+                  desc: "FTL, LTL, and ODC transport with long-distance coverage across India",
+                },
+                {
+                  title: "Warehousing",
+                  icon: (
+                    <Warehouse
+                      className="h-8 w-8 text-orange-600"
+                      aria-hidden="true"
+                    />
+                  ),
+                  desc: "Scalable warehousing solutions at Sancoale Industrial Estate, Goa",
+                },
+                {
+                  title: "Manpower Services",
+                  icon: (
+                    <Users
+                      className="h-8 w-8 text-green-600"
+                      aria-hidden="true"
+                    />
+                  ),
+                  desc: "Trained labor and field support for your operational needs",
+                },
+              ].map((service, index, arr) => (
+                <AnimateOnScroll key={service.title}>
+                  <Card
+                    className={`group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
+                      index === arr.length - 1
+                        ? "md:col-span-2 lg:col-span-1"
+                        : ""
+                    }`}
+                  >
+                    <CardContent className="p-8 text-center">
+                      <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-xl font-semibold mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">{service.desc}</p>
+                      <Link
+                        href="/services"
+                        className="text-blue-600 hover:text-blue-800 font-medium"
+                        aria-label={`Learn more about ${service.title}`}
+                      >
+                        Learn More →
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimateOnScroll>
+
+      <AnimateOnScroll>
+        {/* Our Valued Clients – Infinite Scrolling Row */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                Our Valued Clients
+              </h2>
+              <p className="text-gray-600">
+                Trusted by industry leaders across various sectors
+              </p>
+            </div>
+
+            <div className="overflow-hidden relative">
+              <div className="animate-marquee flex gap-12 items-end">
+                {[...Array(2)].flatMap((_, i) =>
+                  clientLogos.map(({ name, image }) => (
+                    <div
+                      key={`${name}-${i}`}
+                      className="bg-white p-6 rounded-lg shadow-sm text-center w-[200px] h-[160px] flex flex-col items-center justify-end"
+                    >
+                      <Image
+                        src={image}
+                        alt={name}
+                        width={160}
+                        height={80}
+                        className="object-contain max-h-[80px] mb-2"
+                      />
+                      <p className="text-sm font-medium text-gray-700 mt-auto">
+                        {name}
+                      </p>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      </AnimateOnScroll>
 
       {/* Coverage Map */}
-      <section aria-labelledby="coverage-heading" className="py-16 my-16 bg-gray-50 border-[1px] border-gray-300 rounded-xl mx-5 md:mx-6 lg:mx-16">
+      <section
+        aria-labelledby="coverage-heading"
+        className="py-16 my-16 bg-gray-50 border-[1px] border-gray-300 rounded-xl mx-5 md:mx-6 lg:mx-16"
+      >
         <div className="container mx-auto px-5 lg:px-16">
           <div className="text-center mb-12">
             <h2
@@ -267,42 +286,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Process Flow */}
-      <section aria-labelledby="process-heading" className="py-16 bg-gray-50 border-[1px] border-gray-300 rounded-xl mx-5 md:mx-6 lg:mx-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              id="process-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
-            >
-              Our Process
-            </h2>
-            <p className="text-gray-600">
-              Simple, efficient, and transparent workflow
-            </p>
+      <AnimateOnScroll>
+        {/* Process Flow */}
+        <section
+          aria-labelledby="process-heading"
+          className="py-16 bg-gray-50 border-[1px] border-gray-300 rounded-xl mx-5 md:mx-6 lg:mx-16"
+        >
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2
+                id="process-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
+              >
+                Our Process
+              </h2>
+              <p className="text-gray-600">
+                Simple, efficient, and transparent workflow
+              </p>
+            </div>
+            <ProcessDiagram />
           </div>
-          <ProcessDiagram />
-        </div>
-      </section>
+        </section>
+      </AnimateOnScroll>
 
-      {/* Client Carousel */}
-      <section aria-labelledby="clients-heading" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-0 lg:px-4">
-          <div className="text-center mb-12">
-            <h2
-              id="clients-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
-            >
-              What Our Clients Say
-            </h2>
-            <p className="text-gray-600 px-5 lg:px-0">
-              Hear directly from the professionals who rely on JK Cargocare for
-              logistics excellence
-            </p>
+      <AnimateOnScroll>
+        {/* Client Carousel */}
+        <section aria-labelledby="clients-heading" className="py-16 bg-gray-50">
+          <div className="container mx-auto px-0 lg:px-4">
+            <div className="text-center mb-12">
+              <h2
+                id="clients-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
+              >
+                What Our Clients Say
+              </h2>
+              <p className="text-gray-600 px-5 lg:px-0">
+                Hear directly from the professionals who rely on JK Cargocare
+                for logistics excellence
+              </p>
+            </div>
+            <ClientCarousel />
           </div>
-          <ClientCarousel />
-        </div>
-      </section>
+        </section>
+      </AnimateOnScroll>
 
       {/* CTA Section */}
       <section

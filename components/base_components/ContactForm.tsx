@@ -30,18 +30,15 @@ const contactSchema = z.object({
     .string()
     .min(1)
     .nonempty()
-    .regex(/^[a-zA-Z]+$/, "First name must contain only letters")
-    .regex(noScriptRegex, "Invalid input detected"),
+    .regex(/^[a-zA-Z]+$/, "First name must contain only letters"),
   lastName: z
     .string()
     .min(1)
     .nonempty()
-    .regex(/^[a-zA-Z]+$/, "Last name must contain only letters")
-    .regex(noScriptRegex, "Invalid input detected"),
+    .regex(/^[a-zA-Z]+$/, "Last name must contain only letters"),
   email: z
     .string()
-    .email("Invalid email address")
-    .regex(noScriptRegex, "Invalid input detected"),
+    .email("Invalid email address"),
   company: z.string().optional(),
   service: z.string().min(1, "Please select a service"),
   message: z.string().optional(),

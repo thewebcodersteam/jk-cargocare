@@ -1,4 +1,5 @@
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
+import CountUpOnView from "@/components/Functional/CountUpOnView";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -134,28 +135,27 @@ export default function AboutPage() {
                   image: "/assets/images/founder-1.webp",
                 },
               ].map((founder) => (
-                <Card
-                  key={founder.name}
-                  className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                >
-                  <CardContent className="p-8 text-center">
-                    <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
-                      <Image
-                        src={founder.image}
-                        alt={`Portrait of ${founder.name}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">
-                      {founder.name}
-                    </h3>
-                    <p className="text-blue-600 font-medium mb-4">
-                      {founder.role}
-                    </p>
-                    <p className="text-gray-600">{founder.desc}</p>
-                  </CardContent>
-                </Card>
+                <AnimateOnScroll key={founder.name}>
+                  <Card className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <CardContent className="p-8 text-center">
+                      <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
+                        <Image
+                          src={founder.image}
+                          alt={`Portrait of ${founder.name}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">
+                        {founder.name}
+                      </h3>
+                      <p className="text-blue-600 font-medium mb-4">
+                        {founder.role}
+                      </p>
+                      <p className="text-gray-600">{founder.desc}</p>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
               ))}
             </div>
           </div>
@@ -214,23 +214,24 @@ export default function AboutPage() {
                   bg: "bg-green-100",
                 },
               ].map(({ icon, title, text, bg }, index, arr) => (
-                <Card
-                  key={title}
-                  className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                    index === arr.length - 1
-                      ? "md:col-span-2 lg:col-span-1"
-                      : ""
-                  }`}
-                >
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-                      {/* your icon goes here, already color styled */}
-                      {icon}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-4">{title}</h3>
-                    <p className="text-gray-600">{text}</p>
-                  </CardContent>
-                </Card>
+                <AnimateOnScroll key={title}>
+                  <Card
+                    className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                      index === arr.length - 1
+                        ? "md:col-span-2 lg:col-span-1"
+                        : ""
+                    }`}
+                  >
+                    <CardContent className="p-8 text-center">
+                      <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+                        {/* your icon goes here, already color styled */}
+                        {icon}
+                      </div>
+                      <h3 className="text-xl font-semibold mb-4">{title}</h3>
+                      <p className="text-gray-600">{text}</p>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
               ))}
             </div>
           </div>
@@ -295,62 +296,60 @@ export default function AboutPage() {
           </div>
         </section>
       </AnimateOnScroll>
-      <AnimateOnScroll>
-        {/* Achievements */}
-        <section
-          className="py-16 bg-gray-50"
-          aria-labelledby="achievements-heading"
-        >
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2
-                id="achievements-heading"
-                className="text-3xl font-bold text-gray-800 mb-4"
-              >
-                Key Achievements
-              </h2>
-              <p className="text-gray-600">
-                Milestones that mark our journey of growth and success
-              </p>
-            </div>
-            <div
-              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-              role="list"
+
+      {/* Achievements */}
+      <section
+        className="py-16 bg-gray-50"
+        aria-labelledby="achievements-heading"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2
+              id="achievements-heading"
+              className="text-3xl font-bold text-gray-800 mb-4"
             >
-              {[
-                {
-                  stat: "20+",
-                  label: "Years of Experience",
-                  sub: "Serving clients since 2000",
-                },
-                {
-                  stat: "7",
-                  label: "States Covered",
-                  sub: "Pan-India presence",
-                },
-                {
-                  stat: "100+",
-                  label: "Happy Clients",
-                  sub: "Trusted partnerships",
-                },
-                {
-                  stat: "50+",
-                  label: "Fleet Vehicles",
-                  sub: "Modern transportation",
-                },
-              ].map(({ stat, label, sub }) => (
-                <div key={label} className="text-center" role="listitem">
+              Key Achievements
+            </h2>
+            <p className="text-gray-600">
+              Milestones that mark our journey of growth and success
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+            {[
+              {
+                stat: 20,
+                label: "Years of Experience",
+                sub: "Serving clients since 2000",
+              },
+              {
+                stat: 7,
+                label: "States Covered",
+                sub: "Pan-India presence",
+              },
+              {
+                stat: 100,
+                label: "Happy Clients",
+                sub: "Trusted partnerships",
+              },
+              {
+                stat: 50,
+                label: "Fleet Vehicles",
+                sub: "Modern transportation",
+              },
+            ].map(({ stat, label, sub }) => (
+              <AnimateOnScroll key={label}>
+                <div className="text-center" role="listitem">
                   <div className="text-4xl font-bold text-blue-600 mb-2">
-                    {stat}
+                    <CountUpOnView to={stat} />
                   </div>
                   <div className="text-gray-800 font-medium">{label}</div>
                   <div className="text-gray-600 text-sm">{sub}</div>
                 </div>
-              ))}
-            </div>
+              </AnimateOnScroll>
+            ))}
           </div>
-        </section>
-      </AnimateOnScroll>
+        </div>
+      </section>
 
       {/* CTA */}
       <section

@@ -108,42 +108,40 @@ export default function HomePage() {
         </div>
       </section>
 
-    
-        {/* Quick Stats */}
-        <section
-          aria-labelledby="stats-heading"
-          className="flex items-center p-5 py-16 mb-16 bg-gray-100 w-full"
-        >
-          <div className="w-full">
-            <h2 id="stats-heading" className="sr-only">
-              Company Statistics
-            </h2>
-            <div className="flex flex-wrap w-full text-center" role="list">
-              {[
-                { label: "Years Experience", value: 20 },
-                { label: "States Covered", value: 7 },
-                { label: "Fleet Vehicles", value: 50 },
-                { label: "Happy Clients", value: 100 },
-              ].map((stat, index) => (
-                <div
-                  key={stat.label}
-                  role="listitem"
-                  className={`h-40 flex flex-col justify-center items-center w-full sm:w-1/2 lg:w-1/4 ${
-                    index !== 3
-                      ? "border-b sm:border-b-0 lg:border-r border-gray-300"
-                      : ""
-                  }`}
-                >
-                  <div className="text-6xl text-primary mb-2">
-                    <CountUpOnView to={stat.value} />
-                  </div>
-                  <div className="text-gray-600">{stat.label}</div>
+      {/* Quick Stats */}
+      <section
+        aria-labelledby="stats-heading"
+        className="flex items-center p-5 py-16 mb-16 bg-gray-100 w-full"
+      >
+        <div className="w-full">
+          <h2 id="stats-heading" className="sr-only">
+            Company Statistics
+          </h2>
+          <div className="flex flex-wrap w-full text-center" role="list">
+            {[
+              { label: "Years Experience", value: 20 , step:1},
+              { label: "States Covered", value: 7, step : 1 },
+              { label: "Fleet Vehicles", value: 50, step :2 },
+              { label: "Happy Clients", value: 100, step: 5 },
+            ].map((stat, index) => (
+              <div
+                key={stat.label}
+                role="listitem"
+                className={`h-40 flex flex-col justify-center items-center w-full sm:w-1/2 lg:w-1/4 ${
+                  index !== 3
+                    ? "border-b sm:border-b-0 lg:border-r border-gray-300"
+                    : ""
+                }`}
+              >
+                <div className="text-6xl text-primary mb-2">
+                  <CountUpOnView to={stat.value} step={stat.step || 5} />
                 </div>
-              ))}
-            </div>
+                <div className="text-gray-600">{stat.label}</div>
+              </div>
+            ))}
           </div>
-        </section>
-
+        </div>
+      </section>
 
       <AnimateOnScroll>
         {/* Core Services */}
@@ -194,31 +192,32 @@ export default function HomePage() {
                   desc: "Trained labor and field support for your operational needs",
                 },
               ].map((service, index, arr) => (
-                <Card
-                  key={service.title}
-                  className={`group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
-                    index === arr.length - 1
-                      ? "md:col-span-2 lg:col-span-1"
-                      : ""
-                  }`}
-                >
-                  <CardContent className="p-8 text-center">
-                    <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                      {service.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 mb-4">{service.desc}</p>
-                    <Link
-                      href="/services"
-                      className="text-blue-600 hover:text-blue-800 font-medium"
-                      aria-label={`Learn more about ${service.title}`}
-                    >
-                      Learn More →
-                    </Link>
-                  </CardContent>
-                </Card>
+                <AnimateOnScroll key={service.title}>
+                  <Card
+                    className={`group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
+                      index === arr.length - 1
+                        ? "md:col-span-2 lg:col-span-1"
+                        : ""
+                    }`}
+                  >
+                    <CardContent className="p-8 text-center">
+                      <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-xl font-semibold mb-3">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">{service.desc}</p>
+                      <Link
+                        href="/services"
+                        className="text-blue-600 hover:text-blue-800 font-medium"
+                        aria-label={`Learn more about ${service.title}`}
+                      >
+                        Learn More →
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
               ))}
             </div>
           </div>

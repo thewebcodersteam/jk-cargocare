@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { exo } from "../layout";
 import HeroSection from "@/components/HeroSection";
+import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
 export const metadata: Metadata = {
   title:
@@ -48,7 +49,7 @@ export default function IndustriesPage() {
       />
 
       {/* Industries Grid */}
-      <section className="py-16">
+      <section className="py-16 px-4 md:px-5 lg:px-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -119,34 +120,33 @@ export default function IndustriesPage() {
                 ],
               },
             ].map(({ title, color, icon: Icon, points }) => (
-              <Card
-                key={title}
-                className="group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <CardContent className="p-8">
-                  <div
-                    className={`bg-${color}-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-${color}-200 transition-colors`}
-                  >
-                    <Icon className={`h-8 w-8 text-${color}-600`} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-center mb-4">
-                    {title}
-                  </h3>
-                  <p className="text-gray-600 text-center mb-6">
-                    {/* description logic */}
-                  </p>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    {points.map((point) => (
-                      <div key={point}>• {point}</div>
-                    ))}
-                  </div>
-                  <div className="mt-6 text-center">
-                    <Button className="border border-orange-500 text-orange-500 bg-white hover:bg-orange-500 hover:text-white transition-all">
-                      <Link href="/contact">Learn More</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              <AnimateOnScroll key={title}>
+                <Card className="group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  <CardContent className="p-8">
+                    <div
+                      className={`bg-${color}-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-${color}-200 transition-colors`}
+                    >
+                      <Icon className={`h-8 w-8 text-${color}-600`} />
+                    </div>
+                    <h3 className="text-xl font-semibold text-center mb-4">
+                      {title}
+                    </h3>
+                    <p className="text-gray-600 text-center mb-6">
+                      {/* description logic */}
+                    </p>
+                    <div className="space-y-2 text-sm text-gray-600">
+                      {points.map((point) => (
+                        <div key={point}>• {point}</div>
+                      ))}
+                    </div>
+                    <div className="mt-6 text-center">
+                      <Button className="border border-orange-500 text-orange-500 bg-white hover:bg-orange-500 hover:text-white transition-all">
+                        <Link href="/contact">Learn More</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>
@@ -164,31 +164,41 @@ export default function IndustriesPage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">20+</div>
-              <div className="text-gray-800 font-medium mb-2">
-                Years Experience
+            <AnimateOnScroll>
+              <div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">20+</div>
+                <div className="text-gray-800 font-medium mb-2">
+                  Years Experience
+                </div>
+                <p className="text-gray-600 text-sm">
+                  Deep industry knowledge across sectors
+                </p>
               </div>
-              <p className="text-gray-600 text-sm">
-                Deep industry knowledge across sectors
-              </p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">100+</div>
-              <div className="text-gray-800 font-medium mb-2">
-                Satisfied Clients
+            </AnimateOnScroll>
+            <AnimateOnScroll>
+              <div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">
+                  100+
+                </div>
+                <div className="text-gray-800 font-medium mb-2">
+                  Satisfied Clients
+                </div>
+                <p className="text-gray-600 text-sm">
+                  Trusted partnerships across industries
+                </p>
               </div>
-              <p className="text-gray-600 text-sm">
-                Trusted partnerships across industries
-              </p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-800 font-medium mb-2">Support</div>
-              <p className="text-gray-600 text-sm">
-                Round-the-clock logistics support
-              </p>
-            </div>
+            </AnimateOnScroll>
+            <AnimateOnScroll>
+              <div>
+                <div className="text-4xl font-bold text-blue-600 mb-2">
+                  24/7
+                </div>
+                <div className="text-gray-800 font-medium mb-2">Support</div>
+                <p className="text-gray-600 text-sm">
+                  Round-the-clock logistics support
+                </p>
+              </div>
+            </AnimateOnScroll>
           </div>
         </div>
       </section>

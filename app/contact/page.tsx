@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
+import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
 export const metadata: Metadata = {
   title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts",
@@ -87,7 +88,8 @@ export default function ContactPage() {
             >
               Get in Touch
             </h2>
-            <div className="space-y-6">
+
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
               {[
                 {
                   icon: MapPin,
@@ -122,33 +124,34 @@ export default function ContactPage() {
                   ],
                 },
               ].map(({ icon: Icon, colorClass, title, lines }) => (
-                <Card
-                  key={title}
-                  className="backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-md"
-                >
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div
-                        className={`${
-                          colorClass.split(" ")[0]
-                        } p-3 rounded-full`}
-                      >
-                        <Icon
-                          className={`h-6 w-6 ${colorClass.split(" ")[1]}`}
-                          aria-hidden="true"
-                        />
+                <AnimateOnScroll key={title}>
+                  <Card className="backdrop-blur-md bg-white/40 border border-white/30 rounded-xl shadow-md h-48 flex justify-start items-center">
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
+                        <div
+                          className={`${
+                            colorClass.split(" ")[0]
+                          } p-3 rounded-full`}
+                        >
+                          <Icon
+                            className={`h-6 w-6 ${colorClass.split(" ")[1]}`}
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-lg mb-2">
+                            {title}
+                          </h3>
+                          <address className="not-italic text-gray-600 space-y-1">
+                            {lines.map((line, idx) => (
+                              <p key={idx}>{line}</p>
+                            ))}
+                          </address>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-lg mb-2">{title}</h3>
-                        <address className="not-italic text-gray-600 space-y-1">
-                          {lines.map((line, idx) => (
-                            <p key={idx}>{line}</p>
-                          ))}
-                        </address>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
               ))}
             </div>
           </section>

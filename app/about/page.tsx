@@ -1,3 +1,4 @@
+import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -47,288 +48,309 @@ export default function AboutPage() {
         altText="Logistics background"
       />
 
-      {/* Company Story */}
-      <section
-        className="lg:py-16 md:py-8 py-16"
-        aria-labelledby="our-story-heading"
-      >
-        <div className="container mx-auto px-5 md:px-6 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-52 items-center">
-            <div>
-              <h2
-                id="our-story-heading"
-                className="text-3xl font-bold text-gray-800 mb-6"
-              >
-                Our Story
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh and
-                Mr. Jitendra Kumar Singh, Singh Logistics began as a small
-                freight forwarding company with a big dream – to revolutionize
-                logistics solutions across India.
-              </p>
-              <p className="text-gray-600 mb-6">
-                Starting from our headquarters in Goa, we have grown to become a
-                trusted partner for businesses across seven states, offering
-                comprehensive freight solutions, warehousing, and manpower
-                services.
-              </p>
-              <div className="flex items-center space-x-4">
-                <div className="bg-blue-100 p-3 rounded-full">
-                  <Calendar
-                    className="h-6 w-6 text-blue-600"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-800">
-                    Established 2000
-                  </div>
-                  <div className="text-gray-600">24 years of excellence</div>
-                </div>
-              </div>
-            </div>
-            <div className="relative md:max-w-3xl lg:max-w-5xl h-80 md:h-[35rem] lg:h-[30rem]">
-              <Image
-                src="/assets/images/founders-test.jpeg"
-                alt="Founders of JK Logistics"
-                fill
-                className="object-cover   rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Founders Section */}
-      <section
-        className="py-8 md:py-16 bg-gray-50"
-        aria-labelledby="founders-heading"
-      >
-        <div className="container mx-auto px-5 md:px-6 text-center">
-          <h2
-            id="founders-heading"
-            className="text-3xl font-bold text-gray-800 mb-4"
-          >
-            Meet Our Founders
-          </h2>
-          <p className="text-gray-600 mb-12">
-            Visionary Leaders Who Built JK Cargocare From The Ground Up.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                name: "Ms. Anjalee Singh",
-                role: "Co-Founder & Director",
-                desc: "A pioneer in logistics management with expertise in operations and client relations.",
-                image: "/assets/images/founder-2.jpeg",
-              },
-              {
-                name: "Mr. Jitendra Kumar Singh",
-                role: "Co-Founder & Director",
-                desc: "An industry veteran with deep expertise in freight solutions and business development.",
-                image: "/assets/images/founder-1.webp",
-              },
-            ].map((founder) => (
-              <Card
-                key={founder.name}
-                className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
-                    <Image
-                      src={founder.image}
-                      alt={`Portrait of ${founder.name}`}
-                      fill
-                      className="object-cover"
+      <AnimateOnScroll>
+        {/* Company Story */}
+        <section
+          className="lg:py-16 md:py-8 py-16"
+          aria-labelledby="our-story-heading"
+        >
+          <div className="container mx-auto px-5 md:px-6 lg:px-16">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-52 items-center">
+              <div>
+                <h2
+                  id="our-story-heading"
+                  className="text-3xl font-bold text-gray-800 mb-6"
+                >
+                  Our Story
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh
+                  and Mr. Jitendra Kumar Singh, Singh Logistics began as a small
+                  freight forwarding company with a big dream – to revolutionize
+                  logistics solutions across India.
+                </p>
+                <p className="text-gray-600 mb-6">
+                  Starting from our headquarters in Goa, we have grown to become
+                  a trusted partner for businesses across seven states, offering
+                  comprehensive freight solutions, warehousing, and manpower
+                  services.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="bg-blue-100 p-3 rounded-full">
+                    <Calendar
+                      className="h-6 w-6 text-blue-600"
+                      aria-hidden="true"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{founder.name}</h3>
-                  <p className="text-blue-600 font-medium mb-4">
-                    {founder.role}
-                  </p>
-                  <p className="text-gray-600">{founder.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Values */}
-      <section className="py-16" aria-labelledby="mission-values-heading">
-        <div className="container mx-auto px-5 md:px-6 lg:px-16">
-          <div className="text-center mb-12">
-            <h2
-              id="mission-values-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
-            >
-              Our Mission & Values
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Guiding principles that drive our commitment to excellence in
-              logistics
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: (
-                  <Target
-                    className="h-8 w-8 text-blue-600"
-                    aria-hidden="true"
-                  />
-                ),
-                title: "Our Mission",
-                text: "To provide reliable, efficient, and cost-effective logistics solutions.",
-                bg: "bg-blue-100",
-              },
-              {
-                icon: (
-                  <Award
-                    className="h-8 w-8 text-orange-600"
-                    aria-hidden="true"
-                  />
-                ),
-                title: "Excellence",
-                text: "We strive for excellence in every aspect of our service delivery.",
-                bg: "bg-orange-100",
-              },
-              {
-                icon: (
-                  <Heart
-                    className="h-8 w-8 text-green-600"
-                    aria-hidden="true"
-                  />
-                ),
-                title: "Trust",
-                text: "Building lasting relationships through transparency and reliability.",
-                bg: "bg-green-100",
-              },
-            ].map(({ icon, title, text, bg }, index, arr) => (
-              <Card
-                key={title}
-                className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                  index === arr.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
-                }`}
-              >
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-                    {/* your icon goes here, already color styled */}
-                    {icon}
+                  <div>
+                    <div className="font-semibold text-gray-800">
+                      Established 2000
+                    </div>
+                    <div className="text-gray-600">24 years of excellence</div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-4">{title}</h3>
-                  <p className="text-gray-600">{text}</p>
-                </CardContent>
-              </Card>
-            ))}
+                </div>
+              </div>
+              <div className="relative md:max-w-3xl lg:max-w-5xl h-80 md:h-[35rem] lg:h-[30rem]">
+                <Image
+                  src="/assets/images/founders-test.jpeg"
+                  alt="Founders of JK Logistics"
+                  fill
+                  className="object-cover   rounded-lg shadow-lg"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-      {/* Certificates Section */}
-      <section
-        className="py-16 bg-gray-50 border-[1px] border-gray-300"
-        aria-labelledby="certificates-heading"
-      >
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+        </section>
+      </AnimateOnScroll>
+
+      <AnimateOnScroll>
+        {/* Founders Section */}
+        <section
+          className="py-8 md:py-16 bg-gray-50"
+          aria-labelledby="founders-heading"
+        >
+          <div className="container mx-auto px-5 md:px-6 text-center">
             <h2
-              id="certificates-heading"
+              id="founders-heading"
               className="text-3xl font-bold text-gray-800 mb-4"
             >
-              Certifications
+              Meet Our Founders
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Proudly certified for quality, compliance, and excellence
+            <p className="text-gray-600 mb-12">
+              Visionary Leaders Who Built JK Cargocare From The Ground Up.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {[
-              {
-                title: "Achievement Certificate",
-                image: "/certificates/achievement.png",
-              },
-              {
-                title: "Transporter Of The Year",
-                image: "/certificates/transport.png",
-              },
-            ].map(({ title, image }) => (
-              <Card
-                key={title}
-                className="group  p-0 transition-shadow duration-300 overflow-hidden"
-              >
-                <CardContent className="text-center p-0  overflow-hidden">
-                  <div className="bg-gray-100 py-4">
-                    <h3 className="text-lg font-semibold text-gray-800">
-                      {title}
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {[
+                {
+                  name: "Ms. Anjalee Singh",
+                  role: "Co-Founder & Director",
+                  desc: "A pioneer in logistics management with expertise in operations and client relations.",
+                  image: "/assets/images/founder-2.jpeg",
+                },
+                {
+                  name: "Mr. Jitendra Kumar Singh",
+                  role: "Co-Founder & Director",
+                  desc: "An industry veteran with deep expertise in freight solutions and business development.",
+                  image: "/assets/images/founder-1.webp",
+                },
+              ].map((founder) => (
+                <Card
+                  key={founder.name}
+                  className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                >
+                  <CardContent className="p-8 text-center">
+                    <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
+                      <Image
+                        src={founder.image}
+                        alt={`Portrait of ${founder.name}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {founder.name}
                     </h3>
-                  </div>
-                  <div className="m-4 h-80 flex justify-center items-center  border-[1px] border-gray-300 rounded-xl">
-                    <Image
-                      src={image}
-                      alt={title}
-                      width={300}
-                      height={100}
-                      className="mx-auto rounded-md object-contain transition-transform duration-300 group-hover:scale-105"
-                      style={{
-                        filter:
-                          "drop-shadow(0 10px 15px rgba(59, 130, 246, 0.5))",
-                      }}
+                    <p className="text-blue-600 font-medium mb-4">
+                      {founder.role}
+                    </p>
+                    <p className="text-gray-600">{founder.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      </AnimateOnScroll>
+
+      <AnimateOnScroll>
+        {/* Mission & Values */}
+        <section className="py-16" aria-labelledby="mission-values-heading">
+          <div className="container mx-auto px-5 md:px-6 lg:px-16">
+            <div className="text-center mb-12">
+              <h2
+                id="mission-values-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
+              >
+                Our Mission & Values
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Guiding principles that drive our commitment to excellence in
+                logistics
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: (
+                    <Target
+                      className="h-8 w-8 text-blue-600"
+                      aria-hidden="true"
                     />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  ),
+                  title: "Our Mission",
+                  text: "To provide reliable, efficient, and cost-effective logistics solutions.",
+                  bg: "bg-blue-100",
+                },
+                {
+                  icon: (
+                    <Award
+                      className="h-8 w-8 text-orange-600"
+                      aria-hidden="true"
+                    />
+                  ),
+                  title: "Excellence",
+                  text: "We strive for excellence in every aspect of our service delivery.",
+                  bg: "bg-orange-100",
+                },
+                {
+                  icon: (
+                    <Heart
+                      className="h-8 w-8 text-green-600"
+                      aria-hidden="true"
+                    />
+                  ),
+                  title: "Trust",
+                  text: "Building lasting relationships through transparency and reliability.",
+                  bg: "bg-green-100",
+                },
+              ].map(({ icon, title, text, bg }, index, arr) => (
+                <Card
+                  key={title}
+                  className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                    index === arr.length - 1
+                      ? "md:col-span-2 lg:col-span-1"
+                      : ""
+                  }`}
+                >
+                  <CardContent className="p-8 text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+                      {/* your icon goes here, already color styled */}
+                      {icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-4">{title}</h3>
+                    <p className="text-gray-600">{text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-      {/* Achievements */}
-      <section
-        className="py-16 bg-gray-50"
-        aria-labelledby="achievements-heading"
-      >
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              id="achievements-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
+        </section>
+      </AnimateOnScroll>
+      <AnimateOnScroll>
+        {/* Certificates Section */}
+        <section
+          className="py-16 bg-gray-50 border-[1px] border-gray-300"
+          aria-labelledby="certificates-heading"
+        >
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2
+                id="certificates-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
+              >
+                Certifications
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Proudly certified for quality, compliance, and excellence
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {[
+                {
+                  title: "Achievement Certificate",
+                  image: "/certificates/achievement.png",
+                },
+                {
+                  title: "Transporter Of The Year",
+                  image: "/certificates/transport.png",
+                },
+              ].map(({ title, image }) => (
+                <Card
+                  key={title}
+                  className="group  p-0 transition-shadow duration-300 overflow-hidden"
+                >
+                  <CardContent className="text-center p-0  overflow-hidden">
+                    <div className="bg-gray-100 py-4">
+                      <h3 className="text-lg font-semibold text-gray-800">
+                        {title}
+                      </h3>
+                    </div>
+                    <div className="m-4 h-80 flex justify-center items-center  border-[1px] border-gray-300 rounded-xl">
+                      <Image
+                        src={image}
+                        alt={title}
+                        width={300}
+                        height={100}
+                        className="mx-auto rounded-md object-contain transition-transform duration-300 group-hover:scale-105"
+                        style={{
+                          filter:
+                            "drop-shadow(0 10px 15px rgba(59, 130, 246, 0.5))",
+                        }}
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+      </AnimateOnScroll>
+      <AnimateOnScroll>
+        {/* Achievements */}
+        <section
+          className="py-16 bg-gray-50"
+          aria-labelledby="achievements-heading"
+        >
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2
+                id="achievements-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
+              >
+                Key Achievements
+              </h2>
+              <p className="text-gray-600">
+                Milestones that mark our journey of growth and success
+              </p>
+            </div>
+            <div
+              className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+              role="list"
             >
-              Key Achievements
-            </h2>
-            <p className="text-gray-600">
-              Milestones that mark our journey of growth and success
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
-            {[
-              {
-                stat: "20+",
-                label: "Years of Experience",
-                sub: "Serving clients since 2000",
-              },
-              { stat: "7", label: "States Covered", sub: "Pan-India presence" },
-              {
-                stat: "100+",
-                label: "Happy Clients",
-                sub: "Trusted partnerships",
-              },
-              {
-                stat: "50+",
-                label: "Fleet Vehicles",
-                sub: "Modern transportation",
-              },
-            ].map(({ stat, label, sub }) => (
-              <div key={label} className="text-center" role="listitem">
-                <div className="text-4xl font-bold text-blue-600 mb-2">
-                  {stat}
+              {[
+                {
+                  stat: "20+",
+                  label: "Years of Experience",
+                  sub: "Serving clients since 2000",
+                },
+                {
+                  stat: "7",
+                  label: "States Covered",
+                  sub: "Pan-India presence",
+                },
+                {
+                  stat: "100+",
+                  label: "Happy Clients",
+                  sub: "Trusted partnerships",
+                },
+                {
+                  stat: "50+",
+                  label: "Fleet Vehicles",
+                  sub: "Modern transportation",
+                },
+              ].map(({ stat, label, sub }) => (
+                <div key={label} className="text-center" role="listitem">
+                  <div className="text-4xl font-bold text-blue-600 mb-2">
+                    {stat}
+                  </div>
+                  <div className="text-gray-800 font-medium">{label}</div>
+                  <div className="text-gray-600 text-sm">{sub}</div>
                 </div>
-                <div className="text-gray-800 font-medium">{label}</div>
-                <div className="text-gray-600 text-sm">{sub}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimateOnScroll>
 
       {/* CTA */}
       <section

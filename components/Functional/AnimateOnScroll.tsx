@@ -16,7 +16,11 @@ export default function AnimateOnScroll({
   duration = 0.6,
 }: AnimateOnScrollProps) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, {
+    once: true,
+    amount: 0.3, // 30% visibility required
+  });
+
   const controls = useAnimationControls();
 
   useEffect(() => {

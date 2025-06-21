@@ -22,7 +22,7 @@ export default function Footer() {
               id="footer-brand-heading"
             >
               <Image
-                src="/assets/images/jkc-logo.png"
+                src="/assets/images/jkc-logo.webp"
                 alt="company logo"
                 width={40}
                 height={20}

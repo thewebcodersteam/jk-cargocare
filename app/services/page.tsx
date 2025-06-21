@@ -143,7 +143,7 @@ export default function ServicesPage() {
                 "Flexible Solutions",
               ],
               imageAlt: "Field operations team",
-              imageSrc: "/assets/images/manpower.jpg",
+              imageSrc: "/assets/images/manpower.webp",
               buttonLabel: "Discuss Requirements",
               buttonColor: "bg-purple-600 hover:bg-purple-700",
               reverse: true,

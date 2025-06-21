@@ -26,19 +26,23 @@ import Spinner from "./Spinner";
 const contactSchema = z.object({
   firstName: z
     .string()
-    .min(1)
+    .min(1, "Please enter your first name.")
     .nonempty()
     .regex(/^[a-zA-Z]+$/, "First name must contain only letters."),
   lastName: z
     .string()
-    .min(1)
+    .min(1, "Please enter your last name.")
     .nonempty()
     .regex(/^[a-zA-Z]+$/, "Last name must contain only letters."),
-  email: z
-    .string()
-    .email("Invalid email address."),
+  email: z.string().nonempty("Email is required").email("Invalid email address."),
   company: z.string().optional(),
-  service: z.string().min(1, "Please select a service."),
+  service: z
+    .string()
+    .nonempty("Please select a service.")
+    .min(1, "Please select a service.")
+    .refine((val) => val !== "", {
+      message: "Please select a service.",
+    }),
   message: z.string().optional(),
 });
 
@@ -220,7 +224,7 @@ export default function ContactForm() {
             />
             {errors.service && (
               <p className="text-sm text-red-600 mt-1">
-                {errors.service.message}
+                {"Please select a service interest."}
               </p>
             )}
           </div>

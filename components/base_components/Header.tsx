@@ -1,16 +1,8 @@
 import Link from "next/link";
-import { Truck } from "lucide-react";
 import MobileNav from "./MobileNav";
 import { exo } from "@/app/layout";
 import Image from "next/image";
-
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Industries", href: "/industries" },
-  { label: "Contact", href: "/contact" },
-];
+import Navbar from "./Navbar";
 
 export default function Header() {
   return (
@@ -27,7 +19,7 @@ export default function Header() {
             aria-label="JK Cargocare Logo"
           >
             <Image
-              src="/assets/images/jkc-logo.png"
+              src="/assets/images/jkc-logo.webp"
               alt="company logo"
               width={40}
               height={20}
@@ -37,23 +29,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav
-            className="hidden md:flex gap-10"
-            role="navigation"
-            aria-label="Primary navigation"
-          >
-            {navLinks.map(({ label, href }) => (
-              <div key={href} className="h-full">
-                <Link
-                  href={href}
-                  className="relative text-gray-700 hover:text-blue-600 font-belleza after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 hover:after:w-full after:bg-blue-600 after:transition-all after:duration-300"
-                >
-                  {label}
-                </Link>
-              </div>
-            ))}
-          </nav>
+          <Navbar />
 
           {/* Mobile Navigation */}
           <div className="md:hidden">

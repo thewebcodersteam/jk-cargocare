@@ -4,7 +4,7 @@ import { Truck, Warehouse, Users, Phone } from "lucide-react";
 import Link from "next/link";
 import { ClientCarousel } from "@/components/client-carousel";
 import { ProcessDiagram } from "@/components/process-diagram";
-import { InteractiveMap } from "@/components/interactive-map";
+import InteractiveMap from "@/components/InteractiveMap";
 import { Metadata } from "next";
 import Image from "next/image";
 import { cn } from "@/lib/utils";

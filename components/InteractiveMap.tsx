@@ -111,7 +111,7 @@ export default function InteractiveMap() {
       (entries) => {
         if (entries[0].isIntersecting) {
           setMapVisible(true);
-          observer.disconnect(); // only trigger once
+          observer.disconnect(); 
         }
       },
       {

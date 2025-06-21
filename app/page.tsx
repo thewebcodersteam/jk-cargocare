@@ -119,10 +119,10 @@ export default function HomePage() {
           </h2>
           <div className="flex flex-wrap w-full text-center" role="list">
             {[
-              { label: "Years Experience", value: 20 , step:1, suffix : "+"},
-              { label: "States Covered", value: 7, step : 1, suffix : ""},
-              { label: "Fleet Vehicles", value: 50, step :1, suffix : "+" },
-              { label: "Happy Clients", value: 100, step: 5, suffix : "+" },
+              { label: "Years Experience.", value: 20 , step:1, suffix : "+"},
+              { label: "States Covered.", value: 7, step : 1, suffix : ""},
+              { label: "Fleet Vehicles.", value: 50, step :1, suffix : "+" },
+              { label: "Happy Clients.", value: 100, step: 5, suffix : "+" },
             ].map((stat, index) => (
               <div
                 key={stat.label}

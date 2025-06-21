@@ -50,7 +50,7 @@ const locations = [
     state: "Goa",
     label: "Goa (HQ)",
     description:
-      "Warehousing and shipping operations. JK Cargocare Headquarters.",
+      "Inland transportation, Warehousing and shipping operations. JK Cargocare Headquarters.",
   },
   {
     state: "Gujarāt",

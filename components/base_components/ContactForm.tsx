@@ -136,7 +136,7 @@ export default function ContactForm() {
               </Label>
               <Input
                 type="text"
-                placeholder="Your last name"
+                placeholder="Enter your last name"
                 {...register("lastName")}
                 style={{ borderColor: errors.lastName ? "red" : "" }}
               />
@@ -171,7 +171,7 @@ export default function ContactForm() {
             </Label>
             <Input
               type="text"
-              placeholder="Your company name"
+              placeholder="Enter your company name"
               {...register("company")}
               style={{ borderColor: errors.company ? "red" : "" }}
             />
@@ -199,7 +199,7 @@ export default function ContactForm() {
                   <SelectTrigger
                     style={{ borderColor: errors.service ? "red" : "" }}
                   >
-                    <SelectValue placeholder="Select a service" />
+                    <SelectValue placeholder="Select a service." />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="freight">Freight Brokerage</SelectItem>

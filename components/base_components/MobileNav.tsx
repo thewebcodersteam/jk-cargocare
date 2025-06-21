@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import {
   Sheet,
@@ -18,6 +19,8 @@ export const exo = Exo({
 });
 
 export default function MobileNav() {
+  const pathname = usePathname();
+
   return (
     <Sheet >
       <SheetTrigger asChild >
@@ -38,8 +41,8 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className={`text-lg transition duration-300 w-full text-center ${pathname === "/" ? "text-blue-600 font-semibold" : "hover:text-blue-600"
+              }`}          >
             Home
           </Link>
         </SheetClose>
@@ -47,8 +50,8 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/about"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className={`text-lg transition duration-300 w-full text-center ${pathname === "/about" ? "text-blue-600 font-semibold" : "hover:text-blue-600"
+              }`}          >
             About Us
           </Link>
         </SheetClose>
@@ -56,8 +59,8 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/services"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className={`text-lg transition duration-300 w-full text-center ${pathname === "/services" ? "text-blue-600 font-semibold" : "hover:text-blue-600"
+              }`}          >
             Services
           </Link>
         </SheetClose>
@@ -65,8 +68,8 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/industries"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className={`text-lg transition duration-300 w-full text-center ${pathname === "/industries" ? "text-blue-600 font-semibold" : "hover:text-blue-600"
+              }`}          >
             Industries
           </Link>
         </SheetClose>
@@ -74,8 +77,8 @@ export default function MobileNav() {
         <SheetClose asChild>
           <Link
             href="/contact"
-            className="text-lg hover:text-blue-600 transition duration-300 w-full text-center"
-          >
+            className={`text-lg transition duration-300 w-full text-center ${pathname === "/contact" ? "text-blue-600 font-semibold" : "hover:text-blue-600"
+              }`}          >
             Contact
           </Link>
         </SheetClose>

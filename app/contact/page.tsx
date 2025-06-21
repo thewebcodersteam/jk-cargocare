@@ -44,7 +44,7 @@ export default function ContactPage() {
       <HeroSection
         title="Contact Us"
         subtitle=" Get in touch with our logistics experts for customized solutions"
-        imageUrl="/assets/images/contact-us.jpg"
+        imageUrl="/assets/images/contact-us.webp"
         altText="Contact Us"
       />
 

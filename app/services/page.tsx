@@ -102,7 +102,7 @@ export default function ServicesPage() {
                 "Certified Handling",
               ],
               imageAlt: "Hazardous cargo handling",
-              imageSrc: "/assets/images/hazardous.jpg",
+              imageSrc: "/assets/images/hazardous.webp",
               buttonLabel: "Learn More",
               buttonColor: "bg-orange-600 hover:bg-orange-700",
               reverse: true,

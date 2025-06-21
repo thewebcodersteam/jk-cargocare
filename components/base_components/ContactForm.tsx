@@ -34,7 +34,7 @@ const contactSchema = z.object({
     .min(1, "Please enter your last name.")
     .nonempty()
     .regex(/^[a-zA-Z]+$/, "Last name must contain only letters."),
-  email: z.string().nonempty("Email is required").email("Invalid email address."),
+  email: z.string().nonempty("Email is required.").email("Invalid email address."),
   company: z.string().optional(),
   service: z
     .string()
@@ -203,7 +203,7 @@ export default function ContactForm() {
                   <SelectTrigger
                     style={{ borderColor: errors.service ? "red" : "" }}
                   >
-                    <SelectValue placeholder="Select a service." />
+                    <SelectValue placeholder="Select a service interest" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="freight">Freight Brokerage</SelectItem>

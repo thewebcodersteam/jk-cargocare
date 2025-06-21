@@ -43,7 +43,7 @@ export default function ContactPage() {
 
       <HeroSection
         title="Contact Us"
-        subtitle=" Get in touch with our logistics experts for customized solutions"
+        subtitle=" Get in touch with our logistics experts for customized solutions."
         imageUrl="/assets/images/contact-us.webp"
         altText="Contact Us"
       />
@@ -99,7 +99,7 @@ export default function ContactPage() {
                   lines: [
                     "Sancoale Industrial Estate",
                     "Zuarinagar, Goa 403726",
-                    "India",
+                    "India.",
                   ],
                 },
                 {

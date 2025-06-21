@@ -19,7 +19,7 @@ import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
 export const metadata: Metadata = {
   title:
-    "Our Services | JK Cargocare - Freight, Hazardous Cargo, Warehousing & Manpower",
+    "Our Services | JK Cargocare - Freight, Hazardous Cargo, Warehousing & Manpower.",
   description:
     "Discover comprehensive logistics services from JK Cargocare: FTL, LTL, ODC transport, hazardous cargo handling, scalable warehousing, and skilled manpower across India.",
   keywords: [
@@ -52,8 +52,8 @@ export default function ServicesPage() {
 
       <HeroSection
         title=" Our Services"
-        subtitle="Comprehensive logistics solutions tailored to your business needs"
-        imageUrl="/assets/images/services-new.jpeg"
+        subtitle="Comprehensive logistics solutions tailored to your business needs."
+        imageUrl="/assets/images/services-new.webp"
         altText="Our Services"
         imagePosition="object-center"
       />
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                 "Certified Handling",
               ],
               imageAlt: "Hazardous cargo handling",
-              imageSrc: "/assets/images/hazardous.jpg",
+              imageSrc: "/assets/images/hazardous.webp",
               buttonLabel: "Learn More",
               buttonColor: "bg-orange-600 hover:bg-orange-700",
               reverse: true,
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 "Strategic Location",
               ],
               imageAlt: "Warehouse facility",
-              imageSrc: "/assets/images/warehousing-inventory.jpg",
+              imageSrc: "/assets/images/warehousing-inventory.webp",
               buttonLabel: "View Facilities",
               buttonColor: "bg-green-600 hover:bg-green-700",
               reverse: false,
@@ -235,7 +235,7 @@ export default function ServicesPage() {
               Additional Services
             </h2>
             <p className="text-gray-600">
-              Comprehensive support for all your logistics needs
+              Comprehensive support for all your logistics needs.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -290,26 +290,26 @@ export default function ServicesPage() {
               Our Fleet
             </h2>
             <p className="text-gray-600">
-              Modern vehicles equipped for diverse transportation needs
+              Modern vehicles equipped for diverse transportation needs.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
                 title: "Trucks",
-                desc: "Various capacity trucks for different cargo requirements",
+                desc: "Various capacity trucks for different cargo requirements.",
                 bg: "bg-blue-100",
                 text: "text-blue-600",
               },
               {
                 title: "Tippers",
-                desc: "Specialized vehicles for bulk material transportation",
+                desc: "Specialized vehicles for bulk material transportation.",
                 bg: "bg-orange-100",
                 text: "text-orange-600",
               },
               {
                 title: "Taurus Vehicles",
-                desc: "Heavy-duty vehicles for challenging transportation needs",
+                desc: "Heavy-duty vehicles for challenging transportation needs.",
                 bg: "bg-green-100",
                 text: "text-green-600",
               },
@@ -340,7 +340,7 @@ export default function ServicesPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Contact us today for customized logistics solutions
+            Contact us today for customized logistics solutions.
           </p>
           <Link href="/contact" passHref legacyBehavior>
             <Button

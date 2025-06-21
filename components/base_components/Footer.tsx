@@ -126,19 +126,19 @@ export default function Footer() {
             >
               <div className="text-center lg:text-start">
                 <Link
-                  href="tel:+917350691111"
+                  href="tel: 0832-2556111"
                   className="hover:text-white"
-                  aria-label="Call +91 7350691111"
+                  aria-label="Call 0832-2556111"
                 >
-                  +91 7350691111
+                  0832-2556111
                 </Link>{" "}
                 /{" "}
                 <Link
-                  href="tel:+919422062939"
+                  href="tel: 0832-2555777"
                   className="hover:text-white"
-                  aria-label="Call 9422062939"
+                  aria-label="Call 0832-2555777"
                 >
-                  9422062939
+                  0832-2555777
                 </Link>
               </div>
               <div className="text-center lg:text-start">
@@ -164,7 +164,7 @@ export default function Footer() {
               <div className="text-center lg:text-start">
                 Shed D2-32, Sancoale Industrial Estate,
                 <br />
-                Zuari Nagar, Goa – 403726
+                Zuari Nagar, Goa – 403726.
               </div>
             </address>
           </div>
@@ -176,7 +176,7 @@ export default function Footer() {
           aria-label="Copyright"
         >
           <small>
-            &copy; {new Date().getFullYear()} JK Cargocare. All rights reserved.
+            &copy; {new Date().getFullYear()} JK Cargocare. All Rights Reserved.
             | Founded by Ms. Anjalee Singh & Mr. Jitendra Kumar Singh
           </small>
         </div>

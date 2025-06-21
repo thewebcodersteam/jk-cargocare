@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About JK Logistics | 24 Years of Freight Excellence",
+  title: "About | JK Cargocare - 20+ Years of Freight Excellence.",
   description:
     "Discover the story, mission, and milestones of Singh Logistics — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
   openGraph: {
@@ -45,8 +45,8 @@ export default function AboutPage() {
 
       <HeroSection
         title="About JK Cargocare"
-        subtitle="Two decades of excellence in freight solutions, built on trust and innovation"
-        imageUrl="/assets/images/about-new.jpeg"
+        subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
+        imageUrl="/assets/images/about-new.webp"
         altText="Logistics background"
       />
 
@@ -88,13 +88,13 @@ export default function AboutPage() {
                     <div className="font-semibold text-gray-800">
                       Established 2000
                     </div>
-                    <div className="text-gray-600">24 years of excellence</div>
+                    <div className="text-gray-600">20+ years of excellence.</div>
                   </div>
                 </div>
               </div>
               <div className="relative md:max-w-3xl lg:max-w-5xl h-80 md:h-[35rem] lg:h-[30rem]">
                 <Image
-                  src="/assets/images/founders-test.jpeg"
+                  src="/assets/images/founders.webp"
                   alt="Founders of JK Logistics"
                   fill
                   className="object-cover   rounded-lg shadow-lg"
@@ -127,7 +127,7 @@ export default function AboutPage() {
                   name: "Ms. Anjalee Singh",
                   role: "Co-Founder & Director",
                   desc: "A pioneer in logistics management with expertise in operations and client relations.",
-                  image: "/assets/images/founder-2.jpeg",
+                  image: "/assets/images/founder_2.webp",
                 },
                 {
                   name: "Mr. Jitendra Kumar Singh",
@@ -176,7 +176,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Guiding principles that drive our commitment to excellence in
-                logistics
+                logistics.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -253,18 +253,18 @@ export default function AboutPage() {
                 Certifications
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Proudly certified for quality, compliance, and excellence
+                Proudly certified for quality, compliance, and excellence.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {[
                 {
                   title: "Achievement Certificate",
-                  image: "/certificates/achievement.png",
+                  image: "/certificates/achievement.webp",
                 },
                 {
                   title: "Transporter Of The Year",
-                  image: "/certificates/transport.png",
+                  image: "/certificates/transport.webp",
                 },
               ].map(({ title, image }) => (
                 <Card
@@ -312,7 +312,7 @@ export default function AboutPage() {
               Key Achievements
             </h2>
             <p className="text-gray-600">
-              Milestones that mark our journey of growth and success
+              Milestones that mark our journey of growth and success.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
@@ -322,28 +322,28 @@ export default function AboutPage() {
                 suffix : "+",
                 steps : 2,
                 label: "Years of Experience",
-                sub: "Serving clients since 2000",
+                sub: "Serving clients since 2000.",
               },
               {
                 stat: 7,
                 steps : 1,
                 suffix : "",
                 label: "States Covered",
-                sub: "Pan-India presence",
+                sub: "Pan-India presence.",
               },
               {
                 stat: 100,
                  suffix : "+",
                  steps : 10,
                 label: "Happy Clients",
-                sub: "Trusted partnerships",
+                sub: "Trusted partnerships.",
               },
               {
                 stat: 50,
                  suffix : "+",
                  steps : 5,
                 label: "Fleet Vehicles",
-                sub: "Modern transportation",
+                sub: "Modern transportation.",
               },
             ].map(({ stat, label, sub, steps, suffix }) => (
               <AnimateOnScroll key={label}>
@@ -370,7 +370,7 @@ export default function AboutPage() {
             Partner with Experience
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join the growing list of satisfied clients who trust Singh Logistics
+            Join the growing list of satisfied clients who trust Singh Logistics.
           </p>
           <Link href="/contact" passHref legacyBehavior>
             <Button

@@ -12,7 +12,7 @@ import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 import CountUpOnView from "@/components/Functional/CountUpOnView";
 
 export const metadata: Metadata = {
-  title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services",
+  title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services.",
   description:
     "Explore 20+ years of logistics expertise with JK Cargocare. We specialize in freight brokerage, warehousing, hazardous cargo, and manpower solutions across 7+ Indian states.",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Supply chain solutions",
   ],
   openGraph: {
-    title: "JK Cargocare – Trusted Freight & Logistics Solutions",
+    title: "JK Cargocare – Trusted Freight & Logistics Solutions.",
     description:
       "Trusted partner for long-distance transport, scalable warehousing, and trained manpower services in India.",
     url: "https://jk-cargocare.in",
@@ -156,7 +156,7 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Comprehensive logistics solutions tailored to meet your business
-                needs
+                needs.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -169,7 +169,7 @@ export default function HomePage() {
                       aria-hidden="true"
                     />
                   ),
-                  desc: "FTL, LTL, and ODC transport with long-distance coverage across India",
+                  desc: "FTL, LTL, and ODC transport with long-distance coverage across India.",
                 },
                 {
                   title: "Warehousing",
@@ -179,7 +179,7 @@ export default function HomePage() {
                       aria-hidden="true"
                     />
                   ),
-                  desc: "Scalable warehousing solutions at Sancoale Industrial Estate, Goa",
+                  desc: "Scalable warehousing solutions at Sancoale Industrial Estate, Goa.",
                 },
                 {
                   title: "Manpower Services",
@@ -189,7 +189,7 @@ export default function HomePage() {
                       aria-hidden="true"
                     />
                   ),
-                  desc: "Trained labor and field support for your operational needs",
+                  desc: "Trained labor and field support for your operational needs.",
                 },
               ].map((service, index, arr) => (
                 <AnimateOnScroll key={service.title}>
@@ -233,7 +233,7 @@ export default function HomePage() {
                 Our Valued Clients
               </h2>
               <p className="text-gray-600">
-                Trusted by industry leaders across various sectors
+                Trusted by industry leaders across various sectors.
               </p>
             </div>
 
@@ -278,7 +278,7 @@ export default function HomePage() {
               Our Coverage Area
             </h2>
             <p className="text-gray-600">
-              Pan-India presence with strategic locations
+              Pan-India presence with strategic locations.
             </p>
           </div>
           <hr />
@@ -301,7 +301,7 @@ export default function HomePage() {
                 Our Process
               </h2>
               <p className="text-gray-600">
-                Simple, efficient, and transparent workflow
+                Simple, efficient, and transparent workflow.
               </p>
             </div>
             <ProcessDiagram />
@@ -322,7 +322,7 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-600 px-5 lg:px-0">
                 Hear directly from the professionals who rely on JK Cargocare
-                for logistics excellence
+                for logistics excellence.
               </p>
             </div>
             <ClientCarousel />
@@ -340,7 +340,7 @@ export default function HomePage() {
             Ready to Streamline Your Logistics?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Get in touch with our experts for customized solutions
+            Get in touch with our experts for customized solutions.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center"

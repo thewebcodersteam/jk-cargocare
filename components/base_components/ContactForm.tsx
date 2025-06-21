@@ -23,24 +23,22 @@ import { Controller } from "react-hook-form";
 import { Label } from "../ui/label";
 import Spinner from "./Spinner";
 
-const noScriptRegex = /<\s*script.*?>.*?<\s*\/\s*script\s*>/gi;
-
 const contactSchema = z.object({
   firstName: z
     .string()
     .min(1)
     .nonempty()
-    .regex(/^[a-zA-Z]+$/, "First name must contain only letters"),
+    .regex(/^[a-zA-Z]+$/, "First name must contain only letters."),
   lastName: z
     .string()
     .min(1)
     .nonempty()
-    .regex(/^[a-zA-Z]+$/, "Last name must contain only letters"),
+    .regex(/^[a-zA-Z]+$/, "Last name must contain only letters."),
   email: z
     .string()
-    .email("Invalid email address"),
+    .email("Invalid email address."),
   company: z.string().optional(),
-  service: z.string().min(1, "Please select a service"),
+  service: z.string().min(1, "Please select a service."),
   message: z.string().optional(),
 });
 
@@ -122,7 +120,7 @@ export default function ContactForm() {
               </Label>
               <Input
                 type="text"
-                placeholder="Your first name"
+                placeholder="Enter your first name"
                 {...register("firstName")}
                 style={{ borderColor: errors.firstName ? "red" : "" }}
               />

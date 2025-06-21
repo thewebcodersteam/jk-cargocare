@@ -11,7 +11,7 @@ import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts",
+  title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts.",
   description:
     "Get in touch with JK Cargocare for freight quotes, warehousing solutions, manpower services, and logistics support across India. Visit our Goa headquarters or contact us directly.",
   keywords: [
@@ -43,8 +43,8 @@ export default function ContactPage() {
 
       <HeroSection
         title="Contact Us"
-        subtitle=" Get in touch with our logistics experts for customized solutions"
-        imageUrl="/assets/images/contact-us.jpg"
+        subtitle=" Get in touch with our logistics experts for customized solutions."
+        imageUrl="/assets/images/contact-us.webp"
         altText="Contact Us"
       />
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                   icon: Phone,
                   colorClass: "bg-green-100 text-green-600",
                   title: "Phone",
-                  lines: ["+91-0832-2556111", "+91-0832-2555777"],
+                  lines: ["0832-2556111", "0832-2555777"],
                 },
                 {
                   icon: Mail,
@@ -169,7 +169,7 @@ export default function ContactPage() {
             Need Immediate Assistance?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Our logistics experts are ready to help you with urgent requirements
+            Our logistics experts are ready to help you with urgent requirements.
           </p>
             <Link
               href="/contact"

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Factory, Wheat, Beaker, FileText, Calendar } from "lucide-react";
+import { Factory, Wheat, Beaker, FileText, Users } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
@@ -8,7 +8,7 @@ import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
 export const metadata: Metadata = {
   title:
-    "Industries We Serve | JK Cargocare - Chemical, Fertilizer, Agro, Paper & More",
+    "Industries We Serve | JK Cargocare - Chemical, Fertilizer, Agro, Paper & More.",
   description:
     "JK Cargocare provides industry-specific logistics solutions across chemicals, fertilizers, agriculture, manufacturing, events, and more with 20+ years of expertise.",
   keywords: [
@@ -40,8 +40,8 @@ export default function IndustriesPage() {
 
       <HeroSection
         title="Industries We Serve"
-        subtitle=" Specialized Logistics Solutions Across Diverse Industry Sectors"
-        imageUrl="/assets/images/industries-new.jpeg"
+        subtitle=" Specialized Logistics Solutions Across Diverse Industry Sectors."
+        imageUrl="/assets/images/industries-new.webp"
         altText="Industries We Serve"
         imagePosition="object-center"
       />
@@ -56,10 +56,10 @@ export default function IndustriesPage() {
                 color: "red",
                 icon: Beaker,
                 points: [
-                  "Hazardous material transport",
-                  "Safety compliance protocols",
-                  "Specialized equipment",
-                  "Emergency response procedures",
+                  "Hazardous material transport.",
+                  "Safety compliance protocols.",
+                  "Specialized equipment.",
+                  "Emergency response procedures.",
                 ],
               },
               {
@@ -67,10 +67,10 @@ export default function IndustriesPage() {
                 color: "green",
                 icon: Wheat,
                 points: [
-                  "Bulk cargo handling",
-                  "Agricultural supply chain",
-                  "Seasonal logistics planning",
-                  "Rural distribution networks",
+                  "Bulk cargo handling.",
+                  "Agricultural supply chain.",
+                  "Seasonal logistics planning.",
+                  "Rural distribution networks.",
                 ],
               },
               {
@@ -78,10 +78,10 @@ export default function IndustriesPage() {
                 color: "yellow",
                 icon: Wheat,
                 points: [
-                  "Fresh produce transport",
-                  "Temperature-controlled logistics",
-                  "Agricultural equipment",
-                  "Market distribution",
+                  "Fresh produce transport.",
+                  "Temperature-controlled logistics.",
+                  "Agricultural equipment.",
+                  "Market distribution.",
                 ],
               },
               {
@@ -89,10 +89,10 @@ export default function IndustriesPage() {
                 color: "blue",
                 icon: Factory,
                 points: [
-                  "Raw material transport",
-                  "Finished goods distribution",
-                  "Just-in-time delivery",
-                  "Industrial equipment",
+                  "Raw material transport.",
+                  "Finished goods distribution.",
+                  "Just-in-time delivery.",
+                  "Industrial equipment.",
                 ],
               },
               {
@@ -100,22 +100,23 @@ export default function IndustriesPage() {
                 color: "orange",
                 icon: FileText,
                 points: [
-                  "Paper roll transport",
-                  "Pulp and raw materials",
-                  "Moisture protection",
-                  "Careful handling procedures",
+                  "Paper roll transport.",
+                  "Pulp and raw materials.",
+                  "Moisture protection.",
+                  "Careful handling procedures.",
                 ],
               },
               {
-                title: "Events",
+                title: "Manpower",
                 color: "purple",
-                icon: Calendar,
+                icon: Users,
                 points: [
-                  "Event equipment transport",
-                  "Time-critical delivery",
-                  "Setup and breakdown support",
-                  "Specialized handling",
+                  "Skilled and unskilled labor transport.",
+                  "On-site deployment logistics.",
+                  "Shift-based movement planning.",
+                  "Workforce mobilization support.",
                 ],
+
               },
             ].map(({ title, color, icon: Icon, points }) => (
               <AnimateOnScroll key={title}>
@@ -158,7 +159,7 @@ export default function IndustriesPage() {
           </h2>
           <p className="text-gray-600 mb-12">
             Our industry expertise and specialized solutions make us the
-            preferred logistics partner
+            preferred logistics partner.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -169,7 +170,7 @@ export default function IndustriesPage() {
                   Years Experience
                 </div>
                 <p className="text-gray-600 text-sm">
-                  Deep industry knowledge across sectors
+                  Deep industry knowledge across sectors.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -182,7 +183,7 @@ export default function IndustriesPage() {
                   Satisfied Clients
                 </div>
                 <p className="text-gray-600 text-sm">
-                  Trusted partnerships across industries
+                  Trusted partnerships across industries.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -193,7 +194,7 @@ export default function IndustriesPage() {
                 </div>
                 <div className="text-gray-800 font-medium mb-2">Support</div>
                 <p className="text-gray-600 text-sm">
-                  Round-the-clock logistics support
+                  Round-the-clock logistics support.
                 </p>
               </div>
             </AnimateOnScroll>
@@ -206,7 +207,7 @@ export default function IndustriesPage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4">Ready to Partner with Us?</h2>
           <p className="text-xl mb-8 opacity-90">
-            Discover how our industry expertise can benefit your business
+            Discover how our industry expertise can benefit your business.
           </p>
           <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
             <Link href="/contact">Discuss Your Requirements</Link>

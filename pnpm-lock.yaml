@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/playfair-display':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@getbrevo/brevo':
         specifier: ^2.2.0
         version: 2.2.0
@@ -256,6 +259,9 @@ packages:
 
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
+
+  '@fontsource/playfair-display@5.2.6':
+    resolution: {integrity: sha512-hWfFm2j+Dlg+UwabNJu5vi45otmLSG64hUzNFJ8pIDBgqWBviEPpVaDIZWHm2RYyIxhg9YXTPsZWdpvsu7fkqQ==}
 
   '@getbrevo/brevo@2.2.0':
     resolution: {integrity: sha512-mNCkXtgqn6jqLglAx1JzZcTj53kBZ5dK9Yd6zVuEyXAvhz68f5Ps6dSJar9HvkHH0Lfr3NrqW76xurjcoxqhIg==}
@@ -2735,6 +2741,8 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
 
   '@floating-ui/utils@0.2.9': {}
+
+  '@fontsource/playfair-display@5.2.6': {}
 
   '@getbrevo/brevo@2.2.0':
     dependencies:

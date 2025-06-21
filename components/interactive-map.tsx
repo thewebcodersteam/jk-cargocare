@@ -3,6 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import { feature } from "topojson-client";
+import "@fontsource/playfair-display"; // Defaults to 400
+import "@fontsource/playfair-display/500.css";
+import "@fontsource/playfair-display/600.css";
+
 
 interface TopoJSON {
   type: "Topology";
@@ -20,69 +24,70 @@ const locations = [
   {
     state: "Mahārāshtra",
     label: "Mumbai",
-    description: "Main logistics hub handling imports & exports.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Karnātaka",
     label: "Karnataka",
-    description: "South India coordination and tech support center.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Rājasthān",
     label: "Kota",
-    description: "Regional office for warehousing and distribution.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Delhi",
     label: "Delhi – Capital Territory",
-    description: "Corporate client liaison and customs clearance.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Madhya Pradesh",
     label: "Madhya Pradesh",
-    description: "Inland distribution point and container storage.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Goa",
-    label: "HQ",
-    description: "JK Cargocare Headquarters – Command center.",
+    label: "Goa (HQ)",
+    description: "Warehousing and shipping operations. JK Cargocare Headquarters.",
   },
   {
     state: "Gujarāt",
     label: "Gujarat",
-    description: "Port and sea logistics – Haz cargo handling.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Tamil Nādu",
     label: "Tamil Nadu (Pan-India)",
-    description: "Pan-India operational base and partner network.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Uttar Pradesh",
     label: "Uttar Pradesh",
-    description: "Northern distribution coordination and warehousing.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Bihār",
     label: "Bihar",
-    description: "Pan-India partner network and emerging trade route.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Kerala",
     label: "Kerala",
-    description: "Coastal shipping, port logistics, and regional hub.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Chhattīsgarh",
     label: "Chhattisgarh",
-    description: "Mineral transport and central India logistics.",
+    description: "Inland transport operations and regional coordination.",
   },
   {
     state: "Andhra Pradesh",
     label: "Andhra Pradesh",
-    description: "Eastern corridor and Vizag port operations.",
+    description: "Inland transport operations and regional coordination.",
   },
 ];
+
 
 type Location = {
   state: string;
@@ -146,26 +151,56 @@ export function InteractiveMap() {
 
             svg
               .append("image")
-              .attr("href", "/map_images/assets/images/location-marker.png")
+              .attr("href", "/map_images/assets/images/location-marker.webp")
               .attr("x", x - 12)
               .attr("y", y - 24)
               .attr("width", 24)
               .attr("height", 24)
               .style("cursor", "pointer")
               .on("click", () => setSelected(loc))
+
               .on("mouseover", function () {
+                // Clear any existing tooltip immediately
+                svg.select("#tooltip").remove();
+
+                // Scale up marker
+                d3.select(this)
+                  .transition()
+                  .duration(150)
+                  .attr("width", 28)
+                  .attr("height", 28)
+                  .attr("x", x - 14)
+                  .attr("y", y - 28);
+
+                // Add fresh tooltip
                 svg
                   .append("text")
                   .attr("id", "tooltip")
-                  .attr("x", x + 10)
-                  .attr("y", y - 15)
-                  .attr("fill", "#000")
-                  .attr("font-size", 12)
+                  .attr("x", x - 10)
+                  .attr("y", y - 30)
+                  .attr("width", 200)
+                  .attr("height", 60)
+                  .style("font-family", "'Playfair Display', serif")
+                  .style("font-size", "16px")
+                  .style("font-weight", "500")
+                  .style("color", "#111827")
                   .text(loc.label);
               })
               .on("mouseout", function () {
+                // Reset marker size
+                d3.select(this)
+                  .transition()
+                  .duration(150)
+                  .attr("width", 24)
+                  .attr("height", 24)
+                  .attr("x", x - 12)
+                  .attr("y", y - 24);
+
+                // Remove tooltip immediately (no delay to prevent overlap)
                 svg.select("#tooltip").remove();
               });
+
+
           }
         });
       }

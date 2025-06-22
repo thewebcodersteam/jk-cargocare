@@ -38,15 +38,15 @@ export const metadata: Metadata = {
 };
 
 const clientLogos: { name: string; image: string }[] = [
-  { name: "Zuari Agro Chemicals", image: "/clients/zuari.webp" },
-  { name: "West Coast Paper Mills", image: "/clients/westcoast.webp" },
-  { name: "Chambal Fertilizers", image: "/clients/chambal.webp" },
-  { name: "Marico", image: "/clients/marico.webp" },
-  { name: "Coromandel", image: "/clients/coromandel.webp" },
-  { name: "Grasim", image: "/clients/grasim.webp" },
-  { name: "Avestra", image: "/clients/avestra.webp" },
-  { name: "Agrimass", image: "/clients/agrimass.webp" },
-  { name: "WCI Shipping", image: "/clients/wci.webp" },
+  { name: "Zuari Agro Chemicals", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp" },
+  { name: "West Coast Paper Mills", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566298/westcoast_nhgdjx.webp" },
+  { name: "Chambal Fertilizers", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566291/chambal_fdtte6.webp" },
+  { name: "Marico", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566295/marico_l444ex.webp" },
+  { name: "Coromandel", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566292/coromandel_ikfqco.webp" },
+  { name: "Grasim", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566293/grasim_gycfh8.webp" },
+  { name: "Avestra", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566289/avestra_osuadf.webp" },
+  { name: "Agrimass", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566258/agrimass_bcz8zu.webp" },
+  { name: "WCI Shipping", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566296/wci_rfzi4k.webp" },
 ];
 
 export default function HomePage() {
@@ -59,7 +59,7 @@ export default function HomePage() {
           className="relative h-[600px] w-full overflow-hidden"
         >
           <Image
-            src="/assets/images/hero-section-img.webp"
+            src="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565888/hero-section-img_yh9bxw.webp"
             alt="Freight truck"
             aria-label="hero-image"
             fill

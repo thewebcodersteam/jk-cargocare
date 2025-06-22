@@ -19,7 +19,7 @@ export default function Header() {
             aria-label="JK Cargocare Logo"
           >
             <Image
-              src="/assets/images/jkc-logo.webp"
+              src="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/jkc-logo_azaqgq.webp"
               alt="company logo"
               width={40}
               height={20}

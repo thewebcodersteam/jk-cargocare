@@ -122,7 +122,7 @@ export default function ContactForm() {
       <CardContent className="lg:p-6 md:p-4 p-4">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <Label className="block text-sm font-medium text-gray-700 mb-2">
                 First Name <span className="text-red-500">*</span>
               </Label>
@@ -138,7 +138,7 @@ export default function ContactForm() {
                 </p>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <Label className="block text-sm font-medium text-gray-700 mb-2">
                 Last Name <span className="text-red-500">*</span>
               </Label>

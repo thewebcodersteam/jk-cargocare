@@ -53,7 +53,7 @@ export default function ServicesPage() {
       <HeroSection
         title=" Our Services"
         subtitle="Comprehensive logistics solutions tailored to your business needs."
-        imageUrl="/assets/images/services-new.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565888/services-new_w3hxct.webp"
         altText="Our Services"
         imagePosition="object-center"
       />
@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 "Long Distance.",
               ],
               imageAlt: "Freight transport",
-              imageSrc: "/assets/images/freight-brokerage.webp",
+              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565892/freight-brokerage_fk7xex.webp",
               buttonLabel: "Get Quote",
               buttonColor: "bg-blue-600 hover:bg-blue-700",
               reverse: false,
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                 "Certified Handling.",
               ],
               imageAlt: "Hazardous cargo handling",
-              imageSrc: "/assets/images/hazardous.webp",
+              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/hazardous_x26a8u.webp",
               buttonLabel: "Learn More",
               buttonColor: "bg-orange-600 hover:bg-orange-700",
               reverse: true,
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 "Strategic Location.",
               ],
               imageAlt: "Warehouse facility",
-              imageSrc: "/assets/images/warehousing-inventory.webp",
+              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565888/warehousing-inventory_l80y2h.webp",
               buttonLabel: "View Facilities",
               buttonColor: "bg-green-600 hover:bg-green-700",
               reverse: false,
@@ -143,7 +143,7 @@ export default function ServicesPage() {
                 "Flexible Solutions.",
               ],
               imageAlt: "Field operations team",
-              imageSrc: "/assets/images/manpower.webp",
+              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565885/manpower_c8r9bf.webp",
               buttonLabel: "Discuss Requirements",
               buttonColor: "bg-purple-600 hover:bg-purple-700",
               reverse: true,

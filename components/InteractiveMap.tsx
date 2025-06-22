@@ -146,7 +146,7 @@ export default function InteractiveMap() {
       .translate([width / 2, height / 2]);
     const path = d3.geoPath().projection(projection);
 
-    d3.json("/map_images/assets/geoBoundaries-IND-ADM1.topojson").then(
+    d3.json("/map_images/assets/geoBoundaries-IND-ADM1.json").then(
       (data) => {
         const topoData = data as TopoJSON;
         const objectKey = Object.keys(topoData.objects)[0];

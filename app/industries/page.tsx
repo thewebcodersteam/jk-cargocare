@@ -41,7 +41,7 @@ export default function IndustriesPage() {
       <HeroSection
         title="Industries We Serve"
         subtitle=" Specialized Logistics Solutions Across Diverse Industry Sectors."
-        imageUrl="/assets/images/industries-new.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565891/industries-new_nfayvl.webp"
         altText="Industries We Serve"
         imagePosition="object-center"
       />

@@ -4,7 +4,6 @@ import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Calendar, Target, Heart } from "lucide-react";
-import { steps } from "motion";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,7 +45,7 @@ export default function AboutPage() {
       <HeroSection
         title="About JK Cargocare"
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
-        imageUrl="/assets/images/about-new.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565891/about-new_s519dj.webp"
         altText="Logistics background"
       />
 
@@ -94,7 +93,7 @@ export default function AboutPage() {
               </div>
               <div className="relative md:max-w-3xl lg:max-w-5xl h-80 md:h-[35rem] lg:h-[30rem]">
                 <Image
-                  src="/assets/images/founders.webp"
+                  src="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565890/founders_qbjjvi.webp"
                   alt="Founders of JK Logistics"
                   fill
                   className="object-cover   rounded-lg shadow-lg"
@@ -127,13 +126,13 @@ export default function AboutPage() {
                   name: "Ms. Anjalee Singh",
                   role: "Co-Founder & Director",
                   desc: "A pioneer in logistics management with expertise in operations and client relations.",
-                  image: "/assets/images/founder_2.webp",
+                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/founder_2_c17ywr.webp",
                 },
                 {
                   name: "Mr. Jitendra Kumar Singh",
                   role: "Co-Founder & Director",
                   desc: "An industry veteran with deep expertise in freight solutions and business development.",
-                  image: "/assets/images/founder-1.webp",
+                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/founder-1_rwtmst.webp",
                 },
               ].map((founder) => (
                 <AnimateOnScroll key={founder.name}>
@@ -260,11 +259,11 @@ export default function AboutPage() {
               {[
                 {
                   title: "Achievement Certificate",
-                  image: "/certificates/achievement.webp",
+                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/achievement_r0gx2q.webp",
                 },
                 {
                   title: "Transporter Of The Year",
-                  image: "/certificates/transport.webp",
+                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/transport_nd2rqy.webp",
                 },
               ].map(({ title, image }) => (
                 <Card

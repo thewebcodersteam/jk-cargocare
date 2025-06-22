@@ -348,7 +348,7 @@ export default function HomePage() {
             aria-label="Call to action buttons"
           >
             <Link
-              href="/contact"
+              href="/contact-us"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-orange-500 hover:bg-orange-600"

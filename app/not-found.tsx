@@ -45,7 +45,7 @@ export default function NotFoundPage() {
                         Return Home
                       </Button>
                     </Link>
-                    <Link href="/contact" className="w-full">
+                    <Link href="/contact-us" className="w-full">
                       <Button variant="outline" className="w-full">
                         <Phone className="mr-2 h-4 w-4" />
                         Contact Us
@@ -88,7 +88,7 @@ export default function NotFoundPage() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/contact-us"
                 className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
               >
                 <MapPin className="h-6 w-6 text-green-600 mx-auto mb-2" />

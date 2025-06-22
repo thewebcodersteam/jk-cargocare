@@ -34,7 +34,11 @@ const contactSchema = z.object({
     .min(1, "Please enter your last name.")
     .nonempty()
     .regex(/^[a-zA-Z]+$/, "Last name must contain only letters."),
-  email: z.string().nonempty("Email is required.").email("Invalid email address."),
+  email: z
+    .string()
+    .min(1, "Email is required.")
+    .nonempty()
+    .email("Invalid email address."),
   company: z.string().optional(),
   service: z
     .string()
@@ -66,7 +70,7 @@ export default function ContactForm() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async function (data: ContactFormSchema & { token: string }) {
-      const response = await axios.post("/api/contact", data);
+      const response = await axios.post("/api/contact-us", data);
       return response.data;
     },
     onSuccess(data: { message: string }) {

@@ -76,8 +76,8 @@ export default function MobileNav() {
 
         <SheetClose asChild>
           <Link
-            href="/contact"
-            className={`text-lg transition duration-300 w-full text-center ${pathname === "/contact" ? "text-blue-600 font-semibold" : "hover:text-blue-600"
+            href="/contact-us"
+            className={`text-lg transition duration-300 w-full text-center ${pathname === "/contact-us" ? "text-blue-600 font-semibold" : "hover:text-blue-600"
               }`}          >
             Contact
           </Link>

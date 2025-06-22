@@ -140,7 +140,7 @@ export default function IndustriesPage() {
                     </div>
                     <div className="mt-6 text-center">
                       <Button className="border border-orange-500 text-orange-500 bg-white hover:bg-orange-500 hover:text-white transition-all">
-                        <Link href="/contact">Learn More</Link>
+                        <Link href="/contact-us">Learn More</Link>
                       </Button>
                     </div>
                   </CardContent>
@@ -210,7 +210,7 @@ export default function IndustriesPage() {
             Discover how our industry expertise can benefit your business.
           </p>
           <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-            <Link href="/contact">Discuss Your Requirements</Link>
+            <Link href="/contact-us">Discuss Your Requirements</Link>
           </Button>
         </div>
       </section>

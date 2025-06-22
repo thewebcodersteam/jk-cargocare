@@ -172,7 +172,7 @@ export default function ContactPage() {
             Our logistics experts are ready to help you with urgent requirements.
           </p>
             <Link
-              href="/contact"
+              href="/contact-us"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-orange-500 hover:bg-orange-600"

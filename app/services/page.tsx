@@ -74,13 +74,13 @@ export default function ServicesPage() {
               colorClass: "bg-blue-100",
               text: "Complete freight solutions including Full Truck Load (FTL), Less Than Truck Load (LTL), and Over Dimensional Cargo (ODC) transport across India.",
               points: [
-                "FTL Services",
-                "LTL Solutions",
-                "ODC Transport",
-                "Long Distance",
+                "FTL Services.",
+                "LTL Solutions.",
+                "ODC Transport.",
+                "Long Distance.",
               ],
               imageAlt: "Freight transport",
-              imageSrc: "/assets/images/freight-brokerage.jpg",
+              imageSrc: "/assets/images/freight-brokerage.webp",
               buttonLabel: "Get Quote",
               buttonColor: "bg-blue-600 hover:bg-blue-700",
               reverse: false,
@@ -96,10 +96,10 @@ export default function ServicesPage() {
               colorClass: "bg-orange-100",
               text: "Specialized handling of hazardous materials and bulk cargo with certified equipment and trained personnel ensuring safety and compliance.",
               points: [
-                "Chemical Transport",
-                "Bulk Materials",
-                "Safety Compliance",
-                "Certified Handling",
+                "Chemical Transport.",
+                "Bulk Materials.",
+                "Safety Compliance.",
+                "Certified Handling.",
               ],
               imageAlt: "Hazardous cargo handling",
               imageSrc: "/assets/images/hazardous.webp",
@@ -118,10 +118,10 @@ export default function ServicesPage() {
               colorClass: "bg-green-100",
               text: "Scalable warehousing solutions at our Sancoale Industrial Estate facility in Goa, with modern inventory management systems.",
               points: [
-                "Secure Storage",
-                "Inventory Management",
-                "Scalable Solutions",
-                "Strategic Location",
+                "Secure Storage.",
+                "Inventory Management.",
+                "Scalable Solutions.",
+                "Strategic Location.",
               ],
               imageAlt: "Warehouse facility",
               imageSrc: "/assets/images/warehousing-inventory.webp",
@@ -137,10 +137,10 @@ export default function ServicesPage() {
               colorClass: "bg-purple-100",
               text: "Trained labor and field support services to handle your operational requirements with skilled personnel and professional management.",
               points: [
-                "Trained Personnel",
-                "Field Support",
-                "Project Management",
-                "Flexible Solutions",
+                "Trained Personnel.",
+                "Field Support.",
+                "Project Management.",
+                "Flexible Solutions.",
               ],
               imageAlt: "Field operations team",
               imageSrc: "/assets/images/manpower.webp",
@@ -193,7 +193,7 @@ export default function ServicesPage() {
                         </div>
                       ))}
                     </div>
-                    <Link href="/contact" passHref legacyBehavior>
+                    <Link href="/contact-us" passHref legacyBehavior>
                       <Button className={buttonColor} aria-label={buttonLabel}>
                         {buttonLabel}
                       </Button>
@@ -342,7 +342,7 @@ export default function ServicesPage() {
           <p className="text-xl mb-8 opacity-90">
             Contact us today for customized logistics solutions.
           </p>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact-us" passHref legacyBehavior>
             <Button
               size="lg"
               className="bg-orange-500 hover:bg-orange-600"

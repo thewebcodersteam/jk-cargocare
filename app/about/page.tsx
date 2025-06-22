@@ -372,7 +372,7 @@ export default function AboutPage() {
           <p className="text-xl mb-8 opacity-90">
             Join the growing list of satisfied clients who trust Singh Logistics.
           </p>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact-us" passHref legacyBehavior>
             <Button
               size="lg"
               className="bg-orange-500 hover:bg-orange-600"

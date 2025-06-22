@@ -87,7 +87,9 @@ export default function AboutPage() {
                     <div className="font-semibold text-gray-800">
                       Established 2000
                     </div>
-                    <div className="text-gray-600">20+ years of excellence.</div>
+                    <div className="text-gray-600">
+                      20+ years of excellence.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -126,13 +128,15 @@ export default function AboutPage() {
                   name: "Ms. Anjalee Singh",
                   role: "Co-Founder & Director",
                   desc: "A pioneer in logistics management with expertise in operations and client relations.",
-                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/founder_2_c17ywr.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/founder_2_c17ywr.webp",
                 },
                 {
                   name: "Mr. Jitendra Kumar Singh",
                   role: "Co-Founder & Director",
                   desc: "An industry veteran with deep expertise in freight solutions and business development.",
-                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/founder-1_rwtmst.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/founder-1_rwtmst.webp",
                 },
               ].map((founder) => (
                 <AnimateOnScroll key={founder.name}>
@@ -189,7 +193,7 @@ export default function AboutPage() {
                   ),
                   title: "Our Mission",
                   text: "To provide reliable, efficient, and cost-effective logistics solutions.",
-                  bg: "bg-blue-100",
+                  bg: "bg-blue-100 group-hover:bg-blue-200",
                 },
                 {
                   icon: (
@@ -200,7 +204,7 @@ export default function AboutPage() {
                   ),
                   title: "Excellence",
                   text: "We strive for excellence in every aspect of our service delivery.",
-                  bg: "bg-orange-100",
+                  bg: "bg-orange-100 group-hover:bg-orange-200",
                 },
                 {
                   icon: (
@@ -211,20 +215,21 @@ export default function AboutPage() {
                   ),
                   title: "Trust",
                   text: "Building lasting relationships through transparency and reliability.",
-                  bg: "bg-green-100",
+                  bg: "bg-green-100 group-hover:bg-green-200",
                 },
               ].map(({ icon, title, text, bg }, index, arr) => (
                 <AnimateOnScroll key={title}>
                   <Card
-                    className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                    className={`group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer ${
                       index === arr.length - 1
                         ? "md:col-span-2 lg:col-span-1"
                         : ""
                     }`}
                   >
                     <CardContent className="p-8 text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-                        {/* your icon goes here, already color styled */}
+                      <div
+                        className={`w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full transition-colors ${bg}`}
+                      >
                         {icon}
                       </div>
                       <h3 className="text-xl font-semibold mb-4">{title}</h3>
@@ -259,11 +264,13 @@ export default function AboutPage() {
               {[
                 {
                   title: "Achievement Certificate",
-                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/achievement_r0gx2q.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/achievement_r0gx2q.webp",
                 },
                 {
                   title: "Transporter Of The Year",
-                  image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/transport_nd2rqy.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/transport_nd2rqy.webp",
                 },
               ].map(({ title, image }) => (
                 <Card
@@ -318,29 +325,29 @@ export default function AboutPage() {
             {[
               {
                 stat: 20,
-                suffix : "+",
-                steps : 2,
+                suffix: "+",
+                steps: 2,
                 label: "Years of Experience",
                 sub: "Serving clients since 2000.",
               },
               {
                 stat: 7,
-                steps : 1,
-                suffix : "",
+                steps: 1,
+                suffix: "",
                 label: "States Covered",
                 sub: "Pan-India presence.",
               },
               {
                 stat: 100,
-                 suffix : "+",
-                 steps : 10,
+                suffix: "+",
+                steps: 10,
                 label: "Happy Clients",
                 sub: "Trusted partnerships.",
               },
               {
                 stat: 50,
-                 suffix : "+",
-                 steps : 5,
+                suffix: "+",
+                steps: 5,
                 label: "Fleet Vehicles",
                 sub: "Modern transportation.",
               },
@@ -348,7 +355,12 @@ export default function AboutPage() {
               <AnimateOnScroll key={label}>
                 <div className="text-center" role="listitem">
                   <div className="text-4xl font-bold text-blue-600 mb-2">
-                    <CountUpOnView from={0} to={stat} step={steps} suffix={suffix} />
+                    <CountUpOnView
+                      from={0}
+                      to={stat}
+                      step={steps}
+                      suffix={suffix}
+                    />
                   </div>
                   <div className="text-gray-800 font-medium">{label}</div>
                   <div className="text-gray-600 text-sm">{sub}</div>
@@ -369,7 +381,8 @@ export default function AboutPage() {
             Partner with Experience
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join the growing list of satisfied clients who trust Singh Logistics.
+            Join the growing list of satisfied clients who trust Singh
+            Logistics.
           </p>
           <Link href="/contact-us" passHref legacyBehavior>
             <Button

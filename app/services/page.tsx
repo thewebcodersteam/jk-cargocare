@@ -80,7 +80,8 @@ export default function ServicesPage() {
                 "Long Distance.",
               ],
               imageAlt: "Freight transport",
-              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565892/freight-brokerage_fk7xex.webp",
+              imageSrc:
+                "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565892/freight-brokerage_fk7xex.webp",
               buttonLabel: "Get Quote",
               buttonColor: "bg-blue-600 hover:bg-blue-700",
               reverse: false,
@@ -102,7 +103,8 @@ export default function ServicesPage() {
                 "Certified Handling.",
               ],
               imageAlt: "Hazardous cargo handling",
-              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/hazardous_x26a8u.webp",
+              imageSrc:
+                "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/hazardous_x26a8u.webp",
               buttonLabel: "Learn More",
               buttonColor: "bg-orange-600 hover:bg-orange-700",
               reverse: true,
@@ -124,7 +126,8 @@ export default function ServicesPage() {
                 "Strategic Location.",
               ],
               imageAlt: "Warehouse facility",
-              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565888/warehousing-inventory_l80y2h.webp",
+              imageSrc:
+                "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565888/warehousing-inventory_l80y2h.webp",
               buttonLabel: "View Facilities",
               buttonColor: "bg-green-600 hover:bg-green-700",
               reverse: false,
@@ -143,7 +146,8 @@ export default function ServicesPage() {
                 "Flexible Solutions.",
               ],
               imageAlt: "Field operations team",
-              imageSrc: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565885/manpower_c8r9bf.webp",
+              imageSrc:
+                "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565885/manpower_c8r9bf.webp",
               buttonLabel: "Discuss Requirements",
               buttonColor: "bg-purple-600 hover:bg-purple-700",
               reverse: true,
@@ -244,37 +248,49 @@ export default function ServicesPage() {
                 icon: Package,
                 title: "Inbound Shipments",
                 desc: "Efficient handling of incoming cargo with customs coordination and documentation support.",
+                iconColor: "text-green-600",
+                bgColor: "bg-green-100 group-hover:bg-green-200",
               },
               {
                 icon: Clock,
                 title: "Real-time Tracking",
                 desc: "Advanced tracking systems to monitor your shipments in real-time throughout the journey.",
+                iconColor: "text-orange-600",
+                bgColor: "bg-orange-100 group-hover:bg-orange-200",
               },
               {
                 icon: MapPin,
                 title: "Route Optimization",
                 desc: "Strategic route planning to ensure cost-effective and timely delivery of your cargo.",
+                iconColor: "text-purple-600",
+                bgColor: "bg-purple-100 group-hover:bg-purple-200",
               },
-            ].map(({ icon: Icon, title, desc }, index, arr) => (
-              <AnimateOnScroll key={title}>
-                <Card
-                  className={`${
-                    index === arr.length - 1
-                      ? "md:col-span-2 lg:col-span-1"
-                      : ""
-                  }`}
-                >
-                  <CardContent className="p-6 text-center">
-                    <Icon
-                      className="h-12 w-12 text-blue-600 mx-auto mb-4"
-                      aria-hidden="true"
-                    />
-                    <h3 className="text-xl font-semibold mb-3">{title}</h3>
-                    <p className="text-gray-600">{desc}</p>
-                  </CardContent>
-                </Card>
-              </AnimateOnScroll>
-            ))}
+            ].map(
+              ({ icon: Icon, title, desc, iconColor, bgColor }, index, arr) => (
+                <AnimateOnScroll key={title}>
+                  <Card
+                    className={`group bg-white/20 backdrop-blur-lg border border-white/10 shadow-md hover:shadow-xl transition-all hover:scale-[1.02] cursor-pointer ${
+                      index === arr.length - 1
+                        ? "md:col-span-2 lg:col-span-1"
+                        : ""
+                    }`}
+                  >
+                    <CardContent className="p-8 text-center">
+                      <div
+                        className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors ${bgColor}`}
+                      >
+                        <Icon
+                          className={`h-8 w-8 ${iconColor}`}
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+                      <p className="text-gray-600 mb-4">{desc}</p>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
+              )
+            )}
           </div>
         </div>
       </section>

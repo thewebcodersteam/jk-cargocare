@@ -70,7 +70,7 @@ export default function ContactForm() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async function (data: ContactFormSchema & { token: string }) {
-      const response = await axios.post("/api/contact-us", data);
+      const response = await axios.post("/api/contact", data);
       return response.data;
     },
     onSuccess(data: { message: string }) {

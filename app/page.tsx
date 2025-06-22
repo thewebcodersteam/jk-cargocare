@@ -38,15 +38,51 @@ export const metadata: Metadata = {
 };
 
 const clientLogos: { name: string; image: string }[] = [
-  { name: "Zuari Agro Chemicals", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp" },
-  { name: "West Coast Paper Mills", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566298/westcoast_nhgdjx.webp" },
-  { name: "Chambal Fertilizers", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566291/chambal_fdtte6.webp" },
-  { name: "Marico", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566295/marico_l444ex.webp" },
-  { name: "Coromandel", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566292/coromandel_ikfqco.webp" },
-  { name: "Grasim", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566293/grasim_gycfh8.webp" },
-  { name: "Avestra", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566289/avestra_osuadf.webp" },
-  { name: "Agrimass", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566258/agrimass_bcz8zu.webp" },
-  { name: "WCI Shipping", image: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566296/wci_rfzi4k.webp" },
+  {
+    name: "Zuari Agro Chemicals",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
+  },
+  {
+    name: "West Coast Paper Mills",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566298/westcoast_nhgdjx.webp",
+  },
+  {
+    name: "Chambal Fertilizers",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566291/chambal_fdtte6.webp",
+  },
+  {
+    name: "Marico",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566295/marico_l444ex.webp",
+  },
+  {
+    name: "Coromandel",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566292/coromandel_ikfqco.webp",
+  },
+  {
+    name: "Grasim",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566293/grasim_gycfh8.webp",
+  },
+  {
+    name: "Avestra",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566289/avestra_osuadf.webp",
+  },
+  {
+    name: "Agrimass",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566258/agrimass_bcz8zu.webp",
+  },
+  {
+    name: "WCI Shipping",
+    image:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566296/wci_rfzi4k.webp",
+  },
 ];
 
 export default function HomePage() {
@@ -117,29 +153,51 @@ export default function HomePage() {
           <h2 id="stats-heading" className="sr-only">
             Company Statistics
           </h2>
-          <div className="flex flex-wrap w-full text-center" role="list">
-            {[
-              { label: "Years Experience.", value: 20 , step:1, suffix : "+"},
-              { label: "States Covered.", value: 7, step : 1, suffix : ""},
-              { label: "Fleet Vehicles.", value: 50, step :1, suffix : "+" },
-              { label: "Happy Clients.", value: 100, step: 5, suffix : "+" },
-            ].map((stat, index) => (
-              <div
-                key={stat.label}
-                role="listitem"
-                className={`h-40 flex flex-col justify-center items-center w-full sm:w-1/2 lg:w-1/4 ${
-                  index !== 3
-                    ? "border-b sm:border-b-0 lg:border-r border-gray-300"
-                    : ""
-                }`}
-              >
-                <div className="text-6xl text-primary mb-2">
-                  <CountUpOnView from={0} to={stat.value} step={stat.step} suffix={stat.suffix} />
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
+          <section aria-labelledby="achievements-heading-v2">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <h2
+                  id="achievements-heading-v2"
+                  className="text-3xl font-bold text-gray-800 mb-4"
+                >
+                  Key Achievements
+                </h2>
+                <p className="text-gray-600">
+                  Milestones that mark our journey of growth and success.
+                </p>
               </div>
-            ))}
-          </div>
+              <div
+                className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+                role="list"
+              >
+                {[
+                  {
+                    label: "Years of Experience.",
+                    value: 20,
+                    step: 1,
+                    suffix: "+",
+                  },
+                  { label: "States Covered.", value: 7, step: 1, suffix: "" },
+                  { label: "Fleet Vehicles.", value: 50, step: 1, suffix: "+" },
+                  { label: "Happy Clients.", value: 100, step: 5, suffix: "+" },
+                ].map((stat) => (
+                  <div key={stat.label} role="listitem">
+                    <div className="text-4xl font-bold text-blue-600 mb-2">
+                      <CountUpOnView
+                        from={0}
+                        to={stat.value}
+                        step={stat.step}
+                        suffix={stat.suffix}
+                      />
+                    </div>
+                    <div className="text-gray-800 font-medium">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -169,6 +227,7 @@ export default function HomePage() {
                       aria-hidden="true"
                     />
                   ),
+                  bgColor: "bg-blue-100 group-hover:bg-blue-200",
                   desc: "FTL, LTL, and ODC transport with long-distance coverage across India.",
                 },
                 {
@@ -179,6 +238,7 @@ export default function HomePage() {
                       aria-hidden="true"
                     />
                   ),
+                  bgColor: "bg-orange-100 group-hover:bg-orange-200",
                   desc: "Scalable warehousing solutions at Sancoale Industrial Estate, Goa.",
                 },
                 {
@@ -189,6 +249,7 @@ export default function HomePage() {
                       aria-hidden="true"
                     />
                   ),
+                  bgColor: "bg-green-100 group-hover:bg-green-200",
                   desc: "Trained labor and field support for your operational needs.",
                 },
               ].map((service, index, arr) => (
@@ -201,7 +262,9 @@ export default function HomePage() {
                     }`}
                   >
                     <CardContent className="p-8 text-center">
-                      <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                      <div
+                        className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors ${service.bgColor}`}
+                      >
                         {service.icon}
                       </div>
                       <h3 className="text-xl font-semibold mb-3">

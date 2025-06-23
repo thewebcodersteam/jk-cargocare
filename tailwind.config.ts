@@ -105,11 +105,6 @@ const config: Config = {
       },
     },
   },
-  safelist: [
-    {
-      pattern: /object-\[.*\]/,
-    },
-  ],
    variants: {
     extend: {
       objectPosition: ["responsive"],

@@ -7,55 +7,48 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Rahul Mehta",
-    title: "Logistics Head, Zuari Agro Chemicals",
-    avatar: "https://i.pravatar.cc/150?img=11",
-    text: "JK Cargocare has consistently delivered timely freight solutions for us. Their professionalism and reach across India is unmatched.",
+    name: "S.Y. Amonkar",
+    title: "General Manager - Commercial & Logistics, Zuari Agro Chemicals Ltd",
+    avatar: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
+    text: "JK Cargocare & JK Enterprises has been our trusted partner at Zuari Agro Chemicals for over ten years, handling bulk fertilizer stacking, de-bagging, cleaning, and in-plant transport with impeccable reliability. Their on-site supervision and safety standards gave us complete peace of mind, and they consistently delivered under tight schedules.",
   },
   {
-    name: "Anita Desai",
-    title: "Operations Manager, Marico",
-    avatar: "https://i.pravatar.cc/150?img=47",
-    text: "We've trusted JK Cargocare with our bulk cargo for over 3 years. Their safety protocols and efficiency are top-notch.",
+    name: "Elvis D’Sa",
+    title: "Deputy General Manager – Materials, Zuari Agro Chemicals Ltd",
+    avatar: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
+    text: "JK Cargocare has been our trusted transport partner for over seven years, handling bulk fertilizer movements from MPT to our Zuari plant, spares distribution across states, and finished‐goods deliveries to Verna. Their on-time pickups, careful handling, and transparent communication have been invaluable in keeping our production lines running smoothly.",
   },
   {
-    name: "Vikram Shah",
-    title: "Supply Chain Lead, Coromandel",
+    name: "Raj Facility Management",
+    title: "Porvorim, Goa",
     avatar: "https://i.pravatar.cc/150?img=22",
-    text: "Their warehousing solutions in Goa have streamlined our inventory and reduced transit delays significantly.",
-  },
-  {
-    name: "Neha Kapoor",
-    title: "Field Ops, Grasim Industries",
-    avatar: "https://i.pravatar.cc/150?img=65",
-    text: "We appreciate the manpower support JK Cargocare provides — trained staff that can be relied upon at any site.",
+    text: "We engaged JK Enterprises to deliver comprehensive gardening and facility upkeep across our multi-storied residential complex in Porvorim. From landscape design and trenching to ongoing maintenance and seasonal planting, they managed a 9-acre site worth over ₹12.8 lakhs annually. Their team’s professionalism and attention to detail have transformed our grounds, and our residents couldn’t be happier.",
   },
 ];
 
 export function ClientCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
- const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
-  slides: {
-    perView: 1,
-    spacing: 16,
-  },
-  breakpoints: {
-    "(min-width: 768px)": {
-      slides: {
-        perView: 2,
-        spacing: 24,
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    slides: {
+      perView: 1,
+      spacing: 16,
+    },
+    breakpoints: {
+      "(min-width: 768px)": {
+        slides: {
+          perView: 2,
+          spacing: 24,
+        },
       },
     },
-  },
-  loop: true,
-  slideChanged(slider) {
-    setCurrentSlide(slider.track.details.rel);
-  },
-  created(slider) {
-    setCurrentSlide(slider.track.details.rel);
-  },
-});
-
+    loop: true,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -78,7 +71,7 @@ export function ClientCarousel() {
                   alt={t.name}
                   width={48}
                   height={48}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-contain"
                 />
                 <div>
                   <p className="font-semibold">{t.name}</p>

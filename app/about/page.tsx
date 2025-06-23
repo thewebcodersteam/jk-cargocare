@@ -11,12 +11,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About | JK Cargocare - 20+ Years of Freight Excellence.",
   description:
-    "Discover the story, mission, and milestones of Singh Logistics — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
+    "Discover the story, mission, and milestones of JK Cargocare — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
   openGraph: {
-    title: "About Singh Logistics",
+    title: "About JK Cargocare",
     description:
-      "Learn about Singh Logistics, its visionary founders, core values, and 24 years of logistics expertise across India.",
-    siteName: "JK Logistics",
+      "Learn about JK Cargocare, its visionary founders, core values, and 24 years of logistics expertise across India.",
+    siteName: "JK cargocare",
     images: [
       {
         url: "/og-image.jpg",
@@ -66,7 +66,7 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-gray-600 mb-6">
                   Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh
-                  and Mr. Jitendra Kumar Singh, Singh Logistics began as a small
+                  and Mr. Jitendra Kumar Singh, JK Cargocare began as a small
                   freight forwarding company with a big dream – to revolutionize
                   logistics solutions across India.
                 </p>

@@ -18,7 +18,7 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section
-      className="relative h-[600px] flex items-end justify-start text-white"
+      className="relative h-[600px] flex items-end justify-start text-white overflow-hidden"
       aria-labelledby="hero-heading"
     >
       {/* Background Image */}
@@ -26,7 +26,7 @@ export default function HeroSection({
         src={imageUrl}
         alt={altText}
         fill
-        className={`object-cover ${imagePosition ?? "object-bottom"}`}
+        className={`object-cover ${imagePosition ? imagePosition : "object-bottom md:object-[center_40%] lg:object-[center_14%]"} `}
         priority
       />
 

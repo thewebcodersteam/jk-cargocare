@@ -45,6 +45,7 @@ export default function ContactPage() {
         subtitle=" Get in touch with our logistics experts for customized solutions."
         imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565892/contact-us_jtmlpk.webp"
         altText="Contact Us"
+        imagePosition="object-bottom md:object-[center_40%] lg:object-[center_60%]"
       />
 
       {/* Contact Form & Location */}

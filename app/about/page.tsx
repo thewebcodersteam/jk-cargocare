@@ -47,6 +47,7 @@ export default function AboutPage() {
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
         imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565891/about-new_s519dj.webp"
         altText="Logistics background"
+       imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20lg:-translate-y-10  md:object-[100%_90%] lg:object-[center_80%] " 
       />
 
       <AnimateOnScroll>
@@ -125,6 +126,7 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
                 {
+                  id: 1,
                   name: "Ms. Anjalee Singh",
                   role: "Co-Founder & Director",
                   desc: "A pioneer in logistics management with expertise in operations and client relations.",
@@ -132,6 +134,7 @@ export default function AboutPage() {
                     "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/founder_2_c17ywr.webp",
                 },
                 {
+                  id: 2,
                   name: "Mr. Jitendra Kumar Singh",
                   role: "Founder & Director",
                   desc: "An industry veteran with deep expertise in freight solutions and business development.",
@@ -142,12 +145,16 @@ export default function AboutPage() {
                 <AnimateOnScroll key={founder.name}>
                   <Card className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
                     <CardContent className="p-8 text-center">
-                      <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
+                      <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden bg-[#EFF3ED]">
                         <Image
                           src={founder.image}
                           alt={`Portrait of ${founder.name}`}
                           fill
-                          className="object-cover"
+                          className={`object-cover transition-transform duration-300 ${
+                            founder.id === 1
+                              ? "scale-150 -translate-y-8"
+                              : "translate-y-5 scale-95 bg-black"
+                          }`}
                         />
                       </div>
                       <h3 className="text-xl font-semibold mb-2">

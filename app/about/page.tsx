@@ -133,7 +133,7 @@ export default function AboutPage() {
                 },
                 {
                   name: "Mr. Jitendra Kumar Singh",
-                  role: "Co-Founder & Director",
+                  role: "Founder & Director",
                   desc: "An industry veteran with deep expertise in freight solutions and business development.",
                   image:
                     "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/founder-1_rwtmst.webp",

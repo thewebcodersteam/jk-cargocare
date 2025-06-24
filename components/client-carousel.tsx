@@ -7,24 +7,34 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "S.Y. Amonkar",
-    title: "General Manager - Commercial & Logistics, Zuari Agro Chemicals Ltd",
-    avatar: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
+    name: "General Manager",
+    title: "Commercial & Logistics, Zuari Agro Chemicals Ltd",
+    avatar:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
     text: "JK Cargocare & JK Enterprises has been our trusted partner at Zuari Agro Chemicals for over ten years, handling bulk fertilizer stacking, de-bagging, cleaning, and in-plant transport with impeccable reliability. Their on-site supervision and safety standards gave us complete peace of mind, and they consistently delivered under tight schedules.",
   },
   {
-    name: "Elvis D’Sa",
-    title: "Deputy General Manager – Materials, Zuari Agro Chemicals Ltd",
-    avatar: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
+    name: "Deputy General Manager",
+    title: "Materials, Zuari Agro Chemicals Ltd",
+    avatar:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
     text: "JK Cargocare has been our trusted transport partner for over seven years, handling bulk fertilizer movements from MPT to our Zuari plant, spares distribution across states, and finished‐goods deliveries to Verna. Their on-time pickups, careful handling, and transparent communication have been invaluable in keeping our production lines running smoothly.",
   },
   {
     name: "Raj Facility Management",
     title: "Porvorim, Goa",
-    avatar: "https://i.pravatar.cc/150?img=22",
+   
     text: "We engaged JK Enterprises to deliver comprehensive gardening and facility upkeep across our multi-storied residential complex in Porvorim. From landscape design and trenching to ongoing maintenance and seasonal planting, they managed a 9-acre site worth over ₹12.8 lakhs annually. Their team’s professionalism and attention to detail have transformed our grounds, and our residents couldn’t be happier.",
   },
 ];
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+}
 
 export function ClientCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -66,13 +76,19 @@ export function ClientCarousel() {
               <Quote className="text-black h-8 w-8 mb-4" />
               <p className="text-lg leading-relaxed mb-6">“{t.text}”</p>
               <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-100">
-                <Image
-                  src={t.avatar}
-                  alt={t.name}
-                  width={48}
-                  height={48}
-                  className="rounded-full object-contain"
-                />
+                {t.avatar ? (
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    width={48}
+                    height={48}
+                    className="rounded-full object-contain"
+                  />
+                ) : (
+                  <div className="w-12 h-12 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-semibold text-sm">
+                    {getInitials(t.name)}
+                  </div>
+                )}
                 <div>
                   <p className="font-semibold">{t.name}</p>
                   <p className="text-sm text-gray-500">{t.title}</p>

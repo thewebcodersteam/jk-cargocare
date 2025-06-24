@@ -21,8 +21,8 @@ const testimonials = [
     text: "JK Cargocare has been our trusted transport partner for over seven years, handling bulk fertilizer movements from MPT to our Zuari plant, spares distribution across states, and finished‐goods deliveries to Verna. Their on-time pickups, careful handling, and transparent communication have been invaluable in keeping our production lines running smoothly.",
   },
   {
-    name: "Raj Facility Management",
-    title: "Porvorim, Goa",
+    name: "General Manager",
+    title: "Raj Facility Management",
    
     text: "We engaged JK Enterprises to deliver comprehensive gardening and facility upkeep across our multi-storied residential complex in Porvorim. From landscape design and trenching to ongoing maintenance and seasonal planting, they managed a 9-acre site worth over ₹12.8 lakhs annually. Their team’s professionalism and attention to detail have transformed our grounds, and our residents couldn’t be happier.",
   },

@@ -177,7 +177,7 @@ export default function HomePage() {
                     step: 1,
                     suffix: "+",
                   },
-                  { label: "States Covered.", value: 7, step: 1, suffix: "" },
+                  { label: "States Covered.", value: 7, step: 1, suffix: "+" },
                   { label: "Fleet Vehicles.", value: 50, step: 1, suffix: "+" },
                   { label: "Happy Clients.", value: 100, step: 5, suffix: "+" },
                 ].map((stat) => (

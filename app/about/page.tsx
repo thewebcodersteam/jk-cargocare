@@ -45,9 +45,9 @@ export default function AboutPage() {
       <HeroSection
         title="About JK Cargocare"
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
-        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565891/about-new_s519dj.webp"
+        imageUrl="./header_images/about-us.webp"
         altText="Logistics background"
-       imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20lg:-translate-y-10  md:object-[100%_90%] lg:object-[center_80%] " 
+       imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20" 
       />
 
       <AnimateOnScroll>
@@ -68,7 +68,7 @@ export default function AboutPage() {
                 <p className="text-gray-600 mb-6">
                   Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh
                   and Mr. Jitendra Kumar Singh, JK Cargocare began as a small
-                  freight forwarding company with a big dream – to revolutionize
+                  freight solutions company with a big dream – to revolutionize
                   logistics solutions across India.
                 </p>
                 <p className="text-gray-600 mb-6">
@@ -340,7 +340,7 @@ export default function AboutPage() {
               {
                 stat: 7,
                 steps: 1,
-                suffix: "",
+                suffix: "+",
                 label: "States Covered",
                 sub: "Pan-India presence.",
               },

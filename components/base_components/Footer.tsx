@@ -24,8 +24,8 @@ export default function Footer() {
               <Image
                 src="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/jkc-logo_azaqgq.webp"
                 alt="company logo"
-                width={40}
-                height={20}
+                width={50}
+                height={30}
               />
               <h3 className="text-lg font-bold">JK Cargocare</h3>
             </div>

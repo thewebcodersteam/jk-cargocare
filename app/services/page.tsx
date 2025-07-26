@@ -13,7 +13,6 @@ import {
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { exo } from "@/app/layout";
 import HeroSection from "@/components/HeroSection";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
@@ -53,7 +52,7 @@ export default function ServicesPage() {
       <HeroSection
         title=" Our Services"
         subtitle="Comprehensive logistics solutions tailored to your business needs."
-        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565888/services-new_w3hxct.webp"
+        imageUrl="./header_images/services.webp"
         altText="Our Services"
         imagePosition="object-center"
       />

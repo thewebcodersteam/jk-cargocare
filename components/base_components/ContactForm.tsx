@@ -8,6 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useState, useRef } from "react";
+import { Exo } from "next/font/google";
+export const exo = Exo({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 import axios from "axios";
 import {
   Select,
@@ -209,7 +214,7 @@ export default function ContactForm() {
                   >
                     <SelectValue placeholder="Select a service interest" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className={exo.className}>
                     <SelectItem value="freight">Freight Brokerage</SelectItem>
                     <SelectItem value="hazardous">
                       Hazardous & Bulk Cargo

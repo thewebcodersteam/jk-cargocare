@@ -12,12 +12,12 @@ import { PartnerCarousel } from "@/components/PartnerCarousel";
 export const metadata: Metadata = {
   title: "About | JK Cargocare - 20+ Years of Freight Excellence.",
   description:
-    "Discover the story, mission, and milestones of Singh Logistics — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
+    "Discover the story, mission, and milestones of JK Cargocare — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
   openGraph: {
-    title: "About Singh Logistics",
+    title: "About JK Cargocare",
     description:
-      "Learn about Singh Logistics, its visionary founders, core values, and 24 years of logistics expertise across India.",
-    siteName: "JK Logistics",
+      "Learn about JK Cargocare, its visionary founders, core values, and 24 years of logistics expertise across India.",
+    siteName: "JK cargocare",
     images: [
       {
         url: "/og-image.jpg",
@@ -67,7 +67,7 @@ export default function AboutPage() {
       <HeroSection
         title="About JK Cargocare"
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
-        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565891/about-new_s519dj.webp"
+        imageUrl="./header_images/about-us.webp"
         altText="Logistics background"
         imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20lg:-translate-y-10  md:object-[100%_90%] lg:object-[center_80%] "
       />
@@ -89,8 +89,8 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-gray-600 mb-6">
                   Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh
-                  and Mr. Jitendra Kumar Singh, Singh Logistics began as a small
-                  freight forwarding company with a big dream – to revolutionize
+                  and Mr. Jitendra Kumar Singh, JK Cargocare began as a small
+                  freight solutions company with a big dream – to revolutionize
                   logistics solutions across India.
                 </p>
                 <p className="text-gray-600 mb-6">
@@ -158,7 +158,7 @@ export default function AboutPage() {
                 {
                   id: 2,
                   name: "Mr. Jitendra Kumar Singh",
-                  role: "Co-Founder & Director",
+                  role: "Founder & Director",
                   desc: "An industry veteran with deep expertise in freight solutions and business development.",
                   image:
                     "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/founder-1_rwtmst.webp",

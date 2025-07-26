@@ -7,6 +7,7 @@ import { Award, Calendar, Target, Heart } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PartnerCarousel } from "@/components/PartnerCarousel";
 
 export const metadata: Metadata = {
   title: "About | JK Cargocare - 20+ Years of Freight Excellence.",
@@ -37,6 +38,27 @@ export const metadata: Metadata = {
   },
 };
 
+const partners = [
+  {
+    name: "JK Enterprises (Manpower Solutions)",
+    logo: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/jkc-logo_azaqgq.webp",
+    tagline:
+      "JK Enterprises (Manpower Solutions) is a trusted partner to both private clients like Zuari Agro Chemicals and Raj Facility, and government agencies such as Naval Water Ranges (HANSA) and the Revenue Department.We provide consistent, skilled manpower backed by reliable buyer-side support, on-site coordination, and timely payment processing. Our team is known for professionalism, safety compliance, and the ability to meet tight timelines across diverse operational needs.",
+  },
+  {
+    name: "D&A Industries (Headquarters & Warehousing)",
+    logo: "/logos/raj-facility-logo.png",
+    tagline:
+      " Strategically located in the heart of Sancoale Industrial Estate, our facility features a spacious covered warehouse, large open yard, secure perimeter fencing, 24/7 surveillance, and dedicated office space. With direct road access and proximity to essential services, we’re fully equipped to handle all your storage and distribution needs.",
+  },
+  {
+    name: "D&A Logistics",
+    logo: "/logos/agroworld.png",
+    tagline:
+      "Our newest logistics arm builds on JK Cargocare’s 20+ years of expertise, embracing the digital transformation reshaping global supply chains. With GPS tracking and route optimization, we ensure shipments are monitored end-to-end for maximum efficiency and security. From hazardous cargo to expedited deliveries, our skilled team and fleet deliver on time — backed by proven processes and enhanced by data-driven insights.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -47,7 +69,7 @@ export default function AboutPage() {
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
         imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565891/about-new_s519dj.webp"
         altText="Logistics background"
-       imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20lg:-translate-y-10  md:object-[100%_90%] lg:object-[center_80%] " 
+        imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20lg:-translate-y-10  md:object-[100%_90%] lg:object-[center_80%] "
       />
 
       <AnimateOnScroll>
@@ -322,59 +344,10 @@ export default function AboutPage() {
               id="achievements-heading"
               className="text-3xl font-bold text-gray-800 mb-4"
             >
-              Key Achievements
+              About sister companies
             </h2>
-            <p className="text-gray-600">
-              Milestones that mark our journey of growth and success.
-            </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
-            {[
-              {
-                stat: 20,
-                suffix: "+",
-                steps: 2,
-                label: "Years of Experience",
-                sub: "Serving clients since 2000.",
-              },
-              {
-                stat: 7,
-                steps: 1,
-                suffix: "",
-                label: "States Covered",
-                sub: "Pan-India presence.",
-              },
-              {
-                stat: 100,
-                suffix: "+",
-                steps: 10,
-                label: "Happy Clients",
-                sub: "Trusted partnerships.",
-              },
-              {
-                stat: 50,
-                suffix: "+",
-                steps: 5,
-                label: "Fleet Vehicles",
-                sub: "Modern transportation.",
-              },
-            ].map(({ stat, label, sub, steps, suffix }) => (
-              <AnimateOnScroll key={label}>
-                <div className="text-center" role="listitem">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">
-                    <CountUpOnView
-                      from={0}
-                      to={stat}
-                      step={steps}
-                      suffix={suffix}
-                    />
-                  </div>
-                  <div className="text-gray-800 font-medium">{label}</div>
-                  <div className="text-gray-600 text-sm">{sub}</div>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
+          <PartnerCarousel partners={partners} />
         </div>
       </section>
 

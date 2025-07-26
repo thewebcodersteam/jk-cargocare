@@ -52,9 +52,9 @@ export default function ServicesPage() {
       <HeroSection
         title=" Our Services"
         subtitle="Comprehensive logistics solutions tailored to your business needs."
-        imageUrl="./header_images/services.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1753550427/services_t7efyk.webp"
         altText="Our Services"
-        imagePosition="object-center"
+        imagePosition="w-full h-full object-cover object-center"
       />
 
       {/* Main Services */}

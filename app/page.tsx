@@ -84,6 +84,28 @@ const clientLogos: { name: string; image: string }[] = [
       "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566296/wci_rfzi4k.webp",
   },
 ];
+const testimonials = [
+  {
+    name: "General Manager",
+    title: "Commercial & Logistics, Zuari Agro Chemicals Ltd",
+    avatar:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
+    text: "JK Cargocare & JK Enterprises has been our trusted partner at Zuari Agro Chemicals for over ten years, handling bulk fertilizer stacking, de-bagging, cleaning, and in-plant transport with impeccable reliability. Their on-site supervision and safety standards gave us complete peace of mind, and they consistently delivered under tight schedules.",
+  },
+  {
+    name: "Deputy General Manager",
+    title: "Materials, Zuari Agro Chemicals Ltd",
+    avatar:
+      "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566299/zuari_tphc4b.webp",
+    text: "JK Cargocare has been our trusted transport partner for over seven years, handling bulk fertilizer movements from MPT to our Zuari plant, spares distribution across states, and finished‐goods deliveries to Verna. Their on-time pickups, careful handling, and transparent communication have been invaluable in keeping our production lines running smoothly.",
+  },
+  {
+    name: "Raj Facility Management",
+    title: "Porvorim, Goa",
+   
+    text: "We engaged JK Enterprises to deliver comprehensive gardening and facility upkeep across our multi-storied residential complex in Porvorim. From landscape design and trenching to ongoing maintenance and seasonal planting, they managed a 9-acre site worth over ₹12.8 lakhs annually. Their team’s professionalism and attention to detail have transformed our grounds, and our residents couldn’t be happier.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -388,7 +410,7 @@ export default function HomePage() {
                 for logistics excellence.
               </p>
             </div>
-            <ClientCarousel />
+            <ClientCarousel testimonials={testimonials} />
           </div>
         </section>
       </AnimateOnScroll>

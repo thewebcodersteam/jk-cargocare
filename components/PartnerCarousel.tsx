@@ -8,6 +8,7 @@ type Partner = {
   name: string;
   logo: string;
   tagline?: string;
+  bracket?: string;
 };
 
 type PartnerCarouselProps = {
@@ -46,12 +47,12 @@ export function PartnerCarousel({ partners }: PartnerCarouselProps) {
   }, [instanceRef]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4">
+    <div className="max-w-7xl mx-auto ">
       <div ref={sliderRef} className="keen-slider">
         {partners.map((partner, idx) => (
           <div key={idx} className="keen-slider__slide flex">
-            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex gap-8  items-start justify-between text-start w-full hover:shadow-md transition-shadow">
-              <div className="w-full flex">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-wrap lg:flex-nowrap gap-8  items-start  text-start w-full hover:shadow-md transition-shadow">
+              <div className="w-full flex justify-center items-center">
                 <div className="relative w-24 h-24 mb-4 border-2 border-gray-200 rounded-full overflow-hidden">
                   <Image
                     src={partner.logo}
@@ -62,13 +63,19 @@ export function PartnerCarousel({ partners }: PartnerCarouselProps) {
                 </div>
               </div>
               <div className="flex flex-col gap-4">
-                <p className="font-semibold text-lg">{partner.name}</p>
+                <div>
+                  <p className="font-semibold text-lg">{partner.name}</p>
+                  <p className="font-semibold text-lg">{partner.bracket}</p>
+                </div>
                 <hr />
                 {partner.tagline && (
                   <p className="text-sm text-gray-500 mt-1">
                     {partner.tagline}
                   </p>
                 )}
+              </div>
+              <div className="h-5 w-full">
+
               </div>
             </div>
           </div>

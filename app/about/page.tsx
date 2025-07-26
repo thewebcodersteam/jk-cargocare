@@ -40,13 +40,15 @@ export const metadata: Metadata = {
 
 const partners = [
   {
-    name: "JK Enterprises (Manpower Solutions)",
+    name: "JK Enterprises ",
+    bracket: "(Manpower Solutions)",
     logo: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/jkc-logo_azaqgq.webp",
     tagline:
       "JK Enterprises (Manpower Solutions) is a trusted partner to both private clients like Zuari Agro Chemicals and Raj Facility, and government agencies such as Naval Water Ranges (HANSA) and the Revenue Department.We provide consistent, skilled manpower backed by reliable buyer-side support, on-site coordination, and timely payment processing. Our team is known for professionalism, safety compliance, and the ability to meet tight timelines across diverse operational needs.",
   },
   {
-    name: "D&A Industries (Headquarters & Warehousing)",
+    name: "D&A Industries ",
+    bracket: "(Headquarters & Warehousing)",
     logo: "/logos/raj-facility-logo.png",
     tagline:
       " Strategically located in the heart of Sancoale Industrial Estate, our facility features a spacious covered warehouse, large open yard, secure perimeter fencing, 24/7 surveillance, and dedicated office space. With direct road access and proximity to essential services, we’re fully equipped to handle all your storage and distribution needs.",
@@ -69,7 +71,7 @@ export default function AboutPage() {
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
         imageUrl="./header_images/about-us.webp"
         altText="Logistics background"
-        imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20lg:-translate-y-10  md:object-[100%_90%] lg:object-[center_80%] "
+        imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20"
       />
 
       <AnimateOnScroll>
@@ -339,15 +341,17 @@ export default function AboutPage() {
         aria-labelledby="achievements-heading"
       >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              id="achievements-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
-            >
-              About sister companies
-            </h2>
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2
+                id="achievements-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
+              >
+                About sister companies
+              </h2>
+            </div>
+            <PartnerCarousel partners={partners} />
           </div>
-          <PartnerCarousel partners={partners} />
         </div>
       </section>
 

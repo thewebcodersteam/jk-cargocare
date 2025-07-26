@@ -69,9 +69,9 @@ export default function AboutPage() {
       <HeroSection
         title="About JK Cargocare"
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
-        imageUrl="./header_images/about-us.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1753550354/about-us_fpp10q.webp"
         altText="Logistics background"
-        imagePosition="scale-150 md:scale-120 object-[80%_20%] -translate-y-40 md:-translate-y-20"
+        imagePosition="w-full h-full object-cover object-center"
       />
 
       <AnimateOnScroll>

@@ -61,7 +61,7 @@ const partners = [
   },
 ];
 
-export default function AboutPage() {
+export default function page() {
   return (
     <>
       {/* Hero Section */}

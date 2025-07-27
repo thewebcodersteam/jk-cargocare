@@ -107,7 +107,7 @@ const testimonials = [
   },
 ];
 
-export default function HomePage() {
+export default function page() {
   return (
     <>
       {/* Hero Section */}

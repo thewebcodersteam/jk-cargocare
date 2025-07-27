@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export default function page() {
   return (
     <>
       {/* Hero Section */}

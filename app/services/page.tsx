@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default function page() {
   return (
     <>
       {/* Hero Section */}

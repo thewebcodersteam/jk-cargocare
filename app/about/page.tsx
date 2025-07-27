@@ -347,7 +347,7 @@ export default function AboutPage() {
                 id="achievements-heading"
                 className="text-3xl font-bold text-gray-800 mb-4"
               >
-                About sister companies
+                About Sister Companies
               </h2>
             </div>
             <PartnerCarousel partners={partners} />

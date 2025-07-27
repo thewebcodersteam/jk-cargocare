@@ -80,7 +80,7 @@ export default function ServicesPage() {
                 "Long Distance",
               ],
               imageAlt: "Freight transport",
-              imageSrc: "/assets/images/freight-brokerage.jpg",
+              imageSrc: "/assets/images/freight-brokerage.webp",
               buttonLabel: "Get Quote",
               buttonColor: "bg-blue-600 hover:bg-blue-700",
               reverse: false,

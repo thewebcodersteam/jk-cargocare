@@ -1,6 +1,7 @@
 import * as Brevo from "@getbrevo/brevo";
 
-type ContactFormData = {
+
+export type ContactFormData = {
   firstName: string;
   lastName: string;
   email: string;
@@ -20,12 +21,12 @@ export async function sendEmail(data: ContactFormData): Promise<boolean> {
     await apiInstance.sendTransacEmail({
       sender: {
         name: "Website Form",
-        email: "sankalpkalangutkar51@gmail.com",
+        email: "thewebcoders.team@gmail.com",
       },
       to: [
         {
-          email: "sankalp.kalangutkar31@gmail.com",
-          name: "Sankalp",
+          email: "nykshriraj4nov@gmail.com",
+          name: "Shriraj Naik",
         },
       ],
       subject: `New Inquiry from ${data.firstName} ${data.lastName}`,

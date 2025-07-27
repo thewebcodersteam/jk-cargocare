@@ -54,7 +54,7 @@ export default function ContactPage() {
         aria-labelledby="contact-form-section"
       >
         <div className="container mx-auto px-4 space-y-16">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid place-content-center lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
               <h2

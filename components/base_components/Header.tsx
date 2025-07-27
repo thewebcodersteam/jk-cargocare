@@ -23,6 +23,7 @@ export default function Header() {
               alt="company logo"
               width={50}
               height={30}
+              className="h-8 w-auto md:h-11"
             />
             <span className="text-xl font-bold text-gray-800">
               JK Cargocare

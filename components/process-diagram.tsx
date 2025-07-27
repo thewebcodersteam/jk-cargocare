@@ -11,35 +11,45 @@ const steps = [
     title: "Inquiry",
     description: "Client submits transportation requirements.",
     icon: Search,
-    color: "bg-blue-500",
+    bg: "bg-blue-100",
+    text: "text-blue-600",
+    hover:"bg-blue-200"
   },
   {
     id: 2,
     title: "Quotation",
     description: "We provide competitive pricing and timeline.",
     icon: FileText,
-    color: "bg-green-500",
+    bg: "bg-green-100",
+    text: "text-green-600",
+    hover:"bg-green-200"
   },
   {
     id: 3,
     title: "Dispatch",
     description: "Cargo pickup and transportation begins.",
     icon: Truck,
-    color: "bg-orange-500",
+    bg: "bg-orange-100",
+    text: "text-orange-600",
+    hover:"bg-orange-200"
   },
   {
     id: 4,
     title: "Delivery",
     description: "Safe and timely delivery to destination.",
     icon: Package,
-    color: "bg-purple-500",
+    bg: "bg-purple-100",
+    text: "text-purple-600",
+    hover:"bg-purple-200"
   },
   {
     id: 5,
     title: "Feedback",
     description: "Client satisfaction and service review.",
     icon: MessageSquare,
-    color: "bg-pink-500",
+    bg: "bg-pink-100",
+    text: "text-pink-600",
+    hover:"bg-pink-200"
   },
 ];
 
@@ -61,10 +71,11 @@ export function ProcessDiagram() {
                   onMouseEnter={() => setActiveStep(step.id)}
                 >
                   <div
-                    className={`w-16 h-16 rounded-full ${step.color} flex items-center justify-center text-white shadow-lg`}
+                    className={`w-16 h-16 rounded-full ${step.bg} flex items-center justify-center shadow-lg`}
                   >
-                    <step.icon className="h-8 w-8" />
+                    <step.icon className={`h-8 w-8 ${step.text}`} />
                   </div>
+
                   <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md">
                     <span className="text-sm font-bold text-gray-700">
                       {step.id}
@@ -104,10 +115,11 @@ export function ProcessDiagram() {
               <CardContent className="p-6">
                 <div className="flex items-center space-x-4">
                   <div
-                    className={`w-12 h-12 rounded-full ${step.color} flex items-center justify-center text-white`}
+                    className={`w-12 h-12 rounded-full ${step.bg} flex items-center justify-center`}
                   >
-                    <step.icon className="h-6 w-6" />
+                    <step.icon className={`h-6 w-6 ${step.text}`} />
                   </div>
+
                   <div className="flex-1">
                     <h3 className="font-semibold text-lg">
                       {step.id}. {step.title}

@@ -99,6 +99,15 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      objectPosition: {
+        "center-30": "center 30%",
+        "center-60": "center 60%",
+      },
+    },
+  },
+   variants: {
+    extend: {
+      objectPosition: ["responsive"],
     },
   },
   plugins: [require("tailwindcss-animate")],

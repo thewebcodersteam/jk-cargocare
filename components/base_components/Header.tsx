@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 export default function Header() {
   return (
     <header
-      className={`${exo.className} bg-white flex justify-center px-4 lg:px-16 items-center w-full shadow-md sticky top-0 z-50`}
+      className={`${exo.className} bg-white flex justify-center px-6 lg:px-16 items-center w-full shadow-md sticky top-0 z-50`}
       role="banner"
     >
       <div className="container ">
@@ -19,10 +19,10 @@ export default function Header() {
             aria-label="JK Cargocare Logo"
           >
             <Image
-              src="/assets/images/jkc-logo.webp"
+              src="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/jkc-logo_azaqgq.webp"
               alt="company logo"
-              width={40}
-              height={20}
+              width={50}
+              height={30}
             />
             <span className="text-xl font-bold text-gray-800">
               JK Cargocare

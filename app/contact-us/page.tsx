@@ -5,7 +5,6 @@ import ContactForm from "@/components/base_components/ContactForm";
 import Location from "@/components/Location";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
-import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 import Link from "next/link";
@@ -44,8 +43,9 @@ export default function ContactPage() {
       <HeroSection
         title="Contact Us"
         subtitle=" Get in touch with our logistics experts for customized solutions."
-        imageUrl="/assets/images/contact-us.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565888/services-new_w3hxct.webp"
         altText="Contact Us"
+        imagePosition="object-bottom md:object-[center_40%] lg:object-[center_60%]"
       />
 
       {/* Contact Form & Location */}
@@ -172,7 +172,7 @@ export default function ContactPage() {
             Our logistics experts are ready to help you with urgent requirements.
           </p>
             <Link
-              href="/contact"
+              href="/contact-us"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-orange-500 hover:bg-orange-600"

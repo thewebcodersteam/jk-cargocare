@@ -8,6 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useState, useRef } from "react";
+import { Exo } from "next/font/google";
+export const exo = Exo({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 import axios from "axios";
 import {
   Select,
@@ -34,7 +39,11 @@ const contactSchema = z.object({
     .min(1, "Please enter your last name.")
     .nonempty()
     .regex(/^[a-zA-Z]+$/, "Last name must contain only letters."),
-  email: z.string().nonempty("Email is required.").email("Invalid email address."),
+  email: z
+    .string()
+    .min(1, "Email is required.")
+    .nonempty()
+    .email("Invalid email address."),
   company: z.string().optional(),
   service: z
     .string()
@@ -118,7 +127,7 @@ export default function ContactForm() {
       <CardContent className="lg:p-6 md:p-4 p-4">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-4">
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <Label className="block text-sm font-medium text-gray-700 mb-2">
                 First Name <span className="text-red-500">*</span>
               </Label>
@@ -134,7 +143,7 @@ export default function ContactForm() {
                 </p>
               )}
             </div>
-            <div>
+            <div className="col-span-2 md:col-span-1">
               <Label className="block text-sm font-medium text-gray-700 mb-2">
                 Last Name <span className="text-red-500">*</span>
               </Label>
@@ -205,7 +214,7 @@ export default function ContactForm() {
                   >
                     <SelectValue placeholder="Select a service interest" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className={exo.className}>
                     <SelectItem value="freight">Freight Brokerage</SelectItem>
                     <SelectItem value="hazardous">
                       Hazardous & Bulk Cargo

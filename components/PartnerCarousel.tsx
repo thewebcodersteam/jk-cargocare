@@ -3,29 +3,19 @@
 import Image from "next/image";
 import { useKeenSlider } from "keen-slider/react";
 import { useEffect, useState } from "react";
-import { Quote } from "lucide-react";
 
-
-
-type Testimonial = {
+type Partner = {
   name: string;
-  title?: string;
-  avatar?: string;
-  text: string;
+  logo: string;
+  tagline?: string;
+  bracket?: string;
 };
 
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
-}
-type ClientCarouselProps = {
-  testimonials: Testimonial[];
+type PartnerCarouselProps = {
+  partners: Partner[];
 };
 
-export function ClientCarousel({ testimonials }: ClientCarouselProps) {
+export function PartnerCarousel({ partners }: PartnerCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
@@ -52,36 +42,40 @@ export function ClientCarousel({ testimonials }: ClientCarouselProps) {
   useEffect(() => {
     const interval = setInterval(() => {
       instanceRef.current?.next();
-    }, 6000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [instanceRef]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <div className="max-w-7xl mx-auto ">
       <div ref={sliderRef} className="keen-slider">
-        {testimonials.map((t, idx) => (
+        {partners.map((partner, idx) => (
           <div key={idx} className="keen-slider__slide flex">
-            <div className="bg-white border border-gray-200 text-black rounded-2xl p-8 shadow-sm flex flex-col justify-between w-full">
-              <Quote className="text-black h-8 w-8 mb-4" />
-              <p className="text-lg leading-relaxed mb-6">“{t.text}”</p>
-              <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-100">
-                {t.avatar ? (
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-wrap lg:flex-nowrap gap-8  items-start  text-start w-full hover:shadow-md transition-shadow">
+              <div className="w-full flex justify-center items-center">
+                <div className="relative w-24 h-24 mb-4 border-2 border-gray-200 rounded-full overflow-hidden">
                   <Image
-                    src={t.avatar}
-                    alt={t.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full object-contain"
+                    src={partner.logo}
+                    alt={partner.name}
+                    fill
+                    className="object-contain"
                   />
-                ) : (
-                  <div className="w-12 h-12 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center font-semibold text-sm">
-                    {getInitials(t.name)}
-                  </div>
-                )}
-                <div>
-                  <p className="font-semibold">{t.name}</p>
-                  <p className="text-sm text-gray-500">{t.title}</p>
                 </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                <div>
+                  <p className="font-semibold text-lg">{partner.name}</p>
+                  <p className="font-semibold text-lg">{partner.bracket}</p>
+                </div>
+                <hr />
+                {partner.tagline && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    {partner.tagline}
+                  </p>
+                )}
+              </div>
+              <div className="h-5 w-full">
+
               </div>
             </div>
           </div>
@@ -90,7 +84,7 @@ export function ClientCarousel({ testimonials }: ClientCarouselProps) {
 
       {/* Dots */}
       <div className="flex justify-center mt-6 space-x-2">
-        {testimonials.map((_, idx) => (
+        {partners.map((_, idx) => (
           <button
             key={idx}
             onClick={() => instanceRef.current?.moveToIdx(idx)}

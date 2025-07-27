@@ -41,7 +41,7 @@ export default function IndustriesPage() {
       <HeroSection
         title="Industries We Serve"
         subtitle=" Specialized Logistics Solutions Across Diverse Industry Sectors."
-        imageUrl="/assets/images/industries-new.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565891/industries-new_nfayvl.webp"
         altText="Industries We Serve"
         imagePosition="object-center"
       />
@@ -53,7 +53,11 @@ export default function IndustriesPage() {
             {[
               {
                 title: "Chemicals",
-                color: "red",
+                colorClass: {
+                  bg: "bg-red-100",
+                  hover: "group-hover:bg-red-200",
+                  icon: "text-red-600",
+                },
                 icon: Beaker,
                 points: [
                   "Hazardous material transport.",
@@ -64,7 +68,11 @@ export default function IndustriesPage() {
               },
               {
                 title: "Fertilizers",
-                color: "green",
+                colorClass: {
+                  bg: "bg-yellow-100",
+                  hover: "group-hover:bg-yellow-200",
+                  icon: "text-yellow-600",
+                },
                 icon: Wheat,
                 points: [
                   "Bulk cargo handling.",
@@ -75,7 +83,11 @@ export default function IndustriesPage() {
               },
               {
                 title: "Agriculture",
-                color: "yellow",
+                colorClass: {
+                  bg: "bg-green-100",
+                  hover: "group-hover:bg-green-200",
+                  icon: "text-green-600",
+                },
                 icon: Wheat,
                 points: [
                   "Fresh produce transport.",
@@ -86,7 +98,11 @@ export default function IndustriesPage() {
               },
               {
                 title: "Manufacturing",
-                color: "blue",
+                colorClass: {
+                  bg: "bg-blue-100",
+                  hover: "group-hover:bg-blue-200",
+                  icon: "text-blue-600",
+                },
                 icon: Factory,
                 points: [
                   "Raw material transport.",
@@ -97,7 +113,11 @@ export default function IndustriesPage() {
               },
               {
                 title: "Paper Industry",
-                color: "orange",
+                colorClass: {
+                  bg: "bg-orange-100",
+                  hover: "group-hover:bg-orange-200",
+                  icon: "text-orange-600",
+                },
                 icon: FileText,
                 points: [
                   "Paper roll transport.",
@@ -108,7 +128,11 @@ export default function IndustriesPage() {
               },
               {
                 title: "Manpower",
-                color: "purple",
+                colorClass: {
+                  bg: "bg-purple-100",
+                  hover: "group-hover:bg-purple-200",
+                  icon: "text-purple-600",
+                },
                 icon: Users,
                 points: [
                   "Skilled and unskilled labor transport.",
@@ -116,37 +140,43 @@ export default function IndustriesPage() {
                   "Shift-based movement planning.",
                   "Workforce mobilization support.",
                 ],
-
               },
-            ].map(({ title, color, icon: Icon, points }) => (
-              <AnimateOnScroll key={title}>
-                <Card className="group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  <CardContent className="p-8">
-                    <div
-                      className={`bg-${color}-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-${color}-200 transition-colors`}
-                    >
-                      <Icon className={`h-8 w-8 text-${color}-600`} />
-                    </div>
-                    <h3 className="text-xl font-semibold text-center mb-4">
-                      {title}
-                    </h3>
-                    <p className="text-gray-600 text-center mb-6">
-                      {/* description logic */}
-                    </p>
-                    <div className="space-y-2 text-sm text-gray-600">
-                      {points.map((point) => (
-                        <div key={point}>• {point}</div>
-                      ))}
-                    </div>
-                    <div className="mt-6 text-center">
-                      <Button className="border border-orange-500 text-orange-500 bg-white hover:bg-orange-500 hover:text-white transition-all">
-                        <Link href="/contact">Learn More</Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimateOnScroll>
-            ))}
+            ].map(
+              ({
+                title,
+                colorClass: { bg, icon: colorIcon, hover },
+                icon: Icon,
+                points,
+              }) => (
+                <AnimateOnScroll key={title}>
+                  <Card className="group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                    <CardContent className="p-8">
+                      <div
+                        className={`${bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${hover} transition-colors`}
+                      >
+                        <Icon className={`h-8 w-8 ${colorIcon}`} />
+                      </div>
+                      <h3 className="text-xl font-semibold text-center mb-4">
+                        {title}
+                      </h3>
+                      <p className="text-gray-600 text-center mb-6">
+                        {/* description logic */}
+                      </p>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        {points.map((point) => (
+                          <div key={point}>• {point}</div>
+                        ))}
+                      </div>
+                      <div className="mt-6 text-center">
+                        <Button className="border border-orange-500 text-orange-500 bg-white hover:bg-orange-500 hover:text-white transition-all">
+                          <Link href="/contact-us">Learn More</Link>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </AnimateOnScroll>
+              )
+            )}
           </div>
         </div>
       </section>
@@ -210,7 +240,7 @@ export default function IndustriesPage() {
             Discover how our industry expertise can benefit your business.
           </p>
           <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-            <Link href="/contact">Discuss Your Requirements</Link>
+            <Link href="/contact-us">Discuss Your Requirements</Link>
           </Button>
         </div>
       </section>

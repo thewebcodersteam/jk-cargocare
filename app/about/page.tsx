@@ -4,20 +4,20 @@ import HeroSection from "@/components/HeroSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Calendar, Target, Heart } from "lucide-react";
-import { steps } from "motion";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PartnerCarousel } from "@/components/PartnerCarousel";
 
 export const metadata: Metadata = {
   title: "About | JK Cargocare - 20+ Years of Freight Excellence.",
   description:
-    "Discover the story, mission, and milestones of Singh Logistics — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
+    "Discover the story, mission, and milestones of JK Cargocare — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
   openGraph: {
-    title: "About Singh Logistics",
+    title: "About JK Cargocare",
     description:
-      "Learn about Singh Logistics, its visionary founders, core values, and 24 years of logistics expertise across India.",
-    siteName: "JK Logistics",
+      "Learn about JK Cargocare, its visionary founders, core values, and 24 years of logistics expertise across India.",
+    siteName: "JK cargocare",
     images: [
       {
         url: "/og-image.jpg",
@@ -38,6 +38,29 @@ export const metadata: Metadata = {
   },
 };
 
+const partners = [
+  {
+    name: "JK Enterprises ",
+    bracket: "(Manpower Solutions)",
+    logo: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/jkc-logo_azaqgq.webp",
+    tagline:
+      "JK Enterprises (Manpower Solutions) is a trusted partner to both private clients like Zuari Agro Chemicals and Raj Facility, and government agencies such as Naval Water Ranges (HANSA) and the Revenue Department.We provide consistent, skilled manpower backed by reliable buyer-side support, on-site coordination, and timely payment processing. Our team is known for professionalism, safety compliance, and the ability to meet tight timelines across diverse operational needs.",
+  },
+  {
+    name: "D&A Industries ",
+    bracket: "(Headquarters & Warehousing)",
+    logo: "/logos/raj-facility-logo.png",
+    tagline:
+      " Strategically located in the heart of Sancoale Industrial Estate, our facility features a spacious covered warehouse, large open yard, secure perimeter fencing, 24/7 surveillance, and dedicated office space. With direct road access and proximity to essential services, we’re fully equipped to handle all your storage and distribution needs.",
+  },
+  {
+    name: "D&A Logistics",
+    logo: "/logos/agroworld.png",
+    tagline:
+      "Our newest logistics arm builds on JK Cargocare’s 20+ years of expertise, embracing the digital transformation reshaping global supply chains. With GPS tracking and route optimization, we ensure shipments are monitored end-to-end for maximum efficiency and security. From hazardous cargo to expedited deliveries, our skilled team and fleet deliver on time — backed by proven processes and enhanced by data-driven insights.",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -46,8 +69,9 @@ export default function AboutPage() {
       <HeroSection
         title="About JK Cargocare"
         subtitle="Two decades of excellence in freight solutions, built on trust and innovation."
-        imageUrl="/assets/images/about-new.webp"
+        imageUrl="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1753550354/about-us_fpp10q.webp"
         altText="Logistics background"
+        imagePosition="w-full h-full object-cover object-center"
       />
 
       <AnimateOnScroll>
@@ -67,8 +91,8 @@ export default function AboutPage() {
                 </h2>
                 <p className="text-gray-600 mb-6">
                   Founded in 2000 by visionary entrepreneurs Ms. Anjalee Singh
-                  and Mr. Jitendra Kumar Singh, Singh Logistics began as a small
-                  freight forwarding company with a big dream – to revolutionize
+                  and Mr. Jitendra Kumar Singh, JK Cargocare began as a small
+                  freight solutions company with a big dream – to revolutionize
                   logistics solutions across India.
                 </p>
                 <p className="text-gray-600 mb-6">
@@ -88,13 +112,15 @@ export default function AboutPage() {
                     <div className="font-semibold text-gray-800">
                       Established 2000
                     </div>
-                    <div className="text-gray-600">20+ years of excellence.</div>
+                    <div className="text-gray-600">
+                      20+ years of excellence.
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="relative md:max-w-3xl lg:max-w-5xl h-80 md:h-[35rem] lg:h-[30rem]">
                 <Image
-                  src="/assets/images/founders.webp"
+                  src="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565890/founders_qbjjvi.webp"
                   alt="Founders of JK Logistics"
                   fill
                   className="object-cover   rounded-lg shadow-lg"
@@ -124,27 +150,35 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {[
                 {
+                  id: 1,
                   name: "Ms. Anjalee Singh",
                   role: "Co-Founder & Director",
                   desc: "A pioneer in logistics management with expertise in operations and client relations.",
-                  image: "/assets/images/founder_2.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565889/founder_2_c17ywr.webp",
                 },
                 {
+                  id: 2,
                   name: "Mr. Jitendra Kumar Singh",
-                  role: "Co-Founder & Director",
+                  role: "Founder & Director",
                   desc: "An industry veteran with deep expertise in freight solutions and business development.",
-                  image: "/assets/images/founder-1.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/founder-1_rwtmst.webp",
                 },
               ].map((founder) => (
                 <AnimateOnScroll key={founder.name}>
                   <Card className="backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
                     <CardContent className="p-8 text-center">
-                      <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden">
+                      <div className="relative w-[200px] h-[200px] mx-auto mb-4 rounded-full border border-gray-300 shadow-xl overflow-hidden bg-[#EFF3ED]">
                         <Image
                           src={founder.image}
                           alt={`Portrait of ${founder.name}`}
                           fill
-                          className="object-cover"
+                          className={`object-cover transition-transform duration-300 ${
+                            founder.id === 1
+                              ? "scale-150 -translate-y-8"
+                              : "translate-y-5 scale-95 bg-black"
+                          }`}
                         />
                       </div>
                       <h3 className="text-xl font-semibold mb-2">
@@ -190,7 +224,7 @@ export default function AboutPage() {
                   ),
                   title: "Our Mission",
                   text: "To provide reliable, efficient, and cost-effective logistics solutions.",
-                  bg: "bg-blue-100",
+                  bg: "bg-blue-100 group-hover:bg-blue-200",
                 },
                 {
                   icon: (
@@ -201,7 +235,7 @@ export default function AboutPage() {
                   ),
                   title: "Excellence",
                   text: "We strive for excellence in every aspect of our service delivery.",
-                  bg: "bg-orange-100",
+                  bg: "bg-orange-100 group-hover:bg-orange-200",
                 },
                 {
                   icon: (
@@ -212,20 +246,21 @@ export default function AboutPage() {
                   ),
                   title: "Trust",
                   text: "Building lasting relationships through transparency and reliability.",
-                  bg: "bg-green-100",
+                  bg: "bg-green-100 group-hover:bg-green-200",
                 },
               ].map(({ icon, title, text, bg }, index, arr) => (
                 <AnimateOnScroll key={title}>
                   <Card
-                    className={`backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                    className={`group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer ${
                       index === arr.length - 1
                         ? "md:col-span-2 lg:col-span-1"
                         : ""
                     }`}
                   >
                     <CardContent className="p-8 text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-                        {/* your icon goes here, already color styled */}
+                      <div
+                        className={`w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full transition-colors ${bg}`}
+                      >
                         {icon}
                       </div>
                       <h3 className="text-xl font-semibold mb-4">{title}</h3>
@@ -260,11 +295,13 @@ export default function AboutPage() {
               {[
                 {
                   title: "Achievement Certificate",
-                  image: "/certificates/achievement.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/achievement_r0gx2q.webp",
                 },
                 {
                   title: "Transporter Of The Year",
-                  image: "/certificates/transport.webp",
+                  image:
+                    "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750566753/transport_nd2rqy.webp",
                 },
               ].map(({ title, image }) => (
                 <Card
@@ -304,58 +341,16 @@ export default function AboutPage() {
         aria-labelledby="achievements-heading"
       >
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              id="achievements-heading"
-              className="text-3xl font-bold text-gray-800 mb-4"
-            >
-              Key Achievements
-            </h2>
-            <p className="text-gray-600">
-              Milestones that mark our journey of growth and success.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
-            {[
-              {
-                stat: 20,
-                suffix : "+",
-                steps : 2,
-                label: "Years of Experience",
-                sub: "Serving clients since 2000.",
-              },
-              {
-                stat: 7,
-                steps : 1,
-                suffix : "",
-                label: "States Covered",
-                sub: "Pan-India presence.",
-              },
-              {
-                stat: 100,
-                 suffix : "+",
-                 steps : 10,
-                label: "Happy Clients",
-                sub: "Trusted partnerships.",
-              },
-              {
-                stat: 50,
-                 suffix : "+",
-                 steps : 5,
-                label: "Fleet Vehicles",
-                sub: "Modern transportation.",
-              },
-            ].map(({ stat, label, sub, steps, suffix }) => (
-              <AnimateOnScroll key={label}>
-                <div className="text-center" role="listitem">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">
-                    <CountUpOnView from={0} to={stat} step={steps} suffix={suffix} />
-                  </div>
-                  <div className="text-gray-800 font-medium">{label}</div>
-                  <div className="text-gray-600 text-sm">{sub}</div>
-                </div>
-              </AnimateOnScroll>
-            ))}
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2
+                id="achievements-heading"
+                className="text-3xl font-bold text-gray-800 mb-4"
+              >
+                About sister companies
+              </h2>
+            </div>
+            <PartnerCarousel partners={partners} />
           </div>
         </div>
       </section>
@@ -370,9 +365,10 @@ export default function AboutPage() {
             Partner with Experience
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Join the growing list of satisfied clients who trust Singh Logistics.
+            Join the growing list of satisfied clients who trust Singh
+            Logistics.
           </p>
-          <Link href="/contact" passHref legacyBehavior>
+          <Link href="/contact-us" passHref legacyBehavior>
             <Button
               size="lg"
               className="bg-orange-500 hover:bg-orange-600"

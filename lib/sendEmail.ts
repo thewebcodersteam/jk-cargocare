@@ -21,12 +21,12 @@ export async function sendEmail(data: ContactFormData): Promise<boolean> {
     await apiInstance.sendTransacEmail({
       sender: {
         name: "Website Form",
-        email: "thewebcoders.team@gmail.com",
+        email: "noreply@jkcargocare.com",
       },
       to: [
         {
-          email: "nykshriraj4nov@gmail.com",
-          name: "Shriraj Naik",
+          email: "sankalp.kalangutkar31@gmail.com",
+          name: "Dipti",
         },
       ],
       subject: `New Inquiry from ${data.firstName} ${data.lastName}`,

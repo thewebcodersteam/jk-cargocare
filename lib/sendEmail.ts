@@ -25,8 +25,8 @@ export async function sendEmail(data: ContactFormData): Promise<boolean> {
       },
       to: [
         {
-          email: "sankalp.kalangutkar31@gmail.com",
-          name: "Dipti",
+          email: "response.jkcargocare@gmail.com",
+          name: "Dipti Singh",
         },
       ],
       subject: `New Inquiry from ${data.firstName} ${data.lastName}`,

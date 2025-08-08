@@ -10,32 +10,13 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 import CountUpOnView from "@/components/Functional/CountUpOnView";
+import { generateSEOMeta, SEOConfigs } from "@/components/SEO/SEOMeta";
 
-export const metadata: Metadata = {
-  title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services.",
-  description:
-    "Explore 20+ years of logistics expertise with JK Cargocare. We specialize in freight brokerage, warehousing, hazardous cargo, and manpower solutions across 7+ Indian states.",
-  keywords: [
-    "Freight solutions India",
-    "ODC transport",
-    "FTL LTL logistics",
-    "Hazardous cargo transport",
-    "Warehousing in Goa",
-    "Manpower services India",
-    "JK Cargocare",
-    "Logistics company India",
-    "Supply chain solutions",
-  ],
-  openGraph: {
-    title: "JK Cargocare – Trusted Freight & Logistics Solutions.",
-    description:
-      "Trusted partner for long-distance transport, scalable warehousing, and trained manpower services in India.",
-    url: "https://jk-cargocare.in",
-    siteName: "JK Cargocare",
-    type: "website",
-    locale: "en_IN",
-  },
-};
+export const metadata: Metadata = generateSEOMeta({
+  ...SEOConfigs.home,
+  canonical: 'https://www.jkcargocare.com',
+  ogImage: 'https://www.jkcargocare.com/assets/images/hero-section-img.webp'
+});
 
 const clientLogos: { name: string; image: string }[] = [
   {

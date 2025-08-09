@@ -9,8 +9,9 @@ import HeroSection from "@/components/HeroSection";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 import Link from "next/link";
 
+// Standardize title style
 export const metadata: Metadata = {
-  title: "Contact Us | JK Cargocare – Freight, Warehousing & Logistics Experts.",
+  title: "Contact Us | JK Cargocare",
   description:
     "Get in touch with JK Cargocare for freight quotes, warehousing solutions, manpower services, and logistics support across India. Visit our Goa headquarters or contact us directly.",
   keywords: [
@@ -171,13 +172,14 @@ export default function page() {
           <p className="text-xl mb-8 opacity-90">
             Our logistics experts are ready to help you with urgent requirements.
           </p>
+            {/* Label matches destination; use consistent CTA text */}
             <Link
               href="/contact-us"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-orange-500 hover:bg-orange-600"
               )}
-              aria-label="Request a quote"
+              aria-label="Contact us"
             >
               Contact Us
             </Link>

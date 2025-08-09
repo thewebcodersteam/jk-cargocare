@@ -20,20 +20,26 @@ export default function Navbar() {
       role="navigation"
       aria-label="Primary navigation"
     >
-      {navLinks.map(({ label, href }) => {
+  {navLinks.map(({ label, href }) => {
         const isActive = pathname === href;
 
         return (
-          <div key={href} className="h-full">
-            <Link
+          <div key={href} className="h-full flex items-center">
+    <Link
               href={href}
-              className={`relative font-belleza text-gray-700 hover:text-blue-600 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:transition-all after:duration-300 ${
-                isActive
-                  ? "text-blue-600 after:w-full after:bg-blue-600"
-                  : "after:w-0 after:bg-blue-600"
+  // Convey active state via aria-current; ensure min tap height
+      aria-current={isActive ? "page" : undefined}
+      className={`relative font-belleza text-gray-700 hover:text-blue-600 inline-block py-3 group ${
+                isActive ? "text-blue-600" : ""
               }`}
             >
-              {label}
+              <span
+                className={`relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:bg-blue-600 after:transition-all after:duration-300 ${
+                  isActive ? "after:w-full" : "after:w-0"
+                }`}
+              >
+                {label}
+              </span>
             </Link>
           </div>
         );

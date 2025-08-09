@@ -14,7 +14,21 @@ const contactSchema = z.object({
     .min(1)
     .nonempty()
     .regex(/^[a-zA-Z]+$/, "Last name must contain only letters"),
-  email: z.string().email("Invalid email address"),
+  // Harden email validation – block common invalid cases like consecutive dots
+  email: z
+    .string()
+    .email("Invalid email address")
+    .refine((val) => {
+      // Disallow consecutive dots and leading/trailing dots in local or domain
+      if (/\.\./.test(val)) return false;
+      const [local, domain] = val.split("@");
+      if (!local || !domain) return false;
+      if (local.startsWith(".") || local.endsWith(".")) return false;
+      if (domain.startsWith(".") || domain.endsWith(".")) return false;
+      return true;
+    }, {
+      message: "Invalid email address",
+    }),
   company: z.string().optional(),
   service: z.string().min(1, "Please select a service"),
   message: z.string().optional(),

@@ -125,78 +125,100 @@ export default function ContactForm() {
   return (
     <Card className="w-full h-full" id="contact-form">
       <CardContent className="lg:p-6 md:p-4 p-4">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-4">
+        <h2 id="contact-form-heading" className="text-2xl font-bold text-gray-800 mb-6">Contact Us</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" aria-labelledby="contact-form-heading">
+          <fieldset className="border-0 p-0 m-0">
+            <legend className="sr-only">Contact Information</legend>
+            <div className="grid md:grid-cols-2 gap-4">
             <div className="col-span-2 md:col-span-1">
-              <Label className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
                 First Name <span className="text-red-500">*</span>
               </Label>
               <Input
+                id="firstName"
                 type="text"
                 placeholder="Enter your first name"
                 {...register("firstName")}
                 style={{ borderColor: errors.firstName ? "red" : "" }}
+                aria-describedby={errors.firstName ? "firstName-error" : undefined}
+                aria-invalid={errors.firstName ? "true" : "false"}
               />
               {errors.firstName && (
-                <p className="text-sm text-red-600 mt-1">
+                <p id="firstName-error" className="text-sm text-red-600 mt-1">
                   {errors.firstName.message}
                 </p>
               )}
             </div>
             <div className="col-span-2 md:col-span-1">
-              <Label className="block text-sm font-medium text-gray-700 mb-2">
+              <Label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
                 Last Name <span className="text-red-500">*</span>
               </Label>
               <Input
+                id="lastName"
                 type="text"
                 placeholder="Enter your last name"
                 {...register("lastName")}
                 style={{ borderColor: errors.lastName ? "red" : "" }}
+                aria-describedby={errors.lastName ? "lastName-error" : undefined}
+                aria-invalid={errors.lastName ? "true" : "false"}
               />
               {errors.lastName && (
-                <p className="text-sm text-red-600 mt-1">
+                <p id="lastName-error" className="text-sm text-red-600 mt-1">
                   {errors.lastName.message}
                 </p>
               )}
             </div>
 
-            <div className="col-span-2">
-              <Label className="block text-sm font-medium text-gray-700 mb-2">
+      <div className="col-span-2">
+              <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address <span className="text-red-500">*</span>
               </Label>
               <Input
+                id="email"
                 type="email"
                 placeholder="your.email@company.com"
                 {...register("email")}
+  // Ensure HTML5 validation kicks in alongside Zod; add required + strict pattern
+        required
+        inputMode="email"
+        // Basic RFC-like email pattern to avoid cases like "test..test@domain.com"
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 style={{ borderColor: errors.email ? "red" : "" }}
+                aria-describedby={errors.email ? "email-error" : undefined}
+        aria-invalid={errors.email ? "true" : "false"}
+        aria-required="true"
               />
               {errors.email && (
-                <p className="text-sm text-red-600 mt-1">
+                <p id="email-error" className="text-sm text-red-600 mt-1">
                   {errors.email.message}
                 </p>
               )}
             </div>
           </div>
+          </fieldset>
 
           <div>
-            <Label className="block text-sm font-medium text-gray-700 mb-2">
+            <Label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
               Company Name
             </Label>
             <Input
+              id="company"
               type="text"
               placeholder="Enter your company name"
               {...register("company")}
               style={{ borderColor: errors.company ? "red" : "" }}
+              aria-describedby={errors.company ? "company-error" : undefined}
+              aria-invalid={errors.company ? "true" : "false"}
             />
             {errors.company && (
-              <p className="text-sm text-red-600 mt-1">
+              <p id="company-error" className="text-sm text-red-600 mt-1">
                 {errors.company.message}
               </p>
             )}
           </div>
 
           <div>
-            <Label className="block text-sm font-medium text-gray-700 mb-2">
+            <Label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
               Service Interest <span className="text-red-500">*</span>
             </Label>
 
@@ -206,11 +228,14 @@ export default function ContactForm() {
               render={({ field }) => (
                 <Select
                   onValueChange={field.onChange}
-                  value={field.value}
-                  defaultValue={field.value}
+                  // Ensure SSR/CSR consistent markup by using a single controlled value
+                  value={field.value ?? ""}
                 >
                   <SelectTrigger
+                    id="service"
                     style={{ borderColor: errors.service ? "red" : "" }}
+                    aria-describedby={errors.service ? "service-error" : undefined}
+                    aria-invalid={errors.service ? "true" : "false"}
                   >
                     <SelectValue placeholder="Select a service interest" />
                   </SelectTrigger>
@@ -232,42 +257,53 @@ export default function ContactForm() {
               )}
             />
             {errors.service && (
-              <p className="text-sm text-red-600 mt-1">
+              <p id="service-error" className="text-sm text-red-600 mt-1">
                 {"Please select a service interest."}
               </p>
             )}
           </div>
 
           <div>
-            <Label className="block text-sm font-medium text-gray-700 mb-2">
+            <Label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
               Message
             </Label>
             <Textarea
+              id="message"
               rows={5}
               placeholder="Please describe your logistics requirements..."
               {...register("message")}
               style={{ borderColor: errors.message ? "red" : "" }}
+              aria-describedby={errors.message ? "message-error" : undefined}
+              aria-invalid={errors.message ? "true" : "false"}
             />
             {errors.message && (
-              <p className="text-sm text-red-600 mt-1">
+              <p id="message-error" className="text-sm text-red-600 mt-1">
                 {errors.message.message}
               </p>
             )}
           </div>
 
-          <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-            onChange={handleCaptchaChange}
-            onExpired={handleExpired}
-          />
-          {captchaError && (
-            <p className="text-sm text-red-600">{captchaError}</p>
-          )}
+          <div>
+            <Label className="block text-sm font-medium text-gray-700 mb-2">
+              Security Verification <span className="text-red-500">*</span>
+            </Label>
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+              onChange={handleCaptchaChange}
+              onExpired={handleExpired}
+            />
+            {captchaError && (
+              <p className="text-sm text-red-600" role="alert">{captchaError}</p>
+            )}
+          </div>
 
           <Button
+            // Explicitly mark as submit to avoid any ambiguity with custom Button component
+            type="submit"
             disabled={isPending}
             className="w-full bg-blue-600 hover:bg-blue-700"
+            aria-label={isPending ? "Sending message, please wait" : "Send contact form message"}
           >
             {isPending ? <Spinner /> : "Send Message"}
           </Button>

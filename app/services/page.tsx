@@ -16,9 +16,9 @@ import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
+// Standardize title style
 export const metadata: Metadata = {
-  title:
-    "Our Services | JK Cargocare - Freight, Hazardous Cargo, Warehousing & Manpower.",
+  title: "Services | JK Cargocare",
   description:
     "Discover comprehensive logistics services from JK Cargocare: FTL, LTL, ODC transport, hazardous cargo handling, scalable warehousing, and skilled manpower across India.",
   keywords: [

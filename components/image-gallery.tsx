@@ -36,14 +36,16 @@ export default function FeatureHighlight() {
   return (
     <div className="w-full border border-gray-300 flex">
       {features.map((feature, index) => (
-        <div
+        <button
           key={index}
-          className={`transition-all duration-300 cursor-pointer ${
+          className={`transition-all duration-300 cursor-pointer text-left ${
             index === selected
               ? "flex-[2] bg-black text-white"
               : "flex-1 border-l border-gray-300 bg-white text-black"
           } flex flex-col justify-between`}
           onClick={() => setSelected(index)}
+          aria-label={`Select feature: ${feature.title}`}
+          aria-pressed={index === selected}
         >
           {index === selected ? (
             <div className="p-6 flex flex-col justify-between h-full">
@@ -76,7 +78,7 @@ export default function FeatureHighlight() {
               <p className="text-sm">{feature.title}</p>
             </div>
           )}
-        </div>
+        </button>
       ))}
     </div>
   );

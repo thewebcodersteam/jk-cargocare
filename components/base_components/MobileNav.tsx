@@ -25,9 +25,12 @@ export default function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <div className="cursor-pointer rounded-full p-2 hover:text-blue-600 transition md:hidden">
+        <button 
+          className="cursor-pointer rounded-full p-2 hover:text-blue-600 transition md:hidden"
+          aria-label="Open mobile navigation menu"
+        >
           <Menu size={24} />
-        </div>
+        </button>
       </SheetTrigger>
       <SheetContent
         side="right"
@@ -152,7 +155,7 @@ export default function MobileNav() {
 
             {/* Bottom Brand Line */}
             <div className="pt-3 border-t border-gray-100">
-              <p className="text-center text-xs text-gray-500 font-medium">
+              <p className="text-center text-xs text-gray-600 font-medium">
                 JK Cargocare • Excellence in Logistics.
               </p>
             </div>

@@ -48,9 +48,15 @@ export function PartnerCarousel({ partners }: PartnerCarouselProps) {
 
   return (
     <div className="max-w-7xl mx-auto ">
-      <div ref={sliderRef} className="keen-slider">
+      <div 
+        ref={sliderRef} 
+        className="keen-slider"
+        role="region"
+        aria-label="Business partners carousel"
+        aria-live="polite"
+      >
         {partners.map((partner, idx) => (
-          <div key={idx} className="keen-slider__slide flex">
+          <div key={idx} className="keen-slider__slide flex" role="group" aria-label={`Partner ${idx + 1} of ${partners.length}: ${partner.name}`}>
             <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-wrap lg:flex-nowrap gap-8  items-start  text-start w-full hover:shadow-md transition-shadow">
               <div className="w-full flex justify-center items-center">
                 <div className="relative w-24 h-24 mb-4 border-2 border-gray-200 rounded-full overflow-hidden">
@@ -69,7 +75,7 @@ export function PartnerCarousel({ partners }: PartnerCarouselProps) {
                 </div>
                 <hr />
                 {partner.tagline && (
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-gray-600 mt-1">
                     {partner.tagline}
                   </p>
                 )}
@@ -83,7 +89,7 @@ export function PartnerCarousel({ partners }: PartnerCarouselProps) {
       </div>
 
       {/* Dots */}
-      <div className="flex justify-center mt-6 space-x-2">
+      <div className="flex justify-center mt-6 space-x-2" role="tablist" aria-label="Partner carousel navigation">
         {partners.map((_, idx) => (
           <button
             key={idx}
@@ -91,6 +97,9 @@ export function PartnerCarousel({ partners }: PartnerCarouselProps) {
             className={`w-3 h-3 rounded-full transition-colors ${
               idx === currentSlide ? "bg-black" : "bg-gray-300"
             }`}
+            role="tab"
+            aria-selected={idx === currentSlide}
+            aria-label={`Go to partner slide ${idx + 1}`}
           />
         ))}
       </div>

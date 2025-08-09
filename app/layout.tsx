@@ -146,9 +146,16 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body>
+        {/* Skip to main content link for accessibility */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50 font-medium"
+        >
+          Skip to main content
+        </a>
         <QueryContext>
           <Header />
-          <main className={`${exo.className} min-h-screen`} role="main">
+          <main id="main-content" className={`${exo.className} min-h-screen`} role="main">
             {children}
           </main>
           <Toaster />

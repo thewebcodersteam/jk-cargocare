@@ -29,7 +29,7 @@ export default function Footer() {
               />
               <h3 className="text-lg font-bold">JK Cargocare</h3>
             </div>
-            <p className="text-gray-400 mb-4 text-center lg:text-start">
+            <p className="text-gray-300 mb-4 text-center lg:text-start">
               Established in 2000, providing reliable freight solutions across
               India for over two decades.
             </p>
@@ -99,7 +99,7 @@ export default function Footer() {
             >
               Industries
             </h3>
-            <ul className="space-y-2 text-gray-400 text-center">
+            <ul className="space-y-2 text-gray-300 text-center">
               {["Chemicals", "Fertilizers", "Agriculture", "Manufacturing"].map(
                 (industry) => (
                   <li key={industry}>
@@ -121,7 +121,7 @@ export default function Footer() {
               Contact Info
             </h3>
             <address
-              className="not-italic space-y-2 text-gray-400"
+              className="not-italic space-y-2 text-gray-300"
               aria-label="Company contact information"
             >
               <div className="text-center lg:text-start">
@@ -171,7 +171,7 @@ export default function Footer() {
         </div>
 
         <div
-          className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400"
+          className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300"
           role="contentinfo"
           aria-label="Copyright"
         >

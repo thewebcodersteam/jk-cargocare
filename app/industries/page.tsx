@@ -6,9 +6,9 @@ import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
+// Standardize title style
 export const metadata: Metadata = {
-  title:
-    "Industries We Serve | JK Cargocare - Chemical, Fertilizer, Agro, Paper & More.",
+  title: "Industries | JK Cargocare",
   description:
     "JK Cargocare provides industry-specific logistics solutions across chemicals, fertilizers, agriculture, manufacturing, events, and more with 20+ years of expertise.",
   keywords: [
@@ -239,7 +239,7 @@ export default function IndustriesPage() {
           <p className="text-xl mb-8 opacity-90">
             Discover how our industry expertise can benefit your business.
           </p>
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
+          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 cta-btn w-full sm:w-60 justify-center mx-auto">
             <Link href="/contact-us">Discuss Your Requirements</Link>
           </Button>
         </div>

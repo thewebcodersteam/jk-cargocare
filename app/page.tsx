@@ -10,32 +10,13 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 import CountUpOnView from "@/components/Functional/CountUpOnView";
+import { generateSEOMeta, SEOConfigs } from "@/components/SEO/SEOMeta";
 
-export const metadata: Metadata = {
-  title: "JK Cargocare | India-wide Freight, Warehousing & Manpower Services.",
-  description:
-    "Explore 20+ years of logistics expertise with JK Cargocare. We specialize in freight brokerage, warehousing, hazardous cargo, and manpower solutions across 7+ Indian states.",
-  keywords: [
-    "Freight solutions India",
-    "ODC transport",
-    "FTL LTL logistics",
-    "Hazardous cargo transport",
-    "Warehousing in Goa",
-    "Manpower services India",
-    "JK Cargocare",
-    "Logistics company India",
-    "Supply chain solutions",
-  ],
-  openGraph: {
-    title: "JK Cargocare – Trusted Freight & Logistics Solutions.",
-    description:
-      "Trusted partner for long-distance transport, scalable warehousing, and trained manpower services in India.",
-    url: "https://jk-cargocare.in",
-    siteName: "JK Cargocare",
-    type: "website",
-    locale: "en_IN",
-  },
-};
+export const metadata: Metadata = generateSEOMeta({
+  ...SEOConfigs.home,
+  canonical: 'https://www.jkcargocare.com',
+  ogImage: 'https://www.jkcargocare.com/assets/images/hero-section-img.webp'
+});
 
 const clientLogos: { name: string; image: string }[] = [
   {
@@ -137,7 +118,7 @@ export default function page() {
 
               <div
                 className="flex flex-col sm:flex-row gap-4 justify-start"
-                role="group"
+              // Align CTA label with destination
                 aria-label="Primary actions"
               >
                 <div className="flex flex-col gap-4 text-white bg-#e1e1e1ae/50 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg">
@@ -436,11 +417,12 @@ export default function page() {
               href="/contact-us"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "bg-orange-500 hover:bg-orange-600"
+                "bg-orange-500 hover:bg-orange-600 cta-btn w-full sm:w-60 justify-center"
               )}
-              aria-label="Request a quote"
+              // Align CTA label with destination
+              aria-label="Contact us"
             >
-              Request Quote
+              Contact Us
             </Link>
           </div>
         </div>

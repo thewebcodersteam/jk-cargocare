@@ -16,9 +16,9 @@ import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
 
+// Standardize title style
 export const metadata: Metadata = {
-  title:
-    "Our Services | JK Cargocare - Freight, Hazardous Cargo, Warehousing & Manpower.",
+  title: "Services | JK Cargocare",
   description:
     "Discover comprehensive logistics services from JK Cargocare: FTL, LTL, ODC transport, hazardous cargo handling, scalable warehousing, and skilled manpower across India.",
   keywords: [
@@ -360,7 +360,7 @@ export default function page() {
           <Link href="/contact-us" passHref legacyBehavior>
             <Button
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600"
+              className="bg-orange-500 hover:bg-orange-600 cta-btn w-full sm:w-60 justify-center"
               aria-label="Request Service Quote"
             >
               Request Service Quote

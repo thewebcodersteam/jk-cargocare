@@ -58,11 +58,17 @@ export function ClientCarousel({ testimonials }: ClientCarouselProps) {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <div ref={sliderRef} className="keen-slider">
+      <div 
+        ref={sliderRef} 
+        className="keen-slider"
+        role="region"
+        aria-label="Client testimonials carousel"
+        aria-live="polite"
+      >
         {testimonials.map((t, idx) => (
-          <div key={idx} className="keen-slider__slide flex">
+          <div key={idx} className="keen-slider__slide flex" role="group" aria-label={`Testimonial ${idx + 1} of ${testimonials.length}`}>
             <div className="bg-white border border-gray-200 text-black rounded-2xl p-8 shadow-sm flex flex-col justify-between w-full">
-              <Quote className="text-black h-8 w-8 mb-4" />
+              <Quote className="text-black h-8 w-8 mb-4" aria-hidden="true" />
               <p className="text-lg leading-relaxed mb-6">“{t.text}”</p>
               <div className="flex items-center gap-4 mt-auto pt-4 border-t border-gray-100">
                 {t.avatar ? (
@@ -80,7 +86,7 @@ export function ClientCarousel({ testimonials }: ClientCarouselProps) {
                 )}
                 <div>
                   <p className="font-semibold">{t.name}</p>
-                  <p className="text-sm text-gray-500">{t.title}</p>
+                  <p className="text-sm text-gray-600">{t.title}</p>
                 </div>
               </div>
             </div>
@@ -89,7 +95,7 @@ export function ClientCarousel({ testimonials }: ClientCarouselProps) {
       </div>
 
       {/* Dots */}
-      <div className="flex justify-center mt-6 space-x-2">
+      <div className="flex justify-center mt-6 space-x-2" role="tablist" aria-label="Testimonial carousel navigation">
         {testimonials.map((_, idx) => (
           <button
             key={idx}
@@ -97,6 +103,9 @@ export function ClientCarousel({ testimonials }: ClientCarouselProps) {
             className={`w-3 h-3 rounded-full transition-colors ${
               idx === currentSlide ? "bg-black" : "bg-gray-300"
             }`}
+            role="tab"
+            aria-selected={idx === currentSlide}
+            aria-label={`Go to testimonial slide ${idx + 1}`}
           />
         ))}
       </div>

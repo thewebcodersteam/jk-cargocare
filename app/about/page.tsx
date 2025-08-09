@@ -9,15 +9,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { PartnerCarousel } from "@/components/PartnerCarousel";
 
+// Standardize titles to "<Page> | JK Cargocare"
 export const metadata: Metadata = {
-  title: "About | JK Cargocare - 20+ Years of Freight Excellence.",
+  title: "About | JK Cargocare",
   description:
     "Discover the story, mission, and milestones of JK Cargocare — your trusted partner in freight, warehousing, and manpower solutions since 2000.",
   openGraph: {
-    title: "About JK Cargocare",
+  title: "About | JK Cargocare",
     description:
       "Learn about JK Cargocare, its visionary founders, core values, and 24 years of logistics expertise across India.",
-    siteName: "JK cargocare",
+  siteName: "JK Cargocare",
     images: [
       {
         url: "/og-image.jpg",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About JK Cargocare",
+  title: "About | JK Cargocare",
     description:
       "Learn about JK Cargocare, its founders, mission, and achievements in the logistics industry.",
     images: ["/og-image.jpg"], // Replace with your actual Twitter image

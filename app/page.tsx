@@ -118,7 +118,7 @@ export default function HomePage() {
 
               <div
                 className="flex flex-col sm:flex-row gap-4 justify-start"
-                role="group"
+              // Align CTA label with destination
                 aria-label="Primary actions"
               >
                 <div className="flex flex-col gap-4 text-white bg-#e1e1e1ae/50 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg">
@@ -419,9 +419,10 @@ export default function HomePage() {
                 buttonVariants({ size: "lg" }),
                 "bg-orange-500 hover:bg-orange-600"
               )}
-              aria-label="Request a quote"
+              // Align CTA label with destination
+              aria-label="Contact us"
             >
-              Request Quote
+              Contact Us
             </Link>
           </div>
         </div>

@@ -25,15 +25,18 @@ export default function MobileNav() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button 
-          className="cursor-pointer rounded-full p-2 hover:text-blue-600 transition md:hidden"
-          aria-label="Open mobile navigation menu"
+  {/* Accessible, discoverable mobile menu button with label and size */}
+        <button
+          className="cursor-pointer rounded-md p-3 hover:text-blue-600 transition md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center"
+          aria-label="Open menu"
+          aria-controls="mobile-nav-sheet"
         >
-          <Menu size={24} />
+          <Menu size={24} aria-hidden="true" />
         </button>
       </SheetTrigger>
       <SheetContent
         side="right"
+        id="mobile-nav-sheet"
         className={`flex flex-col h-full p-6 ${exo.className}`}
       >
         <SheetHeader>
@@ -45,15 +48,17 @@ export default function MobileNav() {
           </SheetDescription>
         </SheetHeader>
 
-        <div className="flex flex-col space-y-4 flex-1 justify-center items-center gap-4">
+        <div className="flex flex-col space-y-4 flex-1 justify-center items-center gap-2">
           <SheetClose asChild>
             <Link
               href="/"
-              className={`text-lg transition duration-300 w-full text-center ${
+              role="menuitem"
+              className={`text-lg transition duration-300 w-full text-center min-h-[44px] flex items-center justify-center ${
                 pathname === "/"
                   ? "text-blue-600 font-semibold"
                   : "hover:text-blue-600"
               }`}
+              aria-current={pathname === "/" ? "page" : undefined}
             >
               Home
             </Link>
@@ -62,11 +67,13 @@ export default function MobileNav() {
           <SheetClose asChild>
             <Link
               href="/about"
-              className={`text-lg transition duration-300 w-full text-center ${
+              role="menuitem"
+              className={`text-lg transition duration-300 w-full text-center min-h-[44px] flex items-center justify-center ${
                 pathname === "/about"
                   ? "text-blue-600 font-semibold"
                   : "hover:text-blue-600"
               }`}
+              aria-current={pathname === "/about" ? "page" : undefined}
             >
               About Us
             </Link>
@@ -75,11 +82,13 @@ export default function MobileNav() {
           <SheetClose asChild>
             <Link
               href="/services"
-              className={`text-lg transition duration-300 w-full text-center ${
+              role="menuitem"
+              className={`text-lg transition duration-300 w-full text-center min-h-[44px] flex items-center justify-center ${
                 pathname === "/services"
                   ? "text-blue-600 font-semibold"
                   : "hover:text-blue-600"
               }`}
+              aria-current={pathname === "/services" ? "page" : undefined}
             >
               Services
             </Link>
@@ -88,11 +97,13 @@ export default function MobileNav() {
           <SheetClose asChild>
             <Link
               href="/industries"
-              className={`text-lg transition duration-300 w-full text-center ${
+              role="menuitem"
+              className={`text-lg transition duration-300 w-full text-center min-h-[44px] flex items-center justify-center ${
                 pathname === "/industries"
                   ? "text-blue-600 font-semibold"
                   : "hover:text-blue-600"
               }`}
+              aria-current={pathname === "/industries" ? "page" : undefined}
             >
               Industries
             </Link>
@@ -101,13 +112,15 @@ export default function MobileNav() {
           <SheetClose asChild>
             <Link
               href="/contact-us"
-              className={`text-lg transition duration-300 w-full text-center ${
+              role="menuitem"
+              className={`text-lg transition duration-300 w-full text-center min-h-[44px] flex items-center justify-center ${
                 pathname === "/contact-us"
                   ? "text-blue-600 font-semibold"
                   : "hover:text-blue-600"
               }`}
+              aria-current={pathname === "/contact-us" ? "page" : undefined}
             >
-              Contact
+              Contact Us
             </Link>
           </SheetClose>
         </div>
@@ -115,12 +128,12 @@ export default function MobileNav() {
         {/* Professional Mobile Footer Section - Only visible on mobile */}
         <div className="block md:hidden mt-auto">
           <div className="px-4 py-4 space-y-4">
-            {/* Contact Information */}
+    {/* Contact Information */}
             <div className="space-y-4">
               <SheetClose asChild>
                 <Link
                   href="/"
-                  className="flex justify-center items-center gap-2"
+      className="flex justify-center items-center gap-2 min-h-[44px]"
                 >
                   <Image
                     src="https://res.cloudinary.com/dsbmi1y9e/image/upload/v1750565884/jkc-logo_azaqgq.webp"

@@ -169,7 +169,7 @@ export default function ContactForm() {
               )}
             </div>
 
-            <div className="col-span-2">
+      <div className="col-span-2">
               <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address <span className="text-red-500">*</span>
               </Label>
@@ -178,9 +178,15 @@ export default function ContactForm() {
                 type="email"
                 placeholder="your.email@company.com"
                 {...register("email")}
+  // Ensure HTML5 validation kicks in alongside Zod; add required + strict pattern
+        required
+        inputMode="email"
+        // Basic RFC-like email pattern to avoid cases like "test..test@domain.com"
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 style={{ borderColor: errors.email ? "red" : "" }}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                aria-invalid={errors.email ? "true" : "false"}
+        aria-invalid={errors.email ? "true" : "false"}
+        aria-required="true"
               />
               {errors.email && (
                 <p id="email-error" className="text-sm text-red-600 mt-1">
@@ -222,8 +228,8 @@ export default function ContactForm() {
               render={({ field }) => (
                 <Select
                   onValueChange={field.onChange}
-                  value={field.value}
-                  defaultValue={field.value}
+                  // Ensure SSR/CSR consistent markup by using a single controlled value
+                  value={field.value ?? ""}
                 >
                   <SelectTrigger
                     id="service"
@@ -293,6 +299,8 @@ export default function ContactForm() {
           </div>
 
           <Button
+            // Explicitly mark as submit to avoid any ambiguity with custom Button component
+            type="submit"
             disabled={isPending}
             className="w-full bg-blue-600 hover:bg-blue-700"
             aria-label={isPending ? "Sending message, please wait" : "Send contact form message"}

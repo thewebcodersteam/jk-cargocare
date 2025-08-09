@@ -75,7 +75,7 @@ export default function Footer() {
             >
               Services
             </h3>
-            <ul className="space-y-2 text-gray-400 text-center">
+            <ul className="space-y-2 text-gray-300 text-center">
               {[
                 "Freight Brokerage",
                 "Hazardous Cargo",
@@ -124,9 +124,10 @@ export default function Footer() {
               className="not-italic space-y-2 text-gray-300"
               aria-label="Company contact information"
             >
+              {/* Normalize tel: links (remove leading space and use E.164). Visible label unchanged. */}
               <div className="text-center lg:text-start">
                 <Link
-                  href="tel: 0832-2556111"
+                  href="tel:+918322556111"
                   className="hover:text-white"
                   aria-label="Call 0832-2556111"
                 >
@@ -134,7 +135,7 @@ export default function Footer() {
                 </Link>{" "}
                 /{" "}
                 <Link
-                  href="tel: 0832-2555777"
+                  href="tel:+918322555777"
                   className="hover:text-white"
                   aria-label="Call 0832-2555777"
                 >
@@ -150,30 +151,33 @@ export default function Footer() {
                   jk.cargo@yahoo.co.uk
                 </Link>
               </div>
+              {/* Force https for external website link + noopener already present */}
               <div className="text-center lg:text-start">
                 <Link
-                  href="http://www.jkcargocare.com"
+                  href="https://www.jkcargocare.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
-                  aria-label="Visit our official website"
+                  aria-label="Visit our official website (opens in new tab)"
                 >
                   www.jkcargocare.com
                 </Link>
               </div>
+              {/* Standardize address spelling and punctuation */}
               <div className="text-center lg:text-start">
                 Shed D2-32, Sancoale Industrial Estate,
                 <br />
-                Zuari Nagar, Goa – 403726.
+                Zuarinagar, Goa 403726, India.
               </div>
             </address>
           </div>
         </div>
 
+  {/* Avoid duplicate contentinfo; demote copyright section to a labelled region */}
         <div
           className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300"
-          role="contentinfo"
-          aria-label="Copyright"
+          role="region"
+          aria-label="Copyright information"
         >
           <small>
             &copy; {new Date().getFullYear()} JK Cargocare. All Rights Reserved.

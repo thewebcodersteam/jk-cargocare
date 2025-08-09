@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 export default function Header() {
   return (
     <header
-      className={`${exo.className} bg-white flex justify-center px-6 lg:px-16 items-center w-full shadow-md sticky top-0 z-50`}
+  className={`${exo.className} bg-white flex justify-center px-6 lg:px-16 items-center w-full shadow-md fixed inset-x-0 top-0 z-50`}
       role="banner"
     >
       <div className="container ">

@@ -155,7 +155,7 @@ export default function RootLayout({
         </a>
         <QueryContext>
           <Header />
-          <main id="main-content" className={`${exo.className} min-h-screen`} role="main">
+          <main id="main-content" className={`${exo.className} min-h-screen pt-16`} role="main">
             {children}
           </main>
           <Toaster />

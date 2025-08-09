@@ -160,29 +160,75 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Context-aware single CTA: Get Directions */}
       <section
         className="py-16 bg-blue-600 text-white"
-        aria-labelledby="quick-contact"
+        aria-labelledby="contact-actions"
       >
         <div className="container mx-auto px-4 text-center">
-          <h2 id="quick-contact" className="text-3xl font-bold mb-4">
-            Need Immediate Assistance?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Our logistics experts are ready to help you with urgent requirements.
-          </p>
-            {/* Label matches destination; use consistent CTA text */}
-            <Link
-              href="/contact-us"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "bg-orange-500 hover:bg-orange-600"
-              )}
-              aria-label="Contact us"
-            >
-              Contact Us
-            </Link>
+          <div className="max-w-3xl mx-auto">
+            <h2 id="contact-actions" className="text-3xl font-bold mb-4">
+              Visit Our Office
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Shed D2-32, Sancoale Industrial Estate, Zuarinagar, Goa 403726, India.
+            </p>
+            <div className="flex justify-center">
+              <Link
+                href="https://www.google.com/maps/dir//SA5+Sancoale+Industrial+Estate,+Zuari+Nagar,+Goa+403726/@15.3774491,73.7985518,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bbfb82930381259:0x6e565a87b0641c10!2m2!1d73.8809791!2d15.3775467?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "bg-orange-500 hover:bg-orange-600 text-white cta-btn w-full sm:w-60 justify-center"
+                )}
+                aria-label="Get directions to JK Cargocare (opens in new tab)"
+              >
+                Get Directions
+              </Link>
+            </div>
+          </div>
+
+          {/* FAQ structured data for SEO (common contact questions) */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(
+                {
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  "mainEntity": [
+                    {
+                      "@type": "Question",
+                      "name": "What are your business hours?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Monday to Friday: 9:00 AM – 6:00 PM; Saturday: 9:00 AM – 2:00 PM; Sunday: Closed."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "Where is your office located?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Shed D2-32, Sancoale Industrial Estate, Zuarinagar, Goa 403726, India."
+                      }
+                    },
+                    {
+                      "@type": "Question",
+                      "name": "How can I contact support quickly?",
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Call 0832-2556111 or email jk.cargo@yahoo.co.uk for immediate assistance."
+                      }
+                    }
+                  ]
+                },
+                null,
+                2
+              ),
+            }}
+          />
         </div>
       </section>
     </>

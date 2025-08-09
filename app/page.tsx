@@ -417,7 +417,7 @@ export default function HomePage() {
               href="/contact-us"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "bg-orange-500 hover:bg-orange-600"
+                "bg-orange-500 hover:bg-orange-600 cta-btn w-full sm:w-60 justify-center"
               )}
               // Align CTA label with destination
               aria-label="Contact us"

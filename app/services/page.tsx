@@ -360,7 +360,7 @@ export default function page() {
           <Link href="/contact-us" passHref legacyBehavior>
             <Button
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600"
+              className="bg-orange-500 hover:bg-orange-600 cta-btn w-full sm:w-60 justify-center"
               aria-label="Request Service Quote"
             >
               Request Service Quote

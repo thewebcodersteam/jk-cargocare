@@ -144,6 +144,10 @@ body {
     display: flex;
     width: fit-content;
   }
+  /* Consistent CTA button widths across pages */
+  .cta-btn {
+    @apply w-full sm:w-auto sm:min-w-[220px] justify-center;
+  }
   
 }
 

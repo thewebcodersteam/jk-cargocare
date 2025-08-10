@@ -50,13 +50,13 @@ const partners = [
   {
     name: "D&A Industries ",
     bracket: "(Headquarters & Warehousing)",
-    logo: "/logos/raj-facility-logo.png",
+    logo: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1754840027/D_A_Logo_vynefa.png",
     tagline:
       " Strategically located in the heart of Sancoale Industrial Estate, our facility features a spacious covered warehouse, large open yard, secure perimeter fencing, 24/7 surveillance, and dedicated office space. With direct road access and proximity to essential services, we’re fully equipped to handle all your storage and distribution needs.",
   },
   {
     name: "D&A Logistics",
-    logo: "/logos/agroworld.png",
+    logo: "https://res.cloudinary.com/dsbmi1y9e/image/upload/v1754840027/D_A_Logo_vynefa.png",
     tagline:
       "Our newest logistics arm builds on JK Cargocare’s 20+ years of expertise, embracing the digital transformation reshaping global supply chains. With GPS tracking and route optimization, we ensure shipments are monitored end-to-end for maximum efficiency and security. From hazardous cargo to expedited deliveries, our skilled team and fleet deliver on time — backed by proven processes and enhanced by data-driven insights.",
   },

@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import HeroSection from "@/components/HeroSection";
 import AnimateOnScroll from "@/components/Functional/AnimateOnScroll";
+import ScrollIntoView from "@/components/ScrollIntoView";
 
 // Standardize title style
 export const metadata: Metadata = {
@@ -33,7 +34,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function IndustriesPage() {
+export default function IndustriesPage({
+  searchParams,
+}: {
+  searchParams: { highlight?: string };
+}) {
+  const highlightedIndustry = searchParams.highlight;
   return (
     <>
       {/* Hero Section */}
@@ -147,35 +153,53 @@ export default function IndustriesPage() {
                 colorClass: { bg, icon: colorIcon, hover },
                 icon: Icon,
                 points,
-              }) => (
-                <AnimateOnScroll key={title}>
-                  <Card className="group backdrop-blur-lg bg-white/30 border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                    <CardContent className="p-8">
-                      <div
-                        className={`${bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${hover} transition-colors`}
-                      >
-                        <Icon className={`h-8 w-8 ${colorIcon}`} />
-                      </div>
-                      <h3 className="text-xl font-semibold text-center mb-4">
-                        {title}
-                      </h3>
-                      <p className="text-gray-600 text-center mb-6">
-                        {/* description logic */}
-                      </p>
-                      <div className="space-y-2 text-sm text-gray-600">
-                        {points.map((point) => (
-                          <div key={point}>• {point}</div>
-                        ))}
-                      </div>
-                      <div className="mt-6 text-center">
-                        <Button className="border border-orange-500 text-orange-500 bg-white hover:bg-orange-500 hover:text-white transition-all">
-                          <Link href="/contact-us">Learn More</Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimateOnScroll>
-              )
+              }) => {
+                const isHighlighted =
+                  highlightedIndustry?.toLowerCase() === title.toLowerCase();
+
+                return (
+                  <AnimateOnScroll key={title}>
+                    <Card
+                      className={`group backdrop-blur-lg bg-white/30 border ${
+                        isHighlighted
+                          ? "border-orange-500 ring-2 ring-orange-400"
+                          : "border-white/20"
+                      } shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                    >
+                      <CardContent className="p-8">
+                        {/* Place the scroll marker (client component) inside the highlighted card */}
+                        {isHighlighted && <ScrollIntoView trigger={true} />}
+
+                        <div
+                          className={`${bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${hover} transition-colors`}
+                        >
+                          <Icon className={`h-8 w-8 ${colorIcon}`} />
+                        </div>
+
+                        <h3 className="text-xl font-semibold text-center mb-4">
+                          {title}
+                        </h3>
+
+                        <p className="text-gray-600 text-center mb-6">
+                          {/* Optional: Add description here */}
+                        </p>
+
+                        <div className="space-y-2 text-sm text-gray-600">
+                          {points.map((point) => (
+                            <div key={point}>• {point}</div>
+                          ))}
+                        </div>
+
+                        <div className="mt-6 text-center">
+                          <Button className="border bg-orange-500 text-white hover:bg-orange-600 transition-all">
+                            <Link href="/contact-us">Learn More</Link>
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </AnimateOnScroll>
+                );
+              }
             )}
           </div>
         </div>
@@ -239,7 +263,10 @@ export default function IndustriesPage() {
           <p className="text-xl mb-8 opacity-90">
             Discover how our industry expertise can benefit your business.
           </p>
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 cta-btn w-full sm:w-60 justify-center mx-auto">
+          <Button
+            size="lg"
+            className="bg-orange-500 hover:bg-orange-600 cta-btn w-full sm:w-60 justify-center mx-auto"
+          >
             <Link href="/contact-us">Discuss Your Requirements</Link>
           </Button>
         </div>

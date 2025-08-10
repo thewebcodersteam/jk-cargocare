@@ -59,7 +59,7 @@ export function PartnerCarousel({ partners }: PartnerCarouselProps) {
           <div key={idx} className="keen-slider__slide flex" role="group" aria-label={`Partner ${idx + 1} of ${partners.length}: ${partner.name}`}>
             <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-wrap lg:flex-nowrap gap-8  items-start  text-start w-full hover:shadow-md transition-shadow">
               <div className="w-full flex justify-center items-center">
-                <div className="relative w-24 h-24 mb-4 border-2 border-gray-200 rounded-full overflow-hidden">
+                <div className="relative w-24 h-24 mb-4  rounded-full overflow-hidden">
                   <Image
                     src={partner.logo}
                     alt={partner.name}

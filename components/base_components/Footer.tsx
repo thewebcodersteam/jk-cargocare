@@ -103,7 +103,7 @@ export default function Footer() {
               {["Chemicals", "Fertilizers", "Agriculture", "Manufacturing"].map(
                 (industry) => (
                   <li key={industry}>
-                    <Link href="/industries" className="hover:text-white">
+                    <Link href={`/industries?highlight=${industry}`} className="hover:text-white">
                       {industry}
                     </Link>
                   </li>

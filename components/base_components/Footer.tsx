@@ -181,7 +181,7 @@ export default function Footer() {
         >
           <small>
             &copy; {new Date().getFullYear()} JK Cargocare. All Rights Reserved.
-            | Founded by Ms. Anjalee Singh & Mr. Jitendra Kumar Singh
+            | Founded by Ms. Anjalee Singh & Mr. Jitendra Kumar Singh.
           </small>
         </div>
       </div>

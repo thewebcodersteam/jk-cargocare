@@ -39,7 +39,8 @@ export default async function IndustriesPage({
 }: {
   searchParams: { highlight?: string };
 }) {
-  const highlightedIndustry = await searchParams?.highlight;
+  const params = await searchParams;
+  const highlightedIndustry = params.highlight;
   return (
     <>
       {/* Hero Section */}

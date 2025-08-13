@@ -1,6 +1,6 @@
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Truck, Warehouse, Users, Phone } from "lucide-react";
+import { Truck, Warehouse, Users } from "lucide-react";
 import Link from "next/link";
 import { ClientCarousel } from "@/components/client-carousel";
 import { ProcessDiagram } from "@/components/process-diagram";
@@ -14,8 +14,8 @@ import { generateSEOMeta, SEOConfigs } from "@/components/SEO/SEOMeta";
 
 export const metadata: Metadata = generateSEOMeta({
   ...SEOConfigs.home,
-  canonical: 'https://www.jkcargocare.com',
-  ogImage: 'https://www.jkcargocare.com/assets/images/hero-section-img.webp'
+  canonical: "https://www.jkcargocare.com",
+  ogImage: "https://www.jkcargocare.com/assets/images/hero-section-img.webp",
 });
 
 const clientLogos: { name: string; image: string }[] = [
@@ -83,7 +83,7 @@ const testimonials = [
   {
     name: "Raj Facility Management",
     title: "Porvorim, Goa",
-   
+
     text: "We engaged JK Enterprises to deliver comprehensive gardening and facility upkeep across our multi-storied residential complex in Porvorim. From landscape design and trenching to ongoing maintenance and seasonal planting, they managed a 9-acre site worth over ₹12.8 lakhs annually. Their team’s professionalism and attention to detail have transformed our grounds, and our residents couldn’t be happier.",
   },
 ];
@@ -118,7 +118,7 @@ export default function page() {
 
               <div
                 className="flex flex-col sm:flex-row gap-4 justify-start"
-              // Align CTA label with destination
+                // Align CTA label with destination
                 aria-label="Primary actions"
               >
                 <div className="flex flex-col gap-4 text-white bg-#e1e1e1ae/50 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg">

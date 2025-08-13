@@ -37,10 +37,9 @@ export const metadata: Metadata = {
 export default async function IndustriesPage({
   searchParams,
 }: {
-  searchParams: Promise<{ highlight?: string }>;
+  searchParams: { highlight?: string };
 }) {
-  const { highlight: highlighted } = await searchParams;
-  const highlightedIndustry = highlighted;
+  const highlightedIndustry = await searchParams?.highlight;
   return (
     <>
       {/* Hero Section */}
@@ -155,13 +154,21 @@ export default async function IndustriesPage({
                 icon: Icon,
                 points,
               }) => {
+                const isHighlighted =
+                  highlightedIndustry?.toLowerCase() === title.toLowerCase();
 
                 return (
                   <AnimateOnScroll key={title}>
                     <Card
-                      className={`group backdrop-blur-lg bg-white/30 border shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                      className={`group backdrop-blur-lg bg-white/30 border ${
+                        isHighlighted
+                          ? "border-orange-500 ring-2 ring-orange-400"
+                          : "border-white/20"
+                      } shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                     >
                       <CardContent className="p-8">
+                        {/* Place the scroll marker (client component) inside the highlighted card */}
+                        {isHighlighted && <ScrollIntoView trigger={true} />}
 
                         <div
                           className={`${bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 ${hover} transition-colors`}

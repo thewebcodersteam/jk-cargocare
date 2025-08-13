@@ -34,12 +34,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function IndustriesPage({
+export default async function IndustriesPage({
   searchParams,
 }: {
   searchParams: { highlight?: string };
 }) {
-  const highlightedIndustry = searchParams.highlight;
+  const highlightedIndustry = await searchParams?.highlight;
   return (
     <>
       {/* Hero Section */}

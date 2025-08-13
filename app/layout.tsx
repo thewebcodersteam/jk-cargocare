@@ -143,6 +143,10 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  {/* PWA Manifest */}
+  <link rel="manifest" href="/manifest.json" />
+  {/* Safari pinned tab */}
+  <link rel="mask-icon" href="/icon.svg" color="#1e40af" />
       </head>
       <body>
         {/* Skip to main content link for accessibility */}

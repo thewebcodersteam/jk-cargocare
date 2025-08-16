@@ -163,7 +163,7 @@ export default async function IndustriesPage({
                     <Card
                       className={`group backdrop-blur-lg bg-white/30 border ${
                         isHighlighted
-                          ? "animate-[orange-border]"
+                          ? "animate-orange-border"
                           : "border-white/20"
                       } shadow-md rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                     >

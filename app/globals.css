@@ -138,11 +138,14 @@ body {
 
 @keyframes orange-border {
   0% {
-    border-color: #f97316;
+    border-color: #f97316; /* Orange */
   }
   100% {
-    border-color: rgb(255 255 255 / 0.2);
+    border-color: rgb(255 255 255 / 0.2); /* Light transparent white */
   }
+}
+.animate-orange-border {
+  animation: orange-border 1.5s ease-in-out alternate;
 }
 
 @layer utilities {

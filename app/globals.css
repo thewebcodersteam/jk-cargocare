@@ -145,7 +145,7 @@ body {
   }
 }
 .animate-orange-border {
-  animation: orange-border 2.5s ease-in-out alternate;
+  animation: orange-border 3.5s ease-in-out alternate;
 }
 
 @layer utilities {

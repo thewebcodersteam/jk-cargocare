@@ -125,80 +125,103 @@ export default function ContactForm() {
   return (
     <Card className="w-full h-full" id="contact-form">
       <CardContent className="lg:p-6 md:p-4 p-4">
-        <h2 id="contact-form-heading" className="text-2xl font-bold text-gray-800 mb-6">Contact Us</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" aria-labelledby="contact-form-heading">
+        <h2
+          id="contact-form-heading"
+          className="text-2xl font-bold text-gray-800 mb-6"
+        >
+          Contact Us
+        </h2>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-6"
+          aria-labelledby="contact-form-heading"
+        >
           <fieldset className="border-0 p-0 m-0">
             <legend className="sr-only">Contact Information</legend>
             <div className="grid md:grid-cols-2 gap-4">
-            <div className="col-span-2 md:col-span-1">
-              <Label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                First Name <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                id="firstName"
-                type="text"
-                placeholder="Enter your first name"
-                {...register("firstName")}
-                style={{ borderColor: errors.firstName ? "red" : "" }}
-                aria-describedby={errors.firstName ? "firstName-error" : undefined}
-                aria-invalid={errors.firstName ? "true" : "false"}
-              />
-              {errors.firstName && (
-                <p id="firstName-error" className="text-sm text-red-600 mt-1">
-                  {errors.firstName.message}
-                </p>
-              )}
-            </div>
-            <div className="col-span-2 md:col-span-1">
-              <Label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                Last Name <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                id="lastName"
-                type="text"
-                placeholder="Enter your last name"
-                {...register("lastName")}
-                style={{ borderColor: errors.lastName ? "red" : "" }}
-                aria-describedby={errors.lastName ? "lastName-error" : undefined}
-                aria-invalid={errors.lastName ? "true" : "false"}
-              />
-              {errors.lastName && (
-                <p id="lastName-error" className="text-sm text-red-600 mt-1">
-                  {errors.lastName.message}
-                </p>
-              )}
-            </div>
+              <div className="col-span-2 md:col-span-1">
+                <Label
+                  htmlFor="firstName"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  First Name <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="firstName"
+                  type="text"
+                  placeholder="Enter your first name"
+                  {...register("firstName")}
+                  style={{ borderColor: errors.firstName ? "red" : "" }}
+                  aria-describedby={
+                    errors.firstName ? "firstName-error" : undefined
+                  }
+                  aria-invalid={errors.firstName ? "true" : "false"}
+                />
+                {errors.firstName && (
+                  <p id="firstName-error" className="text-sm text-red-600 mt-1">
+                    {errors.firstName.message}
+                  </p>
+                )}
+              </div>
+              <div className="col-span-2 md:col-span-1">
+                <Label
+                  htmlFor="lastName"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Last Name <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="lastName"
+                  type="text"
+                  placeholder="Enter your last name"
+                  {...register("lastName")}
+                  style={{ borderColor: errors.lastName ? "red" : "" }}
+                  aria-describedby={
+                    errors.lastName ? "lastName-error" : undefined
+                  }
+                  aria-invalid={errors.lastName ? "true" : "false"}
+                />
+                {errors.lastName && (
+                  <p id="lastName-error" className="text-sm text-red-600 mt-1">
+                    {errors.lastName.message}
+                  </p>
+                )}
+              </div>
 
-      <div className="col-span-2">
-              <Label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address <span className="text-red-500">*</span>
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="your.email@company.com"
-                {...register("email")}
-  // Ensure HTML5 validation kicks in alongside Zod; add required + strict pattern
-        required
-        inputMode="email"
-        // Basic RFC-like email pattern to avoid cases like "test..test@domain.com"
-        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-                style={{ borderColor: errors.email ? "red" : "" }}
-                aria-describedby={errors.email ? "email-error" : undefined}
-        aria-invalid={errors.email ? "true" : "false"}
-        aria-required="true"
-              />
-              {errors.email && (
-                <p id="email-error" className="text-sm text-red-600 mt-1">
-                  {errors.email.message}
-                </p>
-              )}
+              <div className="col-span-2">
+                <Label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Email Address <span className="text-red-500">*</span>
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your.email@company.com"
+                  {...register("email")}
+                  inputMode="email"
+                  // Basic RFC-like email pattern to avoid cases like "test..test@domain.com"
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                  style={{ borderColor: errors.email ? "red" : "" }}
+                  aria-describedby={errors.email ? "email-error" : undefined}
+                  aria-invalid={errors.email ? "true" : "false"}
+                  aria-required="true"
+                />
+                {errors.email && (
+                  <p id="email-error" className="text-sm text-red-600 mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
           </fieldset>
 
           <div>
-            <Label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+            <Label
+              htmlFor="company"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Company Name
             </Label>
             <Input
@@ -218,7 +241,10 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <Label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+            <Label
+              htmlFor="service"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Service Interest <span className="text-red-500">*</span>
             </Label>
 
@@ -234,7 +260,9 @@ export default function ContactForm() {
                   <SelectTrigger
                     id="service"
                     style={{ borderColor: errors.service ? "red" : "" }}
-                    aria-describedby={errors.service ? "service-error" : undefined}
+                    aria-describedby={
+                      errors.service ? "service-error" : undefined
+                    }
                     aria-invalid={errors.service ? "true" : "false"}
                   >
                     <SelectValue placeholder="Select a service interest" />
@@ -264,7 +292,10 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <Label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            <Label
+              htmlFor="message"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Message
             </Label>
             <Textarea
@@ -294,7 +325,9 @@ export default function ContactForm() {
               onExpired={handleExpired}
             />
             {captchaError && (
-              <p className="text-sm text-red-600" role="alert">{captchaError}</p>
+              <p className="text-sm text-red-600" role="alert">
+                {captchaError}
+              </p>
             )}
           </div>
 
@@ -303,7 +336,11 @@ export default function ContactForm() {
             type="submit"
             disabled={isPending}
             className="w-full bg-blue-600 hover:bg-blue-700"
-            aria-label={isPending ? "Sending message, please wait" : "Send contact form message"}
+            aria-label={
+              isPending
+                ? "Sending message, please wait"
+                : "Send contact form message"
+            }
           >
             {isPending ? <Spinner /> : "Send Message"}
           </Button>

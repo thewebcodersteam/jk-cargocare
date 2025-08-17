@@ -11,7 +11,7 @@ export default function Footer() {
       aria-label="Site footer"
     >
       <div className="container mx-auto px-0 lg:px-4">
-        <div className="grid md:grid-cols-2  lg:grid-cols-4 gap-8  w-full">
+        <div className={"grid md:grid-cols-2  lg:grid-cols-4 gap-8  w-full"}>
           {/* Brand & Social */}
           <div
             aria-labelledby="footer-brand-heading"
@@ -113,7 +113,7 @@ export default function Footer() {
           </nav>
 
           {/* Contact Info */}
-          <div aria-labelledby="footer-contact-heading">
+          <div aria-labelledby="footer-contact-heading" className="col-span-1 md:col-span-2 lg:col-span-1">
             <h3
               className="text-lg font-semibold mb-4 flex justify-center lg:justify-start items-center"
               id="footer-contact-heading"

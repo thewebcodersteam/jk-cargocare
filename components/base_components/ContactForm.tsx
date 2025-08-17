@@ -151,7 +151,6 @@ export default function ContactForm() {
                   type="text"
                   placeholder="Enter your first name"
                   {...register("firstName")}
-                  style={{ borderColor: errors.firstName ? "red" : "" }}
                   aria-describedby={
                     errors.firstName ? "firstName-error" : undefined
                   }
@@ -175,7 +174,6 @@ export default function ContactForm() {
                   type="text"
                   placeholder="Enter your last name"
                   {...register("lastName")}
-                  style={{ borderColor: errors.lastName ? "red" : "" }}
                   aria-describedby={
                     errors.lastName ? "lastName-error" : undefined
                   }
@@ -203,7 +201,6 @@ export default function ContactForm() {
                   inputMode="email"
                   // Basic RFC-like email pattern to avoid cases like "test..test@domain.com"
                   pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-                  style={{ borderColor: errors.email ? "red" : "" }}
                   aria-describedby={errors.email ? "email-error" : undefined}
                   aria-invalid={errors.email ? "true" : "false"}
                   aria-required="true"
@@ -229,7 +226,6 @@ export default function ContactForm() {
               type="text"
               placeholder="Enter your company name"
               {...register("company")}
-              style={{ borderColor: errors.company ? "red" : "" }}
               aria-describedby={errors.company ? "company-error" : undefined}
               aria-invalid={errors.company ? "true" : "false"}
             />
@@ -303,7 +299,6 @@ export default function ContactForm() {
               rows={5}
               placeholder="Please describe your logistics requirements..."
               {...register("message")}
-              style={{ borderColor: errors.message ? "red" : "" }}
               aria-describedby={errors.message ? "message-error" : undefined}
               aria-invalid={errors.message ? "true" : "false"}
             />

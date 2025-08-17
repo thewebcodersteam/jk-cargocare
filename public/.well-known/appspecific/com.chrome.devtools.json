@@ -1,0 +1,10 @@
+{
+  "origins": ["https://www.jkcargocare.com"],
+  "tools": [
+    {
+      "name": "Performance Monitor",
+      "url": "https://www.jkcargocare.com",
+      "capabilities": ["performance", "accessibility", "best-practices", "seo"]
+    }
+  ]
+}

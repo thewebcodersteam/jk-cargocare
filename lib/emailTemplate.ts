@@ -6,7 +6,12 @@ export default function emailTemplate(data: {
   service: string;
   message?: string;
 }) {
-  return `
+  return `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background-color: #f5f5f5;">
   <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
     
@@ -71,5 +76,6 @@ export default function emailTemplate(data: {
     </div>
 
   </div>
-</body>`;
+</body>
+</html>`;
 }

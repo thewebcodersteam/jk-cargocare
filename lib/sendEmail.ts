@@ -1,5 +1,5 @@
-import * as Brevo from "@getbrevo/brevo";
-
+import nodemailer from "nodemailer";
+import emailTemplate from "./emailTemplate";
 
 export type ContactFormData = {
   firstName: string;
@@ -12,35 +12,26 @@ export type ContactFormData = {
 
 export async function sendEmail(data: ContactFormData): Promise<boolean> {
   try {
-    const apiKey = process.env.BREVO_API_KEY!;
-    const templateId = parseInt(process.env.BREVO_TEMPLATE_ID!);
-
-    const apiInstance = new Brevo.TransactionalEmailsApi();
-    apiInstance.setApiKey(Brevo.TransactionalEmailsApiApiKeys.apiKey, apiKey);
-
-    await apiInstance.sendTransacEmail({
-      sender: {
-        name: "Website Form",
-        email: "noreply@jkcargocare.com",
-      },
-      to: [
-        {
-          email: "response.jkcargocare@gmail.com",
-          name: "Dipti Singh",
-        },
-      ],
-      subject: `New Inquiry from ${data.firstName} ${data.lastName}`,
-      templateId,
-      params: {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        company: data.company || "N/A",
-        service: data.service,
-        message: data.message || "No message provided.",
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST!,
+      port: Number(process.env.SMTP_PORT!),
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER!,
+        pass: process.env.SMTP_PASS!,
       },
     });
 
+    // Email content
+    const mailOptions = {
+      from: `"Website Form" <${process.env.SMTP_USER!}>`,
+      to: "response.jkcargocare@gmail.com",
+      subject: `New Inquiry from ${data.firstName} ${data.lastName}`,
+      html: emailTemplate(data),
+    };
+
+    // Send mail
+    await transporter.sendMail(mailOptions);
     return true;
   } catch (error) {
     console.error("ERROR SENDING EMAIL:", error);

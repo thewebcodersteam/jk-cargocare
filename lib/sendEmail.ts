@@ -25,7 +25,7 @@ export async function sendEmail(data: ContactFormData): Promise<boolean> {
     // Email content
     const mailOptions = {
       from: `"Website Form" <${process.env.SMTP_USER!}>`,
-      to: "sankalp.kalangutkar31@gmail.com",
+      to: "reply.jkcargocare@gmail.com",
       subject: `New Inquiry from ${data.firstName} ${data.lastName}`,
       html: emailTemplate(data),
     };
